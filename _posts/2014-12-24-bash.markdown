@@ -1,0 +1,151 @@
+---
+layout: post
+title:  "Shell scripting"
+permalink:  "shellscripting"
+date:   2014-12-24 16:30:15
+categories: Linux
+---
+* 
+{:toc}
+
+## Snippets
+
+Save and display any value on a variable (including \n \0)
+: {% highlight bash %}
+$ var="`ls -1`\n"
+$ echo -e $var
+{% endhighlight %}
+
+Parse file with delim into array
+: {% highlight bash %}
+IN="bla@some.com;john@home.com"
+while IFS=';' read -ra ADDR; do
+        for i in "${ADDR[@]}"; do
+            # process "$i"
+        done
+    done <<< "$IN"
+{% endhighlight %}
+
+Ternary logic: test empty directory
+: {% highlight bash %}
+[ "$(ls -A /path/to/directory)" ] && echo "Not Empty" || echo "Empty"
+{% endhighlight %}
+
+Bash flags
+: {% highlight bash %}
+echo $@
+shift
+if [ $# -ne 0 ]; then ...
+if [ $? -ne 0 ]; then ...
+if [ -f "$NEWFILE" ] then ...
+if [ -d /media/11C0-0BF1/ ]
+if [ ! -z $empty ]
+{% endhighlight %}
+
+Constants (-r), arrays (-a)
+: {% highlight bash %}
+declare -a -r LANGLST=( eng spa fre ger ita)
+{% endhighlight %}
+
+Iterate through array
+: {% highlight bash %}
+for opt in ${LANGLST[@]}; do
+{% endhighlight %}
+
+Read standard input
+: {% highlight bash %}
+read -n1 -p "Add language [$opt] [y/N]?"; echo ""
+if [ $REPLY = "y" -o $REPLY = "Y" ]
+{% endhighlight %}
+
+Get number of elements in the array
+: {% highlight bash %}
+ELEMENTS=${#ARRAY[@]}
+{% endhighlight %}
+
+For loop
+: {% highlight bash %}
+for (( i=0;i<$ELEMENTS;i++)); do echo ${ARRAY[${i}]}; done 
+{% endhighlight %}
+
+While with pipe
+: {% highlight bash %}
+ls | while read var; do echo $var; done;
+{% endhighlight %}
+> only useful if we don't care about the values of the loop variables after exiting the loop
+
+While loop + workaround pipe parallel process
+: {% highlight bash %}
+while read i; do echo "$i"; done < <(ls)  #this is called bash process substitution
+{% endhighlight %}
+> useful when some post-processing is needed after the loop
+
+Diff of 2 dirs with bash process substitution (see above)
+: {% highlight bash %}
+diff <(ls $first_directory) <(ls $second_directory)
+{% endhighlight %}
+
+Evaluating math expressions
+: {% highlight bash %}
+(( index++ ))
+(( 8 + 4 ))
+(( 5 == 5 ))
+{% endhighlight %}
+
+[[ ]] if there are ANDS
+: {% highlight bash %}
+if [[ $FLAG_INPUT == "0" && $FLAG_STDIN == "1" ]]
+{% endhighlight %}
+
+Ask password (-s: silent)
+: {% highlight bash %}
+    read -s -n 1 -p "" option;
+    if [ $? -eq 0 ]; then
+{% endhighlight %}
+
+Some awk and sed
+: {% highlight bash %}
+newname="`echo "$1" | sed 's/\[\+[^\[]*\]\+\ *//g' | sed 's/\ [\.]*/\./g' | sed 's/^[_-=\.]*//g'`"
+title=`cat /tmp/filminfo.tmp | grep title | awk -F"title: " '{print $2}' | sed 's/\ /./g'`
+{% endhighlight %}
+
+Getopts
+: {% highlight bash %}
+usage() { echo "Usage: $0 [-s <45|90>] [-p <string>]" 1>&2; exit 1; }
+while getopts ":s:p:" o; do
+    case "${o}" in
+        s)
+            s=${OPTARG}
+            ((s == 45 || s == 90)) || usage
+            ;;
+        p)
+            p=${OPTARG}
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+if [ -z "${s}" ] || [ -z "${p}" ]; then
+    usage
+fi
+echo "s = ${s}"
+echo "p = ${p}"
+{% endhighlight %}
+
+Rsync (n=simulation)
+: {% highlight bash %}
+rsync -rltDvun --exclude='*.flac' $orig_path $dest_path/Música | tee -a $log_file
+{% endhighlight %}
+
+Useful commands for shell scripting
+: {% highlight bash %}
+basename, dirname, wc -l, tail -n+2, . (include)
+{% endhighlight %}
+
+## Resources
+
+> For complete shell scripting reference go [here](http://www.tldp.org/LDP/abs/html/)
+> Bash and shell scripting guides [here](http://wiki.bash-hackers.org)
+

@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "Apache"
+permalink:  "apache"
+date:   2014-12-28 16:30:15
+categories: Web
+---
+Install Php Apache modules
+: {% highlight bash %}
+$ sudo apt-get install php5-sybase php5-xdebug php5-sqlite php5-pgsql php5-mysql php5-mcrypt php5-ldap php5-intl php5-gd php5-apcu
+{% endhighlight %}
+
+    
+Enable mod_rewrite 
+: {% highlight bash %}
+# Enable module
+$ sudo a2enmod rewrite
+# Edit /etc/apache2/sites-available/000-default.conf to allow overwrite from .htaccess
+<Directory "/var/www/html">
+        AllowOverride All
+</Directory>
+# Restart apache
+$ sudo service apache2 restart
+{% endhighlight %}
+
+Enable ssl module
+: {% highlight bash %}
+$ sudo a2enmod ssl
+{% endhighlight %}
+    
+Enable https site
+: {% highlight bash %}
+$ sudo a2ensite default-ssl
+{% endhighlight %}
+
+Enable mcrypt 
+: {% highlight bash %}
+$ sudo apt-get install php5-mcrypt
+$ sudo mv -i /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/
+$ sudo php5enmod mcrypt
+$ sudo service apache2 restart
+{% endhighlight %}
+
+> Tested in (ubuntu 13.10)
+
+Configure file uploads in .htaccess
+: {% highlight bash %}
+.htaccess: php_value  upload_max_filesize  5M
+.htaccess: php_value  post_max_size  15M
+{% endhighlight %}
+    
+> This is also configurable in php.ini

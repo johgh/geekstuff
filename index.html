@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {% assign posts = site.pages | sort: 'title' %}
+  <ul class="post-list">
+    {% for post in posts %}
+        {%  if post.title != 'Bookmarks' && post.title != 'Map' %}
+      <li>
+        <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><span style="text-transform:capitalize">{{ post.title }}</span></a>
+        </h2>
+      </li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>

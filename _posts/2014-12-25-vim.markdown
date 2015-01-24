@@ -1,0 +1,186 @@
+---
+layout: post
+title:  "Vim"
+permalink:  "vim"
+date:   2014-12-25 16:30:15
+category: Command Line
+---
+* 
+{:toc}
+
+## Insert mode
+
+
+### Text objects
+
+> Text objects are used primarily with editing commands: `number + command + text_object or motion`. Also plugins as `surround` make extensive use of them (see below)
+
+#### a/i variants
+
+`a` + `text_object`
+: <i>A object</i>. Object including surrounding spaces
+
+`i` + `text_object`
+: <i>Inner object</i>. Object without surrounding spaces
+
+#### Builtin vim text objects
+`s` (sentence)
+: From from dot to dot (or paragraph if there aren't no dots). Motion equivalent: `(` `)`
+
+`p` (paragraph)
+: Paragraph. From blank line to blank line. Motion equivalent: `{` `}`
+
+> Ipmotion plugin changes the boundaries of a paragraph adding lines with only white spaces also as a boundary of paragraph (motion and text object)
+
+`)`|`b` (parentheses)
+: Parentheses block. <i>Matchit</i> provides finding matching parentheses with %, but only at same position
+
+`}`|`B` (braces)
+: Braces block. <i>Matchit</i> provides finding matching braces with %, but only at same position
+
+`t` (tag block)
+: block between the matching tags
+
+`>` (single tag)
+: block between brackets of a single tag
+
+> see more builtin text objects [here](http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/) or in vim manual
+
+#### Plugin text objects
+`j` (vim-textobj-brace)
+: for the closest region between any of () [] or {}
+
+`l` (vim-textobj-line)
+: for the current line
+
+`a` (argtextobj)
+: for an argument to a function
+
+`q` (vim-textobj-quotes)
+: for the closest pairs of quotes of any type
+
+`e` (vim-textobj-entire)
+: for the entire region of the current buffer
+
+`v` (vim-textobj-variable-segment)
+: for a region between either _s or camelCaseVariables
+
+`i`|`I` (vim-textobj-indent)
+: ai/ii for a block of similarly indented lines / aI/iI for a block of lines with the same indentation
+
+`c` (vim-textobj-comment)
+: for a comment
+
+`f`|`F` (vim-textobj-function)
+: af/if and aF/iF for a function / extensible for any language
+
+`_` (vim-textobj-underscore)
+: for a region between _s such as bar in foo_bar_baz
+
+`x` (vim-textobj-xmlattr)
+: for XML/HTML attributes
+
+`f`{x} (vim-textobj-between)
+: for a region between {char}s
+
+`z` (vim-textobj-fold)
+: for a block of folded lines
+
+### Plugins
+> Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/.vimrc)
+
+#### Surround
+add surrounding
+: `ys` + `text_object/motion` + `surrounding_char`
+
+add surrounding on a line of its own, indented
+: `yS` + `text_object/motion` + `surrounding_char`
+
+change/delete surrounding
+: `[c/d]s` + `target_char` + `surrounding_char`
+
+add surrounding in visual mode, blockwise (add on each line), linewise (add on a line of its own)
+: `[v/V][...]S` + `surrounding_char`
+
+> where surrounding_char could be any char, an html tag, or an open/close block char (in this case open block char `({<` adds/deletes spaces)
+
+#### CamelCaseMotion
+`,w`
+: Go to the next start of camelCased segment
+
+`,b`
+: Go back
+
+`,e`
+: Go to end of camelCased segment
+
+#### Smartword
+`alt-w`
+: Go to next smart word
+
+`alt-b`
+: Go to previous smartword
+
+#### Commentary
+`gc+motion/text_object`
+: Comment selected text
+
+`visual+gc`
+: Comment selected text
+
+`gcc`
+: Comment current line
+
+`gcu`
+: uncomment contiguous commented lines under cursor
+
+#### Exchange
+`cx+motion/text_object`
+: Select/exchange text
+
+`cxx`
+: Select/exchange current line
+
+`cxc`
+: Clear current exchange selection
+
+#### DelimitMate
+`<Leader>,`
+: Jump delimiter
+
+`<Leader>.`
+: Jump all delimiters
+
+#### Utilsnips
+`A-e`
+: expand current snippet
+
+`A-n`
+: go to next snippet
+
+`A-p`
+: go to previous snippet
+
+#### PhpDocumentor (PDV)
+`<leader>c`
+: call PDV snippet to doc function
+
+
+## Normal mode
+
+### Buffers
+list all buffers
+: `:ls!`
+
+select buffer (buffer_name autocompletes)
+: `:b [<buffer_name>|<buffer_number>]`
+
+delete buffer
+: `:bd <buffer_name>`
+
+show buffer in a horizontal split window
+: `:sb <buffer_id>`
+
+show buffer in a vertical split window
+: `:vert sb <buffer_id>`
+

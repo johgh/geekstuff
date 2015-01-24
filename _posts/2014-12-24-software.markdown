@@ -1,0 +1,252 @@
+---
+layout: post
+title:  "Apps"
+permalink:  "apps"
+date:   2014-12-24 16:30:15
+categories: Linux
+---
+* 
+{:toc}
+
+
+## Package installer
+
+<div id="install" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
+6px; border-width: 2px;"> No packages selected </div>
+<div style="float:right" id="numPackages"></div>
+<br />
+<a href="#" id="selectAll">Select all current section packages</a>
+<br />
+<a href="#" id="unselectAll">Unselect all current section packages</a>
+
+<div> <button class="reset" type="button"> Clear all filters </button> </div>
+<br />
+
+
+| Package                   | PPA                                  | Section      |
+|:--------------------------|:-------------------------------------|:------------:|
+| apache2                   | Distro                               | Development  |
+| apt-file                  | Distro                               | CLI          |
+| ardour                    | Distro                               | Apps         |
+| atool                     | Distro                               | CLI          |
+| avidemux                  | Distro                               | Apps         |
+| banshee                   | Distro                               | Apps         |
+| bleachbit                 | Distro                               | Core         |
+| bless                     | Distro                               | Development  |
+| brackets                  | Distro                               | Development  |
+| brasero                   | Distro                               | Apps         |
+| calibre                   | Distro                               | Apps         |
+| ccze                      | Distro                               | CLI          |
+| checkinstall              | Distro                               | CLI          |
+| cheese                    | Distro                               | Apps         |
+| comix                     | Distro                               | Apps         |
+| command-not-found         | Distro                               | Core         |
+| curl                      | Distro                               | CLI          |
+| dbeaver                   | Distro                               | Development  |
+| dconf-editor              | Distro                               | Core         |
+| deluge                    | Distro                               | Apps         |
+| dropbox                   | Distro                               | Apps         |
+| empathy                   | Distro                               | Apps         |
+| encfs                     | Distro                               | CLI          |
+| exuberant-ctags           | Distro                               | Core         |
+| faac                      | Distro                               | CLI          |
+| faad                      | Distro                               | CLI          |
+| faience-azur-dark         | ppa:webupd8team/themes               | Core         |
+| faience-icon-theme        | ppa:webupd8team/themes               | Core         |
+| faience-theme             | ppa:webupd8team/themes               | Core         |
+| fancontrol                | Distro                               | Core         |
+| firefox                   | Distro                               | Apps         |
+| flac                      | Distro                               | CLI          |
+| fluid-soundfont-gm        | Distro                               | Core         |
+| fluidsynth                | Distro                               | Core         |
+| fluxgui                   | ppa:kilian/f.lux                     | Core         |
+| ftp                       | Distro                               | CLI          |
+| gconf-editor              | Distro                               | Core         |
+| geany                     | Distro                               | Development  |
+| gimp                      | Distro                               | Apps         |
+| git                       | Distro                               | Development  |
+| git-cola                  | Distro                               | Development  |
+| gitg                      | Distro                               | Development  |
+| gnome-panel               | Distro                               | Core         |
+| gnome-shell               | Distro                               | Core         |
+| gnome-shell-extensions    | Distro                               | Core         |
+| gnome-subtitles           | Distro                               | Apps         |
+| gnome-tweak-tool          | Distro                               | Core         |
+| google-chrome-stable      | Distro                               | Apps         |
+| gparted                   | Distro                               | Core         |
+| grep                      | Distro                               | CLI          |
+| grub-customizer           | ppa:danielrichter2007/grub-customizer| Core         |
+| gtk-recordmydesktop       | Distro                               | Core         |
+| guake                     | Distro                               | Core         |
+| handbrake                 | Distro                               | Apps         |
+| hardinfo                  | Distro                               | Core         |
+| htop                      | Distro                               | CLI          |
+| imagemagick               | Distro                               | Development  |
+| inotify-tools             | Distro                               | CLI          |
+| jdownloader               | ppa:jd-team/jdownloader              | Apps         |
+| lame                      | Distro                               | Core         |
+| less                      | Distro                               | Core         |
+| libreoffice-common        | Distro                               | Apps         |
+| lm-sensors                | Distro                               | Core         |
+| lyx                       | Distro                               | Apps         |
+| mdadm                     | Distro                               | Core         |
+| meld                      | Distro                               | Development  |
+| mencoder                  | Distro                               | CLI          |
+| mkvtoolnix                | Distro                               | CLI          |
+| mplayer2                  | Distro                               | Core         |
+| mysql-common              | Distro                               | Development  |
+| nautilus-open-terminal    | Distro                               | Core         |
+| nautilus-sendto           | Distro                               | Core         |
+| nmap                      | Distro                               | CLI          |
+| noip-2.1.9                | Distro                               | Apps         |
+| ntfs-3g                   | Distro                               | CLI          |
+| openshot                  | Distro                               | Apps         |
+| oracle-java8-installer    | ppa:webupd8team/java                 | Apps         |
+| owncloud                  | Distro                               | Apps         |
+| p7zip                     | Distro                               | Core         |
+| pdfjam                    | Distro                               | CLI          |
+| php5                      | Distro                               | Development  |
+| php5-apcu                 | Distro                               | Development  |
+| php5-cli                  | Distro                               | Development  |
+| php5-common               | Distro                               | Development  |
+| php5-curl                 | Distro                               | Development  |
+| php5-gd                   | Distro                               | Development  |
+| php5-imagick              | Distro                               | Development  |
+| php5-intl                 | Distro                               | Development  |
+| php5-json                 | Distro                               | Development  |
+| php5-ldap                 | Distro                               | Development  |
+| php5-mcrypt               | Distro                               | Development  |
+| php5-mysql                | Distro                               | Development  |
+| php5-oauth                | Distro                               | Development  |
+| php5-readline             | Distro                               | Development  |
+| php5-tidy                 | Distro                               | Development  |
+| php5-xdebug               | Distro                               | Development  |
+| php5-xsl                  | Distro                               | Development  |
+| php-codecoverage          | Distro                               | Development  |
+| php-codesniffer           | Distro                               | Apps         |
+| picard                    | Distro                               | Apps         |
+| playonlinux               | Distro                               | Apps         |
+| ppa-purge                 | Distro                               | Core         |
+| qjackctl                  | Distro                               | Core         |
+| qsynth                    | Distro                               | Core         |
+| seahorse                  | Distro                               | Core         |
+| sed                       | Distro                               | CLI          |
+| shotwell                  | Distro                               | Apps         |
+| simple-scan               | Distro                               | Apps         |
+| sopcast-player            | Distro                               | Apps         |
+| sound-juicer              | Distro                               | Apps         |
+| sp-auth                   | Distro                               | Apps         |
+| subdownloader             | Distro                               | Apps         |
+| synaptic                  | Distro                               | Core         |
+| thunderbird               | Distro                               | Apps         |
+| time                      | Distro                               | CLI          |
+| timidity                  | Distro                               | Core         |
+| tmux                      | Distro                               | Core         |
+| tuxguitar                 | Distro                               | Apps         |
+| ubuntu-restricted-extras  | Distro                               | Core         |
+| unison-all-gtk            | Distro                               | Apps         |
+| unity-tweak-tool          | Distro                               | Core         |
+| usb-creator-gtk           | Distro                               | Core         |
+| vim                       | Distro                               | Core         |
+| vim-gnome                 | Distro                               | Core         |
+| virtualbox                | Distro                               | Apps         |
+| vlc                       | Distro                               | Apps         |
+| vorbis-tools              | Distro                               | CLI          |
+| wget                      | Distro                               | CLI          |
+| wine                      | Distro                               | Core         |
+| wmctrl                    | Distro                               | CLI          |
+| xclip                     | Distro                               | CLI          |
+| xdotool                   | Distro                               | CLI          |
+| y-ppa-manager             | ppa:webupd8team/y-ppa-manager        | Core         |
+| zsh                       | Distro                               | Core         |
+
+<br />
+
+> Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)
+
+## Repositories
+
+``` wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -```
+
+```sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' ```
+
+``` ppa:gnome3-team/gnome3 ```
+
+<script>
+    $(function(){
+        $('tr').each(function(){
+            $(this).find('td:first').prepend('<input class="check" type="checkbox"></input> ');
+        });
+
+        $(document).on('click', '#selectAll', function(e) {
+            e.preventDefault();
+            $(".check:visible").prop('checked', true).trigger("change");
+        });
+        
+        $(document).on('click', '#unselectAll', function(e) {
+            e.preventDefault();
+            $(".check:visible").prop('checked', false).trigger("change");
+        });
+
+        $(document).on('click', 'tr', function(e) {
+            $(this).find('input').trigger('click');
+        });
+
+        $(document).on('click', '.check', function(e) {
+            e.stopPropagation();
+        });
+        
+        $(document).on('change', '.check', function() {
+            var installCmd = '<span style="font-weight: normal">sudo apt-get install</span>';
+            var numPackages = 0;
+            var reposToAdd = [];
+            $('.check').each(function(){
+                if ($(this).prop('checked') == true) {
+                    installCmd = installCmd + $(this).parent().text();
+                    repoName = $($(this)).parent().parent().find(':nth-child(2)').text();
+                    if (repoName != 'Distro') {
+                        reposToAdd.push(repoName);
+                    }
+                    numPackages = numPackages + 1;
+                }
+            });
+            reposToAdd = unique(reposToAdd);
+            var addReposCmd = '';
+            $.each(reposToAdd, function(index, repoToAdd) {
+                addReposCmd = addReposCmd + '<span style="font-weight: normal">sudo add-apt-repository ' + repoToAdd + '</span><br />';
+            });
+            if (addReposCmd != '') {
+                addReposCmd = addReposCmd + '<span style="font-weight: normal">sudo apt-get update</span><br />';
+            }
+            if (numPackages == 0) {
+                installCmd = 'No packages selected';
+                $('div#numPackages').html('');
+            } else {
+                $('div#numPackages').html(numPackages + ' package/s selected');
+            }
+            $('#install').html(addReposCmd + installCmd);
+        });
+
+        $('table').addClass('tablesorter');
+        $('table').tablesorter({
+            theme : 'blue',
+            sortList: [[2,0], [1,0], [0,0]],
+        widgets: ["zebra", "filter"],
+            widgetOptions : {
+                filter_functions : { 1: true, 2 : true },
+                filter_placeholder : { search : 'Type a package name', select : 'Select an option' },
+                filter_reset: '.reset'
+                }
+        });
+        
+        function unique(list) {
+            var result = [];
+            $.each(list, function(i, e) {
+                    if ($.inArray(e, result) == -1) result.push(e);
+                    });
+            return result;
+        }
+
+
+    });
+</script>

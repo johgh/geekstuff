@@ -2,7 +2,6 @@
 layout: page
 title:  "Bookmarks"
 date:   2014-12-19 16:30:15
-categories: Notes
 permalink: /bookmarks/
 ---
 ## Linux

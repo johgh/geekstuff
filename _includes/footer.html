@@ -5,7 +5,7 @@
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">
-          <h2 class="footer-heading"> <a href="https://github.com/johgh/johgh.github.io"> <i class="fa fa-github"></i> Cheat-Sheets</a></h2>
+          <h2 class="footer-heading"> <a href="https://github.com/johgh/johgh.io-source"> <i class="fa fa-github"></i> Cheat-Sheets</a></h2>
         <ul class="contact-list">
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
@@ -60,6 +60,10 @@ $(function() {
     if (id) {
       return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
     }
+  });
+
+  $(document).on('click', '.back', function(e){
+    e.preventDefault()
   });
 });
 

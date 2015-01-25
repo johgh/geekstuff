@@ -3,18 +3,23 @@ layout: default
 ---
 
 <div class="home">
+    <div class="cols">
+        <ul class="post-list">
 
-  {% assign posts = site.pages | sort: 'title' %}
-  <ul class="post-list">
-    {% for post in posts %}
-        {%  if post.title != 'Bookmarks' && post.title != 'Map' %}
-      <li>
-        <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}"><span style="text-transform:capitalize">{{ post.title }}</span></a>
-        </h2>
-      </li>
-        {% endif %}
-    {% endfor %}
-  </ul>
+            <li>
+                <h2> <i class="fa fa-terminal"></i> <a class="page-link" href="{{ site.baseurl }}/cli"> CLI</a> </h2>
+            </li>
+            <li>
+                <h2> <i class="fa fa-html5"></i> <a class="page-link" href="{{ site.baseurl }}/web"> Web</a> </h2>
+            </li>
+            <li>
+                <h2> <i class="fa fa-github-alt"></i> <a class="page-link" href="{{ site.baseurl }}/git"> Git</a> </h2>
+            </li>
+            <li>
+                <h2> <i class="fa fa-linux"></i> <a class="page-link" href="{{ site.baseurl }}/linux"> Linux</a> </h2>
+            </li>
+
+        </ul>
+    </div>
 
 </div>

@@ -3,7 +3,7 @@ layout: post
 title:  "Tmux"
 permalink:  "tmux"
 date:   2014-12-21 16:30:15
-category: Command Line
+category: CLI
 ---
 List commands
 : `^A:lscm`

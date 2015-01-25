@@ -74,9 +74,9 @@ h6:hover .header-link {
     -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
     -moz-column-gap: 40px; /* Firefox */
     column-gap: 40px;
-    -webkit-column-rule: 4px outset #afafaf; /* Chrome, Safari, Opera */
-    -moz-column-rule: 4px outset #afafaf; /* Firefox */
-    column-rule: 4px outset #afafaf;
+    -webkit-column-rule: 4px dotted #afafaf; /* Chrome, Safari, Opera */
+    -moz-column-rule: 4px dotted #afafaf; /* Firefox */
+    column-rule: 4px dotted #afafaf;
 }
 
 // Using media queries with like this:

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "CLI"
-permalink:  "linuxcli"
+title:  "Commands"
+permalink:  "commands"
 date:   2014-12-24 16:30:15
 categories: Linux
 ---

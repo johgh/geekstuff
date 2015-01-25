@@ -9,7 +9,7 @@ layout: default
     {% for post in posts %}
       <li>
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <i class="fa fa-file-code-o"></i><a style="display: inline" class="post-link" href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }}</a>
         </h2>
       </li>
     {% endfor %}

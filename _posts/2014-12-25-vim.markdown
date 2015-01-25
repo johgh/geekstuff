@@ -3,7 +3,7 @@ layout: post
 title:  "Vim"
 permalink:  "vim"
 date:   2014-12-25 16:30:15
-category: Command Line
+category: CLI
 ---
 * 
 {:toc}

@@ -3,13 +3,9 @@ layout: post
 title:  "Commands"
 permalink:  "commands"
 date:   2014-12-24 16:30:15
-categories: Linux
+category: Linux
 ---
-* 
-{:toc}
-
-
-## General commands
+# General commands
 
 > For a complete generic command reference go [here](http://cb.vu/unixtoolbox.xhtml)
 
@@ -84,7 +80,7 @@ Configure java
 ---
 <br />
 
-## Apt commands
+# Apt commands
 
 Shows package status, autocomplete only installed packages
 : {% highlight sh %}
@@ -132,7 +128,7 @@ Show last installed packages
 ---
 <br />
 
-## Desktop commands
+# Desktop commands
 
 Create .desktop (gnome app launcher)
 : {% highlight sh %}
@@ -190,7 +186,7 @@ Move app to workspace at startup
 ---
 <br />
 
-## Alias
+# Alias
 
 Open file with associated gui app
 : {% highlight sh %}

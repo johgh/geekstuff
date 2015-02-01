@@ -24,22 +24,32 @@ $grey-color-dark:  darken($grey-color, 25%);
 $on-palm:          600px;
 $on-laptop:        800px;
 
-dl dt {
-    padding: 0px;
-    margin-top: 16px;
-    font-size: 1em;
-    font-style: italic;
-    font-weight: bold;
-}
+// dl dt {
+//     padding: 0px;
+//     margin-top: 16px;
+//     font-size: 1em;
+//     font-style: italic;
+//     font-weight: bold;
+// }
 
-dl dd {
-    padding: 0px 16px;
-    margin-bottom: 16px;
-}
+// dl dd {
+//     padding: 0px 16px;
+//     margin-bottom: 16px;
+// }
 
 h1, h2, h3, h4, h5, h6 {
     position: relative;
+    color: #424242;
 }
+
+.post-content h2, .category-archive h2 {
+    margin-top: 0px;
+    margin-bottom: 33px;
+}
+
+h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    color: $brand-color;
+    }
 
 .tablesorter-header-inner {
     cursor: pointer;
@@ -59,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
+h1:hover .header-link,
 h2:hover .header-link,
 h3:hover .header-link,
 h4:hover .header-link,
@@ -79,6 +90,17 @@ h6:hover .header-link {
     column-rule: 4px dotted #afafaf;
 }
 
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+
 // Using media queries with like this:
 // @include media-query($palm) {
 //     .wrapper {
@@ -95,8 +117,6 @@ h6:hover .header-link {
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@import "layout";
+        // "base",
+        // "syntax-highlighting"

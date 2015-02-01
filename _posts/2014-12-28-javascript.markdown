@@ -3,22 +3,25 @@ layout: post
 title:  "Javascript"
 permalink:  "javascript"
 date:   2014-12-28 16:30:15
-categories: Web
+category: Web
 ---
 Arrays/objects iteration
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 $.each([ 52, 97 ], function( index, value ) {
     alert( index + ": " + value ); 
 });
 {% endhighlight %}
 
 Debug
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 console.log(bla.toSource());
 {% endhighlight %}
 
 Prototyped function
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 $.fn.myExtension = function(){
     var currentjQueryObject = this;
     //work with currentObject
@@ -27,7 +30,8 @@ $.fn.myExtension = function(){
 {% endhighlight %}
 
 Ternary logic, length, filter, prop...
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 function checkRoot(parent){
     child = ((parent == 'js-r-0') ? '.js-sections-read' : '.js-sections-write');
     var totalChilds = $(child + "[id!='" + parent + "']").length;
@@ -37,13 +41,15 @@ function checkRoot(parent){
 {% endhighlight %}
 
 "live" event
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 $(document).on('click', '.js-changePage', function() {
 });
 {% endhighlight %}
 
 $.param + serialize
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 vars = {};
 vars.insert_event = 1;
 vars.arr_sched = arr_sched;
@@ -52,7 +58,8 @@ vars = $.param(vars) + '&' + varsForm
 {% endhighlight %}
 
 Radio button value
-: {% highlight javascript %}
+: 
+{% highlight javascript %}
 $('input[name="genderS"]:checked').val();
 {% endhighlight %}
 

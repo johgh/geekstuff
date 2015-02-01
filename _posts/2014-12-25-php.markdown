@@ -3,14 +3,11 @@ layout: post
 title:  "PHP"
 permalink:  "php"
 date:   2014-12-25 16:30:15
-categories: Web
+category: Web
 ---
-* 
-{:toc}
+# Notas sobre PHP
 
-## Notas sobre PHP
-
-### isset, empty, null, comparación de tipos
+## isset, empty, null, comparación de tipos
 
 - `isset` y `empty` son construcciones del lenguaje. A diferencia de cualquier otra función, estas construcciones no lanzan error en tiempo de ejecución si la variable pasada como parámetro no existe.
 
@@ -35,7 +32,7 @@ categories: Web
 <br />
 
 
-### Excepciones y mecanismo de control de errores
+## Excepciones y mecanismo de control de errores
 
 - En PHP se pueden encontrar 3 tipos de errores en tiempo de ejecución que en algunos casos podemos necesitar controlar:
 
@@ -82,7 +79,7 @@ if (!$sp)
 ---
 <br />
 
-## Visor de logs de PHP
+# Visor de logs de PHP
 
 1. Añadir la siguiente línea en en `php.ini` para separar los logs de php en su propio fichero de logs:
 : {% highlight bash %}
@@ -127,9 +124,9 @@ $ cp ~/bin/notifyphplog.sh ~/.config/autostart/
 ---
 <br />
 
-## Refrescar navegador automáticamente
+# Refrescar navegador automáticamente
 
-#### Recargar al guardar cualquier fichero en $HOME/workspace
+### Recargar al guardar cualquier fichero en $HOME/workspace
 
 Instalar paquetes
 : {% highlight bash %}
@@ -146,14 +143,14 @@ while inotifywait -e close_write -r $HOME/workspace; do
 done > /dev/null 2>&1 &
 {% endhighlight %}
 
-#### Recargar desde Vim
+### Recargar desde Vim
 Añadir la siguiente línea al fichero $HOME/.vimrc
 : {% highlight vim %}
     map <leader>f :silent !WID=`xdotool search --name "Mozilla Firefox" \| head -1`; xdotool windowactivate $WID > /dev/null 2>&1 ; xdotool key F5 > /dev/null 2>&1<CR> \ | execute ':redraw!'
 {% endhighlight %}
 > requiere paquete `xdotool`
 
-## PHP Profiler
+# PHP Profiler
 
 1. Activar profiler de xdebug (desactivar siempre en producción). Añadir la siguiente línea en `xdebug.ini` (`$ locate xdebug.ini`) y reiniciar apache:
 

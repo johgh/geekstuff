@@ -3,13 +3,9 @@ layout: post
 title:  "Twig"
 permalink:  "twig"
 date:   2014-12-28 16:30:15
-categories: Web
+category: Web
 ---
-* 
-{:toc}
-
-
-## Accessing object properties and  array items with '.'
+# Accessing object properties and  array items with '.'
 
 * 'foo.bar' does the following things on the PHP layer:
     - check if foo is an array and bar a valid element;
@@ -21,7 +17,7 @@ categories: Web
     - if not, return a null value.
 
 
-## Accessing arrays with '[]'
+# Accessing arrays with '[]'
 * foo['bar'] on the other hand only works with PHP arrays:
     - check if foo is an array and bar a valid element;
     - if not, return a null value.
@@ -29,7 +25,7 @@ categories: Web
 
 > Arrays can also be accesed with dot (see above)
 
-## Strict Variables
+# Strict Variables
 * If a variable or attribute does not exist, you will get back a null value when the strict_variables
 option is set to false, otherwise Twig will throw an error (see environment options).
 * These methods are useful to know if a variable is defined/empty/null
@@ -37,7 +33,7 @@ option is set to false, otherwise Twig will throw an error (see environment opti
     - is empty
     - is null
 
-## Template Inheritance
+# Template Inheritance
 
 include
 : equivalent behaviour as in PHP
@@ -45,7 +41,7 @@ include
 extends
 : Inherit blocks from a template (that can be overridden). See [docs](http://twig.sensiolabs.org/doc/tags/extends.html)
 
-#### Advanced inheritance
+### Advanced inheritance
 embed
 : "Inline extension". The embed tag combines the behaviour of include and extends.
 
@@ -54,7 +50,7 @@ use
 template (it's like macros, but for blocks).
 
 
-## Syntax examples
+# Syntax examples
 
 Extends, import, includes
 : 

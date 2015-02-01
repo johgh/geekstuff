@@ -3,12 +3,9 @@ layout: post
 title:  "Doctrine DBAL"
 permalink:  "doctrinedbal"
 date:   2014-12-28 16:30:15
-categories: Web
+category: Web
 ---
-* 
-{:toc}
-
-## Use Doctrine
+# Use Doctrine
 
 {% highlight php startinline %}
 // Add these lines where you use Query Builder
@@ -17,7 +14,7 @@ use Doctrine\Common\ClassLoader;
 use Doctrine\DBAL\Query;
 {% endhighlight %}
 
-## Select Snippet
+# Select Snippet
 
 {% highlight php startinline %}
 // Connection references Doctrine\DBAL\Connection
@@ -53,8 +50,7 @@ function getData(Connection $db, $idUser, $date_ini, $date_end, $idHaving, $arr_
 }
 {% endhighlight %}
 
-
-## Update Snippet
+# Update Snippet
 
 {% highlight php startinline %}
 $qb = $db->createQueryBuilder()
@@ -82,7 +78,7 @@ try {
 }
 {% endhighlight %}
 
-## Insert Snippet
+# Insert Snippet
 
 {% highlight php startinline %}
 $qb = $db->createQueryBuilder()
@@ -105,7 +101,7 @@ $qb = $db->createQueryBuilder()
     }
 {% endhighlight %}
 
-## Delete Snippet
+# Delete Snippet
 
 {% highlight php startinline %}
 $qb = $db->createQueryBuilder()
@@ -116,7 +112,7 @@ $qb = $db->createQueryBuilder()
 $qb->execute();
 {% endhighlight %}
 
-## Subquerys And Native Code Snippet
+# Subquerys And Native Code Snippet
 
 {% highlight php startinline %}
 // Setting session mysql variables with native code
@@ -170,8 +166,7 @@ while ($row = $res->fetch()) {
 return $pagesList;
 {% endhighlight %}
 
-## Procedure Call Snippet
-
+# Procedure Call Snippet
 
 {% highlight php startinline %}
 $prepared = $db->prepare('CALL GetUsers(:login)');

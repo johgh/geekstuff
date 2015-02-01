@@ -42,17 +42,20 @@
       </div>
 
       <div class="footer-col  footer-col-2">
-        <p class="text" style="text-align:right"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        <p class="text" style="text-align:right"><a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0; display:inline;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
       </div>
     </div>
 
   </div>
 
 </footer>
+<a href="#0" class="cd-top">Top</a>
+<script src="{{ "/scripts/backtotop.js" | prepend: site.baseurl }}"></script>
 
 <script>
 $(function() {
-  $("h2, h3, h4, h5, h6").each(function(i, el) {
+  $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
     var $el, icon, id;
     $el = $(el);
     id = $el.attr('id');

@@ -9,10 +9,10 @@ url: "http://csheets.tk" # the base hostname & protocol for your site
 # github_username: johgh
 
 # Build settings
-markdown: kramdown
+# markdown: kramdown
 
-kramdown:
-    input: GFM
+# kramdown:
+#     input: GFM
 gems:
 - jekyll-sitemap
 
@@ -20,3 +20,6 @@ include:
 - .nojekyll
 
 destination: source
+
+minItemsToShowToc: 2
+showToggleButton: true

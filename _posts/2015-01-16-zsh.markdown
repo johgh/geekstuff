@@ -5,10 +5,7 @@ permalink:  "zsh"
 date:   2014-12-28 16:30:15
 category: CLI
 ---
-* 
-{:toc}
-
-## Installation
+# Installation
 Install zsh and set as default shell
 : {% highlight bash %}
 $ sudo apt-get install zsh
@@ -22,7 +19,7 @@ $ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 {% endhighlight %}
 
-## Customize Zsh
+# Customize Zsh
 Customize zsh config in $HOME/.zshrc
 : {% highlight bash %}
 # set bash as default shell for compatibility with shellscripts
@@ -40,7 +37,7 @@ Reload .zshrc
 $ source ~/.zshrc
 {% endhighlight %}
 
-## Autopushd
+# Autopushd
 Put this on your .zshrc file
 : {% highlight bash %}
 # set cd as an alias to pushd (every visited directory is saved in a stack)
@@ -77,14 +74,14 @@ Deletes directory from stack
 Clear all saved directories from stack
 : ```dirs -c```
 
-## Vi + Bash bindings
+# Vi + Bash bindings
 
 Put this on your .zshrc file
 : {% highlight bash %}
 {% raw %}
-## free <C-S> so we can use it in vim
+# free <C-S> so we can use it in vim
 stty -ixon -ixoff
-## vi mappings
+# vi mappings
 bindkey -v
 # C-S instead of ESC to enter Vi normal mode
 bindkey '^S' vi-cmd-mode

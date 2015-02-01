@@ -4,9 +4,9 @@ title:  "Bookmarks"
 date:   2014-12-19 16:30:15
 permalink: /bookmarks/
 ---
-## Linux
+# Linux
 
-### Resources
+## Resources
 [<i class="fa fa-external-link"></i> UNIX Command Reference](http://cb.vu/unixtoolbox.xhtml)
 
 [<i class="fa fa-external-link"></i> Bash Command Reference](http://ss64.com/bash/)
@@ -15,7 +15,7 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Bash Hackers Wiki](http://wiki.bash-hackers.org)
 
-### References
+## References
 [<i class="fa fa-external-link"></i> Vim Reference (Html & Pdf)](http://tnerual.eriogerg.free.fr/vimqrc-es.html)
 
 [<i class="fa fa-external-link"></i> Vim Cheatsheet](https://linuxtoy.org/img/2011/09/vim_cheat_sheet_for_programmers_screen.png)
@@ -26,9 +26,9 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Interactive Cheat-Sheets (mplayer, vim)](http://sheet.shiar.nl/)
 
-## Web
+# Web
 
-### Resources
+## Resources
 
 [<i class="fa fa-external-link"></i> PHP best practices](http://www.phptherightway.com/)
 
@@ -42,7 +42,7 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Learn CSS Layout](http://learnlayout.com/)
 
-### Online tools
+## Online tools
 [<i class="fa fa-external-link"></i> Regexes testing](http://regex101.com/)
 
 [<i class="fa fa-external-link"></i> Utf-8 tool](http://www.cogsci.ed.ac.uk/~richard/utf-8.html)
@@ -57,7 +57,7 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Encode/decode special characters](http://www.the-art-of-web.com/javascript/escape/)
 
-### Web development plugins
+## Web development plugins
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 
 [<i class="fa fa-external-link"></i> Bootstrap plugins](http://bootsnipp.com)
@@ -66,7 +66,7 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Jstree plugin](http://www.jstree.com)
 
-## Misc stuff
+# Misc stuff
 [<i class="fa fa-external-link"></i> Server Push (and Websockets)](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
 
 [<i class="fa fa-external-link"></i> Git aliases](https://git.wiki.kernel.org/index.php/Aliases#Aliases)

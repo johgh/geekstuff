@@ -3,23 +3,12 @@ layout: post
 title:  "Git Básico"
 permalink:  "gitquickguide"
 date:   2014-12-21 16:30:15
-categories: Git
+category: Git
 ---
 > Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)``` donde se puede encontrar más información del tema en cuestión
 
-<br />
 
-## Índice
-
-* 
-{:toc}
-
-<br />
-
----
-<br />
-
-## Conceptos
+# Conceptos
 
 
 Working tree
@@ -44,7 +33,7 @@ Origin
 ---
 <br />
 
-## Configuración
+# Configuración
 
 Para ver la config
 : 
@@ -63,7 +52,7 @@ Para setear valores de la configuración global (o modificar fichero ~/.gitconfi
 ---
 <br />
 
-## Iniciar repositorio
+# Iniciar repositorio
 
 Crear repositorio central (--bare), que no será usado directamente
 : 
@@ -106,7 +95,7 @@ $ git fetch --all (se deben hacer pulls periódicamente!!)
 ---
 <br />
 
-## Ignorar ficheros
+# Ignorar ficheros
 
 Ficheros .gitignore con los ficheros a ignorar (ver sintáxis en p.44)
 : Se pueden colocar en todo el ```WORKING TREE``` (si se comitean se comparten ficheros ignorados)
@@ -131,9 +120,9 @@ Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untr
 ---
 <br />
 
-## Comparación de ficheros
+# Comparación de ficheros
 
-#### Comparación entre “branches”
+## Comparación entre “branches”
 
 Comparación entre ```WORKING TREE``` y ```INDEX```
 : 
@@ -165,7 +154,7 @@ Comparación entre branches
     $ git difftool origin/master origin/branch1
 {% endhighlight %}
 
-#### Comparación entre commits
+## Comparación entre commits
 
 Para ver todos los commits del repositorio actual
 : 
@@ -196,7 +185,7 @@ Comparación entre 2 commits
 ---
 <br />
 
-## Operaciones con INDEX
+# Operaciones con INDEX
 
 Añadir al índice cambios parciales de ficheros (se eligen de forma interactiva)
 : 
@@ -252,9 +241,9 @@ Borrar cambios parciales (opuesto a git add -p)
 ---
 <br />
 
-## Operaciones con HEAD
+# Operaciones con HEAD
 
-#### Básico
+## Básico
 
 Ver historial de commits
 : 
@@ -288,7 +277,7 @@ Workaround: subir un directorio con un único fichero .gitignore en su interior
 
 <br />
 
-#### Merge commit
+## Merge commit
 Cambiar a la rama donde realizar merge commit
 : 
 {% highlight sh %}
@@ -315,7 +304,7 @@ Abortar el merge si hay conflictos y no queremos continuar
 
 <br />
 
-#### Pull with rebase
+## Pull with rebase
 > Se hace pull with rebase para sustituir un merge por commits, de forma que no se produzcan merges “sin sentido”: que no estén mezclando líneas de trabajo distintas sino que sean producto de “timing” al hacer commit varios desarrolladores
 
 Después de abortar un merge (ver arriba)
@@ -338,7 +327,7 @@ Configurar pull rebase para ramas nuevas
 
 <br />
 
-#### Edición de commits 
+## Edición de commits 
 > El objetivo es que cada commit tenga un objetivo específico al subirlo a origin. Mientras se trabaja se pueden subir commits temporales, pero antes de hacer push se deberían editar (corregir mensajes, subidas absurdas, etc.)
 
 Cambiar el último commit borrando el commit anterior
@@ -384,7 +373,7 @@ Aplicar commit específico como commit actual
 ---
 <br />
 
-## Ramas
+# Ramas
 
 Crear una nueva rama que apunta al commit actual y cambiar a esta
 : 
@@ -455,13 +444,13 @@ Forzar borrado en el repositorio local de las ramas borradas mediante el comando
 ---
 <br />
 
-## Stash
+# Stash
 
-### Save stash
+## Save stash
 Save stash restoring working tree with last commit
 : 
 {% highlight sh %}
-git stash save [<message>]
+$ git stash save [<message>]
 {% endhighlight %}
 > Same as git stash (if you want to provide message ```save``` is mandatory)
 
@@ -470,19 +459,19 @@ git stash save [<message>]
 Save stash but keep index intact
 : 
 {% highlight sh %}
-git stash save --keep-index
+$ git stash save --keep-index
 {% endhighlight %}
 
 Save stash including untracked files
 : 
 {% highlight sh %}
-git stash save --include-untracked
+$ git stash save --include-untracked
 {% endhighlight %}
 > When stashing untracked files ```git clean``` is executed removing untracked files from working tree
 
 > Use ```--all``` to stash and remove also ignored files
 
-### Restore stash on Working Tree
+## Restore stash on Working Tree
 Restore stash but don't drop stashed state
 : 
 {% highlight sh %}
@@ -499,7 +488,7 @@ $ git stash pop [--index] [<stashref>]
 {% endhighlight %}
 > If there are conflicts stash is not removed. Resolve and remove manually (see below)
 
-### Removing stashes
+## Removing stashes
 Remove last stash (or the stash specified)
 : 
 {% highlight sh %}
@@ -517,7 +506,7 @@ $ git clear
 ---
 <br />
 
-## Submodules
+# Submodules
 
 Add submodule
 : 

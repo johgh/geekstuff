@@ -40,6 +40,7 @@ $on-laptop:        800px;
 h1, h2, h3, h4, h5, h6 {
     position: relative;
     color: #424242;
+    font-family: Courier;
 }
 
 .post-content h2, .category-archive h2 {
@@ -47,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 33px;
 }
 
-h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
     color: $brand-color;
     }
 
@@ -88,6 +89,10 @@ h6:hover .header-link {
     -webkit-column-rule: 4px dotted #afafaf; /* Chrome, Safari, Opera */
     -moz-column-rule: 4px dotted #afafaf; /* Firefox */
     column-rule: 4px dotted #afafaf;
+}
+
+.back {
+    font-size: 12pt;
 }
 
 .cd-top.cd-is-visible {

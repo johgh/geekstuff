@@ -11,19 +11,21 @@ layout: default
 </article>
 
 <aside class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% assign cat = page.category | downcase %}
-    {% for post in site.categories.[cat] %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-            <!-- <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small> -->
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+        {% assign cat = page.category | downcase %}
+        {% for post in site.categories.[cat] %}
+            {% if page.title != post.title %}
+            <li>
+                <h3>
+                    <a href="{{ site.baseurl }}{{ post.url }}">
+                        {{ post.title }}
+                        <!-- <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small> -->
+                    </a>
+                </h3>
+            </li>
+            {% endif %}
+        {% endfor %}
   </ul>
 </aside>
 

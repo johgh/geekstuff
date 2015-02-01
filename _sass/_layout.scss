@@ -32,7 +32,7 @@
     }
 
     .page-link {
-        font-size: 14pt;
+        font-size: 12pt;
         color: $text-color;
         line-height: $base-line-height;
 
@@ -93,7 +93,7 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px dashed $grey-color-light;
     padding: $spacing-unit 0;
 }
 

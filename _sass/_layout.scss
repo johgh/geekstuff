@@ -23,6 +23,25 @@
     }
 }
 
+.site-title:hover {
+    text-decoration: none !important;
+    // color: $blue-color-light;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.main-title {
+    // color: $grey-color-dark !important;
+    font-family: monospace;
+    font-size: 31px;
+}
+
+.post-link {
+    // color: $grey-color-dark !important;
+}
+
 .site-nav {
     float: right;
     line-height: 56px;
@@ -30,6 +49,7 @@
     .menu-icon {
         display: none;
     }
+
 
     .page-link {
         font-size: 12pt;

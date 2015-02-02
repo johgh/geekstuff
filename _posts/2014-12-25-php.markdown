@@ -5,7 +5,7 @@ permalink:  "php"
 date:   2014-12-25 16:30:15
 category: Web
 ---
-# Notas sobre PHP
+# Apuntes de PHP
 
 ## isset, empty, null, comparación de tipos
 
@@ -81,7 +81,7 @@ if (!$sp)
 
 # Visor de logs de PHP
 
-1. Añadir la siguiente línea en en `php.ini` para separar los logs de php en su propio fichero de logs:
+1. Añadir la siguiente línea en `php.ini` para separar los logs de php en su propio fichero de logs:
 : {% highlight bash %}
     error_log = /var/log/phplog
 {% endhighlight %}

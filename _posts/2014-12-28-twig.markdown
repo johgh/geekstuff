@@ -137,7 +137,9 @@ Filters (twig functions)
 {# Transform string into first char uppercase and the rest left equal #}
 {{ var | uc_first }}
 {# "titlecase"->no difference with title #}
-{{ var | uc_words }}
+{ var | uc_words }}
+{# "str_pad". syntax: "%[pad_string][pad_length]d" | [var] #}
+{{"%04d" | identifier }}
 {% endraw %}
 {% endhighlight %}
 > See all filters available [here](http://twig.sensiolabs.org/doc/filters/index.html)

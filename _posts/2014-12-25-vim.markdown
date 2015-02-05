@@ -5,9 +5,38 @@ permalink:  "vim"
 date:   2014-12-25 16:30:15
 category: CLI
 ---
-# Text objects
+<!--
+# Words
+words
+white space separated words
+smart words
+camel case words
+random character separated words ft;
+-->
 
-> Text objects are used primarily with editing commands: `number + command + text_object or motion`. Also plugins as `surround` make extensive use of them (see below)
+# Operator pending mode
+Operator pending mode command
+: `counter` + `operator` + `text_object` or `motion`
+
+## Word motions
+> All motion commands have a range of action starting at the current cursor position
+
+`de / ye / ve`
+: delete/yank/visual word without adjacent space
+
+`dw / yw / vw`
+: delete/yank/visual including adjacent space
+
+`cw`/ `ysw'`
+: change without adjacent space / surround plugin
+
+`cf<space>`
+: change including adjacent space
+
+> all `word` motions listed above can be substituted with `WORD` motions (white space separated words)
+
+# Text objects
+> All text object commands have a range of action that takes the entire current object (the current cursor position determines the object)
 
 `a` + `text_object`
 : <i>A object</i>. Object including surrounding spaces
@@ -15,7 +44,21 @@ category: CLI
 `i` + `text_object`
 : <i>Inner object</i>. Object without surrounding spaces
 
-## Builtin vim text objects
+## Word-based text-objects
+
+`diw / yiw / viw`
+: delete/yank/visual word without adjacent space
+
+`ciw`/ `ysiw'`
+: change without adjacent space / surround plugin
+
+`daw / yaw / vaw`
+: delete/yank/visual including adjacent space
+
+`caf<space>`
+: change including adjacent spaces
+
+## More builtin vim text objects
 `s` (sentence)
 : From from dot to dot (or paragraph if there aren't no dots). Motion equivalent: `(` `)`
 

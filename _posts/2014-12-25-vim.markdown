@@ -3,39 +3,91 @@ layout: post
 title:  "Vim"
 permalink:  "vim"
 date:   2014-12-25 16:30:15
-category: CLI
+category: Misc
 ---
 <!--
-# Words
-words
-white space separated words
-smart words
-camel case words
-random character separated words ft;
+/* TODO:
+search, ft motions
+*/
 -->
 
 # Operator pending mode
 Operator pending mode command
 : `counter` + `operator` + `text_object` or `motion`
 
+## Words
+
+### Builtin Words
+
+#### Standard Vim words
+A word can be of any of these:
+
+* a sequence of letters, digits and underscores
+* a sequence of any other char not being letters, digits, underscores or blank characters (space, tab, end of line)
+* an empty line
+
+> Motions
+: 
+    `w` go to the next word<br />
+    `e` go to the end of the currend word<br />
+    `b` go to the previous word<br />
+    `ge` go to the end of the previous word<br />
+
+#### WORDS
+A WORD can be of any of these:
+
+* a sequence of non-blank characters, separated with non-blank characters
+* an empty line
+
+> Motions
+: 
+    `W` go to the next WORD<br />
+    `E` go to the end of the currend WORD<br />
+    `B` go to the previous WORD<br />
+    `gE` go to the end of the previous WORD<br />
+
+
+### Plugin Words
+
+#### Smart-words
+A smart-word is a sequence of letters, digits and underscores
+
+> Motion mappings
+: 
+    map `key_to_map` \<Plug\>(smartword-w)<br />
+    map `key_to_map` \<Plug\>(smartword-b)<br />
+    map `key_to_map` \<Plug\>(smartword-e)<br />
+    map `key_to_map` \<Plug\>(smartword-ge)<br />
+
+#### CamelCaseMotion
+A CamelCaseMotion can be any of these:
+
+* a standard vim word motion<br />
+* the start of a segment of camelCased letters or an underscore<br />
+
+> Motions
+: 
+    `<Leader>w` go to the next camelCase word<br />
+    `<Leader>b`  go to the previous camelCase word<br />
+
 ## Word motions
 > All motion commands have a range of action starting at the current cursor position
 
-`de / ye / ve`
+`dw` `yw` `vw`
+: delete/yank/visual selection including adjacent space
+
+`de` `ye` `ve`
 : delete/yank/visual word without adjacent space
-
-`dw / yw / vw`
-: delete/yank/visual including adjacent space
-
-`cw`/ `ysw'`
-: change without adjacent space / surround plugin
 
 `cf<space>`
 : change including adjacent space
 
-> all `word` motions listed above can be substituted with `WORD` motions (white space separated words)
+`cw` `ysw'`
+: change without adjacent space / surround plugin
 
-# Text objects
+> all `word` motions listed above can be used with all type of words described aboved
+
+## Text objects
 > All text object commands have a range of action that takes the entire current object (the current cursor position determines the object)
 
 `a` + `text_object`
@@ -44,21 +96,21 @@ Operator pending mode command
 `i` + `text_object`
 : <i>Inner object</i>. Object without surrounding spaces
 
-## Word-based text-objects
+### Word-based text-objects
 
-`diw / yiw / viw`
-: delete/yank/visual word without adjacent space
-
-`ciw`/ `ysiw'`
-: change without adjacent space / surround plugin
-
-`daw / yaw / vaw`
+`daw` `yaw` `vaw`
 : delete/yank/visual including adjacent space
 
-`caf<space>`
-: change including adjacent spaces
+`diw` `yiw` `viw`
+: delete/yank/visual word without adjacent space
 
-## More builtin vim text objects
+`caw`
+: change including adjacent space
+
+`ciw` `ysiw'`
+: change without adjacent space / surround plugin
+
+### More builtin vim text objects
 `s` (sentence)
 : From from dot to dot (or paragraph if there aren't no dots). Motion equivalent: `(` `)`
 
@@ -81,7 +133,7 @@ Operator pending mode command
 
 > see more builtin text objects [here](http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/) or in vim manual
 
-## Plugin text objects
+### Plugin text objects
 `j` (vim-textobj-brace)
 : for the closest region between any of () [] or {}
 
@@ -98,7 +150,7 @@ Operator pending mode command
 : for the entire region of the current buffer
 
 `v` (vim-textobj-variable-segment)
-: for a region between either _s or camelCaseVariables
+: for a region between either underscore or camelCaseVariables (equivalent to camelCase motion)
 
 `i`|`I` (vim-textobj-indent)
 : ai/ii for a block of similarly indented lines / aI/iI for a block of lines with the same indentation
@@ -116,7 +168,7 @@ Operator pending mode command
 : for XML/HTML attributes
 
 `f`{x} (vim-textobj-between)
-: for a region between {char}s
+: for a region between any {char}
 
 `z` (vim-textobj-fold)
 : for a block of folded lines
@@ -138,23 +190,6 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 : `[v/V][...]S` + `surrounding_char`
 
 > where surrounding_char could be any char, an html tag, or an open/close block char (in this case open block char `({<` adds/deletes spaces)
-
-## CamelCaseMotion
-`,w`
-: Go to the next start of camelCased segment
-
-`,b`
-: Go back
-
-`,e`
-: Go to end of camelCased segment
-
-## Smartword
-`alt-w`
-: Go to next smart word
-
-`alt-b`
-: Go to previous smartword
 
 ## Commentary
 `gc+motion/text_object`

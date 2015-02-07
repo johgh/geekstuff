@@ -36,7 +36,7 @@ A word can be of any of these:
 #### WORDS
 A WORD can be of any of these:
 
-* a sequence of non-blank characters, separated with non-blank characters
+* a sequence of non-blank characters, separated with blank characters
 * an empty line
 
 > Motions

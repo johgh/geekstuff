@@ -7,7 +7,7 @@ category: Misc
 ---
 <!--
 /* TODO:
-search, ft motions
+ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search + /e /C parametros
 */
 -->
 
@@ -173,7 +173,7 @@ A CamelCaseMotion can be any of these:
 `z` (vim-textobj-fold)
 : for a block of folded lines
 
-# Plugins
+# Normal mode plugins
 > Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/.vimrc)
 
 ## Surround
@@ -234,6 +234,178 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 ## PhpDocumentor (PDV)
 `<leader>c`
 : call PDV snippet to doc function
+
+## Abolish
+`crm`
+: Convert to MixedCase
+
+`crc`
+: Convert to camelCase
+
+`crs`
+: Convert to snake_case
+
+`cru`
+: Convert to UPPER_CASE
+
+#Ex Mode
+
+## Ex Commands
+
+Syntax
+: `:[range]command {argument/s}`
+
+> view complete list at `:h ex-cmd-index`
+
+Range Syntax
+: `{start}[+n|-n],{end}[+n|-n]`
+
+> where {start} and {end} are one of the folowing:
+: 
+    `/pattern/` Pattern to match<br />
+    `1` First line of the file<br />
+    `$` Last line of the file<br />
+    `0` Virtual line above first line of the file<br />
+    `.` Line where the cursor is placed<br />
+    `'m` Line containing mark m<br />
+    `'<` Start of visual selection<br />
+    `'>` End of visual selection<br />
+    `%` The entire file (shorthand for :1,$ )<br />
+
+## Text Editing With Ex Commands
+
+> If no range is specified, the below ex Commands take the current line as its range (`.`)
+
+> The global command is an exception, which takes the entire file as its range (`%`)
+
+Delete specified lines [into register x]
+: `:[range]delete [x]`
+
+Yank specified lines [into register x]
+: `:[range]yank [x]`
+
+Put the text from register x after the specified line
+: `:[line]put [x]`
+
+Copy the specified lines to below the line specified by {address}
+: `:[range]copy {address}`
+
+Move the specified lines to below the line specified by {address}
+: `:[range]move {address}`
+
+Join the specified lines
+: `:[range]join`
+
+Execute Normal mode {commands} on each specified line
+: `:[range]normal {commands}`
+
+> Normal ex command allow the use of normal mode commands with a range
+
+> Some useful mappings that make use of `normal`
+: {% highlight vim %}
+" Allow using the repeat operator with a visual selection
+vnoremap . :normal .<CR>
+" Allow using macro 'a' with visual selection
+vnoremap @@ :normal @@<CR>
+vnoremap @a :normal @a<CR>
+{% endhighlight %}
+    
+Replace {pattern} with {string} on range
+: `:[range]s[ubstitute]/{pattern}/{replacement}/[flags]`
+
+> where replacement string can contain :h sub-replace-special
+: 
+    `\r` Insert a carriage return<br />
+    `\t` Insert a tab character<br />
+    `\\` Insert a single backslash<br />
+    `\1` Insert the first submatch<br />
+    `\2` Insert the second submatch (and so on, up to \9 )<br />
+    `\0` Insert the entire matched pattern<br />
+    `&` Insert the entire matched pattern<br />
+    `~` Use {string} from the previous invocation of :substitute<br />
+    `\={Vim script}` Evaluate {Vim script} expression; use result as replacement {string}<br />
+
+
+Execute the Ex command [cmd] on all specified lines where the {pattern} matches
+: `:[range][v]g[lobal]/{pattern}/[cmd]`
+
+> vglobal executes the ex command on all unmatched lines
+
+> the command can also has its own range as in the example below:
+: 
+    `:g/{/ .+1,/}/-1 sort`
+
+Quick abbreviation (available through Abolish plugin)
+: `:Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}`
+
+Quick substitution (available through Abolish plugin)
+: `:S[ubvert]/child{,ren}/adult{,s}/g`
+
+> For swapping two words you can do:
+`%S/{man,dog}/{dog,man}/g`
+
+> Both `Subvert` and `Abolish` commands take care of case sensitive variants, so in the above command 'man', 'Man' and 'MAN' would be swapped with its correspondent counterparts
+
+## Command Line Edition
+
+Custom mappings for quick navigation in command line (to set in .vimrc)
+: 
+    `cnoremap <C-n> <down>`<br />
+    `cnoremap <C-p> <up>`<br />
+    `cnoremap <C-b>  <Home>`<br />
+    `cnoremap <C-e>  <End>`<br />
+    `cnoremap <M-j>  <Left>`<br />
+    `cnoremap <M-k>  <Right>`<br />
+    `cnoremap <M-b>  <S-Left>`<br />
+    `cnoremap <M-f>  <S-Right>`<br />
+    `cnoremap <C-k>  <S-right><C-w>`<br />
+
+Search or replace current expression on search register `@/`
+: `/` or `s//{replacement}/g`
+
+Open command window from normal mode
+: `q:` or `q/`
+
+Open command window from command line mantaining current command
+: `<C-f>`
+
+Put word on command line from under current buffer cursor
+: `<C-r><C-w>`
+
+Custom command line expansion of current file path (to set in .vimrc)
+: `cnoremap <expr> ~~ getcmdtype() == ':' ? expand('%:h').'/' : '~~'`
+
+Custom command `GrepLastSearch` (to set in .vimrc)
+: `command GrepLastSearch execute 'vimgrep /' . @/ . '/ **'`
+
+> visual-star search recommended, which escapes special characters passing to vimgrep a `noverymagic` string
+
+> To grep for nonexistent string in buffer, write the string in command window and search for it with visual-star plugin
+    
+## Repeat last command
+Repeat last Ex command
+: `@:`
+
+Repeat last executed command
+: `@@`
+
+> The above is useful to repeat commands like `cnext`, to go back jump with `C-o`
+
+Repeat last substitution with Ex command
+: `:{range}&&`
+
+Repeat last substitution in normal and visual mode
+: 
+    `&`
+    
+> mapings below are required to perform subsitution with same flags as the original with `&`
+: {% highlight vim %}
+    nnoremap & :&&<CR>
+    xnoremap & :&&<CR>
+{% endhighlight %}
+
+Repeat last substitution on the entire file in normal mode
+: `g&`
 
 # Vimdiff
 

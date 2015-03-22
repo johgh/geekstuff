@@ -7,9 +7,245 @@ category: Misc
 ---
 <!--
 /* TODO:
-ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search + /e /C parametros
+root plugin & grepproject?
+old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search + /e /C parametros
 */
 -->
+
+# Basic .vimrc config file
+
+
+> This is a basic .vimrc config file that should work on any modern Vim. For a more comprehensive config file, with functions and plugin configurations, see [here](https://github.com/johgh/vim)
+
+<div> <button id="selectButton" type="button">Select text </button> </div>
+
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+
+<div id="selectText">
+
+{% highlight vim %}
+" SETTINGS {
+    " syntax highlight
+    syntax enable
+    " indent according to filetype
+    filetype plugin indent on
+    " highlight sql strings in php
+    let php_sql_query=1
+    " highlight html strings in php
+    let php_htmlInStrings=1
+    " show current line and column and percentage within the buffer
+    set ruler
+    " show keys pressed while on operator pending mode
+    set showcmd
+    " show line numbers
+    set number
+    " set dark colorscheme/background
+    set background=dark
+    colorscheme ron
+    " allows hiding buffers with unsaved modifications
+    set hidden
+    " highlight last search
+    set hlsearch
+    " incremental searching
+    set incsearch
+    " set case insensitive mode
+    set ignorecase
+    " use case sensitive mode ONLY when some uppercase is given
+    set smartcase
+    " lines to scroll when cursor leaves screen
+    set scrolljump=5
+    " minimum lines to keep above and below cursor when executing command like a search
+    set scrolloff=5
+    " use indents of 4 spaces
+    set shiftwidth=4
+    " tabs are spaces, not tabs
+    set expandtab
+    " an indentation every four columns
+    set tabstop=4
+    " let backspace delete indent
+    set softtabstop=4
+    " round indent to the nearest multiple of shiftwidth
+    set shiftround
+    " unnamed plus register (supports system clipboard) set to default register instead of " register
+    set clipboard=unnamedplus
+    " Prevents inserting two spaces after punctuation after joining two lines
+    set nojoinspaces
+    " line breaking width
+    set textwidth=120
+    " visually mark column where line should break (according to textwidth)
+    set cc=+1
+    " show/hide special characters
+    set list
+    " special chars representation
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+    " Windows can be 0 line high
+    set winminheight=0
+    " Show list instead of just completing
+    set wildmenu
+    " Command <Tab> completion, list matches, then longest common part, then all
+    set wildmode=list:longest,full
+    " start with folds closed
+    set foldlevel=0
+    " default working dir (if exists)
+    if !empty(glob("$HOME/workspace/"))
+    cd $HOME/workspace/
+    endif
+    " autochdir to the parent of the current file
+    set autochdir
+    " set virtualedit to block and insert mode
+    set ve=block
+    " visual bell effect
+    set visualbell
+    " don't beep
+    set noerrorbells
+    " automatic indentation when starting new line
+    set autoindent
+    " erase previous indent, move to previous line
+    set backspace=indent,eol,start
+    " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
+    set smarttab
+    " show status line even when only one window is shown
+    set laststatus=2
+    " minimal number of screen columns to keep to the left and to the right
+    set sidescrolloff=5
+    set display+=lastline
+    " set uft-8 encoding
+    if &encoding ==# 'latin1' && has('gui_running')
+    set encoding=utf-8
+    endif
+    " Delete comment character when joining commented lines
+    if v:version > 703 || v:version == 703 && has("patch541")
+    set formatoptions+=j
+    endif
+    " Automatically reload file when changed outside Vim (and the buffer in vim is unmodified)
+    set autoread
+    " set EOL supported formats
+    set fileformats+=mac
+    " set history limit
+    set history=1000
+    " max tab pages allowed
+    set tabpagemax=50
+    " Allow color schemes to do bright colors without forcing bold.
+    if &t_Co == 8 && $TERM !~# '^linux'
+    set t_Co=16
+    endif
+    " Load matchit.vim, but only if the user hasn't installed a newer version.
+    if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+    endif
+    " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+    " so that you can undo CTRL-U after inserting a line break.
+    inoremap <C-U> <C-G>u<C-U>
+    " keep an undo file (undo changes after closing)
+    set undofile
+" }
+
+" MAPPINGS {
+    " TOGGLES
+    " disable last search highlighting
+    nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+    " toggle to bind/unbind scroll in all windows
+    nmap <F6> :windo set scrollbind!<CR>
+    " alternate between line numbers and relative numbers
+    map <F9> :set relativenumber!<CR>
+    " pasting of multiple lines in insert mode without reindenting
+    set pastetoggle=<F12>
+
+    " REDEFINE MAPLEADER
+    let mapleader = ","
+
+    " BETTER MAPPING TO ESC KEY ON SPANISH KEYBOARD (EVEN BETTER THAN <C-C>)
+    imap ñ <esc>
+    cmap ñ <esc>
+    " redefine insertion of ñ
+    inoremap <leader><leader>ñ ñ
+    cnoremap <leader><leader>ñ ñ
+
+    " BUFFERS AND WINDOWS MAPPINGS
+    " To open a new empty buffer
+    nmap <leader>n :enew<cr>
+    " never quit last window
+    map <silent> <leader>q :only<CR>:bd<CR>
+    " Close the current buffer and move to the previous one
+    nmap <silent> <leader><leader>x :bp <BAR> bd #<CR>
+    " Close the current buffer and move to the previous one
+    nmap <silent> <leader>x :bp<bar>sp<bar>bn<bar>bd<CR>
+    " Go to previous visited buffer
+    nmap <leader><space> :b#<CR>
+    " Close aux windows
+    map <Leader>z :pclose<CR>:lclose<CR>:cclose<CR>
+    " Clear quickfix window and close
+    map <Leader>Z :cex []<CR>:ccl<CR>
+
+    " SAVE MAPPINGS
+    " quick save
+    map <C-s> :w<CR>
+    vmap <C-s> <esc>:w<CR>gv
+    inoremap <C-s> <esc>:w<CR>
+    " write file for when you forget to sudo
+    cmap w!! w !sudo tee % >/dev/null
+
+    " NORMAL MODE NAVIGATION
+    map <C-j> 4j
+    map <C-k> 4k
+    " down, up remapped to next/prev line in wrapped line
+    nnoremap <down> g<down>
+    nnoremap <up> g<up>
+
+    " NORMAL MODE COMMANDS
+    " add indented blank line and leave insert mode
+    nnoremap <A-o> o<esc>
+    nnoremap <A-O> O<esc>
+    inoremap <A-o> <esc>o<esc>
+    inoremap <A-O> <esc>O<esc>
+    " visual mode till EOL (not included)
+    noremap vc v$h
+    " yank till EOL (not included)
+    noremap Y y$
+    " indent current paragraph (instead of ex mode)
+    nnoremap Q =ip
+    " set uppercase word (insert/visual/normal)
+    inoremap <A-u> <C-O>b<C-O>gUiw<C-O>e<C-O>a
+    vmap <A-u> gU
+    nmap <A-u> gUiw
+    " repeat last substitution with same flags
+    nnoremap & :&&<CR>
+    xnoremap & :&&<CR>
+
+    " INSERT MODE NAVIGATION
+    imap <A-b> <C-left>
+    imap <A-f> <C-right>
+    imap <C-e> <C-o>A
+    imap <C-b> <C-o>I
+    imap <C-k> <C-o>D
+
+    " COMMMAND LINE NAVIGATION
+    cnoremap <C-n> <down>
+    cnoremap <C-p> <up>
+    cnoremap <C-b>  <Home>
+    cnoremap <C-e>  <End>
+    cnoremap <M-j>  <Left>
+    cnoremap <M-k>  <Right>
+    cnoremap <M-b>  <S-Left>
+    cnoremap <M-f>  <S-Right>
+    cnoremap <C-k>  <S-right><C-w>
+
+    " COMMAND LINE EXPANSION
+    cnoremap <expr> ~~ getcmdtype() == ':' ? expand('%:h').'/' : '~~'
+    cnoremap <expr> ~ getcmdtype() == ':' ? expand('~').'/' : '~'
+" }
+
+" AUTOCOMMANDS {
+    augroup my_group
+    " don't put commentaries when opening and changing line
+    autocmd BufNewFile,BufRead * setlocal formatoptions=tcq
+
+    " When editing a file, always jump to the last known cursor position.
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    augroup END
+" }
+{% endhighlight %}
+</div>
 
 # Operator pending mode
 Operator pending mode command
@@ -112,7 +348,7 @@ A CamelCaseMotion can be any of these:
 
 ### More builtin vim text objects
 `s` (sentence)
-: From from dot to dot (or paragraph if there aren't no dots). Motion equivalent: `(` `)`
+: From dot to dot (or paragraph if there aren't no dots). Motion equivalent: `(` `)`
 
 `p` (paragraph)
 : Paragraph. From blank line to blank line. Motion equivalent: `{` `}`
@@ -375,13 +611,6 @@ Put word on command line from under current buffer cursor
 Custom command line expansion of current file path (to set in .vimrc)
 : `cnoremap <expr> ~~ getcmdtype() == ':' ? expand('%:h').'/' : '~~'`
 
-Custom command `GrepLastSearch` (to set in .vimrc)
-: `command GrepLastSearch execute 'vimgrep /' . @/ . '/ **'`
-
-> visual-star search recommended, which escapes special characters passing to vimgrep a `noverymagic` string
-
-> To grep for nonexistent string in buffer, write the string in command window and search for it with visual-star plugin
-    
 ## Repeat last command
 Repeat last Ex command
 : `@:`
@@ -431,7 +660,7 @@ zr
 :diffupdate
 : re-scan the files for differences
 
-## Fugitive diff (3-way diff)
+## Fugitive diff (plugin)
 dp
 : put the change from the current selected parent into the working copy
 
@@ -446,6 +675,69 @@ dp
 
 :Gwrite[!]
 : write the current file to the index
+
+# Buffer and window management
+
+## Buffers
+
+Edit buffer in the buffer list
+: `:b <tab> `
+
+Edit first buffer
+: `:bfirst`
+
+Edit last buffer
+: `:blast`
+
+Edit next buffer
+: `:bn`
+
+Edit previous buffer
+: `:bp`
+
+Show all buffers, including unnamed ones
+: `ls!`
+
+Edit buffer N (including unnamed buffers)
+: `:bN`
+
+Edit alternate buffer (previous buffer visited)
+: `:b#`
+
+Delete/wipe current buffer (or specified one)
+: `:bd <tab>` / `:bw <tab>`
+
+Edit file
+: `:e <tab>`
+
+Reload current file
+: `:e!`
+
+Edit new file
+: `:enew`
+
+Execute macro on register A on each opened buffer
+: `bufdo execute "normal! @a"`
+
+Save all buffers
+: `:wa`
+
+## Windows
+
+Create vertical window
+: `:<C-w> v`
+
+Create horizontal window
+: `:<C-w> s`
+
+Show only buffer on current window
+: `:only`
+
+Unhide buffers (create window for every buffer)
+: `:unhide`
+
+Quit all windows
+: `:qa`
 
 # VIM quick reference
 
@@ -755,4 +1047,6 @@ dp
 <tr><td><code>:mkview <font color='red'><i>[f]</i></font></code></td><td>save view configuration [to file <font color='red'><i>f</i></font>]</td></tr>
 <tr><td><code>:loadview <font color='red'><i>[f]</i></font></code></td><td>load view configuration [from file <font color='red'><i>f</i></font>]</td></tr>
 <tr><td><code>^@ ^K ^_&nbsp; \&nbsp; F<font color='red'><i>n</i></font> ^F<font color='red'><i>n</i></font></code></td><td>unmapped keys</td></tr>
-</table><br />
+</table>
+
+<br />

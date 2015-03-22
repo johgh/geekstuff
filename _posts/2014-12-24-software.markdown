@@ -7,10 +7,10 @@ category: Linux
 ---
 ## Package installer
 
-<div id="install" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
+<div id="selectText" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
 6px; border-width: 2px;"> No packages selected </div>
 <div style="float:right" id="numPackages"></div>
-<div> <button id="selectCommands" style="display:none" type="button"> Select text </button> </div>
+<div> <button id="selectButton" style="display:none" type="button"> Select text </button> </div>
 <br />
 <a href="#" id="selectAll">Select all current section packages</a>
 <br />
@@ -168,24 +168,6 @@ category: Linux
 ``` ppa:gnome3-team/gnome3 ```
 
 <script>
-    jQuery.fn.selectText = function() {
-        var doc = document
-        var element = this[0];
-        var range;
-        var selection;
-
-        if (doc.body.createTextRange) {
-            range = document.body.createTextRange();
-            range.moveToElementText(element);
-            range.select();
-        } else if (window.getSelection) {
-            selection = window.getSelection();
-            range = document.createRange();
-            range.selectNodeContents(element);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
-    };
     $(function(){
         $('tr').each(function(){
             $(this).find('td:first').prepend('<input class="check" type="checkbox"></input> ');
@@ -233,13 +215,13 @@ category: Linux
             }
             if (numPackages == 0) {
                 installCmd = 'No packages selected';
-                $('#selectCommands').hide();
+                $('#selectButton').hide();
                 $('div#numPackages').html('');
             } else {
                 $('div#numPackages').html(numPackages + ' package/s selected');
-                $('#selectCommands').show();
+                $('#selectButton').show();
             }
-            $('#install').html(addReposCmd + installCmd);
+            $('#selectText').html(addReposCmd + installCmd);
         });
 
         $('table').addClass('tablesorter');
@@ -261,10 +243,6 @@ category: Linux
                     });
             return result;
         }
-
-    $('#selectCommands').click(function() {
-        $('#install').selectText();
-    });
-
     });
 </script>
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>

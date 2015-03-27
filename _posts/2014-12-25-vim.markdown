@@ -102,6 +102,13 @@ old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search +
     set autoindent
     " erase previous indent, move to previous line
     set backspace=indent,eol,start
+    " Prevent the cursor from changing the current column when jumping
+    set nostartofline
+    " move to previous lines with cursors and h,l
+    " < > cursor keys used in normal and visual mode, [ ] cursor keys in insert mode
+    set whichwrap+=<,>,h,l,[,]
+    " shortens about every message to a minimum
+    set shm=at
     " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
     set smarttab
     " show status line even when only one window is shown
@@ -141,7 +148,7 @@ old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search +
 " }
 
 " MAPPINGS {
-    " TOGGLES
+    " SHORTCUTS
     " disable last search highlighting
     nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
     " toggle to bind/unbind scroll in all windows
@@ -193,42 +200,19 @@ old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search +
     nnoremap <up> g<up>
 
     " NORMAL MODE COMMANDS
-    " add indented blank line and leave insert mode
-    nnoremap <A-o> o<esc>
-    nnoremap <A-O> O<esc>
-    inoremap <A-o> <esc>o<esc>
-    inoremap <A-O> <esc>O<esc>
     " visual mode till EOL (not included)
     noremap vc v$h
     " yank till EOL (not included)
     noremap Y y$
     " indent current paragraph (instead of ex mode)
     nnoremap Q =ip
-    " set uppercase word (insert/visual/normal)
-    inoremap <A-u> <C-O>b<C-O>gUiw<C-O>e<C-O>a
-    vmap <A-u> gU
-    nmap <A-u> gUiw
     " repeat last substitution with same flags
     nnoremap & :&&<CR>
     xnoremap & :&&<CR>
 
-    " INSERT MODE NAVIGATION
-    imap <A-b> <C-left>
-    imap <A-f> <C-right>
-    imap <C-e> <C-o>A
-    imap <C-b> <C-o>I
-    imap <C-k> <C-o>D
-
     " COMMMAND LINE NAVIGATION
     cnoremap <C-n> <down>
     cnoremap <C-p> <up>
-    cnoremap <C-b>  <Home>
-    cnoremap <C-e>  <End>
-    cnoremap <M-j>  <Left>
-    cnoremap <M-k>  <Right>
-    cnoremap <M-b>  <S-Left>
-    cnoremap <M-f>  <S-Right>
-    cnoremap <C-k>  <S-right><C-w>
 
     " COMMAND LINE EXPANSION
     cnoremap <expr> ~~ getcmdtype() == ':' ? expand('%:h').'/' : '~~'
@@ -236,12 +220,13 @@ old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search +
 " }
 
 " AUTOCOMMANDS {
-    augroup my_group
-    " don't put commentaries when opening and changing line
-    autocmd BufNewFile,BufRead * setlocal formatoptions=tcq
+    augroup my_group_core
+        autocmd!
+        " don't put commentaries when opening and changing line
+        autocmd BufNewFile,BufRead * setlocal formatoptions=tcq
 
-    " When editing a file, always jump to the last known cursor position.
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        " When editing a file, always jump to the last known cursor position.
+        autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     augroup END
 " }
 {% endhighlight %}
@@ -545,7 +530,7 @@ vnoremap . :normal .<CR>
 vnoremap @@ :normal @@<CR>
 vnoremap @a :normal @a<CR>
 {% endhighlight %}
-    
+
 Replace {pattern} with {string} on range
 : `:[range]s[ubstitute]/{pattern}/{replacement}/[flags]`
 
@@ -626,7 +611,7 @@ Repeat last substitution with Ex command
 Repeat last substitution in normal and visual mode
 : 
     `&`
-    
+
 > mapings below are required to perform subsitution with same flags as the original with `&`
 : {% highlight vim %}
     nnoremap & :&&<CR>

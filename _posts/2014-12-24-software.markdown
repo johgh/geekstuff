@@ -91,6 +91,7 @@ category: Linux
 | mysql-common              | Distro                               | Development  |
 | nautilus-open-terminal    | Distro                               | Core         |
 | nautilus-sendto           | Distro                               | Core         |
+| net-tools                 | Distro                               | Core         |
 | nmap                      | Distro                               | CLI          |
 | noip-2.1.9                | Distro                               | Apps         |
 | ntfs-3g                   | Distro                               | CLI          |

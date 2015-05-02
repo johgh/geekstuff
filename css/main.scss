@@ -3,7 +3,24 @@
 ---
 @charset "utf-8";
 
+.blog p {
+}
 
+.blog {
+font-family :    "Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif";
+font-size: 13pt;
+text-align: justify;
+    width: 90%;
+    margin: auto;
+}
+
+.note, .shortnote {
+	background: #eee;
+	padding: 15px 20px 20px 20px;
+	border-radius: 5px;
+	color: #555;
+    font-size: 12pt;
+}
 
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;

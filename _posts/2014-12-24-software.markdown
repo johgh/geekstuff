@@ -12,10 +12,12 @@ category: Linux
 <div style="float:right" id="numPackages"></div>
 <div> <button id="selectButton" style="display:none" type="button"> Select text </button> </div>
 <br />
-<a href="#" id="selectAll">Select all current section packages</a>
+<a href="#" id="selectAll">Select all packages</a> / <a href="#" id="unselectAll">Unselect all packages</a>
 <br />
-<a href="#" id="unselectAll">Unselect all current section packages</a>
-
+<a href="#" id="selectSection">Select current section packages</a> / <a href="#" id="unselectSection">Unselect current section packages</a>
+<br />
+<div> <button class="reset" type="button"> Clear all filters </button> </div>
+<br />
 
 | Package                   | PPA                                  | Section      |
 |:--------------------------|:-------------------------------------|:------------:|
@@ -155,8 +157,6 @@ category: Linux
 | y-ppa-manager             | ppa:webupd8team/y-ppa-manager        | Core         |
 | zsh                       | Distro                               | Core         |
 
-<div> <button class="reset" type="button"> Clear all filters </button> </div>
-<br />
 
 > Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)
 
@@ -176,10 +176,20 @@ category: Linux
 
         $(document).on('click', '#selectAll', function(e) {
             e.preventDefault();
-            $(".check:visible").prop('checked', true).trigger("change");
+            $(".check").prop('checked', true).trigger("change");
         });
         
         $(document).on('click', '#unselectAll', function(e) {
+            e.preventDefault();
+            $(".check").prop('checked', false).trigger("change");
+        });
+        
+        $(document).on('click', '#selectSection', function(e) {
+            e.preventDefault();
+            $(".check:visible").prop('checked', true).trigger("change");
+        });
+        
+        $(document).on('click', '#unselectSection', function(e) {
             e.preventDefault();
             $(".check:visible").prop('checked', false).trigger("change");
         });

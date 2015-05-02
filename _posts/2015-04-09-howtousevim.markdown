@@ -7,7 +7,7 @@ category: Blog
 ---
 ![Software models](/lsi-adm3a-full-keyboard.jpg "Teclado original del ADM-3A, donde se programó Vi")
 
-**¿Porqué alguien querría usar un editor en el qué hay que pelearse solamente para empezar a escribir texto, o incluso para
+**¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto, o incluso para
 salir del mismo una vez nos hemos percatado de que no es el editor que esperabamos?**
 
 Quizás el hecho de que este editor venga instalado de serie en cualquier sistema tipo Unix le haya hecho un flaco favor:

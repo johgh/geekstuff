@@ -1,4 +1,4 @@
-This is the source for my [Github Pages site](http://johgh.github.io/), that is a [Jekyll](http://jekyllrb.com/) static site based on plain text (markdown)
+This is the source for my [Github Pages site](http://johgh.github.io/). It's a [Jekyll](http://jekyllrb.com/) static site based on plain text.
 
 It's on github so you can make pull requests. The posts are inside the _posts folder. It's markdown so probably there is no need to preview the site before making a request.
 

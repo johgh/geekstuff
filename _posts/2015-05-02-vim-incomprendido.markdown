@@ -86,7 +86,7 @@ Comandos sin parámetros
 : `u` (undo), `x`, `s`, `p`/`P` (pegar/pegar antes del cursor), `o`/`O`, `i`/`I`, `a`/`A`
 
 Las 2 clases de comandos que vemos arriba soportan además un número (o *counter*), que especifica el número de veces que se debe ejecutar el
-comando. Los comandos con parámetros aceptán al menos 1 parámetro que corresponda bien a un `motion` o a un `text
+comando. Los comandos con parámetros aceptan al menos 1 parámetro que corresponda bien a un `motion` o a un `text
 object`. Para más información sobre el formato de estos parámetros ver [aquí](/vim/#tocAnchor-1-1).
 
 Sintáxis de un comando del modo normal
@@ -281,18 +281,21 @@ Navegar en el mode comando con `Control`+`n`/`p` en lugar de con los cursores
     cnoremap <C-p> <up>
 {% endhighlight %}
 
-### Vim como IDE
+### Vim como *IDE*
 
 Una vez dominados los [comandos de gestión de ficheros](/vim/#tocAnchor-1-21) que proporciona Vim por defecto (así como el
-concepto de *buffer* y *ventana*), si realmente queremos utilizar Vim como nuestro IDE es posible que echemos en falta un buscador de
+concepto de *buffer* y *ventana*), si realmente queremos utilizar Vim como nuestro *IDE* es posible que echemos en falta un buscador de
 ficheros y un árbol de directorios. Además querremos de alguna forma poder realizar acciones por proyecto (como buscar
 un texto por ejemplo)... en este caso la solución viene de la mano de plugins.
 
+* [Vim-rooter](https://github.com/airblade/vim-rooter): sitúa el path del *buffer* actual en el la raíz del proyecto del mismo
 * [NERDTree](https://github.com/scrooloose/nerdtree): árbol de directorios
 * [CtrlP](https://github.com/ctrlpvim/ctrlp.vim): permite buscar ficheros dentro de un proyecto así como los últimos *buffers* abiertos y los *buffers* actuales
-* [Vim-rooter](https://github.com/airblade/vim-rooter): sitúa el path del *buffer* actual en el la raíz del proyecto del mismo
+* [Ag](https://github.com/rking/ag.vim): grep más rápido, permite excepciones dentro del proyecto e incluye atajos
+  útiles para *quicklist*
+* [Tagbar](https://github.com/majutsushi/tagbar): vista de *outline* de nuestras clases
 
-En ocasiones sin embargo necesitaremos el path donde se encuentra nuestro fichero, en mi caso escribo simplemente `~~` haciendo uso del mecanismo de expansión de
+En ocasiones necesitaremos el path donde se encuentra nuestro fichero, en mi caso escribo simplemente `~~` haciendo uso del mecanismo de expansión de
 Vim. También puede ser útil especificar un directorio de inicio por defecto:
 
 Expansión de rutas en *modo comando*

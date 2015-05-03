@@ -129,6 +129,7 @@ category: Linux
 | seahorse                  | Distro                               | Core         |
 | sed                       | Distro                               | CLI          |
 | shotwell                  | Distro                               | Apps         |
+| silversearcher-ag         | Distro                               | Development  |
 | simple-scan               | Distro                               | Apps         |
 | sopcast-player            | Distro                               | Apps         |
 | sound-juicer              | Distro                               | Apps         |

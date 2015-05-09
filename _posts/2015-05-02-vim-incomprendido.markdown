@@ -127,7 +127,7 @@ que hemos copiado mediante *yank* tendremos 2 opciones dependiendo del modo en q
 Un poco más [abajo](/Vim-incomprendido/#personalizando-vim) podemos ver algunas maneras de hacer más
 accesible la gestión del portapapeles.
 
-Particularmente interesante es integrar el portapapeles de Vim con el del sistema, utilizando el registro unnamed plus
+Particularmente interesante es integrar el portapapeles de Vim con el del sistema, utilizando el registro *unnamed plus*
 (`"+`) como registro por defecto. Este registro engloba tanto al registro por defecto de Vim (`""`) como el portapapeles de
 nuestro sistema operativo (`"*`)
 

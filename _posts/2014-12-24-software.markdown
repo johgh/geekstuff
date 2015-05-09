@@ -23,85 +23,84 @@ category: Linux
 |:--------------------------|:-------------------------------------|:------------:|
 | apache2                   | Distro                               | Development  |
 | apt-file                  | Distro                               | CLI          |
-| ardour                    | Distro                               | Apps         |
-| atool                     | Distro                               | CLI          |
-| avidemux                  | Distro                               | Apps         |
-| banshee                   | Distro                               | Apps         |
-| bleachbit                 | Distro                               | Core         |
+| ardour                    | Distro                               | Extra        |
+| avidemux                  | Distro                               | Extra        |
+| banshee                   | Distro                               | Desktop      |
+| bleachbit                 | Distro                               | System       |
 | bless                     | Distro                               | Development  |
 | brackets                  | Distro                               | Development  |
-| brasero                   | Distro                               | Apps         |
-| calibre                   | Distro                               | Apps         |
+| brasero                   | Distro                               | Desktop      |
+| calibre                   | Distro                               | Desktop      |
 | ccze                      | Distro                               | CLI          |
 | checkinstall              | Distro                               | CLI          |
-| cheese                    | Distro                               | Apps         |
-| comix                     | Distro                               | Apps         |
-| command-not-found         | Distro                               | Core         |
+| cheese                    | Distro                               | Desktop      |
+| comix                     | Distro                               | Desktop      |
+| command-not-found         | Distro                               | System       |
 | curl                      | Distro                               | CLI          |
 | dbeaver                   | Distro                               | Development  |
-| dconf-editor              | Distro                               | Core         |
-| deluge                    | Distro                               | Apps         |
-| dropbox                   | Distro                               | Apps         |
-| empathy                   | Distro                               | Apps         |
+| dconf-editor              | Distro                               | System       |
+| deluge                    | Distro                               | Desktop      |
+| dropbox                   | Distro                               | Desktop      |
+| empathy                   | Distro                               | Desktop      |
 | encfs                     | Distro                               | CLI          |
-| exuberant-ctags           | Distro                               | Core         |
-| faac                      | Distro                               | CLI          |
-| faad                      | Distro                               | CLI          |
-| faience-azur-dark         | ppa:webupd8team/themes               | Core         |
-| faience-icon-theme        | ppa:webupd8team/themes               | Core         |
-| faience-theme             | ppa:webupd8team/themes               | Core         |
-| fancontrol                | Distro                               | Core         |
-| firefox                   | Distro                               | Apps         |
-| flac                      | Distro                               | CLI          |
-| fluid-soundfont-gm        | Distro                               | Core         |
-| fluidsynth                | Distro                               | Core         |
-| fluxgui                   | ppa:kilian/f.lux                     | Core         |
+| exuberant-ctags           | Distro                               | Extra        |
+| faac                      | Distro                               | Extra        |
+| faad                      | Distro                               | Extra        |
+| faience-azur-dark         | ppa:webupd8team/themes               | Extra        |
+| faience-icon-theme        | ppa:webupd8team/themes               | Extra        |
+| faience-theme             | ppa:webupd8team/themes               | Extra        |
+| fancontrol                | Distro                               | Extra        |
+| firefox                   | Distro                               | Desktop      |
+| flac                      | Distro                               | Extra        |
+| fluid-soundfont-gm        | Distro                               | Extra        |
+| fluidsynth                | Distro                               | Extra        |
+| fluxgui                   | ppa:kilian/f.lux                     | Extra        |
 | ftp                       | Distro                               | CLI          |
-| gconf-editor              | Distro                               | Core         |
+| gconf-editor              | Distro                               | System       |
 | geany                     | Distro                               | Development  |
-| gimp                      | Distro                               | Apps         |
+| gimp                      | Distro                               | Desktop      |
 | git                       | Distro                               | Development  |
 | git-cola                  | Distro                               | Development  |
 | gitg                      | Distro                               | Development  |
-| gnome-panel               | Distro                               | Core         |
-| gnome-shell               | Distro                               | Core         |
-| gnome-shell-extensions    | Distro                               | Core         |
-| gnome-subtitles           | Distro                               | Apps         |
-| gnome-tweak-tool          | Distro                               | Core         |
-| google-chrome-stable      | Distro                               | Apps         |
-| gparted                   | Distro                               | Core         |
+| gnome-panel               | Distro                               | System       |
+| gnome-shell               | Distro                               | System       |
+| gnome-shell-extensions    | Distro                               | System       |
+| gnome-subtitles           | Distro                               | Extra        |
+| gnome-tweak-tool          | Distro                               | System       |
+| google-chrome-stable      | Distro                               | Desktop      |
+| gparted                   | Distro                               | System       |
 | grep                      | Distro                               | CLI          |
-| grub-customizer           | ppa:danielrichter2007/grub-customizer| Core         |
-| gtk-recordmydesktop       | Distro                               | Core         |
-| guake                     | Distro                               | Core         |
-| handbrake                 | Distro                               | Apps         |
-| hardinfo                  | Distro                               | Core         |
+| grub-customizer           | ppa:danielrichter2007/grub-customizer| System       |
+| gtk-recordmydesktop       | Distro                               | Extra        |
+| guake                     | Distro                               | System       |
+| handbrake                 | Distro                               | Extra        |
+| hardinfo                  | Distro                               | System       |
 | htop                      | Distro                               | CLI          |
-| imagemagick               | Distro                               | Development  |
+| imagemagick               | Distro                               | Extra        |
 | inotify-tools             | Distro                               | CLI          |
-| jdownloader               | ppa:jd-team/jdownloader              | Apps         |
-| lame                      | Distro                               | Core         |
-| less                      | Distro                               | Core         |
-| libreoffice-common        | Distro                               | Apps         |
-| lm-sensors                | Distro                               | Core         |
-| lyx                       | Distro                               | Apps         |
-| mdadm                     | Distro                               | Core         |
+| jdownloader               | ppa:jd-team/jdownloader              | Desktop      |
+| lame                      | Distro                               | Extra        |
+| less                      | Distro                               | CLI          |
+| libreoffice-common        | Distro                               | Desktop      |
+| lm-sensors                | Distro                               | Extra        |
+| lyx                       | Distro                               | Extra        |
+| mdadm                     | Distro                               | System       |
 | meld                      | Distro                               | Development  |
-| mencoder                  | Distro                               | CLI          |
-| mkvtoolnix                | Distro                               | CLI          |
-| mplayer2                  | Distro                               | Core         |
+| mencoder                  | Distro                               | Extra        |
+| mkvtoolnix                | Distro                               | Extra        |
+| mplayer2                  | Distro                               | Extra        |
 | mysql-common              | Distro                               | Development  |
-| nautilus-open-terminal    | Distro                               | Core         |
-| nautilus-sendto           | Distro                               | Core         |
-| net-tools                 | Distro                               | Core         |
+| nautilus-open-terminal    | Distro                               | System       |
+| nautilus-sendto           | Distro                               | System       |
+| gnome-nettool             | Distro                               | System       |
 | nmap                      | Distro                               | CLI          |
-| noip-2.1.9                | Distro                               | Apps         |
+| noip-2.1.9                | Distro                               | Desktop      |
 | ntfs-3g                   | Distro                               | CLI          |
-| openshot                  | Distro                               | Apps         |
-| oracle-java8-installer    | ppa:webupd8team/java                 | Apps         |
-| owncloud                  | Distro                               | Apps         |
-| p7zip                     | Distro                               | Core         |
-| pdfjam                    | Distro                               | CLI          |
+| openshot                  | Distro                               | Extra        |
+| oracle-java8-installer    | ppa:webupd8team/java                 | Development  |
+| owncloud                  | Distro                               | Extra        |
+| p7zip                     | Distro                               | System       |
+| pdfjam                    | Distro                               | Extra        |
 | php5                      | Distro                               | Development  |
 | php5-apcu                 | Distro                               | Development  |
 | php5-cli                  | Distro                               | Development  |
@@ -120,43 +119,43 @@ category: Linux
 | php5-xdebug               | Distro                               | Development  |
 | php5-xsl                  | Distro                               | Development  |
 | php-codecoverage          | Distro                               | Development  |
-| php-codesniffer           | Distro                               | Apps         |
-| picard                    | Distro                               | Apps         |
-| playonlinux               | Distro                               | Apps         |
-| ppa-purge                 | Distro                               | Core         |
-| qjackctl                  | Distro                               | Core         |
-| qsynth                    | Distro                               | Core         |
-| seahorse                  | Distro                               | Core         |
+| php-codesniffer           | Distro                               | Development  |
+| picard                    | Distro                               | Extra        |
+| playonlinux               | Distro                               | Extra        |
+| ppa-purge                 | Distro                               | System       |
+| qjackctl                  | Distro                               | Extra        |
+| qsynth                    | Distro                               | Extra        |
+| seahorse                  | Distro                               | System       |
 | sed                       | Distro                               | CLI          |
-| shotwell                  | Distro                               | Apps         |
-| silversearcher-ag         | Distro                               | Development  |
-| simple-scan               | Distro                               | Apps         |
-| sopcast-player            | Distro                               | Apps         |
-| sound-juicer              | Distro                               | Apps         |
-| sp-auth                   | Distro                               | Apps         |
-| subdownloader             | Distro                               | Apps         |
-| synaptic                  | Distro                               | Core         |
-| thunderbird               | Distro                               | Apps         |
+| shotwell                  | Distro                               | Desktop      |
+| silversearcher-ag         | Distro                               | CLI          |
+| simple-scan               | Distro                               | Desktop      |
+| sopcast-player            | Distro                               | Desktop      |
+| sound-juicer              | Distro                               | Extra        |
+| sp-auth                   | Distro                               | Desktop      |
+| subdownloader             | Distro                               | Desktop      |
+| synaptic                  | Distro                               | System       |
+| thunderbird               | Distro                               | Desktop      |
 | time                      | Distro                               | CLI          |
-| timidity                  | Distro                               | Core         |
-| tmux                      | Distro                               | Core         |
-| tuxguitar                 | Distro                               | Apps         |
-| ubuntu-restricted-extras  | Distro                               | Core         |
-| unison-all-gtk            | Distro                               | Apps         |
-| unity-tweak-tool          | Distro                               | Core         |
-| usb-creator-gtk           | Distro                               | Core         |
-| vim                       | Distro                               | Core         |
-| vim-gnome                 | Distro                               | Core         |
-| virtualbox                | Distro                               | Apps         |
-| vlc                       | Distro                               | Apps         |
-| vorbis-tools              | Distro                               | CLI          |
+| timidity                  | Distro                               | Extra        |
+| tmux                      | Distro                               | System       |
+| tuxguitar                 | Distro                               | Extra        |
+| ubuntu-restricted-extras  | Distro                               | System       |
+| unison-all-gtk            | Distro                               | Desktop      |
+| unity-tweak-tool          | Distro                               | System       |
+| usb-creator-gtk           | Distro                               | System       |
+| vim                       | Distro                               | System       |
+| vim-gnome                 | Distro                               | System       |
+| virtualbox                | Distro                               | Development  |
+| vlc                       | Distro                               | Desktop      |
+| vorbis-tools              | Distro                               | Extra        |
 | wget                      | Distro                               | CLI          |
-| wine                      | Distro                               | Core         |
+| wine                      | Distro                               | System       |
 | wmctrl                    | Distro                               | CLI          |
 | xclip                     | Distro                               | CLI          |
 | xdotool                   | Distro                               | CLI          |
-| y-ppa-manager             | ppa:webupd8team/y-ppa-manager        | Core         |
-| zsh                       | Distro                               | Core         |
+| y-ppa-manager             | ppa:webupd8team/y-ppa-manager        | System       |
+| zsh                       | Distro                               | CLI          |
 
 
 > Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)
@@ -240,14 +239,30 @@ category: Linux
         $('table').tablesorter({
             theme : 'blue',
             sortList: [[2,0], [1,0], [0,0]],
-        widgets: ["zebra", "filter"],
+            widgets: ["zebra", "filter"],
             widgetOptions : {
                 filter_functions : { 1: true, 2 : true },
                 filter_placeholder : { search : 'Type a package name', select : 'Select an option' },
-                filter_reset: '.reset'
+                filter_reset: '.reset',
+                filter_formatter : {
+                    // default settings on first column
+                    1 : function($cell, indx){
+                        return $.tablesorter.filterFormatter.select2( $cell, indx, {
+                                // *** select2 filter formatter options ***
+                                cellText : '',    // Text (wrapped in a label element)
+                                match    : true,  // adds "filter-match" to header & modifies search
+                                value    : [],    // initial select2 values
+
+                                // *** ANY select2 options can be included below ***
+                                // (showing default settings for this formatter code)
+                                multiple : true,  // allow multiple selections
+                                width    : '100%' // reduce this width if you add cellText
+                        });
+                    }
                 }
+            }
         });
-        
+
         function unique(list) {
             var result = [];
             $.each(list, function(i, e) {

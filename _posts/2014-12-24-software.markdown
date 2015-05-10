@@ -169,11 +169,6 @@ category: Linux
 ``` ppa:gnome3-team/gnome3 ```
 
 <script>
-    $(function(){
-        $('tr').each(function(){
-            $(this).find('td:first').prepend('<input class="check" type="checkbox"></input> ');
-        });
-
         $(document).on('click', '#selectAll', function(e) {
             e.preventDefault();
             $(".check").prop('checked', true).trigger("change");
@@ -235,18 +230,30 @@ category: Linux
             $('#selectText').html(addReposCmd + installCmd);
         });
 
+        function unique(list) {
+            var result = [];
+            $.each(list, function(i, e) {
+                    if ($.inArray(e, result) == -1) result.push(e);
+                    });
+            return result;
+        }
+    $( document ).ready(function() {
+        $('tr').each(function(){
+            $(this).find('td:first').prepend('<input class="check" type="checkbox"></input> ');
+        });
+
         $('table').addClass('tablesorter');
         $('table').tablesorter({
             theme : 'blue',
             sortList: [[2,0], [1,0], [0,0]],
             widgets: ["zebra", "filter"],
             widgetOptions : {
-                filter_functions : { 1: true, 2 : true },
-                filter_placeholder : { search : 'Type a package name', select : 'Select an option' },
+                // filter_functions : { 0: true, 1: true, 2 : true },
+                filter_placeholder : { search : "Type 'Distro' or 'ppa'"},
                 filter_reset: '.reset',
                 filter_formatter : {
                     // default settings on first column
-                    1 : function($cell, indx){
+                    0 : function($cell, indx){
                         return $.tablesorter.filterFormatter.select2( $cell, indx, {
                                 // *** select2 filter formatter options ***
                                 cellText : '',    // Text (wrapped in a label element)
@@ -256,20 +263,48 @@ category: Linux
                                 // *** ANY select2 options can be included below ***
                                 // (showing default settings for this formatter code)
                                 multiple : true,  // allow multiple selections
-                                width    : '100%' // reduce this width if you add cellText
+                                width    : '100%', // reduce this width if you add cellText
+                                closeOnSelect: false,
+                                placeholder: "Search package"
+                        });
+                    },
+                    // default settings on first column
+                    // 1 : function($cell, indx){
+                    //     return $.tablesorter.filterFormatter.select2( $cell, indx, {
+                    //             // *** select2 filter formatter options ***
+                    //             cellText : '',    // Text (wrapped in a label element)
+                    //             match    : true,  // adds "filter-match" to header & modifies search
+                    //             value    : [],    // initial select2 values
+
+                    //             // *** ANY select2 options can be included below ***
+                    //             // (showing default settings for this formatter code)
+                    //             multiple : true,  // allow multiple selections
+                    //             width    : '100%', // reduce this width if you add cellText
+                    //             closeOnSelect: false
+                    //     });
+                    // },
+                    // default settings on first column
+                    2 : function($cell, indx){
+                        return $.tablesorter.filterFormatter.select2( $cell, indx, {
+                                // *** select2 filter formatter options ***
+                                cellText : '',    // Text (wrapped in a label element)
+                                match    : true,  // adds "filter-match" to header & modifies search
+                                value    : [],    // initial select2 values
+
+                                // *** ANY select2 options can be included below ***
+                                // (showing default settings for this formatter code)
+                                multiple : true,  // allow multiple selections
+                                width    : '100%', // reduce this width if you add cellText
+                                closeOnSelect: false,
+                                placeholder: "Section"
                         });
                     }
                 }
             }
         });
+        $('.tablesorter-filter[type="search"]').css('height', '39px').css('width', '100%').css('font-size', '15pt');
 
-        function unique(list) {
-            var result = [];
-            $.each(list, function(i, e) {
-                    if ($.inArray(e, result) == -1) result.push(e);
-                    });
-            return result;
-        }
     });
+    
 </script>
 <script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>

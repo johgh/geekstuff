@@ -57,6 +57,10 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Encode/decode special characters](http://www.the-art-of-web.com/javascript/escape/)
 
+[<i class="fa fa-external-link"></i> Browser compatibility](http://caniuse.com)
+
+[<i class="fa fa-external-link"></i> User agent string](http://www.useragentstring.com/)
+
 ## Web development plugins
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 

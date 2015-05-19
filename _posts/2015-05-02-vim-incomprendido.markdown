@@ -136,7 +136,7 @@ Ciertamente la potencia de edición de Vim puede aturdir al principio, la misma 
 pero ¿cual es la mejor manera?
 
 Está claro que ni utilizar el [menor número de pulsaciones](http://www.vimgolf.com/) en cada momento, ni usar Vim de la forma más
-"perezosa" posible (como si se tratara de un edito convencional) debe ser nuestro objetivo. La
+"perezosa" posible (como si se tratara de un editor convencional) debe ser nuestro objetivo. La
 [práctica](https://pragprog.com/book/dnvim/practical-vim) será nuestra mejor
 consejera, y en poco tiempo comenzaremos a memorizar algunas secuencias de teclas recurrentes. He aquí algunos ejemplos:
 

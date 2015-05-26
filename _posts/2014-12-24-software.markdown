@@ -12,9 +12,11 @@ category: Linux
 <div style="float:right" id="numPackages"></div>
 <div> <button id="selectButton" style="display:none" type="button"> Select text </button> </div>
 <br />
-<a href="#" id="selectAll">Select all packages</a> / <a href="#" id="unselectAll">Unselect all packages</a>
+<!--<a href="#" id="selectAll">Select all packages</a> / <a href="#" id="unselectAll">Unselect all packages</a>
+<br />-->
+<a href="#" id="selectSection">Select current filtered packages</a>
 <br />
-<a href="#" id="selectSection">Select current section packages</a> / <a href="#" id="unselectSection">Unselect current section packages</a>
+ <a href="#" id="unselectSection">Unselect current filtered packages</a>
 <br />
 <div> <button class="reset" type="button"> Clear all filters </button> </div>
 <br />
@@ -37,7 +39,6 @@ category: Linux
 | comix                     | Distro                               | Desktop      |
 | command-not-found         | Distro                               | System       |
 | curl                      | Distro                               | CLI          |
-| dbeaver                   | Distro                               | Development  |
 | dconf-editor              | Distro                               | System       |
 | deluge                    | Distro                               | Desktop      |
 | dropbox                   | Distro                               | Desktop      |
@@ -114,12 +115,14 @@ category: Linux
 | php5-mcrypt               | Distro                               | Development  |
 | php5-mysql                | Distro                               | Development  |
 | php5-oauth                | Distro                               | Development  |
+| php5-pgsql                | Distro                               | Development  |
 | php5-readline             | Distro                               | Development  |
 | php5-tidy                 | Distro                               | Development  |
 | php5-xdebug               | Distro                               | Development  |
 | php5-xsl                  | Distro                               | Development  |
 | php-codecoverage          | Distro                               | Development  |
 | php-codesniffer           | Distro                               | Development  |
+| pgadmin3                  | Distro                               | Development  |
 | picard                    | Distro                               | Extra        |
 | playonlinux               | Distro                               | Extra        |
 | ppa-purge                 | Distro                               | System       |
@@ -162,11 +165,21 @@ category: Linux
 
 ## Repositories
 
-``` wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -```
+Google
+: {% highlight bash %}
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+{% endhighlight %}
 
-```sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' ```
+Gnome
+: {% highlight bash %}
+$ sudo add-apt-repository ppa:gnome3-team/gnome3
+{% endhighlight %}
 
-``` ppa:gnome3-team/gnome3 ```
+## Links
+
+* [Dbeaver](http://dbeaver.jkiss.org/download/)
+* [Brackets](http://brackets.io/)
 
 <script>
         $(document).on('click', '#selectAll', function(e) {

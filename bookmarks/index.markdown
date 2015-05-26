@@ -70,6 +70,8 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Jstree plugin](http://www.jstree.com)
 
+[<i class="fa fa-external-link"></i> Spreadsheet plugin](http://handsontable.com/)
+
 # Misc stuff
 [<i class="fa fa-external-link"></i> Server Push (and Websockets)](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
 

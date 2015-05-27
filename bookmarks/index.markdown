@@ -15,6 +15,8 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Bash Hackers Wiki](http://wiki.bash-hackers.org)
 
+<br />
+
 ## References
 [<i class="fa fa-external-link"></i> Vim Reference (Html & Pdf)](http://tnerual.eriogerg.free.fr/vimqrc-es.html)
 
@@ -25,6 +27,10 @@ permalink: /bookmarks/
 [<i class="fa fa-external-link"></i> Bash Cheatsheet](http://www.scribd.com/doc/88404386/Bash-Cheat-Sheet)
 
 [<i class="fa fa-external-link"></i> Interactive Cheat-Sheets (mplayer, vim)](http://sheet.shiar.nl/)
+
+<br />
+
+---
 
 # Web
 
@@ -41,6 +47,8 @@ permalink: /bookmarks/
 [<i class="fa fa-external-link"></i> Snippets and tutorials](http://www.the-art-of-web.com/)
 
 [<i class="fa fa-external-link"></i> Learn CSS Layout](http://learnlayout.com/)
+
+<br />
 
 ## Online tools
 [<i class="fa fa-external-link"></i> Regexes testing](http://regex101.com/)
@@ -61,6 +69,8 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> User agent string](http://www.useragentstring.com/)
 
+<br />
+
 ## Web development plugins
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 
@@ -72,6 +82,10 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Spreadsheet plugin](http://handsontable.com/)
 
+<br />
+
+---
+
 # Misc stuff
 [<i class="fa fa-external-link"></i> Server Push (and Websockets)](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
 
@@ -80,6 +94,8 @@ permalink: /bookmarks/
 [<i class="fa fa-external-link"></i> Free (as in speech) ebooks](https://github.com/danchoi/kindlefodder)
 
 [<i class="fa fa-external-link"></i> Linux MIDI Guide](http://tedfelix.com/linux/linux-midi.html)
+
+<br />
 
 <!--
 [Alias](http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)

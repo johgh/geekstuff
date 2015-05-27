@@ -9,9 +9,11 @@ permalink: /map/
   {% assign posts = site.posts | sort: 'title' %}
   <ul class="post-list">
     {% for post in posts %}
+        {% if post.category != 'Blog' %}
         <h2>
           <i class="fa fa-file-code-o"></i><a class="post-link" href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }}</a>
         </h2>
+        {% endif %}
     {% endfor %}
   </ul>
 

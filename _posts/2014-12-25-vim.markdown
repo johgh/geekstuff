@@ -337,13 +337,13 @@ Execute the Ex command [cmd] on all specified lines where the {pattern} matches
     `:g/{/ .+1,/}/-1 sort`
 
 Quick abbreviation (available through Abolish plugin)
-: `:Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}`
+: `:%Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}`
 
 Quick substitution (available through Abolish plugin)
-: `:S[ubvert]/child{,ren}/adult{,s}/g`
+: `:%S[ubvert]/child{,ren}/adult{,s}/g`
 
 > For swapping two words you can do:
-`%S/{man,dog}/{dog,man}/g`
+`:%S/{man,dog}/{dog,man}/g`
 
 > Both `Subvert` and `Abolish` commands take care of case sensitive variants, so in the above command 'man', 'Man' and 'MAN' would be swapped with its correspondent counterparts
 

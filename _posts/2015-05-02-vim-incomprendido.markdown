@@ -1,6 +1,6 @@
 ---
 layout: blog
-title:  "Vim: El editor incomprendido"
+title:  "Vim. El editor incomprendido"
 permalink:  "Vim-incomprendido"
 date:   2015-05-02 16:30:15
 category: Blog

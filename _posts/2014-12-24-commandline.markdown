@@ -75,6 +75,16 @@ Configure java
     $ update-alternatives --config java
 {% endhighlight %}
 
+Configure terminal proxy (put on .bashrc for permanent use)
+: {% highlight sh %}
+    $ export http_proxy="http://user:password@proxy-server:port"
+    $ export https_proxy="https://user:password@proxy-server:port"
+    $ export ftp_proxy="http://user:password@proxy-server:port"
+    
+    # without authentication one-liner
+    $ export {http,https,ftp}_proxy="http://proxy-server:port"
+{% endhighlight %}
+
 <br />
 
 ---

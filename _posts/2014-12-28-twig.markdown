@@ -84,7 +84,7 @@ If, for, length, keys, first, loop.first
 {%  if machine.availableDistros | length > 1 %}
     <select name="js-distros-{{ idMachine }}" id='js-distros-{{ idMachine }}'>
     {% for key, distro in machine.availableDistros %}
-        <option value="{{ key }}" loop.first?'checked=""checked""'> {{ distro }}</option>
+        <option value="{{ key }}" {{ loop.first?'checked=""checked""' }}> {{ distro }}</option>
     {% endfor %}
     </select>
 {% elseif machine.availableDistros | length == 1 %}

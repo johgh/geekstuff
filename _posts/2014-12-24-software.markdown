@@ -5,7 +5,7 @@ permalink:  "apps"
 date:   2014-12-24 16:30:15
 category: Linux
 ---
-# Package installer
+## Package installer
 
 <div id="selectText" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
 6px; border-width: 2px;"> No packages selected </div>
@@ -165,7 +165,7 @@ category: Linux
 
 > Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)
 
-# Repositories
+## Repositories
 
 Google
 : {% highlight bash %}
@@ -178,7 +178,7 @@ Gnome
 $ sudo add-apt-repository ppa:gnome3-team/gnome3
 {% endhighlight %}
 
-# Download links
+## Download links
 
 * [Dbeaver](http://dbeaver.jkiss.org/download/)
 * [Brackets](http://brackets.io/)

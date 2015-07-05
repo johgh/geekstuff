@@ -490,10 +490,10 @@ Save all buffers
 ## Windows
 
 Create vertical window
-: `:<C-w> v`
+: `<C-w> v`
 
 Create horizontal window
-: `:<C-w> s`
+: `<C-w> s`
 
 Show only buffer on current window
 : `:only`
@@ -503,6 +503,90 @@ Unhide buffers (create window for every buffer)
 
 Quit all windows
 : `:qa`
+
+## Ctrl-space (plugin)
+
+### Buffers / Files
+
+enter buffer list mode (default mode)
+: `<C-space>`
+
+> all commands below only work after entering `<C-space>` mode, `q` exits
+
+> buffer list submodes
+: 
+    `a` / `A` all projects mode / in search mode <br />
+    `z` zoom (preview mode)<br />
+    `backspace` return to single project mode<br />
+    `*` visible mode<br />
+
+> visible mode is useful to jump to windows easily
+: 
+    `tab` jump to window<br />
+    `S-tab` jump to window, continue in <C-space> mode<br />
+
+enter current project files list mode / in search mode
+: `o` / `O`
+
+> buffer list / files list actions
+: 
+    `v` / `V` open in vertical split window / and continue in mode<br />
+    `s` / `S` open in horizontal split window / and continue in mode<br />
+    `t` / `T` open in new tab / and continue in mode<br />
+    
+    
+> buffer list only actions
+: 
+    `x` close the window containig buffer<br />
+    `X` close all the windows except the one containig buffer<br />
+    `d` delete current buffer<br />
+    `D` delete all noname buffers<br />
+    `f` delete current buffer only from current tab<br />
+    `C` close current tab<br />
+
+### Tabs
+
+enter tabs list mode / in search mode
+: `l` / `L`
+
+> tab actions
+: 
+    `<ctrl-t>` starts blank tab (same as `:tabe`)<br />
+    `=` rename tab<br />
+    `{` / `}` move tab left/right<br />
+    `[` / `]` go to tab left/right<br />
+
+### Workspaces (sessions)
+
+enter workspace mode
+: `w`
+
+> Session actions
+: 
+    `<c-s>` save workspace<br />
+    `<c-l>` load last session<br />
+    `N` close all buffers, start from blank workspace<br />
+
+### Bookmarks
+
+enter bookmark project mode
+: `b`
+
+> saves path of project (same as if we cd on the root of a project). A project has its own workspace (session) and file list
+
+
+### Common actions (all modes)
+enter search mode
+: `/`
+
+previous / next search
+: `<c-p>` / `<c-n>`
+
+return from search mode (if in search mode) / return to buffer list mode
+: `<backspace>`
+
+up / down / top / bottom (in all list modes)
+: `k` / `j` / `K` / `J`
 
 # VIM quick reference
 

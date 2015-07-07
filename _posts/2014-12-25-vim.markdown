@@ -515,9 +515,9 @@ enter buffer list mode (default mode)
 
 > buffer list submodes
 : 
-    `a` / `A` all projects mode / in search mode <br />
+    `a` / `A` all tabs mode / in search mode <br />
     `z` zoom (preview mode)<br />
-    `backspace` return to single project mode<br />
+    `backspace` return to single (current tab) mode<br />
     `*` visible mode<br />
 
 > visible mode is useful to jump to windows easily
@@ -525,24 +525,22 @@ enter buffer list mode (default mode)
     `tab` jump to window<br />
     `S-tab` jump to window, continue in <C-space> mode<br />
 
+> buffer list actions
+: 
+    `x` close the window containig selected buffer<br />
+    `x` close the window containig selected buffer<br />
+    `X` close all the windows except the one containig selected buffer<br />
+    `d` delete selected buffer<br />
+    `D` delete all noname buffers<br />
+    `f` delete selected buffer only from current tab<br />
+    `g` / `G` go to next/previous selected buffer tab (really useful when in "all tabs" mode)<br />
+    `e` open new file from selected directory buffer<br />
+    `<ctrl-t>` starts blank tab (same as `:tabe`)<br />
+    `C` close current tab<br />
+    `=` rename current tab<br />
+
 enter current project files list mode / in search mode
 : `o` / `O`
-
-> buffer list / files list actions
-: 
-    `v` / `V` open in vertical split window / and continue in mode<br />
-    `s` / `S` open in horizontal split window / and continue in mode<br />
-    `t` / `T` open in new tab / and continue in mode<br />
-    
-    
-> buffer list only actions
-: 
-    `x` close the window containig buffer<br />
-    `X` close all the windows except the one containig buffer<br />
-    `d` delete current buffer<br />
-    `D` delete all noname buffers<br />
-    `f` delete current buffer only from current tab<br />
-    `C` close current tab<br />
 
 ### Tabs
 
@@ -551,10 +549,9 @@ enter tabs list mode / in search mode
 
 > tab actions
 : 
-    `<ctrl-t>` starts blank tab (same as `:tabe`)<br />
-    `=` rename tab<br />
-    `{` / `}` move tab left/right<br />
-    `[` / `]` go to tab left/right<br />
+    `t` starts blank tab (same as `:tabe`)<br />
+    `c` close selected tab<br />
+    `=` rename selected tab<br />
 
 ### Workspaces (sessions)
 
@@ -565,6 +562,7 @@ enter workspace mode
 : 
     `<c-s>` save workspace<br />
     `<c-l>` load last session<br />
+    `a` append selected workspace instead of load a new one<br />
     `N` close all buffers, start from blank workspace<br />
 
 ### Bookmarks
@@ -572,22 +570,39 @@ enter workspace mode
 enter bookmark project mode
 : `b`
 
-> saves path of project (same as if we cd on the root of a project). A project has its own workspace (session) and file list
+> `a` saves path of project (same as if we cd on the root of a project). A project has its own workspaces and file list
 
 
-### Common actions (all modes)
+### Common actions
 enter search mode
 : `/`
 
 previous / next search
 : `<c-p>` / `<c-n>`
 
-return from search mode (if in search mode) / return to buffer list mode
+go back. return from search mode (if in search mode) / return to buffer list mode
 : `<backspace>`
 
 up / down / top / bottom (in all list modes)
 : `k` / `j` / `K` / `J`
 
+quit Vim
+: `Q`
+
+> buffer and tab mode only
+: 
+    `-` / `+` move tab left/right<br />
+    `[` / `]` go to tab left/right<br />
+    
+    
+> buffer and file list mode only
+: 
+    `<CR> / <space>` open selected buffer / and continue in mode<br />
+    `v` / `V` open in vertical split window / and continue in mode<br />
+    `s` / `S` open in horizontal split window / and continue in mode<br />
+    `t` / `T` open in new tab / and continue in mode<br />
+    
+    
 # VIM quick reference
 
 > This was copied from [here](http://tnerual.eriogerg.free.fr/vim.html). Go there for pdf format and more!

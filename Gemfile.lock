@@ -77,6 +77,9 @@ GEM
     jekyll-sitemap (0.6.3)
     jekyll-watch (1.2.0)
       listen (~> 2.7)
+    jekyll_github_sample (0.1.1)
+      activesupport (~> 4.0)
+      jekyll (~> 2.0)
     jemoji (0.4.0)
       gemoji (~> 2.0)
       html-pipeline (~> 1.9)
@@ -124,3 +127,4 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll_github_sample

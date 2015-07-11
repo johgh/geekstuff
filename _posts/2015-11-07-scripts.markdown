@@ -23,7 +23,7 @@ category: Linux
 
 # My Vim setup
 
-> I use this script to install my Vim setup (that works as a PHP IDE). It is recommended to use Gvim instead of a terminal.
+> I use this script to install [my Vim setup](https://github.com/johgh/vim) (that works as a PHP IDE). It is recommended to use Gvim instead of a terminal.
 
 
 {% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}

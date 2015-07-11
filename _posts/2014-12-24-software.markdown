@@ -10,7 +10,7 @@ category: Linux
 <div id="selectText" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
 6px; border-width: 2px;"> No packages selected </div>
 <div style="float:right" id="numPackages"></div>
-<div> <button id="selectButton" style="display:none" type="button"> Select text </button> </div>
+<div> <button class="selectButton" data-id="#selectText" style="display:none" type="button"> Select text </button> </div>
 <br />
 <!--<a href="#" id="selectAll">Select all packages</a> / <a href="#" id="unselectAll">Unselect all packages</a>
 <br />-->
@@ -238,11 +238,11 @@ $ sudo add-apt-repository ppa:gnome3-team/gnome3
             }
             if (numPackages == 0) {
                 installCmd = 'No packages selected';
-                $('#selectButton').hide();
+                $('.selectButton').hide();
                 $('div#numPackages').html('');
             } else {
                 $('div#numPackages').html(numPackages + ' package/s selected');
-                $('#selectButton').show();
+                $('.selectButton').show();
             }
             $('#selectText').html(addReposCmd + installCmd);
         });

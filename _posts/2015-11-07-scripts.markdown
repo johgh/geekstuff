@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "Scripts"
+permalink:  "my scripts"
+date:   2014-12-21 16:30:15
+category: Linux
+---
+
+# Dot files setup
+
+> This script downloads from github my dot (config) files installing any external dependencies. It also installs
+> my .vim directory if doesn't find previous Vim config files
+
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+
+{% github_sample_ref johgh/scripts/blob/master/setup.sh  %}
+<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
+<div id="selectText1">
+{% highlight vim %}
+{% github_sample johgh/scripts/blob/master/setup.sh %}
+{% endhighlight %}
+</div>
+
+# My Vim setup
+
+> I use this script to install my Vim setup (that works as a PHP IDE). It is recommended to use Gvim instead of a terminal.
+
+
+{% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
+<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
+<div id="selectText2">
+{% highlight vim %}
+{% github_sample johgh/scripts/blob/master/vim_setup.sh %}
+{% endhighlight %}
+</div>
+

@@ -17,7 +17,8 @@ jQuery.fn.selectText = function() {
     }
 };
 $(function(){
-    $('#selectButton').click(function() {
-        $('#selectText').selectText();
+    $('.selectButton').click(function() {
+        var id = $(this).data('id');
+        $(id).selectText();
     });
 });

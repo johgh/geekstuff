@@ -41,7 +41,7 @@ $ sudo php5enmod mcrypt
 $ sudo service apache2 restart
 {% endhighlight %}
 
-> Tested in (ubuntu 13.10)
+> Tested in (ubuntu 13.10) / In Ubuntu 14.04 only enabling mcrypt is necessary
 
 Configure file uploads in .htaccess
 : {% highlight bash %}

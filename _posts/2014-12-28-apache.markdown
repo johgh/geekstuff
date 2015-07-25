@@ -36,12 +36,13 @@ $ sudo a2ensite default-ssl
 Enable mcrypt 
 : {% highlight bash %}
 $ sudo apt-get install php5-mcrypt
+# Next line only necessary in Ubuntu 13.10
 $ sudo mv -i /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/
 $ sudo php5enmod mcrypt
 $ sudo service apache2 restart
 {% endhighlight %}
 
-> Tested in (ubuntu 13.10) / In Ubuntu 14.04 only enabling mcrypt is necessary
+> Tested in Ubuntu 13.10 & 14.04
 
 Configure file uploads in .htaccess
 : {% highlight bash %}

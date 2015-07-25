@@ -62,7 +62,7 @@ Reload .bashrc/.zshrc
 
 Mount device as user (without sudo)
 : {% highlight sh %}
-    mount /mnt/my_device
+    $ mount /mnt/my_device
 {% endhighlight %}
 
 > for the command above to work you need to create ```/mnt/my_device``` directory and put on /etc/fstab a line like:

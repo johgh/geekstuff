@@ -60,6 +60,18 @@ Reload .bashrc/.zshrc
     $ source [.bashrc|.zshrc]
 {% endhighlight %}
 
+Mount device as user (without sudo)
+: {% highlight sh %}
+    mount /mnt/my_device
+{% endhighlight %}
+
+> for the command above to work you need to create ```/mnt/my_device``` directory and put on /etc/fstab a line like:
+>
+> UUID="8574-1C11" /mnt/my_device vfat rw,noauto,user,noexec 0 0
+>
+> * UUID can be found with ```blkid``` command
+> * to automount at startup do not specify ```noauto``` option parameter (then you can umount manually with ```umount /mnt/my_device```)
+
 Public IP
 : {% highlight sh %}
     $ curl ifconfig.me
@@ -183,7 +195,7 @@ Graphical rotation
 
 Add app to startup
 : {% highlight sh %}
-    $cp /usr/share/applications/guake.desktop ~/.config/autostart/
+    $ cp /usr/share/applications/guake.desktop ~/.config/autostart/
 {% endhighlight %}
 
 Move app to workspace at startup

@@ -341,7 +341,7 @@ nuestra cabeza, la que tome el control.
 Vim es software libre. El desarrollo ha sido llevado a cabo casi exclusivamente por un desarrollador
 desde 1991, y tratando de ser retrocompatible con el editor Vi originalmente escrito en 1976, ha heredado algunos
 ajustes por defecto poco afortunados, que hacen que sea casi obligatorio configurarlo inicialmente a [nuestra
-medida](/Vim config/).
+medida](/vimrc/).
 
 **¿Cuál será el futuro del editor?**
 

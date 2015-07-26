@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "Symfony2"
+permalink:  "symfony"
+date:   2014-12-28 16:30:15
+category: Web
+---
+> The following was tested on Ubuntu 14.04
+
+# Installation
+Download installer
+: {% highlight bash %}
+$ sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
+$ sudo chmod a+x /usr/local/bin/symfony
+{% endhighlight %}
+
+Create new project
+: {% highlight bash %}
+$ cd ~/workspace
+$ symfony new my_project_name
+# create symlink to web server
+$ ln -s ~/workspace/my_project_name /var/www/
+{% endhighlight %}
+
+Meet Symfony Requirements (if needed)
+: {% highlight bash %}
+# put this line on /etc/php5/cli/php.ini (cli php.ini!)
+date.timezone = Europe/Madrid
+# recheck requirements
+$ php my_project_name/app/check.php
+{% endhighlight %}
+
+Set permissions (set acls cli + web server)
+: {% highlight bash %}
+$ sudo setfacl -R -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
+$ sudo setfacl -dR -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
+{% endhighlight %}
+
+Configure app from Web
+: Go to [http://localhost/my_project_name/web/config.php](http://localhost/my_project_name/web/config.php)
+
+> You can also edit the yaml config file: ```app/config/parameters.yml``` directly 
+
+Access app from php server (with debug info)
+: {% highlight bash %}
+# Run server
+$ cd ~/workspace/my_project_name
+$ php app/console server:run
+# Now you can access app on localhost:8000
+{% endhighlight %}
+
+Install Composer
+: {% highlight bash %}
+$ curl -sS https://getcomposer.org/installer | php
+$ sudo mv composer.phar /usr/local/bin/composer
+{% endhighlight %}
+
+Updating project (vendor directory)
+: {% highlight bash %}
+$ cd ~/workspace/my_project_name
+$ composer update
+# to check vulnerabilities
+$ php app/console security:check
+{% endhighlight %}
+
+Removing Acme bundle (demo bundle that comes with Symfony Standard Edition)
+: [https://symfony.com/doc/current/cookbook/bundles/remove.html](https://symfony.com/doc/current/cookbook/bundles/remove.html)
+
+# Learn Symfony
+Downlad Symfony Demo
+: {% highlight bash %}
+$ sudo apt-get install php5-sqlite
+$ symfony demo
+{% endhighlight %}
+
+> You will need the Symfony Installer (see above). See also "Meet Symfony Requirements and Permissions" above
+
+> A good point to start: [https://symfony.com/doc/current/book/page_creation.html](https://symfony.com/doc/current/book/page_creation.html)

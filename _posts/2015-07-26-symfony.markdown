@@ -5,7 +5,7 @@ permalink:  "symfony"
 date:   2014-12-28 16:30:15
 category: Web
 ---
-> The following was tested on Ubuntu 14.04
+> The following was tested on Ubuntu 14.04 and Symfony 2.7
 
 # Installation
 Download installer
@@ -39,7 +39,9 @@ $ sudo setfacl -dR -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
 Configure app from Web
 : Go to [http://localhost/my_project_name/web/config.php](http://localhost/my_project_name/web/config.php)
 
-> You can also edit the yaml config file: ```app/config/parameters.yml``` directly 
+> You will need to chmod o+w `app/config/parameters.yml` and restore permissions with `o-w` once the web config is done
+
+> You can also edit the yaml config file: `app/config/parameters.yml` directly 
 
 Access app from php server (with debug info)
 : {% highlight bash %}
@@ -66,13 +68,153 @@ $ php app/console security:check
 Removing Acme bundle (demo bundle that comes with Symfony Standard Edition)
 : [https://symfony.com/doc/current/cookbook/bundles/remove.html](https://symfony.com/doc/current/cookbook/bundles/remove.html)
 
-# Learn Symfony
-Downlad Symfony Demo
+Download Symfony Demo
 : {% highlight bash %}
 $ sudo apt-get install php5-sqlite
 $ symfony demo
 {% endhighlight %}
 
-> You will need the Symfony Installer (see above). See also "Meet Symfony Requirements and Permissions" above
+# Symfony Quick Guide
 
-> A good point to start: [https://symfony.com/doc/current/book/page_creation.html](https://symfony.com/doc/current/book/page_creation.html)
+Important files and dir structure
+: 
+* Symfony config: `app/config/config.yml`
+* Development front controller: `web/app_dev.php`
+* Production front controller: `web/app.php`
+* Enable new bundles: `app/AppKernel.php`
+
+> [Dir structure explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
+
+> For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
+
+Request object
+: {% highlight php startinline %}
+{% raw %}
+use Symfony\Component\HttpFoundation\Request;
+/**
+ * @Route("/hello/{firstName}/{lastName}", name="hello")
+ */
+public function indexAction(Request $request, $firstName, $lastName = 'default')
+{
+    $request->isXmlHttpRequest(); // is it an Ajax request?
+    $request->getPreferredLanguage(array('en', 'fr'));
+    $request->query->get('page'); // get a $_GET parameter
+    $request->request->get('page'); // get a $_POST parameter
+}
+{% endraw %}
+{% endhighlight %}
+
+
+Response object
+: {% highlight php startinline %}
+{% raw %}
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+class LuckyController
+{
+/**
+* @Route("/api/lucky/number")
+*/
+public function indexAction()
+{
+    // ...
+
+    // calls json_encode and sets the Content-Type header
+    return new JsonResponse($data);
+
+    // above is the same as:
+/*
+    return new Response(
+        json_encode($data),
+        Response::HTTP_OK,
+        array('Content-Type' => 'application/json')
+    );
+*/
+    // and:
+/*
+    $response = new Response(json_encode($data));
+    $response->headers->set('Content-Type', 'application/json');
+*/
+}
+{% endraw %}
+{% endhighlight %}
+
+Sessions
+: {% highlight php startinline %}
+{% raw %}
+use Symfony\Component\HttpFoundation\Request;
+public function indexAction(Request $request)
+{
+    $session = $request->getSession();
+
+    // store an attribute for reuse during a later user request
+    $session->set('foo', 'bar');
+
+    // get the attribute set by another controller in another request
+    $foobar = $session->get('foobar');
+
+    // use a default value if the attribute doesn't exist
+    $filters = $session->get('filters', array());
+}
+{% endraw %}
+{% endhighlight %}
+
+Exceptions
+: {% highlight php startinline %}
+{% raw %}
+    if (!$product) {
+        throw $this->createNotFoundException('The product does not exist');
+    }
+    
+    // this returns a 500 http response code
+    throw new \Exception('Something went wrong!');
+{% endraw %}
+{% endhighlight %}
+    
+Extending from Base Controller
+: {% highlight php startinline %}
+{% raw %}
+// src/AppBundle/Controller/HelloController.php
+namespace AppBundle\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+class HelloController extends Controller
+{
+    // container services
+    $templating = $this->get('templating');
+    $router = $this->get('router');
+    $mailer = $this->get('mailer');
+
+    $html = $this->container->get('templating')->render(
+        'lucky/number.html.twig',
+        array('luckyNumberList' => $numbersList)
+    );
+        
+    // shortcut for template rendering
+/*
+    return $this->render(
+    'lucky/number.html.twig',
+    array('luckyNumberList' => $numbersList)
+    );
+*/
+}
+{% endraw %}
+{% endhighlight %}
+
+> to list available services: `$ php app/console debug:container` 
+    
+    
+Redirecting
+: {% highlight php startinline %}
+{% raw %}
+public function indexAction()
+{
+    return $this->redirectToRoute('homepage');
+
+    // redirectToRoute is equivalent to using redirect() and generateUrl() together:
+    /* return $this->redirect($this->generateUrl('homepage'), 301); */
+    // or simply providing an external url:
+    /* return $this->redirect('http://symfony.com/doc'); */
+}
+{% endraw %}
+{% endhighlight %}
+

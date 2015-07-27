@@ -5,9 +5,13 @@ permalink:  "symfony"
 date:   2014-12-28 16:30:15
 category: Web
 ---
-> The following was tested on Ubuntu 14.04 and Symfony 2.7
+> The following was tested with Symfony 2.7 on Ubuntu 14.04
 
 # Installation
+
+### Documentation
+* [symfony 2.7 installation doc](http://symfony.com/doc/2.7/book/installation.html)
+
 Download installer
 : {% highlight bash %}
 $ sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
@@ -19,7 +23,7 @@ Create new project
 $ cd ~/workspace
 $ symfony new my_project_name
 # create symlink to web server
-$ ln -s ~/workspace/my_project_name /var/www/
+$ ln -s ~/workspace/my_project_name/Web /var/www/
 {% endhighlight %}
 
 Meet Symfony Requirements (if needed)
@@ -74,21 +78,28 @@ $ sudo apt-get install php5-sqlite
 $ symfony demo
 {% endhighlight %}
 
-# Symfony Quick Guide
+# Quick Guide
 
 Important files and dir structure
 : 
 * Symfony config: `app/config/config.yml`
+* Routing file: `app/config/routing.yml`
 * Development front controller: `web/app_dev.php`
 * Production front controller: `web/app.php`
+* Application views: `app/Resources/views`
 * Enable new bundles: `app/AppKernel.php`
 
 > [Dir structure explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
 
-Request object
-: {% highlight php startinline %}
+## Controllers
+
+### Documentation
+* [symfony 2.7 controllers doc](http://symfony.com/doc/2.7/book/controller.html)
+
+### Request object
+{% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Request;
 /**
@@ -105,8 +116,8 @@ public function indexAction(Request $request, $firstName, $lastName = 'default')
 {% endhighlight %}
 
 
-Response object
-: {% highlight php startinline %}
+### Response object
+{% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -139,8 +150,8 @@ public function indexAction()
 {% endraw %}
 {% endhighlight %}
 
-Sessions
-: {% highlight php startinline %}
+### Sessions
+{% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Request;
 public function indexAction(Request $request)
@@ -159,8 +170,8 @@ public function indexAction(Request $request)
 {% endraw %}
 {% endhighlight %}
 
-Exceptions
-: {% highlight php startinline %}
+### Exceptions
+{% highlight php startinline %}
 {% raw %}
     if (!$product) {
         throw $this->createNotFoundException('The product does not exist');
@@ -171,8 +182,8 @@ Exceptions
 {% endraw %}
 {% endhighlight %}
     
-Extending from Base Controller
-: {% highlight php startinline %}
+### Extending from Base Controller
+{% highlight php startinline %}
 {% raw %}
 // src/AppBundle/Controller/HelloController.php
 namespace AppBundle\Controller;
@@ -203,8 +214,8 @@ class HelloController extends Controller
 > to list available services: `$ php app/console debug:container` 
     
     
-Redirecting
-: {% highlight php startinline %}
+### Redirecting
+{% highlight php startinline %}
 {% raw %}
 public function indexAction()
 {
@@ -218,3 +229,147 @@ public function indexAction()
 {% endraw %}
 {% endhighlight %}
 
+
+---
+
+
+## Templates
+
+### Documentation
+* [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
+* For twig specific reference see [my twig doc](/twig/)
+
+### Three-level Inheritance (best practice)
+Base template
+: `base.html.twig`
+
+Section specific
+: `section/layout.html.twig`: extends from base.html.twig
+
+Page specific
+: `section/index.html.twig`: extends from layout.html.twig
+
+### Referencing templates
+
+Application views (`app/Resources/views`)
+:   
+    * `base.html.twig`
+    * `layout.html.twig` (default global layout)
+    * `section/layout.html.twig` (specific section layout)
+    * `section/index.html.twig` (specific page)
+
+Bundle views (`path/to/bundle/Resources/views/`)
+:   
+    * `AcmeBundle:section:index.html.twig`
+    * `AcmeBundle::layout.html.twig`
+
+Examples
+: {% highlight jinja %}
+{% raw %}
+{% extends 'base.html.twig' %}
+{% extends 'blog/layout.html.twig' %}
+{{ include('section/index.html.twig') }}
+{{ include(AcmeBundle:section:index.html.twig') }}
+{% endraw %}
+{% endhighlight %}
+
+### Embedding controllers
+
+Embedded controller
+: {% highlight jinja %}
+{% raw %}
+<div id="sidebar">
+    {{ render(controller(
+        'AppBundle:Article:recentArticles',
+        { 'max': 3 }
+    )) }}
+</div>
+{% endraw %}
+{% endhighlight %}
+
+
+Asynchronous embedded controller
+: {% highlight jinja %}
+{% raw %}
+{{ render_hinclude(controller('...'),  {
+    'default': 'default/content.html.twig'
+}) }}
+{{ render_hinclude(controller('...'), {'default': 'Loading...'}) }}
+{% endraw %}
+{% endhighlight %}
+
+Default globals
+: {% highlight yaml %}
+{% raw %}
+# app/config/config.yml
+framework:
+    # ...
+    templating:
+        hinclude_default_template: hinclude.html.twig
+{% endraw %}
+{% endhighlight %}
+        
+        
+### Url generation
+
+Controller url reference
+: {% highlight jinja %}
+{% raw %}
+ <a href="{{ path('_welcome') }}">Home</a>       
+{% endraw %}
+{% endhighlight %}
+
+Controller url with dynamic parameter
+: {% highlight jinja %}
+{% raw %}
+{% for article in articles %}
+    <a href="{{ path('article_show', {'slug': article.slug}) }}">
+        {{ article.title }}
+    </a>
+{% endfor %}
+{% endraw %}
+{% endhighlight %}
+
+Absolute url generation
+: {% highlight jinja %}
+{% raw %}
+<a href="{{ url('_welcome') }}">Home</a>
+{% endraw %}
+{% endhighlight %}
+
+### Assets
+{% highlight jinja %}
+{% raw %}
+{% block stylesheets %}
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/acmedemo/css/contact.css') }}" rel="stylesheet" />
+{% endblock %}
+{# ... #}
+{% block javascripts %}
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+{% endraw %}
+{% endhighlight %}
+
+> Move assets (default to `Web`): php app/console assets:install target [--symlink]
+
+
+### Global variables
+
+app.security
+: The security context.
+
+app.user
+: The current user object.
+
+app.request
+: The request object.
+
+app.session
+: The session object.
+
+app.environment
+: The current environment (dev, prod, etc).
+
+app.debug
+: True if in debug mode. False otherwise. 

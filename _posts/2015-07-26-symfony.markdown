@@ -80,16 +80,25 @@ $ symfony demo
 
 # Quick Guide
 
-Important files and dir structure
+## Directory structure
+
+Important dirs
 : 
-* Symfony config: `app/config/config.yml`
+* Application views: `app/Resources/views`
+* Application assets: `app/Resources/public`
+* Application PHP code: `src/AppBundle`
+* Third party libraries: `vendor/`
+* Public files: `web/`
+
+> [Directory structure explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
+
+Important files
+: 
 * Routing file: `app/config/routing.yml`
 * Development front controller: `web/app_dev.php`
 * Production front controller: `web/app.php`
-* Application views: `app/Resources/views`
 * Enable new bundles: `app/AppKernel.php`
-
-> [Dir structure explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
+* Symfony config: `app/config/config.yml`
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
 
@@ -351,7 +360,7 @@ Absolute url generation
 {% endraw %}
 {% endhighlight %}
 
-> Move assets (default to `Web`): php app/console assets:install target [--symlink]
+> Move assets (default to `web`): php app/console assets:install target [--symlink]
 
 
 ### Global variables

@@ -119,9 +119,9 @@ Existen algunos beneficios adicionales que son posibles gracias al acceso al có
 
 Si utilizar *software libre* tiene tantas ventajas, ¿por qué la mayoría de la gente sigue utilizando aplicaciones y sistemas operativos *propietarios*?
 
-Es posible que en algunos casos este software *propietario* sea de mayor calidad que su alternativa *libre*, sin embargo esa no parece la principal motivación para su uso. El software, como cualquier otra tecnología tiende al monopolio de forma natural. Esto es así debido a que los usuarios rechazan inicialmente cualquier software distinto al que ya conocen ya que les supone un problema de adaptación inicialmente.
+Es posible que en algunos casos este software *propietario* sea de mayor calidad que su alternativa *libre*, sin embargo esa no parece la principal motivación para su uso. El software, como cualquier otra tecnología tiende al monopolio de forma natural. Esto es así debido a que los usuarios rechazan inicialmente cualquier software distinto al que ya conocen debido a la curva de aprendizaje inicial que deben superar hasta adaptarse.
 
-Casos recientes, come el de la masiva aceptación del sistema *Android* (basado en gran parte en *software libre*) han demostrado que no hay nada que impida la aceptación del *software libre* por parte de los usuarios finales. Quizás el hecho de que los sistemas *GNU/Linux* de escritorio no hayan llegado todavía al gran público sea en parte una cuestión de promoción por parte de las grandes corporaciones.
+Casos recientes, como el de la masiva aceptación del sistema *Android* (basado en gran parte en *software libre*) han demostrado que no hay nada que impida la aceptación del *software libre* por parte de los usuarios finales. Quizás, después de todo, el hecho de que los sistemas *GNU/Linux* de escritorio no hayan llegado todavía al gran público sea en parte una cuestión de promoción por parte de las grandes corporaciones.
 
 {:.center}
 ![GNU/Linux with GPL armor](/gnu-and-penguin-color-300x276.jpg "GNU/Linux con armadura GPL")

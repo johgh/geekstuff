@@ -19,7 +19,7 @@ la potencia de este editor esa es su curva de aprendizaje (o [muro de aprendizaj
 {:.center}
 ![Software models](/lsi-adm3a-full-keyboard.jpg "Teclado original del ADM-3A, donde se programó Vi")
 
-<div class="center">Teclado original del ADM-3A, donde se programó Vi</div><br />
+<div class="center">Teclado original del ADM-3A, donde se programó Vi, el "progenitor" de Vim</div><br />
 
 ## Modo normal
 

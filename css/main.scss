@@ -3,25 +3,6 @@
 ---
 @charset "utf-8";
 
-.blog p {
-}
-
-.blog {
-font-family :    "Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif";
-font-size: 13pt;
-text-align: justify;
-    width: 90%;
-    margin: auto;
-}
-
-.note, .shortnote {
-	background: #ffffa9;
-	padding: 15px 20px 20px 20px;
-	border-radius: 5px;
-	color: #555;
-    font-size: 12pt;
-}
-
 // Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
@@ -43,6 +24,31 @@ $grey-color-dark:  darken($grey-color, 25%);
 
 $on-palm:          600px;
 $on-laptop:        800px;
+
+.center {
+  text-align: center !important;
+  font-style: italic;
+}
+
+.blog p {
+}
+
+.blog {
+font-family :    "Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif";
+font-size: 13pt;
+text-align: justify;
+    width: 90%;
+    margin: auto;
+}
+
+.note, .shortnote {
+	// background: #ffffa9;
+	background: $grey-color-light;
+	padding: 15px 20px 20px 20px;
+	border-radius: 5px;
+	color: #555;
+    font-size: 12pt;
+}
 
 h1, h2, h3, h4, h5, h6 {
     position: relative;
@@ -89,9 +95,9 @@ h6:hover .header-link {
     -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
     -moz-column-gap: 40px; /* Firefox */
     column-gap: 40px;
-    -webkit-column-rule: 4px dotted #afafaf; /* Chrome, Safari, Opera */
-    -moz-column-rule: 4px dotted #afafaf; /* Firefox */
-    column-rule: 4px dotted #afafaf;
+    -webkit-column-rule: 1px dashed #afafaf; /* Chrome, Safari, Opera */
+    -moz-column-rule: 1px dashed #afafaf; /* Firefox */
+    column-rule: 1px dashed #afafaf;
 }
 
 .back {

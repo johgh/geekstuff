@@ -5,8 +5,6 @@ permalink:  "Vim-incomprendido"
 date:   2015-05-02 16:30:15
 category: Blog
 ---
-![Software models](/lsi-adm3a-full-keyboard.jpg "Teclado original del ADM-3A, donde se programó Vi")
-
 **¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto, o incluso para
 salir del mismo una vez nos hemos percatado de que no es el editor que esperabamos?**
 
@@ -15,6 +13,13 @@ muchos se han visto obligados a usarlo y la mayoría no guarda el mejor recuerdo
 
 Frecuentemente la potencia de este editor se confunde con falta de usabilidad, lo cierto es que si algo es comparable a
 la potencia de este editor esa es su curva de aprendizaje (o [muro de aprendizaje](https://pascalprecht.github.io/2014/03/18/why-i-use-vim/#figure-1)).
+
+<br />
+
+{:.center}
+![Software models](/lsi-adm3a-full-keyboard.jpg "Teclado original del ADM-3A, donde se programó Vi")
+
+<div class="center">Teclado original del ADM-3A, donde se programó Vi</div><br />
 
 ## Modo normal
 

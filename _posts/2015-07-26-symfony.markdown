@@ -360,7 +360,7 @@ Absolute url generation
 {% endraw %}
 {% endhighlight %}
 
-> Move assets (default to `web`): php app/console assets:install target [--symlink]
+> Move assets (default to `web`) with: php app/console assets:install target [--symlink]
 
 
 ### Global variables

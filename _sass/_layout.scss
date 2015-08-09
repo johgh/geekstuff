@@ -3,7 +3,7 @@
  */
 .site-header {
     border-top: 5px solid $grey-color-dark;
-    border-bottom: 4px solid $grey-color-light;
+    border-bottom: 1px dashed #AAA;
     min-height: 66px;
 
     // Positioning context for the mobile navigation icon
@@ -27,12 +27,22 @@
     // color: $blue-color-light;
 }
 
+.section-title {
+    background-color: #424242;
+    color: white;
+    float: left;
+    padding: 0 5px;
+    // color: $blue-color-light;
+}
+
+
 a {
     text-decoration: none !important;
 }
 
 .main-title {
-    color: #515151 !important;
+    // color: #515151 !important;
+    color: #424242 !important;
     font-family: monospace;
     font-size: 31px;
 }

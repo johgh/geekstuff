@@ -14,6 +14,7 @@ category: Web
 
 Download installer
 : {% highlight bash %}
+# instead of curl, you can download from browser and move to /usr/local/bin/symfony
 $ sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
 $ sudo chmod a+x /usr/local/bin/symfony
 {% endhighlight %}
@@ -23,12 +24,12 @@ Create new project
 $ cd ~/workspace
 $ symfony new my_project_name
 # create symlink to web server
-$ ln -s ~/workspace/my_project_name/Web /var/www/
+$ sudo ln -s ~/workspace/my_project_name/web /var/www/my_project_name
 {% endhighlight %}
 
 Meet Symfony Requirements (if needed)
 : {% highlight bash %}
-# put this line on /etc/php5/cli/php.ini (cli php.ini!)
+# put this line on /etc/php5/cli/php.ini and /etc/php5/apache2/php.ini
 date.timezone = Europe/Madrid
 # recheck requirements
 $ php my_project_name/app/check.php
@@ -41,7 +42,7 @@ $ sudo setfacl -dR -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
 {% endhighlight %}
 
 Configure app from Web
-: Go to [http://localhost/my_project_name/web/config.php](http://localhost/my_project_name/web/config.php)
+: Go to [http://localhost/my_project_name/config.php](http://localhost/my_project_name/config.php)
 
 > You will need to chmod o+w `app/config/parameters.yml` and restore permissions with `o-w` once the web config is done
 

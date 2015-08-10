@@ -44,7 +44,7 @@ $ sudo setfacl -dR -m u:"www-data":rwX -m u:`whoami`:rwX app/cache app/logs
 Configure app from Web
 : Go to [http://localhost/my_project_name/config.php](http://localhost/my_project_name/config.php)
 
-> You will need to chmod o+w `app/config/parameters.yml` and restore permissions with `o-w` once the web config is done
+> You will need to `chmod o+w app/config/parameters.yml` and restore permissions with `o-w` once the web config is done
 
 > You can also edit the yaml config file: `app/config/parameters.yml` directly 
 

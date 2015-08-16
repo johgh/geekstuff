@@ -49,6 +49,7 @@ text-align: justify;
 	border-radius: 5px;
 	color: #555;
     font-size: 12pt;
+    text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,15 +91,17 @@ h6:hover .header-link {
 }
 
 .cols {
+    width: 60%;
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
-    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 40px; /* Firefox */
-    column-gap: 40px;
+    -webkit-column-gap: 70px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 70px; /* Firefox */
+    column-gap: 70px;
     -webkit-column-rule: 1px dashed #afafaf; /* Chrome, Safari, Opera */
     -moz-column-rule: 1px dashed #afafaf; /* Firefox */
     column-rule: 1px dashed #afafaf;
+    margin-bottom:2.5em;
 }
 
 .back {

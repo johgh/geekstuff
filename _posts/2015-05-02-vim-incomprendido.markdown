@@ -3,6 +3,7 @@ layout: blog
 title:  "Vim. El editor incomprendido"
 permalink:  "Vim-incomprendido"
 date:   2015-05-02 16:30:15
+noToc: true
 category: Blog
 ---
 **¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto, o incluso para
@@ -21,7 +22,7 @@ la potencia de este editor esa es su curva de aprendizaje (o [muro de aprendizaj
 
 <div class="center">Teclado original del ADM-3A, donde se programó Vi, el "progenitor" de Vim</div><br />
 
-## Modo normal
+# Modo normal
 
 Nos topamos con la primera piedra en el camino. El usuario no habitual de Vim tiende a evitar el *modo normal* como si
 fuera territorio comanche. Para ello memoriza únicamente 2 comandos:
@@ -97,7 +98,7 @@ object`. Para más información sobre el formato de estos parámetros ver [aquí
 Sintáxis de un comando del modo normal
 : `counter` + `comando` + [`text object` / `motion`] + [\<parámetro adicional\>]
 
-## El factor repetición
+# El factor repetición
 
 Pero para entender realmente la potencia del *modo normal*, debemos tener en cuenta el factor repetición. Cualquier
 cambio realizado en el *modo inserción* queda guardado automáticamente y listo para ser repetido mediante el comando `.`
@@ -108,7 +109,7 @@ los cambios en Vim (uno puede cambiar una letra con `s`, 2 [*palabras*](/vim/#st
 citado comando `.` o mediante la creación de macros y otros comandos que no serían posibles en un editor convencional
 (en ocasiones se puede suplir con el uso de un diálogo de búsqueda y reemplazo)
 
-## El portapapeles
+# El portapapeles
 
 Otro gran desconocido para el usuario no habitual de Vim suele ser el uso del - o más bien *los* - portapapeles. El
 desconocimiento de que comandos copian texto al portapapeles es objeto de frustración en el momento de recuperar texto
@@ -136,7 +137,7 @@ Particularmente interesante es integrar el portapapeles de Vim con el del sistem
 (`"+`) como registro por defecto. Este registro engloba tanto al registro por defecto de Vim (`""`) como el portapapeles de
 nuestro sistema operativo (`"*`)
 
-## La práctica
+# La práctica
 Ciertamente la potencia de edición de Vim puede aturdir al principio, la misma cosa se puede hacer de muchas maneras,
 pero ¿cual es la mejor manera?
 
@@ -173,7 +174,7 @@ tiempo y dedicación. Si somos persistentes pronto nos daremos cuenta de que com
 pensar en lo que estamos haciendo. Ese es precisamente el objetivo, que la memoria muscular haga el trabajo por nosotros
 para que sólo tengamos que pensar en lo que queremos escribir.
 
-## Personalizando Vim
+# Personalizando Vim
 
 Vim fue diseñado con el objetivo de ser extremadamente potente y flexible. Y eso es bueno, pero tiene un precio que a
 veces nos gustaría evitar pagar: complejidad.
@@ -286,7 +287,7 @@ Navegar en el mode comando con `Control`+`n`/`p` en lugar de con los cursores
     cnoremap <C-p> <up>
 {% endhighlight %}
 
-### Vim como *IDE*
+# Vim como *IDE*
 
 Una vez dominados los [comandos de gestión de ficheros](/vim/#tocAnchor-1-21) que proporciona Vim por defecto (así como el
 concepto de *buffer* y *ventana*), si realmente queremos utilizar Vim como nuestro *IDE* es posible que echemos en falta un buscador de
@@ -316,7 +317,7 @@ Directorio de inicio por defecto
     endif
 {% endhighlight %}
     
-## Más allá del *modo normal*
+# Más allá del *modo normal*
 
 A continuación se listan algunas de las características más interesantes que no se suelen encontrar en otros editores o
 entornos de programación:
@@ -333,7 +334,7 @@ entornos de programación:
 * Uso de múltiples portapapeles
 * Personalización total del editor mediante la configuración, el lenguaje Vimscript y plugins
 
-## Preguntas y respuestas
+# Preguntas y respuestas
 
 **¿De verdad merece la pena invertir nuestro tiempo en aprender a utilizar un editor de texto?**
 
@@ -350,7 +351,15 @@ medida](/vimrc/).
 
 **¿Cuál será el futuro del editor?**
 
-Aunque un editor que se mantiene activo desde hace más de 40 años, tiene que tener una fuerte comunidad
+Aunque un editor que se mantiene activo desde hace más de 40 años tiene que tener una fuerte comunidad
 detrás, son incluso más importantes los conceptos que subyacen del mismo. Así como Vim reemplazó al Vi original no
 sería de extrañar que [otro editor](http://neovim.io/) pudiera reemplazar al actual y continuar así con su
 [legado](https://medium.com/@mkozlows/why-atom-cant-replace-vim-433852f4b4d1).
+
+
+{:.center}
+![Software models](/vi-gang-sign.gif "Vi gang sign")
+
+
+{:.center}
+<a href="http://www.homebrew.net/visign/">La seña de Vi ("Vi gang sign")</a>

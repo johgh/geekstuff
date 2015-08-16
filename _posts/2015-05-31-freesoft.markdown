@@ -6,11 +6,11 @@ date:   2015-06-02 00:00:01
 category: Blog
 ---
 
-## ¿Qué requisitos debe reunir un software para ser considerado libre?
+# ¿Qué requisitos debe reunir un software para ser considerado libre?
 
 Para que un software sea considerado *libre* debe preservar los derechos de uso, estudio, modificación y distribución del mismo, o lo que es lo mismo que cumpla con las [*4 libertades esenciales del software libre*](http://www.gnu.org/philosophy/free-sw.es.html).
 
-## ¿Cuando y por qué surge el *software libre*?
+# ¿Cuando y por qué surge el *software libre*?
 
 En 1976, la ley americana del *Copyright Act* amenaza al movimiento de la *cultura hacker* enraizado en la tradición de la compartición de código sin restricciones a través de la red *ARPANET*.
 
@@ -18,9 +18,9 @@ En 1983, un *hacker* del *MIT*, Richard M. Stallman, decide crear el proyecto *G
 
 Algo más tarde es creada la *Free Software Foundation*, organización que promociona y proporciona soporte legal al uso de *software libre*. Esta organización se encarga, a día de hoy, del mantenimiento de la [definición de *software libre*](https://www.gnu.org/philosophy/free-sw.html), de un directorio de las licencias *libres* más importantes, y de la actualización de las licencias *GNU* (entre ellas la licencia *GPL* que actualmente se encuentra en su tercera revisión).
 
-## *Open Source*, *Software Libre* y las licencias *Creative Commons*
+# *Open Source*, *Software Libre* y las licencias *Creative Commons*
 
-En 1998, la *Open Source Initiative* (*OSI*) publicó la [*Open Source Definition*](http://opensource.org/docs/osd). Este documento basado en las [*DFSG*](http://www.debian.org/social_contract##guidelines), (a su vez fue basado en [*la definición de software libre de la FSF*](https://www.gnu.org/philosophy/free-sw.html)), define exactamente que software es es considerado *Open Source*. Aunque existen pequeñas diferencias entre la definición de *Open Source* y la de *software libre*, ambos términos son usados de forma intercambiable por ser ampliamente equivalentes. Más interesante, que esos mátices técnicos es el enfoque conceptual, conocido como [modelo *Open Source*](http://csheets.tk/software-libre-q&a/#el-modelo-open-source)
+En 1998, la *Open Source Initiative* (*OSI*) publicó la [*Open Source Definition*](http://opensource.org/docs/osd). Este documento basado en las [*DFSG*](http://www.debian.org/social_contract##guidelines), (a su vez fue basado en [*la definición de software libre de la FSF*](https://www.gnu.org/philosophy/free-sw.html)), define exactamente que software es es considerado *Open Source*. Aunque existen pequeñas diferencias entre la definición de *Open Source* y la de *software libre*, ambos términos son usados de forma intercambiable por ser ampliamente equivalentes. Más interesantes que esos mátices técnicos es el enfoque conceptual, conocido como [modelo *Open Source*](http://csheets.tk/software-libre-q&a/#el-modelo-open-source)
 
 <br />
 
@@ -29,9 +29,9 @@ En 1998, la *Open Source Initiative* (*OSI*) publicó la [*Open Source Definitio
 
 <div class="center">Ni todo software libre es Open Source, ni todo el Open Source es software libre</div><br />
 
-Existe un punto frecuente de confusión con las licencias que no permiten el uso comercial en los trabajos derivados, como las licencias [Creative Commons Non-Commercial](http://en.wikipedia.org/wiki/Creative_Commons##Criticism_of_the_non-commercial_license). Este tipo de licencias no son ni *libres* ni *Open Source*, ya que ambas definiciones no contemplan este tipo de restricciones sobre los trabajos derivados. Hay otras licencias *Creative Commons* que sin embargo si que cumplen con los estándares de las licencias libres y/o *open source*.
+> Existe un punto frecuente de confusión con las licencias que no permiten el uso comercial en los trabajos derivados, como las licencias [Creative Commons Non-Commercial](http://en.wikipedia.org/wiki/Creative_Commons##Criticism_of_the_non-commercial_license). **Este tipo de licencias no son ni *libres* ni *Open Source***, ya que ambas definiciones no contemplan este tipo de restricciones sobre los trabajos derivados. Hay otras licencias *Creative Commons* que sin embargo si que cumplen con los estándares de las licencias libres y/o *open source*.
 
-## El modelo Open Source
+# El modelo Open Source
 
 Aunque los detractores del uso del término *Open Source* lo critican por no hacer referencia al concepto moral de libertad y por considerarlo poco más que una estrategia de marketing, el término *Open Source* ha tenido en el sector empresarial más éxito que su análogo *software libre*.
 
@@ -43,7 +43,7 @@ La adopción de un modelo *Open Source* se puede efectuar en diferentes grados: 
 
 Recientemente el término *Open Source* se ha extendido incluso fuera del mundo del software para referirse a lo que en castellano se conoce como [*cultura libre*](http://es.wikipedia.org/wiki/C%C3%B3digo_abierto##Extensiones_del_concepto).
 
-## Diferentes tipos de licencias libres
+# Diferentes tipos de licencias libres
 
 Para poder decir que una licencia es *libre* debe cumplir con *las 4 libertades esenciales* definidas por la *FSF*. Si vamos más allá, sin embargo, encontramos diferencias importantes entre licencias *libres*.
 
@@ -55,13 +55,13 @@ Este término ha sido reutilizado posteriormente por partidarios del software *p
 
 Existe un tercer tipo de licencia *libre* muy utilizado, conocido como *copyleft débil*. Estas licencias fueron diseñadas especialmente para su uso en librerías, permitiendo que sólo el código de la librería tenga que ser redistribuido en caso de modificación, en contraste con las licencias de *copyleft fuerte*.
 
-## ¿Software *propietario* o *privativo*?
+# ¿Software *propietario* o *privativo*?
 
 Hay distintos términos para referirse a todo aquel software que no es *libre*: tradicionalmente se ha usado el término *propietario* (como contraposición a *libre*) y *código cerrado* (como contraposición a *Open Source*). Más recientemente R.M. Stallman ha propuesto el término *software privativo*, al considerarlo más adecuado que el de *propietario* si tenemos en cuenta que este puede restringe las libertades del usuario.
 
 Además, el término *propietario* es confuso, puesto que el *software libre* sí tiene propietario: es el copyright el que da validez legal a cualquier licencia *libre*. La posesión del copyright no sólo da el poder al desarrollador para cambiar la licencia en el momento que considere oportuno (o incluso para cerrar el código), sino que también lo acredita como fundador de una base de código, facilitándole su rentabilización.
 
-## El modelo de negocio
+# El modelo de negocio
 
 En términos prácticos cualquier programa *libre* termina siendo *marginalmente gratuito* (nada impide cobrar por una aplicación pero el código fuente siempre debe ser redistribuido). Aunque existen modelos de negocio relacionados con la licenciación de binarios, el modelo de negocio más importante dentro del *software libre* es, por lógica, el de la venta de servicios relacionados con el propio software.
 
@@ -79,7 +79,7 @@ Además existen otros beneficios asociados al uso/desarrollo de aplicaciones *li
 * Soporte/formación de aplicaciones ajenas.
 * Obtención de soporte gratuito por parte de la *comunidad*, disminuyendo la inversión en el mantenimiento de aplicaciones.
 
-## ¿Qué licencia le conviene usar a cada desarrollador?
+# ¿Qué licencia le conviene usar a cada desarrollador?
 
 Ya que no existe un único modelo de negocio en el *software libre*, como hemos visto anteriormente, tampoco tiene porque ser utilizado el mismo tipo de licencia *libre* en cada uno de ellos:
 
@@ -89,7 +89,7 @@ Ya que no existe un único modelo de negocio en el *software libre*, como hemos 
 
 * Una licencia *permisiva* (tipo *BSD*) permite la apropiación del código sin la necesidad de contribución al mismo tras publicar un trabajo derivado. Es la licencia que provee a cada desarrollador de mayor libertad, pero también de menores garantías para que el código siga siendo *libre* en el futuro.
 
-## ¿Por qué le conviene usar *software libre* al usuario final?
+# ¿Por qué le conviene usar *software libre* al usuario final?
 
 De las 4 libertades esenciales propias de todo *software libre*, las 2 primeras libertades afectan directamente al usuario final, estas son:
 
@@ -115,7 +115,7 @@ Existen algunos beneficios adicionales que son posibles gracias al acceso al có
 
 * La posibilidad de investigar software espía o malware y advertir a los demás usuarios de su existencia. De otra forma solo podemos confiar ciegamente en las buenas intenciones del autor del código.
 
-## ¿Por qué seguimos usando software que no es *libre*?
+# ¿Por qué seguimos usando software que no es *libre*?
 
 Si utilizar *software libre* tiene tantas ventajas, ¿por qué la mayoría de la gente sigue utilizando aplicaciones y sistemas operativos *propietarios*?
 
@@ -135,3 +135,9 @@ Casos recientes, como el de la masiva aceptación del sistema *Android* (basado 
 * [http://smeguide.conecta.it/index.php/2._Ten_myths_about_free/libre_open_source_software](http://smeguide.conecta.it/index.php/2._Ten_myths_about_free/libre_open_source_software)
 * [https://www.gnu.org/philosophy/categories.html](https://www.gnu.org/philosophy/categories.html)
 
+
+<script type="text/javascript">
+    $(function() {
+        $.toc.clickHideButton();
+    });
+</script>

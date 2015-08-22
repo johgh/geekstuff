@@ -1,5 +1,5 @@
 # Site settings
-title: 'cheat-sheets.tk'
+title: 'csheets.tk'
 email: #jordihv@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
     My notes on Web development, Vim, Git, Linux.

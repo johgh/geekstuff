@@ -4,7 +4,7 @@ title:  "Bookmarks"
 date:   2014-12-19 16:30:15
 permalink: /bookmarks/
 ---
-# Linux
+# Linux/Free software
 
 ## Resources
 [<i class="fa fa-external-link"></i> UNIX Command Reference](http://cb.vu/unixtoolbox.xhtml)
@@ -14,6 +14,8 @@ permalink: /bookmarks/
 [<i class="fa fa-external-link"></i> Advanced Bash Script Guide](http://www.tldp.org/LDP/abs/html/)
 
 [<i class="fa fa-external-link"></i> Bash Hackers Wiki](http://wiki.bash-hackers.org)
+
+[<i class="fa fa-external-link"></i> Git Ready]( http://gitready.com)
 
 <br />
 

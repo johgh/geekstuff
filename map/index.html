@@ -20,7 +20,7 @@ permalink: /map/
         <div class="post">
             <article class="post-content">
                 {% assign posts = site.tags[tag] | sort: 'title' %}
-                {% for post in posts | sort: 'post.title' %}
+                {% for post in posts %}
                 <h2> <i class="fa fa-file-code-o"></i> <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> <span style="font-size:25px">[{{ post.category }}] </h2>
                 {% endfor %}
                 {% if forloop.last == false %}

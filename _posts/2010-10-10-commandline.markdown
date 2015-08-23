@@ -2,7 +2,7 @@
 layout: post
 title:  "Commands"
 permalink:  "commands"
-date:   2014-12-24 16:30:15
+date:   2015-07-25 16:30:15
 category: Linux
 tags: Sysadmin
 ---

@@ -3,7 +3,8 @@ layout: post
 title:  "Vim"
 permalink:  "vim"
 date:   2014-12-25 16:30:15
-category: Misc
+category: Reference
+tags: Vim
 ---
 <!--
 /* TODO:
@@ -482,7 +483,7 @@ Edit new file
 : `:enew`
 
 Execute macro on register A on each opened buffer
-: `bufdo execute "normal! @a"`
+: `tags execute "normal! @a"`
 
 Save all buffers
 : `:wa`

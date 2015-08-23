@@ -4,6 +4,7 @@ title:  "Commands"
 permalink:  "commands"
 date:   2014-12-24 16:30:15
 category: Linux
+tags: Sysadmin
 ---
 # General commands
 

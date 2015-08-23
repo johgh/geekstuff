@@ -5,6 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
     My notes on Web development, Vim, Git, Linux.
 # baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://cheat-sheets.tk" # the base hostname & protocol for your site
+permalink: none
 # twitter_username: jekyllrb
 # github_username: johgh
 

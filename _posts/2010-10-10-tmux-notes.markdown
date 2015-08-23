@@ -4,6 +4,7 @@ title:  "Tmux"
 permalink:  "tmux"
 date:   2014-12-21 16:30:15
 category: CLI
+tags: Sysadmin
 ---
 List commands
 : `^A:lscm`

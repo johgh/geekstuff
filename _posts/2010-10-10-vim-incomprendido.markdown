@@ -5,6 +5,7 @@ permalink:  "Vim-incomprendido"
 date:   2015-05-02 16:30:15
 noToc: true
 category: Blog
+tags: Vim
 ---
 **¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto, o incluso para
 salir del mismo una vez nos hemos percatado de que no es el editor que esperabamos?**

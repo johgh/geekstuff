@@ -3,7 +3,8 @@ layout: post
 title:  "Symfony2"
 permalink:  "symfony"
 date:   2014-12-28 16:30:15
-category: Misc
+category: Reference
+tags: Web
 ---
 > The following was tested with Symfony 2.7 on Ubuntu 14.04
 

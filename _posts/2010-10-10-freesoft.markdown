@@ -4,6 +4,7 @@ title:  "10 puntos clave sobre software libre"
 permalink:  "software-libre-q&a"
 date:   2015-06-02 00:00:01
 category: Blog
+tags: Free_Software
 ---
 
 # ¿Qué requisitos debe reunir un software para ser considerado libre?

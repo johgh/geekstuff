@@ -1,20 +1,32 @@
 ---
 layout: page
 title:  "Map"
+noToc: true
 permalink: /map/
 ---
 
-<div class="home cols">
-
-  {% assign posts = site.posts | sort: 'title' %}
-  <ul class="post-list">
-    {% for post in posts %}
-        {% if post.category != 'Blog' %}
-        <h2>
-          <i class="fa fa-file-code-o"></i><a class="post-link" href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }}</a>
-        </h2>
-        {% endif %}
+<div class="home">
+    {% capture tags %}
+    {% for tag in site.tags %}
+        {{ tag[0] }}
     {% endfor %}
-  </ul>
-
+    {% endcapture %}
+    
+    {% assign sortedtags = tags | split:' ' %}
+    {% for tag in sortedtags %}
+        <h4 class="section-title">{{tag }}</h4>
+        <br style="clear:both"/>
+        <!-- <hr style="margin: 0 0 10px 0"/> -->
+        <div class="post">
+            <article class="post-content">
+                {% assign posts = site.tags[tag] | sort: 'title' %}
+                {% for post in posts | sort: 'post.title' %}
+                <h2> <i class="fa fa-file-code-o"></i> <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> <span style="font-size:25px">[{{ post.category }}] </h2>
+                {% endfor %}
+                {% if forloop.last == false %}
+                    <hr style="margin: 0px 0px -50px 0px"/>
+                {% endif %}
+            </article>
+        </div>
+    {% endfor %}
 </div>

@@ -4,6 +4,7 @@ title:  "Apps"
 permalink:  "apps"
 date:   2014-12-24 16:30:15
 category: Linux
+tags: Sysadmin
 ---
 ## Package installer
 
@@ -37,6 +38,7 @@ category: Linux
 | cheese                         | Distro                               | Desktop      |
 | comix                          | Distro                               | Desktop      |
 | command-not-found              | Distro                               | System       |
+| conky-manager                  | ppa:teejee2008/ppa                   | Desktop      |
 | curl                           | Distro                               | CLI          |
 | dconf-editor                   | Distro                               | System       |
 | deluge                         | Distro                               | Desktop      |
@@ -62,6 +64,7 @@ category: Linux
 | git                            | Distro                               | Development  |
 | git-cola                       | Distro                               | Development  |
 | gitg                           | Distro                               | Development  |
+| gnome-nettool                  | Distro                               | System       |
 | gnome-panel                    | Distro                               | System       |
 | gnome-shell                    | Distro                               | System       |
 | gnome-shell-extensions         | Distro                               | System       |
@@ -69,6 +72,7 @@ category: Linux
 | gnome-tweak-tool               | Distro                               | System       |
 | google-chrome-stable           | Distro                               | Desktop      |
 | gparted                        | Distro                               | System       |
+| gprename                       | Distro                               | System       |
 | grep                           | Distro                               | CLI          |
 | grub-customizer                | ppa:danielrichter2007/grub-customizer| System       |
 | gtk-recordmydesktop            | Distro                               | Extra        |
@@ -89,20 +93,22 @@ category: Linux
 | mencoder                       | Distro                               | Extra        |
 | mkvtoolnix                     | Distro                               | Extra        |
 | mplayer2                       | Distro                               | Extra        |
+| mysql-client-core-5.5          | Distro                               | Development  |
 | mysql-common                   | Distro                               | Development  |
 | nautilus-open-terminal         | Distro                               | System       |
 | nautilus-sendto                | Distro                               | System       |
-| numix-gtk-theme                | ppa:numix/ppa                        | System       |
-| gnome-nettool                  | Distro                               | System       |
-| mysql-client-core-5.5          | Distro                               | Development  |
 | nmap                           | Distro                               | CLI          |
 | noip-2.1.9                     | Distro                               | Desktop      |
 | ntfs-3g                        | Distro                               | CLI          |
+| numix-gtk-theme                | ppa:numix/ppa                        | System       |
 | openshot                       | Distro                               | Extra        |
 | oracle-java8-installer         | ppa:webupd8team/java                 | Development  |
 | owncloud                       | Distro                               | Extra        |
 | p7zip                          | Distro                               | System       |
 | pdfjam                         | Distro                               | Extra        |
+| pgadmin3                       | Distro                               | Development  |
+| php-codecoverage               | Distro                               | Development  |
+| php-codesniffer                | Distro                               | Development  |
 | php5                           | Distro                               | Development  |
 | php5-apcu                      | Distro                               | Development  |
 | php5-cli                       | Distro                               | Development  |
@@ -122,9 +128,6 @@ category: Linux
 | php5-tidy                      | Distro                               | Development  |
 | php5-xdebug                    | Distro                               | Development  |
 | php5-xsl                       | Distro                               | Development  |
-| php-codecoverage               | Distro                               | Development  |
-| php-codesniffer                | Distro                               | Development  |
-| pgadmin3                       | Distro                               | Development  |
 | picard                         | Distro                               | Extra        |
 | playonlinux                    | Distro                               | Extra        |
 | ppa-purge                      | Distro                               | System       |

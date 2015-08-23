@@ -4,6 +4,7 @@ title:  "Mysql"
 permalink:  "mysql"
 date:   2014-12-28 16:30:15
 category: Web
+tags: Web
 ---
 Create user with permissions
 : {% highlight mysql %}

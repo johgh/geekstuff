@@ -74,6 +74,8 @@ Conectar directorio con contenido a un nuevo remoto (origen)
 {% highlight sh %}
 $ cd foo
 $ git remote add origin ares@mars.example.com:foo
+$ git add .
+$ git commit -m 'initial commit'
 $ git push -u origin master
 {% endhighlight %}
 

@@ -30,8 +30,9 @@ $ sudo ln -s ~/workspace/my_project_name/web /var/www/my_project_name
 
 Meet Symfony Requirements (if needed)
 : {% highlight bash %}
-# put this line on /etc/php5/cli/php.ini and /etc/php5/apache2/php.ini
+# put these lines on /etc/php5/cli/php.ini and /etc/php5/apache2/php.ini
 date.timezone = Europe/Madrid
+xdebug.max_nesting_level=250
 # recheck requirements
 $ php my_project_name/app/check.php
 {% endhighlight %}
@@ -71,6 +72,11 @@ $ composer update
 $ php app/console security:check
 {% endhighlight %}
 
+Cleaning cache (might solve error 500)
+: {% highlight bash %}
+$ php app/console cache:clear --env=prod
+{% endhighlight %}
+
 Removing Acme bundle (demo bundle that comes with Symfony Standard Edition)
 : [https://symfony.com/doc/current/cookbook/bundles/remove.html](https://symfony.com/doc/current/cookbook/bundles/remove.html)
 
@@ -97,6 +103,7 @@ Important dirs
 Important files
 : 
 * Routing file: `app/config/routing.yml`
+* Database config file: `app/config/parameters.yml`
 * Development front controller: `web/app_dev.php`
 * Production front controller: `web/app.php`
 * Enable new bundles: `app/AppKernel.php`

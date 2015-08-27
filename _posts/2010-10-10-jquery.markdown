@@ -92,10 +92,11 @@ $('input[name="genderS"]:checked').val();
 {% endhighlight %}
 
 Js utf8 encode/decode string
-:
+: 
 {% highlight javascript %}
 // encode
 unescape(encodeURIComponent(s));
 // decode
 decodeURIComponent(escape(s));
 {% endhighlight %}
+

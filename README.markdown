@@ -12,7 +12,7 @@ sudo gem install bundler
 And download the code:
 
 ```
-git clone https://github.com/johgh/johgh.io-source.git
+git clone --recursive https://github.com/johgh/johgh.io-source.git
 cd johgh.io-source
 bundle install
 ```

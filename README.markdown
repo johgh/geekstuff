@@ -17,7 +17,13 @@ cd johgh.io-source
 bundle install
 ```
 
-Then you can preview the site at localhost:4000
+Then start the server:
+
+```
+bundle exec jekyll serve --watch
+```
+
+...and preview the site at localhost:4000
 
 Maybe you want to publish your own site, based on this site or another jekyll site. If you included some plugins as I
 did you will need to "compile" your site locally and push the compiled site as a github pages site.

@@ -7,6 +7,8 @@ If you need to preview your changes, you'll need to install some things before (
 ```
 sudo apt-get install ruby1.9.1-full nodejs
 sudo gem install bundler
+# proxy parameter is optional
+sudo gem install bundler --http-proxy http://user:pass@proxyserver:port
 ```
 
 And download the code:

@@ -78,7 +78,7 @@ $ php app/console cache:clear --env=prod
 {% endhighlight %}
 
 Removing Acme bundle (demo bundle that comes with Symfony Standard Edition)
-: [https://symfony.com/doc/current/cookbook/bundles/remove.html](https://symfony.com/doc/current/cookbook/bundles/remove.html)
+: Read [this](https://symfony.com/doc/current/cookbook/bundles/remove.html)
 
 Download Symfony Demo
 : {% highlight bash %}

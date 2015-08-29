@@ -8,6 +8,12 @@ tags: Web
 ---
 > The following was tested with Symfony 2.7 on Ubuntu 14.04
 
+# Symfony resources
+
+* [Best practices](http://symfony.com/doc/current/best_practices)
+* [Cookbook](http://symfony.com/doc/current/cookbook)
+* [Book](http://symfony.com/doc/current/book)
+
 # Installation
 
 ### Documentation
@@ -107,7 +113,7 @@ Important files
 * Development front controller: `web/app_dev.php`
 * Production front controller: `web/app.php`
 * Enable new bundles: `app/AppKernel.php`
-* Symfony config: `app/config/config.yml`
+* Symfony config: `app/config/config.yml`, `app/config/config_prod.yml`, `app/config/config_dev.yml`
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
 
@@ -188,6 +194,31 @@ public function indexAction(Request $request)
 {% endraw %}
 {% endhighlight %}
 
+
+### Flash messages
+{% highlight php startinline %}
+{% raw %}
+    this->addFlash(
+                'notice',
+                'Your changes were saved!'
+            );
+
+            // $this->addFlash is equivalent to $this->get('session')->getFlashBag()->add
+
+            return $this->redirectToRoute(...);
+{% endraw %}
+{% endhighlight %}
+
+{% highlight jinja %}
+{% raw %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+{% endraw %}
+{% endhighlight %}
+
 ### Exceptions
 {% highlight php startinline %}
 {% raw %}
@@ -255,7 +286,8 @@ public function indexAction()
 
 ### Documentation
 * [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
-* For twig specific reference see [my twig doc](/twig/)
+* For twig specific reference see [my twig doc](/twig/) or [the twig doc](http://twig.sensiolabs.org/documentation#reference)
+* For symfony specific extensions see [this](http://symfony.com/doc/current/reference/twig_reference.html)
 
 ### Three-level Inheritance (best practice)
 Base template
@@ -391,3 +423,69 @@ app.environment
 
 app.debug
 : True if in debug mode. False otherwise. 
+
+> Global variables can be added from config file (see [App parameters](/symfony/#tocAnchor-1-7-3))
+
+### Adding extensions to twig
+* Read [this](http://symfony.com/doc/current/cookbook/templating/twig_extension.html)
+
+
+---
+
+
+## Configuration
+
+### Documentation
+* [Best practices](http://symfony.com/doc/current/best_practices/configuration.html)
+* [Parameters](http://symfony.com/doc/current/components/dependency_injection/parameters.html)
+* [External parameters](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html)
+* [Load config per bundle](http://symfony.com/doc/current/cookbook/bundles/extension.html)
+
+### Configuration files
+
+Infrastructure related
+: Files: `app/config/parameters.yml`
+
+> This file is unique per server (infrastructure), this file should be only on prod environment, not on version control.
+
+Canonical parameters
+: Files: `app/config/parameters.yml.dist`
+
+> This file defines the parameters needed on previous file, should be on version control.
+
+Application-Related
+: Files: `app/config/config_dev.yml`, `app/config/config_prod.yml`, `app/config/config.yml`
+
+> Symfony configuration. `config_dev.yml` and `config_prod.yml` files can override `config.yml` settings.
+
+### Controller/twig parameters
+
+Config file
+: {% highlight yaml %}
+{% raw %}
+    parameters:
+        app.version: 00.00.01
+    # make app.version value accesible for twig templates
+    twig:
+        globals:
+            version: %app.version%
+{% endraw %}
+{% endhighlight %}
+
+> This parameters could be on any config file or in a separate file (for example: app_parameters.yml) imported from `config_dev.yml`, `config_prod.yml`, `config.yml`, using `import` parameter from top of the file
+
+App parameter from controller
+: {% highlight php startinline %}
+{% raw %}
+    $container->getParameter('app.version');
+    $container->setParameter('app.version', '00.00.02');
+{% endraw %}
+{% endhighlight %}
+
+App parameter from twig
+: {% highlight jinja %}
+{% raw %}
+    {{ version }}
+{% endraw %}
+{% endhighlight %}
+

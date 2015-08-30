@@ -489,3 +489,27 @@ App parameter from twig
 {% endraw %}
 {% endhighlight %}
 
+
+---
+
+
+## Forms and validation
+
+### Validation
+* [The validator service](http://symfony.com/doc/current/book/validation.html)
+
+### Forms
+* [Forms](http://symfony.com/doc/current/book/forms.html)
+* [Form validation](http://symfony.com/doc/current/book/forms.html#form-validation)
+* [Create a separate Form class](http://symfony.com/doc/current/book/forms.html#creating-form-classes)
+* [Forms with ajax (not tested)](http://codemonkeys.be/2013/01/ajaxify-your-symfony2-forms-with-jquery/)
+
+#### Form data
+
+* [Form data object](http://symfony.com/doc/current/book/forms.html#creating-a-simple-form)
+* [Embedded Form data objects](http://symfony.com/doc/current/book/forms.html#embedded-forms)
+* [Form without Form data object](http://symfony.com/doc/current/book/forms.html#using-a-form-without-a-class)
+
+#### Form rendering
+* [Render Form manually](http://symfony.com/doc/current/book/forms.html#rendering-a-form-in-a-template)
+* [Form theming](http://symfony.com/doc/current/book/forms.html#form-theming)

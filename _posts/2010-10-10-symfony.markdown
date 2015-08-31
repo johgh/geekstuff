@@ -424,10 +424,126 @@ app.environment
 app.debug
 : True if in debug mode. False otherwise. 
 
-> Global variables can be added from config file (see [App parameters](/symfony/#tocAnchor-1-7-3))
+> Global variables can be added from config file (see [App parameters](/symfony/#controllertwig-parameters))
 
 ### Adding extensions to twig
 * Read [this](http://symfony.com/doc/current/cookbook/templating/twig_extension.html)
+
+
+
+---
+
+
+## Translations
+
+### Documentation
+
+* [Configuration](http://symfony.com/doc/current/book/translation.html#configuration)
+* [Debugging translations](http://symfony.com/doc/current/book/translation.html#debugging-translations)
+
+### Translation data
+
+Translation file `app/Resources/translations/messages.en.yml`
+: {% highlight yaml %}
+{% raw %}
+    symfony:
+        great: Symfony is great
+        amazing: Symfony is amazing
+        bundles: Symfony has bundles
+    user:
+        login: Login
+{% endraw %}
+{% endhighlight %}
+
+> If the message is located in the catalog, the translation is returned. If not, the translator returns the original message.
+
+> It is possible to define multiple domains/files (default domain is `messages`, read [more](http://symfony.com/doc/current/components/translation/introduction.html#using-message-domains))
+
+Transchoice string (pluralization)
+: 
+```
+'{0} There are no apples|[20,Inf[ There are too much apples|singular: There is one apple|plural: There are %count% apples'
+```
+
+> Each locale has its own rules. For example, the above transchoice string would be useful for languages as spanish or english, but not others.
+
+> Tags like `singular:` or `plural:` are only hints for the developer/translator
+
+### Using translation functions from the controller
+
+Trans and transchoice functions
+: 
+{% highlight php startinline %}
+{% raw %}
+$translator = $this->get('translator');
+// the optional param 'admin' is the domain of the translation
+$translator->trans('Symfony is great', array(), 'admin');
+$translator->transChoice(
+        '{0} There are no apples|[20,Inf[ There are too much apples|singular: There is one apple|plural: There are %count% apples',
+        10,
+        array('%count%' => 10),
+        );
+{% endraw %}
+{% endhighlight %}
+
+### Using translation functions from templates
+
+Trans and transchoice functions
+: {% highlight jinja %}
+{% raw %}
+{% trans %}Hello %name%{% endtrans %}
+{% transchoice count %}
+    {0} There are no apples|[20,Inf[ There are too much apples|singular: There is one apple|plural: There are %count% apples
+{% endtranschoice %}
+{% endraw %}
+{% endhighlight %}
+
+Trans and transchoice with additional params
+: {% highlight jinja %}
+{% raw %}
+{% trans with {'%name%': 'Fabien'} from "app" into "fr" %}Hello %name%{% endtrans %}
+{% transchoice count with {'%name%': 'Fabien'} from "app" %}
+    {0} %name%, there are no apples|{1} %name%, there is one apple|]1,Inf[ %name%, there are %count% apples
+{% endtranschoice %}
+{% endraw %}
+{% endhighlight %}
+
+Trans and transchoice as filters
+: {% highlight jinja %}
+{% raw %}
+{{ message|trans({'%name%': 'Fabien'}, "app") }}
+{{ message|transchoice(5, {'%name%': 'Fabien'}, 'app') }}
+{% endraw %}
+{% endhighlight %}
+
+
+
+---
+
+
+## Forms and validation
+
+### Validation
+* [The validator service](http://symfony.com/doc/current/book/validation.html)
+
+### Forms
+* [Forms doc](http://symfony.com/doc/current/book/forms.html)
+* [Best practices](http://symfony.com/doc/current/best_practices)
+* [Form cookbook](http://symfony.com/doc/current/cookbook/form)
+* [Form validation](http://symfony.com/doc/current/book/forms.html#form-validation)
+* [Create a separate Form class](http://symfony.com/doc/current/book/forms.html#creating-form-classes)
+* [Forms with ajax (not tested)](http://codemonkeys.be/2013/01/ajaxify-your-symfony2-forms-with-jquery/)
+
+#### Form data
+
+* [Form data object](http://symfony.com/doc/current/book/forms.html#creating-a-simple-form)
+* [Embedded Form data objects](http://symfony.com/doc/current/book/forms.html#embedded-forms)
+* [Form without Form data object](http://symfony.com/doc/current/book/forms.html#using-a-form-without-a-class)
+
+#### Form rendering
+* [Render Form manually](http://symfony.com/doc/current/book/forms.html#rendering-a-form-in-a-template)
+* [Form theming](http://symfony.com/doc/current/book/forms.html#form-theming)
+
 
 
 ---
@@ -489,67 +605,3 @@ App parameter from twig
     {{ version }}
 {% endraw %}
 {% endhighlight %}
-
-
----
-
-
-## Forms and validation
-
-### Validation
-* [The validator service](http://symfony.com/doc/current/book/validation.html)
-
-### Forms
-* [Forms doc](http://symfony.com/doc/current/book/forms.html)
-* [Best practices](http://symfony.com/doc/current/best_practices)
-* [Form cookbook](http://symfony.com/doc/current/cookbook/form)
-* [Form validation](http://symfony.com/doc/current/book/forms.html#form-validation)
-* [Create a separate Form class](http://symfony.com/doc/current/book/forms.html#creating-form-classes)
-* [Forms with ajax (not tested)](http://codemonkeys.be/2013/01/ajaxify-your-symfony2-forms-with-jquery/)
-
-#### Form data
-
-* [Form data object](http://symfony.com/doc/current/book/forms.html#creating-a-simple-form)
-* [Embedded Form data objects](http://symfony.com/doc/current/book/forms.html#embedded-forms)
-* [Form without Form data object](http://symfony.com/doc/current/book/forms.html#using-a-form-without-a-class)
-
-#### Form rendering
-* [Render Form manually](http://symfony.com/doc/current/book/forms.html#rendering-a-form-in-a-template)
-* [Form theming](http://symfony.com/doc/current/book/forms.html#form-theming)
-
-
----
-
-
-## Translations
-
-### Config
-
-### Using the translator
-
-Keyword messages
-$translator->trans('symfony.great');
-
-
-symfony:
-    great: Symfony is great
-    amazing: Symfony is amazing
-    bundles: Symfony has bundles
-user:
-    login: Login
-
-Pluralization
-'{0} There are no apples|[20,Inf[ There are too much apples|singular: There is one apple|plural: There are %count% apples'
-
-tags are optional
-
-From controller:
-$translator->trans(
-$translator->transChoice(
-
-From twig:
-{% trans %}Hello %name%{% endtrans %}
-
-{% transchoice count %}
-    {0} There are no apples|{1} There is one apple|]1,Inf[ There are %count% apples
-{% endtranschoice %}

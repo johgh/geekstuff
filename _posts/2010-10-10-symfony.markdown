@@ -446,12 +446,9 @@ app.debug
 Translation file `app/Resources/translations/messages.en.yml`
 : {% highlight yaml %}
 {% raw %}
-    symfony:
-        great: Symfony is great
-        amazing: Symfony is amazing
-        bundles: Symfony has bundles
-    user:
-        login: Login
+symfony:
+    great: Symfony is great
+    amazing: Symfony is amazing
 {% endraw %}
 {% endhighlight %}
 

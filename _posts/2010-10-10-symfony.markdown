@@ -516,3 +516,40 @@ App parameter from twig
 #### Form rendering
 * [Render Form manually](http://symfony.com/doc/current/book/forms.html#rendering-a-form-in-a-template)
 * [Form theming](http://symfony.com/doc/current/book/forms.html#form-theming)
+
+
+---
+
+
+## Translations
+
+### Config
+
+### Using the translator
+
+Keyword messages
+$translator->trans('symfony.great');
+
+
+symfony:
+    great: Symfony is great
+    amazing: Symfony is amazing
+    bundles: Symfony has bundles
+user:
+    login: Login
+
+Pluralization
+'{0} There are no apples|[20,Inf[ There are too much apples|singular: There is one apple|plural: There are %count% apples'
+
+tags are optional
+
+From controller:
+$translator->trans(
+$translator->transChoice(
+
+From twig:
+{% trans %}Hello %name%{% endtrans %}
+
+{% transchoice count %}
+    {0} There are no apples|{1} There is one apple|]1,Inf[ There are %count% apples
+{% endtranschoice %}

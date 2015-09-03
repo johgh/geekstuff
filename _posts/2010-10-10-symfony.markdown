@@ -78,9 +78,10 @@ $ composer update
 $ php app/console security:check
 {% endhighlight %}
 
-Cleaning cache (might solve error 500)
+Cleaning cache
 : {% highlight bash %}
 $ php app/console cache:clear --env=prod
+$ php app/console cache:clear --env=dev
 {% endhighlight %}
 
 Removing Acme bundle (demo bundle that comes with Symfony Standard Edition)
@@ -109,11 +110,12 @@ Important dirs
 Important files
 : 
 * Routing file: `app/config/routing.yml`
-* Database config file: `app/config/parameters.yml`
+* Services file: `app/config/services.yml`
+* Infrastructure config file: `app/config/parameters.yml`
+* Application config files: `app/config/config.yml`, `app/config/config_prod.yml`, `app/config/config_dev.yml`
 * Development front controller: `web/app_dev.php`
 * Production front controller: `web/app.php`
 * Enable new bundles: `app/AppKernel.php`
-* Symfony config: `app/config/config.yml`, `app/config/config_prod.yml`, `app/config/config_dev.yml`
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
 
@@ -135,6 +137,7 @@ public function indexAction(Request $request, $firstName, $lastName = 'default')
     $request->getPreferredLanguage(array('en', 'fr'));
     $request->query->get('page'); // get a $_GET parameter
     $request->request->get('page'); // get a $_POST parameter
+    // ...
 }
 {% endraw %}
 {% endhighlight %}
@@ -190,6 +193,9 @@ public function indexAction(Request $request)
 
     // use a default value if the attribute doesn't exist
     $filters = $session->get('filters', array());
+    
+    // unset session var
+    $filters = $session->remove('foo');
 }
 {% endraw %}
 {% endhighlight %}
@@ -224,6 +230,7 @@ public function indexAction(Request $request)
 {% raw %}
     if (!$product) {
         throw $this->createNotFoundException('The product does not exist');
+        // throw $this->createAccessDeniedException();
     }
     
     // this returns a 500 http response code
@@ -231,7 +238,7 @@ public function indexAction(Request $request)
 {% endraw %}
 {% endhighlight %}
     
-### Extending from Base Controller
+### Using services from a controller
 {% highlight php startinline %}
 {% raw %}
 // src/AppBundle/Controller/HelloController.php
@@ -240,7 +247,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HelloController extends Controller
 {
     // container services
-    $templating = $this->get('templating');
     $router = $this->get('router');
     $mailer = $this->get('mailer');
 
@@ -260,24 +266,37 @@ class HelloController extends Controller
 {% endraw %}
 {% endhighlight %}
 
-> to list available services: `$ php app/console debug:container` 
+> Services are called from a container instance that is available from all controllers => classes that extend from Controller class
+
+> The base Controller class provides helper methods and access to services through the container. See helper methods [here](https://github.com/symfony/symfony/blob/master/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php)
+
+> `$this->get()` is just a shortcut to `$this->container->get()`
+
+> to list all available services: `$ php app/console debug:container` 
     
     
-### Redirecting
+### Redirecting and url generation from controller
 {% highlight php startinline %}
 {% raw %}
 public function indexAction()
 {
-    return $this->redirectToRoute('homepage');
+    if ($redirect) {
+        return $this->redirectToRoute('homepage', array('page' => 1));
+    } else {
+        // forwarding to another controller
+        return $this->forward('AppBundle:Something:fancy', array(
+            'name'  => $name,
+            'color' => 'green',
+        ));
+    }
 
     // redirectToRoute is equivalent to using redirect() and generateUrl() together:
-    /* return $this->redirect($this->generateUrl('homepage'), 301); */
-    // or simply providing an external url:
+    /* return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301); */
+    // or providing an external url:
     /* return $this->redirect('http://symfony.com/doc'); */
 }
 {% endraw %}
 {% endhighlight %}
-
 
 ---
 
@@ -360,7 +379,7 @@ framework:
 {% endhighlight %}
         
         
-### Url generation
+### Url generation from template
 
 Controller url reference
 : {% highlight jinja %}
@@ -369,7 +388,7 @@ Controller url reference
 {% endraw %}
 {% endhighlight %}
 
-Controller url with dynamic parameter
+Generate url with dynamic parameter
 : {% highlight jinja %}
 {% raw %}
 {% for article in articles %}
@@ -402,6 +421,16 @@ Absolute url generation
 {% endhighlight %}
 
 > Move assets (default to `web`) with: php app/console assets:install target [--symlink]
+
+### Request from templates
+{% highlight jinja %}
+{% raw %}
+//get
+{{ app.request.query.get('page') }}
+// post
+{{ app.request.request.get('page') }}
+{% endraw %}
+{% endhighlight %}
 
 
 ### Global variables
@@ -604,3 +633,7 @@ App parameter from twig
     {{ version }}
 {% endraw %}
 {% endhighlight %}
+
+# TODO
+- Creating services
+- Routing

@@ -6,18 +6,12 @@ date:   2015-08-16 16:30:15
 category: Reference
 tags: Web
 ---
-> The following was tested with Symfony 2.7 on Ubuntu 14.04
-
-# Symfony resources
-
-* [Best practices](http://symfony.com/doc/current/best_practices)
-* [Cookbook](http://symfony.com/doc/current/cookbook)
-* [Book](http://symfony.com/doc/current/book)
-
 # Installation
 
 ### Documentation
 * [symfony 2.7 installation doc](http://symfony.com/doc/2.7/book/installation.html)
+
+> Installation tested on Ubuntu 14.04 (Symfony 2.7)
 
 Download installer
 : {% highlight bash %}
@@ -93,6 +87,10 @@ $ sudo apt-get install php5-sqlite
 $ symfony demo
 {% endhighlight %}
 
+
+---
+
+
 # Quick Guide
 
 ## Directory structure
@@ -118,6 +116,60 @@ Important files
 * Enable new bundles: `app/AppKernel.php`
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
+
+
+---
+
+
+## Routing
+
+### Documentation
+* [symfony 2.7 routing doc](http://symfony.com/doc/current/book/routing.html)
+
+### Routing config example
+`app/config/routing.yml`
+: {% highlight yaml %}
+{% raw %}
+blog:
+        path:      /blog/{page}
+        defaults:  { _controller: AppBundle:Blog:index, page: 1 }
+        requirements:
+            page:  \d+
+blog_show:
+        path:      /blog/{slug}
+        defaults:  { _controller: AppBundle:Blog:show }
+contact:
+        path:     /{_locale}/contact
+        defaults: { _controller: AppBundle:Main:contact }
+        requirements:
+            _locale: "%app.locales%"
+{% endraw %}
+{% endhighlight %}
+        
+> routes are evaluated in the order they are present in the file (for example this is relevant for `blog` and `blog_show` routes seen above)
+    
+Controller arguments available (to use as constructor arguments)
+: 
+* $_locale
+* $_format
+* $_controller
+* $_route
+* Any value set in defaults or routing path
+
+Prefixing paths
+: {% highlight yaml %}
+{% raw %}
+# app/config/routing.yml
+app:
+        resource: "@AppBundle/Controller/"
+        type:     annotation
+        prefix:   /site
+{% endraw %}
+{% endhighlight %}
+
+
+---
+
 
 ## Controllers
 
@@ -298,6 +350,7 @@ public function indexAction()
 {% endraw %}
 {% endhighlight %}
 
+
 ---
 
 
@@ -459,6 +512,27 @@ app.debug
 * Read [this](http://symfony.com/doc/current/cookbook/templating/twig_extension.html)
 
 
+---
+
+
+## Session management
+
+### Documentation
+
+* [Session management reference](http://symfony.com/doc/current/components/http_foundation/sessions.html)
+* [Sessions example code](http://gnugat.github.io/2014/04/23/sf2-sessions-introduction.html)
+
+### Initializing the session
+{% highlight php startinline %}
+{% raw %}
+$session = new Session();
+$myAttributeBag = new AttributeBag($appName);
+// $myAttributeBag->setName('some_descriptive_name');
+$session->registerBag($myAttributeBag);
+$session->start();
+{% endraw %}
+{% endhighlight %}
+
 
 ---
 
@@ -608,10 +682,10 @@ Application-Related
 Config file
 : {% highlight yaml %}
 {% raw %}
-    parameters:
+parameters:
         app.version: 00.00.01
-    # make app.version value accesible for twig templates
-    twig:
+# make app.version value accesible for twig templates
+twig:
         globals:
             version: %app.version%
 {% endraw %}
@@ -634,6 +708,48 @@ App parameter from twig
 {% endraw %}
 {% endhighlight %}
 
-# TODO
-- Creating services
-- Routing
+
+---
+
+
+## Services
+
+### Documentation
+* [symfony 2.7 services doc](http://symfony.com/doc/2.7/book/controller.html)
+* [Controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html)
+
+Service class
+: {% highlight php startinline %}
+{% raw %}
+namespace AppBundle\Lib;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
+class MyService
+{
+        private $templating;
+
+        public function __construct(EngineInterface $templating, $appName)
+        {
+            $this->templating = $templating;
+        }
+}
+{% endraw %}
+{% endhighlight %}
+
+Configuration
+: {% highlight yaml %}
+{% raw %}
+# app/config/services.yml
+services:
+        my_service:
+            class:     AppBundle\Lib\MyService
+            arguments: ["@templating", "%appName%"]
+{% endraw %}
+{% endhighlight %}
+        
+Instantiation
+: {% highlight php startinline %}
+{% raw %}
+$myService = $container->get('my_service');
+{% endraw %}
+{% endhighlight %}

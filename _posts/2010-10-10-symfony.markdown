@@ -239,15 +239,15 @@ public function indexAction(Request $request)
 
     // store an attribute for reuse during a later user request
     $session->set('foo', 'bar');
+    
+    // unset session var
+    $session->remove('foo');
 
     // get the attribute set by another controller in another request
     $foobar = $session->get('foobar');
 
     // use a default value if the attribute doesn't exist
     $filters = $session->get('filters', array());
-    
-    // unset session var
-    $filters = $session->remove('foo');
 }
 {% endraw %}
 {% endhighlight %}

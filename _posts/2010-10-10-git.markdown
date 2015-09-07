@@ -267,10 +267,12 @@ Commit incluyendo mensaje de commit
     $ git commit -m <mensaje>
 {% endhighlight %}
 
-Reset de todos los cambios del ```WORKING TREE``` ("SVN revert")
+Descartar todos los cambios del ```WORKING TREE``` ("SVN revert")
 :
 {% highlight sh %}
-    $ git reset --hard origin/master
+    $ git reset --hard
+    # el siguiente comando es equivalente:
+    $ git checkout -f
 {% endhighlight %}
 
 Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico ("SVN revert")

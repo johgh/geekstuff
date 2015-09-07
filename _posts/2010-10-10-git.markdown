@@ -6,7 +6,7 @@ date:   2015-07-02 16:30:15
 category: Reference
 tags: Sysadmin Web
 ---
-> Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)``` donde se puede encontrar más información del tema en cuestión
+> Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)```
 
 
 # Conceptos
@@ -29,10 +29,7 @@ Master
 Origin
 : Repositorio remoto por defecto
 
-<br />
-
 ---
-<br />
 
 # Configuración
 
@@ -48,10 +45,7 @@ Para setear valores de la configuración global (o modificar fichero ~/.gitconfi
     $ git config --global user.name "John Doe"
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Iniciar repositorio
 
@@ -93,10 +87,7 @@ $ git clone --reference refrep http://foo/bar.git
 $ git fetch --all (se deben hacer pulls periódicamente!!)
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Ignorar ficheros
 
@@ -118,10 +109,7 @@ Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untr
     $ git update-index --assume-unchanged
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Comparación de ficheros
 
@@ -183,10 +171,7 @@ Comparación entre 2 commits
     $ git difftool <hash_commit1> <hash_commit2>
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Operaciones con INDEX
 
@@ -239,14 +224,11 @@ Borrar cambios parciales (opuesto a git add -p)
     $ git reset --patch
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Operaciones con HEAD
 
-## Básico
+## Commits
 
 Ver historial de commits
 : 
@@ -267,12 +249,20 @@ Commit incluyendo mensaje de commit
     $ git commit -m <mensaje>
 {% endhighlight %}
 
+Comitear un directorio vacío
+: En git solo se puede hacer commit de ficheros.
+Workaround: subir un directorio con un único fichero .gitignore en su interior
+
+<br />
+
+## Descartar cambios
+
 Descartar todos los cambios del ```WORKING TREE``` ("SVN revert")
-:
+: 
 {% highlight sh %}
-    $ git reset --hard
-    # el siguiente comando es equivalente:
-    $ git checkout -f
+$ git reset --hard
+# o lo que es lo mismo:
+$ git checkout -f
 {% endhighlight %}
 
 Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico ("SVN revert")
@@ -282,9 +272,20 @@ Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico ("SVN rev
 {% endhighlight %}
 > “--” no es necesario siempre y cuando no exista una rama con el mismo nombre
 
-Hacer commit de un directorio vacío
-: En git solo se puede hacer commit de ficheros.
-Workaround: subir un directorio con un único fichero .gitignore en su interior
+Volver temporalmente a un commit antiguo (detached HEAD mode)
+: 
+{% highlight sh %}
+$ git checkout <commit>
+# para volver al commit/rama actual
+$ git checkout origin master
+{% endhighlight %}
+
+Descartar definitivamente los cambios locales hasta cierto commit
+: 
+{% highlight sh %}
+    $ git reset --hard <commit>
+{% endhighlight %}
+> Esto solo es aconsejable si no se han publicado los commits mediante push, en caso contrario se aconseja usar el comando `git revert` (ver más abajo) que no modifica la historia sino que añade nuevos commits indicando la "vuelta atrás"
 
 <br />
 
@@ -379,10 +380,7 @@ Aplicar commit específico como commit actual
     $ git cherry-pick (p.181)
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Ramas
 
@@ -450,10 +448,7 @@ Forzar borrado en el repositorio local de las ramas borradas mediante el comando
     $ git fetch --prune
 {% endhighlight %}
 
-<br />
-
 ---
-<br />
 
 # Stash
 
@@ -512,10 +507,8 @@ Remove all stashes
 $ git clear
 {% endhighlight %}
 
-<br />
 
 ---
-<br />
 
 # Submodules
 

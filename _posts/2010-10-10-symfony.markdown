@@ -93,7 +93,7 @@ $ symfony demo
 
 # Quick Guide
 
-## Directory structure
+## Directory tree
 
 Important dirs
 : 
@@ -103,7 +103,7 @@ Important dirs
 * Third party libraries: `vendor/`
 * Public files: `web/`
 
-> [Directory structure explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
+> [Directory tree explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
 
 Important files
 : 

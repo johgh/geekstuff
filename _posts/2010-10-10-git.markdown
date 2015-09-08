@@ -277,7 +277,7 @@ Volver temporalmente a un commit antiguo (detached HEAD mode)
 {% highlight sh %}
 $ git checkout <commit>
 # para volver al commit/rama actual
-$ git checkout origin master
+$ git checkout master
 {% endhighlight %}
 
 Descartar definitivamente los cambios locales hasta cierto commit

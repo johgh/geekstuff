@@ -104,7 +104,7 @@ tags: Sysadmin
 | openshot                       | Distro                               | Extra        |
 | oracle-java8-installer         | ppa:webupd8team/java                 | Development  |
 | owncloud                       | Distro                               | Extra        |
-| p7zip                          | Distro                               | System       |
+| p7zip-full                     | Distro                               | System       |
 | pdfjam                         | Distro                               | Extra        |
 | pgadmin3                       | Distro                               | Development  |
 | php-codecoverage               | Distro                               | Development  |

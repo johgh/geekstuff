@@ -753,3 +753,24 @@ Instantiation
 $myService = $container->get('my_service');
 {% endraw %}
 {% endhighlight %}
+
+
+
+---
+
+
+## Bundles and overriding
+
+### Bundles and "app" overriding
+* [How to create a bundle and dir structure](http://symfony.com/doc/current/book/bundles.html)
+* [Template overriding](http://symfony.com/doc/current/book/templating.html#overriding-bundle-templates)
+
+### Bundle inheritance
+* [Bundle inheritance](http://symfony.com/doc/current/cookbook/bundles/inheritance.html)
+* [How to override bundles](http://symfony.com/doc/current/cookbook/bundles/override.html)
+* [Translation overriding](http://symfony.com/doc/current/cookbook/bundles/override.html#translations)
+
+### Advanced
+* [Prepending config to a bundle](http://symfony.com/doc/current/cookbook/bundles/prepend_extension.html)
+* [Service config per bundle](http://symfony.com/doc/current/cookbook/bundles/extension.html)
+* [Advanced config per bundle](http://symfony.com/doc/current/cookbook/bundles/configuration.html)

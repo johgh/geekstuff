@@ -351,7 +351,7 @@ class HelloController extends Controller
 
 > `$this->get()` is just a shortcut to `$this->container->get()`
 
-> to list all available services: `$ php app/console debug:container` 
+> to list all available services: `$ app/console debug:container` 
     
     
 ### Redirecting and url generation from controller
@@ -510,7 +510,7 @@ Routing.generate('route_id', /* your params */, true)
 {% endraw %}
 {% endhighlight %}
 
-> Move assets (default to `web`) with: php app/console assets:install target [--symlink]
+> Move assets from a bundle to Public with: `app/console assets:install target --symlink`
 
 ### Request from templates
 {% highlight jinja %}
@@ -694,8 +694,6 @@ $session->start();
 * [Best practices](http://symfony.com/doc/current/best_practices/configuration.html)
 * [Parameters](http://symfony.com/doc/current/components/dependency_injection/parameters.html)
 * [External parameters](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html)
-* [Load config per bundle](http://symfony.com/doc/current/cookbook/bundles/extension.html)
-* [Friendly config per bundle](http://symfony.com/doc/current/cookbook/bundles/configuration.html)
 
 ### Configuration files
 
@@ -830,4 +828,12 @@ Show config
     $ app/console config:dump-reference
     # show current extension config
     $ app/console config:dump-reference <bundle_alias>
+{% endhighlight %}
+
+Show services
+: {% highlight bash %}
+    # list all services
+    $ app/console debug:container
+    # show info for a service
+    $ app/console debug:container <service_name>
 {% endhighlight %}

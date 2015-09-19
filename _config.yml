@@ -17,6 +17,7 @@ permalink: none
 gems:
 - jekyll-sitemap
 - jekyll_github_sample
+- jekyll-last-modified-at
 
 include:
 - .nojekyll

@@ -3,7 +3,7 @@ layout: post
 title:  "Vim"
 permalink:  "vim"
 date:   2015-07-08 16:30:15
-category: Reference
+category: Quick Guide
 tags: Vim
 ---
 <!--
@@ -914,4 +914,3 @@ quit Vim
 <tr><td><code>^@ ^K ^_&nbsp; \&nbsp; F<font color='red'><i>n</i></font> ^F<font color='red'><i>n</i></font></code></td><td>unmapped keys</td></tr>
 </table>
 
-<br />

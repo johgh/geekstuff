@@ -2,8 +2,8 @@
 layout: post
 title:  "Symfony2"
 permalink:  "symfony"
-date:   2015-08-16 16:30:15
-category: Reference
+date:   2015-09-18 16:30:15
+category: Quick Guide
 tags: Web
 ---
 # Installation

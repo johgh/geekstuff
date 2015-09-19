@@ -239,7 +239,7 @@ public function indexAction()
     // calls json_encode and sets the Content-Type header
     return new JsonResponse($data);
 
-    // above is the same as:
+// above is the same as:
 /*
     return new Response(
         json_encode($data),
@@ -247,7 +247,7 @@ public function indexAction()
         array('Content-Type' => 'application/json')
     );
 */
-    // and:
+// and:
 /*
     $response = new Response(json_encode($data));
     $response->headers->set('Content-Type', 'application/json');
@@ -283,14 +283,14 @@ public function indexAction(Request $request)
 ### Flash messages
 {% highlight php startinline %}
 {% raw %}
-    this->addFlash(
-                'notice',
-                'Your changes were saved!'
-            );
+this->addFlash(
+    'notice',
+    'Your changes were saved!'
+);
 
-            // $this->addFlash is equivalent to $this->get('session')->getFlashBag()->add
+// $this->addFlash is equivalent to $this->get('session')->getFlashBag()->add
 
-            return $this->redirectToRoute(...);
+return $this->redirectToRoute(...);
 {% endraw %}
 {% endhighlight %}
 
@@ -515,9 +515,9 @@ Routing.generate('route_id', /* your params */, true)
 ### Request from templates
 {% highlight jinja %}
 {% raw %}
-//get
+{# get #}
 {{ app.request.query.get('page') }}
-// post
+{# post #}
 {{ app.request.request.get('page') }}
 {% endraw %}
 {% endhighlight %}
@@ -589,8 +589,7 @@ Transchoice string (pluralization)
 ### Using translation functions from the controller
 
 Trans and transchoice functions
-: 
-{% highlight php startinline %}
+: {% highlight php startinline %}
 {% raw %}
 $translator = $this->get('translator');
 // the optional param 'admin' is the domain of the translation

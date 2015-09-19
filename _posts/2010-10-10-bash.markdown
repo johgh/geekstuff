@@ -145,5 +145,6 @@ basename, dirname, wc -l, tail -n+2, . (include)
 # Resources
 
 > For complete shell scripting reference go [here](http://www.tldp.org/LDP/abs/html/)
+
 > Bash and shell scripting guides [here](http://wiki.bash-hackers.org)
 

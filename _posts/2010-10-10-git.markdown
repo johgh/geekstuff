@@ -33,15 +33,13 @@ Origin
 
 # Configuración
 
-Para ver la config
-: 
-{% highlight sh %}
+Para ver la configuración actual
+: {% highlight sh %}
     $ git config -l
 {% endhighlight %}
 
 Para setear valores de la configuración global (o modificar fichero ~/.gitconfig)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git config --global user.name "John Doe"
 {% endhighlight %}
 
@@ -50,22 +48,19 @@ Para setear valores de la configuración global (o modificar fichero ~/.gitconfi
 # Iniciar repositorio
 
 Crear repositorio central (--bare), que no será usado directamente
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ ssh ares@mars.example.com
 ares> git init --bare foo
 Initialized empty Git repository in /u/ares/foo/.git
 {% endhighlight %}
 
 Para clonar el repositorio y hacer checkout  de la rama ```HEAD``` (normalmente master)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git clone ares@mars.example.com:foo
 {% endhighlight %}
 
 Conectar directorio con contenido a un nuevo remoto (origen)
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ cd foo
 $ git init
 $ git remote add origin ares@mars.example.com:foo
@@ -75,14 +70,12 @@ $ git push -u origin master
 {% endhighlight %}
 
 A partir de ahí se puede hacer simplemente
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git push
 {% endhighlight %}
 
 Crear repositorio referencia (para tener varias ramas en checkout, ver p. 82)
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git clone --bare http://foo/bar.git refrep
 $ git clone --reference refrep http://foo/bar.git
 $ git fetch --all (se deben hacer pulls periódicamente!!)
@@ -99,14 +92,12 @@ Ignorar ficheros por repositorio (no se comparten ignores con nadie)
 : Fichero .git/info/exclude
 
 Fichero de configuración con ignores (se puede compartir fichero entre varios repositorios de la misma máquina)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git config --global core.excludesfile ~/.gitignore
 {% endhighlight %}
 
 Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untracked)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git update-index --assume-unchanged
 {% endhighlight %}
 
@@ -117,58 +108,49 @@ Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untr
 ## Comparación entre “branches”
 
 Comparación entre ```WORKING TREE``` y ```INDEX```
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool
 {% endhighlight %}
 
 Comparación entre ```INDEX``` y ```HEAD```
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool --staged
 {% endhighlight %}
 
 Comparación entre ```WORKING TREE``` y ```HEAD```
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool HEAD
 {% endhighlight %}
 
 Comparación entre ```WORKING TREE``` y remoto
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool origin/master
 {% endhighlight %}
 
 Comparación entre branches
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool origin/master origin/branch1
 {% endhighlight %}
 
 ## Comparación entre commits
 
 Para ver todos los commits del repositorio actual
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git log
 {% endhighlight %}
 
 Para ver todos los commits de un fichero específico
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git log <fichero>
 {% endhighlight %}
 
 Comparar entre el ```WORKING TREE``` y un commit anterior
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool <hash_commit_anterior>
 {% endhighlight %}
 
 Comparación entre 2 commits
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git difftool <hash_commit1> <hash_commit2>
 {% endhighlight %}
 
@@ -177,51 +159,43 @@ Comparación entre 2 commits
 # Operaciones con INDEX
 
 Añadir al índice cambios parciales de ficheros (se eligen de forma interactiva)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git add -p
 {% endhighlight %}
 
 Añadir todos los ficheros excepto nuevos (incluye modificados y eliminados)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git add -u
 {% endhighlight %}
 
 git commit -a , equivale a
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git add -u; git commit;
 {% endhighlight %}
 
 Añadir todo (incluyendo ficheros nuevos, untracked)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git add -A
 {% endhighlight %}
 
 Borrar/mover fichero de ```WORKING TREE``` y del ```INDEX```
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git rm <filename>
 $ git mv <filename>
 {% endhighlight %}
 
 Unstage de todos los cambios subidos al ```INDEX```
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git reset
 {% endhighlight %}
 
 Borrar un fichero del ```INDEX```
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git reset <fichero>
 {% endhighlight %}
 
 Borrar cambios parciales (opuesto a git add -p)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git reset --patch
 {% endhighlight %}
 
@@ -232,21 +206,18 @@ Borrar cambios parciales (opuesto a git add -p)
 ## Commits
 
 Ver historial de commits
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git log [<fichero>]
 $ git log --graph --oneline --decorate
 {% endhighlight %}
 
 Ver donde apunta ```HEAD``` (commit y rama)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git show-ref
 {% endhighlight %}
 
 Commit incluyendo mensaje de commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git commit -m <mensaje>
 {% endhighlight %}
 
@@ -259,31 +230,27 @@ Workaround: subir un directorio con un único fichero .gitignore en su interior
 ## Descartar cambios
 
 Descartar todos los cambios del ```WORKING TREE``` ("SVN revert")
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git reset --hard
 # o lo que es lo mismo:
 $ git checkout -f
 {% endhighlight %}
 
 Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico ("SVN revert")
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ [git reset HEAD <filename>] ; git checkout [--] <filename>
 {% endhighlight %}
 > “--” no es necesario siempre y cuando no exista una rama con el mismo nombre
 
 Volver temporalmente a un commit antiguo (detached HEAD mode)
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git checkout <commit>
 # para volver al commit/rama actual
 $ git checkout master
 {% endhighlight %}
 
 Descartar definitivamente los cambios locales hasta cierto commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git reset --hard <commit>
 {% endhighlight %}
 > Esto solo es aconsejable si no se han publicado los commits mediante push, en caso contrario se aconseja usar el comando `git revert` (ver más abajo) que no modifica la historia sino que añade nuevos commits indicando la "vuelta atrás"
@@ -292,26 +259,22 @@ Descartar definitivamente los cambios locales hasta cierto commit
 
 ## Merge commit
 Cambiar a la rama donde realizar merge commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git checkout <rama>
 {% endhighlight %}
 
 Realizar merge commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git merge <rama con_la_que_mezclar_nuestra_rama>
 {% endhighlight %}
 
 Realizar merge commit pero no dejar constancia del mismo en el grafo de commits (aparecerá como un commit más de nuestra rama, no tendrá 2 padres)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git merge --squash
 {% endhighlight %}
 
 Abortar el merge si hay conflictos y no queremos continuar
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git merge --abort (o dejando el mensaje de commit vacío)
 {% endhighlight %}
 
@@ -321,20 +284,17 @@ Abortar el merge si hay conflictos y no queremos continuar
 > Se hace pull with rebase para sustituir un merge por commits, de forma que no se produzcan merges “sin sentido”: que no estén mezclando líneas de trabajo distintas sino que sean producto de “timing” al hacer commit varios desarrolladores
 
 Después de abortar un merge (ver arriba)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git pull --rebase
 {% endhighlight %}
 
 Configurar pull rebase para una rama específica
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git config branch.branch-name.rebase yes
 {% endhighlight %}
 
 Configurar pull rebase para ramas nuevas
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git config branch.branch-name.rebase yes
 {% endhighlight %}
 
@@ -344,40 +304,34 @@ Configurar pull rebase para ramas nuevas
 > El objetivo es que cada commit tenga un objetivo específico al subirlo a origin. Mientras se trabaja se pueden subir commits temporales, pero antes de hacer push se deberían editar (corregir mensajes, subidas absurdas, etc.)
 
 Cambiar el último commit borrando el commit anterior
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git commit --amend
 {% endhighlight %}
 
 Rehacer el último commit borrado por accidente con amend
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git log -g
 $ git checkout <commit_encontrado_con_historial_operaciones>
 {% endhighlight %}
 
 Deshechar los últimos n commits (p.61)
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git log -g
 $ git reset HEAD~[n]
 {% endhighlight %}
 
 Deshacer commit añadiendo un nuevo commit, para que quede constancia en la historia (p.62)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git revert <hash_commit>
 {% endhighlight %}
 
 Rehacer la historia de commits (reordenar, split, join, etc)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git rebase -i HEAD~n (p.64)
 {% endhighlight %}
 
 Aplicar commit específico como commit actual
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git cherry-pick (p.181)
 {% endhighlight %}
 
@@ -386,27 +340,23 @@ Aplicar commit específico como commit actual
 # Ramas
 
 Crear una nueva rama que apunta al commit actual y cambiar a esta
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git checkout -b <nueva_rama>
 {% endhighlight %}
 
 O lo que es lo mismo
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git branch <nueva_rama>
 $ git checkout <nueva_rama>
 {% endhighlight %}
 
 Crear una rama que comience en un commit particular y cambiar a esta
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git checkout -b <nueva_rama> <hash_commit>
 {% endhighlight %}
 
 O lo que es lo mismo
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git checkout <hash_commit> (detached HEAD mode, no existe ninguna rama apuntando a este commit) (p.74)
 $ git checkout -b <nueva_rama>
 {% endhighlight %}
@@ -419,33 +369,28 @@ $ git checkout -b <nueva_rama>
 > La solución es hacer commit/stash, o utilizar git checkout --merge para mezclar a 3, dejando el resultado en el ```WORKING TREE``` (p.74)
 
 Borrar una rama
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git branch -d <nombre_rama>
 {% endhighlight %}
 
 Forzar el borrado de una rama que no está completamente mergeada (p. 75)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git branch -D <nombre_rama>
 {% endhighlight %}
 
 Ver rama upstream asociada a cada rama de nuestro repositorio
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git branch -vv (muestra el estado desde el último fetch)
 $ git remote show origin (contactando con el remoto, más información)
 {% endhighlight %}
 
 Borrar rama del repositorio remoto
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git push origin :rama_remoto
 {% endhighlight %}
 
 Forzar borrado en el repositorio local de las ramas borradas mediante el comando anterior en el remoto (es decir, actualizar el borrado en local)
-: 
-{% highlight sh %}
+: {% highlight sh %}
     $ git fetch --prune
 {% endhighlight %}
 
@@ -455,8 +400,7 @@ Forzar borrado en el repositorio local de las ramas borradas mediante el comando
 
 ## Save stash
 Save stash restoring working tree with last commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash save [<message>]
 {% endhighlight %}
 > Same as git stash (if you want to provide message ```save``` is mandatory)
@@ -464,14 +408,12 @@ $ git stash save [<message>]
 > Saving stash implies ```git reset --hard```
 
 Save stash but keep index intact
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash save --keep-index
 {% endhighlight %}
 
 Save stash including untracked files
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash save --include-untracked
 {% endhighlight %}
 > When stashing untracked files ```git clean``` is executed removing untracked files from working tree
@@ -480,8 +422,7 @@ $ git stash save --include-untracked
 
 ## Restore stash on Working Tree
 Restore stash but don't drop stashed state
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash apply [--index] [<stashref>]
 {% endhighlight %}
 > Use ```git stash list``` to show stashes refs than can be applied and ```git stash show``` to see the changes
@@ -489,22 +430,19 @@ $ git stash apply [--index] [<stashref>]
 > Restore also index (if possible) with the ```--index``` option
 
 Restore stash and drop stashed state
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash pop [--index] [<stashref>]
 {% endhighlight %}
 > If there are conflicts stash is not removed. Resolve and remove manually (see below)
 
 ## Removing stashes
 Remove last stash (or the stash specified)
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git stash drop [<stashref>]
 {% endhighlight %}
 
 Remove all stashes
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git clear
 {% endhighlight %}
 
@@ -514,14 +452,12 @@ $ git clear
 # Submodules
 
 Add submodule
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git submodule add <repo_url>
 {% endhighlight %}
 
 Remove Submodule
-: 
-{% highlight sh %}
+: {% highlight sh %}
 # delete the relevant section from the .gitmodules file at the root of the parent project
 $ git add .gitmodules
 # delete the relevant section from the config file located in the .git directory at the root of the project
@@ -532,29 +468,25 @@ $ rm -rf path/to/submodule
 {% endhighlight %}
 
 Update to fixed commit (on main repo) of submodules
-: 
-{% highlight sh %}
+: {% highlight sh %}
 # update submodules
 $ git submodule update --init --recursive
 {% endhighlight %}
 
 Pull in the changes from main repo and submodules
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git pull --recurse-submodules
 {% endhighlight %}
 > This is the same as: git pull + submodule update
 
 Upgrade specific submodule to last commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ cd bundle/<plugin>
 $ git pull origin master
 {% endhighlight %}
 
 Upgrade all submodules of the current repo to their last commit
-: 
-{% highlight sh %}
+: {% highlight sh %}
 $ git submodule foreach git pull origin master
 {% endhighlight %}
 

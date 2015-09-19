@@ -3,7 +3,7 @@ layout: post
 title:  "Git"
 permalink:  "git"
 date:   2015-07-02 16:30:15
-category: Quick Guide
+category: Quick Guides
 tags: Sysadmin Web
 ---
 > Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)```

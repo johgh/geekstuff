@@ -513,12 +513,6 @@ Flash messages
 {% endraw %}
 {% endhighlight %}
 
-> Documentation
-: 
-* [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
-* For twig specific reference see [this](/twig/) or [the twig doc](http://twig.sensiolabs.org/documentation#reference)
-* For symfony specific extensions see [this](http://symfony.com/doc/current/reference/twig_reference.html)
-
 ### Global variables
 
 app.security
@@ -541,8 +535,12 @@ app.debug
 
 > Global variables can be added from config file (see [App parameters](/symfony/#controllertwig-parameters))
 
-### Adding extensions to twig
-* Read [this](http://symfony.com/doc/current/cookbook/templating/twig_extension.html)
+> Documentation
+: 
+* [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
+* For twig specific reference see [this](/twig/) or [the twig doc](http://twig.sensiolabs.org/documentation#reference)
+* For symfony specific extensions see [this](http://symfony.com/doc/current/reference/twig_reference.html)
+* To add your own twig extensions see [this](http://symfony.com/doc/current/cookbook/templating/twig_extension.html)
 
 
 ---

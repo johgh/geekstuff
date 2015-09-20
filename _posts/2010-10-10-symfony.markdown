@@ -8,9 +8,6 @@ tags: Web
 ---
 # Installation
 
-### Documentation
-* [symfony 2.7 installation doc](http://symfony.com/doc/2.7/book/installation.html)
-
 > Installation tested on Ubuntu 14.04 (Symfony 2.7)
 
 Download installer
@@ -82,14 +79,16 @@ $ symfony demo
 {% endhighlight %}
 
 
+> Documentation
+: 
+* [symfony 2.7 installation doc](http://symfony.com/doc/2.7/book/installation.html)
+
 ---
 
 
 # Quick Guide
 
 ## Directory tree
-
-> [Directory tree explanation](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
 
 Important dirs
 : 
@@ -115,6 +114,9 @@ Important files
 
 > For config options: `$ app/console config:dump-reference <something>` or see [config reference](https://symfony.com/doc/current/reference/index.html)
 
+> Documentation
+: 
+* [Directory tree](https://symfony.com/doc/current/book/page_creation.html#exploring-the-project)
 
 ---
 
@@ -142,11 +144,7 @@ Important files
 
 ## Routing
 
-### Documentation
-* [symfony 2.7 routing doc](http://symfony.com/doc/current/book/routing.html)
-
-### Routing config example
-`app/config/routing.yml`
+Routing file syntax (`app/config/routing.yml`)
 : {% highlight yaml %}
 {% raw %}
 # imports the routing from a routing.yml file from some bundle
@@ -194,17 +192,18 @@ app:
 {% endraw %}
 {% endhighlight %}
 
+> Documentation
+: 
+* [symfony 2.7 routing doc](http://symfony.com/doc/current/book/routing.html)
+
 
 ---
 
 
 ## Controllers
 
-### Documentation
-* [symfony 2.7 controllers doc](http://symfony.com/doc/2.7/book/controller.html)
-
-### Request object
-{% highlight php startinline %}
+Request object
+: {% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Request;
 /**
@@ -212,18 +211,18 @@ use Symfony\Component\HttpFoundation\Request;
  */
 public function indexAction(Request $request, $firstName, $lastName = 'default')
 {
-    $request->isXmlHttpRequest(); // is it an Ajax request?
-    $request->getPreferredLanguage(array('en', 'fr'));
-    $request->query->get('page'); // get a $_GET parameter
-    $request->request->get('page'); // get a $_POST parameter
-    // ...
+        $request->isXmlHttpRequest(); // is it an Ajax request?
+        $request->getPreferredLanguage(array('en', 'fr'));
+        $request->query->get('page'); // get a $_GET parameter
+        $request->request->get('page'); // get a $_POST parameter
+        // ...
 }
 {% endraw %}
 {% endhighlight %}
 
 
-### Response object
-{% highlight php startinline %}
+Response object
+: {% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -234,78 +233,63 @@ class LuckyController
 */
 public function indexAction()
 {
-    // ...
+        // ...
 
-    // calls json_encode and sets the Content-Type header
-    return new JsonResponse($data);
+        // calls json_encode and sets the Content-Type header
+        return new JsonResponse($data);
 
-// above is the same as:
-/*
-    return new Response(
-        json_encode($data),
-        Response::HTTP_OK,
-        array('Content-Type' => 'application/json')
-    );
-*/
-// and:
-/*
-    $response = new Response(json_encode($data));
-    $response->headers->set('Content-Type', 'application/json');
-*/
+        // above is the same as:
+        return new Response(
+            json_encode($data),
+            Response::HTTP_OK,
+            array('Content-Type' => 'application/json')
+        );
+        // and:
+        $response = new Response(json_encode($data));
+        $response->headers->set('Content-Type', 'application/json');
 }
 {% endraw %}
 {% endhighlight %}
 
-### Sessions
-{% highlight php startinline %}
+Sessions
+: {% highlight php startinline %}
 {% raw %}
 use Symfony\Component\HttpFoundation\Request;
 public function indexAction(Request $request)
 {
-    $session = $request->getSession();
+        $session = $request->getSession();
 
-    // store an attribute for reuse during a later user request
-    $session->set('foo', 'bar');
-    
-    // unset session var
-    $session->remove('foo');
+        // store an attribute for reuse during a later user request
+        $session->set('foo', 'bar');
+        
+        // unset session var
+        $session->remove('foo');
 
-    // get the attribute set by another controller in another request
-    $foobar = $session->get('foobar');
+        // get the attribute set by another controller in another request
+        $foobar = $session->get('foobar');
 
-    // use a default value if the attribute doesn't exist
-    $filters = $session->get('filters', array());
+        // use a default value if the attribute doesn't exist
+        $filters = $session->get('filters', array());
 }
 {% endraw %}
 {% endhighlight %}
 
 
-### Flash messages
-{% highlight php startinline %}
+Flash messages
+: {% highlight php startinline %}
 {% raw %}
 this->addFlash(
     'notice',
     'Your changes were saved!'
 );
-
-// $this->addFlash is equivalent to $this->get('session')->getFlashBag()->add
-
+// $this->addFlash is equivalent to:
+/* $this->get('session')->getFlashBag()->add */
 return $this->redirectToRoute(...);
 {% endraw %}
 {% endhighlight %}
 
-{% highlight jinja %}
-{% raw %}
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-notice">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
-{% endraw %}
-{% endhighlight %}
-
-### Exceptions
-{% highlight php startinline %}
+Exceptions
+: {% highlight php startinline %}
 {% raw %}
     if (!$product) {
         throw $this->createNotFoundException('The product does not exist');
@@ -317,30 +301,28 @@ return $this->redirectToRoute(...);
 {% endraw %}
 {% endhighlight %}
     
-### Using services from a controller
-{% highlight php startinline %}
+Services
+: {% highlight php startinline %}
 {% raw %}
 // src/AppBundle/Controller/HelloController.php
 namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HelloController extends Controller
 {
-    // container services
-    $router = $this->get('router');
-    $mailer = $this->get('mailer');
+        // container services
+        $router = $this->get('router');
+        $mailer = $this->get('mailer');
 
-    $html = $this->container->get('templating')->render(
+        $html = $this->container->get('templating')->render(
+            'lucky/number.html.twig',
+            array('luckyNumberList' => $numbersList)
+        );
+            
+        // shortcut for template rendering
+        return $this->render(
         'lucky/number.html.twig',
         array('luckyNumberList' => $numbersList)
-    );
-        
-    // shortcut for template rendering
-/*
-    return $this->render(
-    'lucky/number.html.twig',
-    array('luckyNumberList' => $numbersList)
-    );
-*/
+        );
 }
 {% endraw %}
 {% endhighlight %}
@@ -354,39 +336,38 @@ class HelloController extends Controller
 > to list all available services: `$ app/console debug:container` 
     
     
-### Redirecting and url generation from controller
-{% highlight php startinline %}
+Redirecting and url generation
+: {% highlight php startinline %}
 {% raw %}
 public function indexAction()
 {
-    if ($redirect) {
-        return $this->redirectToRoute('homepage', array('page' => 1));
-    } else {
-        // forwarding to another controller
-        return $this->forward('AppBundle:Something:fancy', array(
-            'name'  => $name,
-            'color' => 'green',
-        ));
-    }
+        if ($redirect) {
+            return $this->redirectToRoute('homepage', array('page' => 1));
+        } else {
+            // forwarding to another controller
+            return $this->forward('AppBundle:Something:fancy', array(
+                'name'  => $name,
+                'color' => 'green',
+            ));
+        }
 
-    // redirectToRoute is equivalent to using redirect() and generateUrl() together:
-    /* return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301); */
-    // or providing an external url:
-    /* return $this->redirect('http://symfony.com/doc'); */
+        // redirectToRoute is equivalent to using redirect() and generateUrl() together:
+        /* return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301); */
+        // or providing an external url:
+        /* return $this->redirect('http://symfony.com/doc'); */
 }
 {% endraw %}
 {% endhighlight %}
+
+> Documentation
+: 
+* [symfony 2.7 controllers doc](http://symfony.com/doc/2.7/book/controller.html)
 
 
 ---
 
 
 ## Templates
-
-### Documentation
-* [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
-* For twig specific reference see [my twig doc](/twig/) or [the twig doc](http://twig.sensiolabs.org/documentation#reference)
-* For symfony specific extensions see [this](http://symfony.com/doc/current/reference/twig_reference.html)
 
 ### Three-level Inheritance (best practice)
 Base template
@@ -486,8 +467,8 @@ Absolute url generation
 {% endraw %}
 {% endhighlight %}
 
-### Url generation from javascript
-{% highlight javascript %}
+From javascript
+: {% highlight javascript %}
 // relative url
 Routing.generate('my_route_to_expose_with_defaults', { id: 2, foo: "bar" });
 // absolute url
@@ -496,14 +477,13 @@ Routing.generate('route_id', /* your params */, true)
 
 > You will need to install [this bundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/index.md)
 
-### Assets
-{% highlight jinja %}
+Assets
+: {% highlight jinja %}
 {% raw %}
 {% block stylesheets %}
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/acmedemo/css/contact.css') }}" rel="stylesheet" />
 {% endblock %}
-{# ... #}
 {% block javascripts %}
     <script src="{{ asset('js/main.js') }}"></script>
 {% endblock %}
@@ -512,8 +492,8 @@ Routing.generate('route_id', /* your params */, true)
 
 > Move assets from a bundle to Public with: `app/console assets:install target --symlink`
 
-### Request from templates
-{% highlight jinja %}
+Request from templates
+: {% highlight jinja %}
 {% raw %}
 {# get #}
 {{ app.request.query.get('page') }}
@@ -522,6 +502,22 @@ Routing.generate('route_id', /* your params */, true)
 {% endraw %}
 {% endhighlight %}
 
+Flash messages
+: {% highlight jinja %}
+{% raw %}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% endraw %}
+{% endhighlight %}
+
+> Documentation
+: 
+* [symfony 2.7 templating doc](http://symfony.com/doc/2.7/book/templating.html)
+* For twig specific reference see [this](/twig/) or [the twig doc](http://twig.sensiolabs.org/documentation#reference)
+* For symfony specific extensions see [this](http://symfony.com/doc/current/reference/twig_reference.html)
 
 ### Global variables
 
@@ -553,11 +549,6 @@ app.debug
 
 
 ## Translations
-
-### Documentation
-
-* [Configuration](http://symfony.com/doc/current/book/translation.html#configuration)
-* [Debugging translations](http://symfony.com/doc/current/book/translation.html#debugging-translations)
 
 ### Translation data
 
@@ -632,6 +623,11 @@ Trans and transchoice as filters
 {% endraw %}
 {% endhighlight %}
 
+> Documentation
+: 
+* [Configuration](http://symfony.com/doc/current/book/translation.html#configuration)
+* [Debugging translations](http://symfony.com/doc/current/book/translation.html#debugging-translations)
+
 
 
 ---
@@ -667,13 +663,8 @@ Trans and transchoice as filters
 
 ## Session management
 
-### Documentation
-
-* [Session management reference](http://symfony.com/doc/current/components/http_foundation/sessions.html)
-* [Sessions example code](http://gnugat.github.io/2014/04/23/sf2-sessions-introduction.html)
-
-### Initializing the session
-{% highlight php startinline %}
+Initializing the session
+: {% highlight php startinline %}
 {% raw %}
 $session = new Session();
 $myAttributeBag = new AttributeBag($appName);
@@ -683,16 +674,16 @@ $session->start();
 {% endraw %}
 {% endhighlight %}
 
+> Documentation
+: 
+* [Session management reference](http://symfony.com/doc/current/components/http_foundation/sessions.html)
+* [Sessions example code](http://gnugat.github.io/2014/04/23/sf2-sessions-introduction.html)
+
 
 ---
 
 
 ## Configuration
-
-### Documentation
-* [Best practices](http://symfony.com/doc/current/best_practices/configuration.html)
-* [Parameters](http://symfony.com/doc/current/components/dependency_injection/parameters.html)
-* [External parameters](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html)
 
 ### Configuration files
 
@@ -742,15 +733,17 @@ App parameter from twig
 {% endraw %}
 {% endhighlight %}
 
+> Documentation
+: 
+* [Best practices](http://symfony.com/doc/current/best_practices/configuration.html)
+* [Parameters](http://symfony.com/doc/current/components/dependency_injection/parameters.html)
+* [External parameters](http://symfony.com/doc/current/cookbook/configuration/external_parameters.html)
+
 
 ---
 
 
 ## Services
-
-### Documentation
-* [symfony 2.7 services doc](http://symfony.com/doc/2.7/book/controller.html)
-* [Controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html)
 
 Service class
 : {% highlight php startinline %}
@@ -787,6 +780,11 @@ Instantiation
 $myService = $container->get('my_service');
 {% endraw %}
 {% endhighlight %}
+
+> Documentation
+: 
+* [symfony 2.7 services doc](http://symfony.com/doc/2.7/book/controller.html)
+* [Controller as a service](http://symfony.com/doc/current/cookbook/controller/service.html)
 
 
 

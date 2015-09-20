@@ -9,94 +9,84 @@ tags: Web
 
 
 Trigger + stop propagation
-: 
-{% highlight javascript %}
-$(document).on('click', 'tr', function() {
-    $(this).find('.cb_item').trigger('click');
-});
-// .js-edit is inside tr, but we don't want the trigger in this case
-$(document).on('click', '.js-edit', function(e) {
-    do_something(this);
-    e.stopPropagation();
-});
+: {% highlight javascript %}
+    $(document).on('click', 'tr', function() {
+        $(this).find('.cb_item').trigger('click');
+    });
+    // .js-edit is inside tr, but we don't want the trigger in this case
+    $(document).on('click', '.js-edit', function(e) {
+        do_something(this);
+        e.stopPropagation();
+    });
 {% endhighlight %}
 
 Jquery loop + push into array + parents()
-: 
-{% highlight javascript %}
-var vars = {}; // object
-vars.softwares = []; // array
-$('select.my_class').each(function() {
-    var version = $(this).parents('.item').val(); // parents() finds upwards
-    vars.softwares.push({idSoftware: $(this).val(), version: version}); // push an object into the array
-});
+: {% highlight javascript %}
+    var vars = {}; // object
+    vars.softwares = []; // array
+    $('select.my_class').each(function() {
+        var version = $(this).parents('.item').val(); // parents() finds upwards
+        vars.softwares.push({idSoftware: $(this).val(), version: version}); // push an object into the array
+    });
 {% endhighlight %}
 
 Arrays/objects iteration
-: 
-{% highlight javascript %}
-$.each([ 52, 97 ], function( index, value ) {
-    alert( index + ": " + value ); 
-});
+: {% highlight javascript %}
+    $.each([ 52, 97 ], function( index, value ) {
+        alert( index + ": " + value ); 
+    });
 {% endhighlight %}
 
 Debug
-: 
-{% highlight javascript %}
-console.log(bla.toSource());
+: {% highlight javascript %}
+    console.log(bla.toSource());
 {% endhighlight %}
 
 Prototyped function
-: 
-{% highlight javascript %}
-$.fn.myExtension = function(){
-    var currentjQueryObject = this;
-    //work with currentObject
-    return this; //you can include this if you would like to support chaining
-};
+: {% highlight javascript %}
+    $.fn.myExtension = function(){
+        var currentjQueryObject = this;
+        //work with currentObject
+        return this; //you can include this if you would like to support chaining
+    };
 {% endhighlight %}
 
 Ternary logic, length, filter, prop...
-: 
-{% highlight javascript %}
-function checkRoot(parent){
-    child = ((parent == 'js-r-0') ? '.js-sections-read' : '.js-sections-write');
-    var totalChilds = $(child + "[id!='" + parent + "']").length;
-    var value = ($(child + "[id!='" + parent + "']").filter(':checked').length == totalChilds);
-    $('#' + parent).prop('checked', value);
-}
+: {% highlight javascript %}
+    function checkRoot(parent){
+        child = ((parent == 'js-r-0') ? '.js-sections-read' : '.js-sections-write');
+        var totalChilds = $(child + "[id!='" + parent + "']").length;
+        var value = ($(child + "[id!='" + parent + "']").filter(':checked').length == totalChilds);
+        $('#' + parent).prop('checked', value);
+    }
 {% endhighlight %}
 
 "Live" event
-: 
-{% highlight javascript %}
-$(document).on('click', '.js-changePage', function() {
-});
+: {% highlight javascript %}
+    $(document).on('click', '.js-changePage', function() {
+    });
 {% endhighlight %}
 
 $.param + serialize
-: 
-{% highlight javascript %}
-vars = {};
-vars.insert_event = 1;
-vars.arr_sched = arr_sched;
-varsForm = $("#form_add").serialize();
-// vars ready to pass to an ajax request, for example
-vars = $.param(vars) + '&' + varsForm
+: {% highlight javascript %}
+    vars = {};
+    vars.insert_event = 1;
+    vars.arr_sched = arr_sched;
+    varsForm = $("#form_add").serialize();
+    // vars ready to pass to an ajax request, for example
+    vars = $.param(vars) + '&' + varsForm
 {% endhighlight %}
 
 Radio button value
-: 
-{% highlight javascript %}
-$('input[name="genderS"]:checked').val();
+: {% highlight javascript %}
+    $('input[name="genderS"]:checked').val();
 {% endhighlight %}
 
 Js utf8 encode/decode string
-: 
-{% highlight javascript %}
-// encode
-unescape(encodeURIComponent(s));
-// decode
-decodeURIComponent(escape(s));
+: {% highlight javascript %}
+    // encode
+    unescape(encodeURIComponent(s));
+    // decode
+    decodeURIComponent(escape(s));
 {% endhighlight %}
 

@@ -101,7 +101,7 @@ Configure terminal proxy (put on .bashrc for permanent use)
 <br />
 
 ---
-<br />
+
 
 # Apt commands
 
@@ -149,7 +149,7 @@ Show last installed packages
 <br />
 
 ---
-<br />
+
 
 # Desktop commands
 
@@ -207,7 +207,7 @@ Move app to workspace at startup
 <br />
 
 ---
-<br />
+
 
 # Alias
 

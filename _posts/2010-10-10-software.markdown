@@ -171,15 +171,19 @@ tags: Sysadmin
 
 ## Repositories
 
-Google
-: {% highlight bash %}
-$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-{% endhighlight %}
+Dotdeb (upgrade LAMP server)
+: 
+* see instructions [here](https://www.dotdeb.org/instructions/)
 
 Gnome
 : {% highlight bash %}
 $ sudo add-apt-repository ppa:gnome3-team/gnome3
+{% endhighlight %}
+
+Google
+: {% highlight bash %}
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 {% endhighlight %}
 
 ## Download links

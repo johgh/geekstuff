@@ -58,9 +58,7 @@ if (!$sp)
 - El uso de un objeto de tipo Exception utilizado en un bloque `catch` permite la captura de excepciones genéricas. Sin embargo, es recomendable el uso de excepciones definidas por el usuario sobre cada tipo de excepción que esperamos, haciendo posible capturarlas en su correspondiente `catch`:
 
 {% highlight php startinline %}
-    catch (fSockException $e) {
-        /* handle exception */
-    }
+catch (fSockException $e) { /* handle exception */ }
 {% endhighlight %}
 
 - Los métodos definidos en `Exception` son finales, de forma que en las excepciones definidas por el usuario únicamente podemos añadir nuevos métodos, no redefinirlos (también es posible dejar la clase vacía)

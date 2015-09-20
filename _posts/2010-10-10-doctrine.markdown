@@ -6,93 +6,89 @@ date:   2015-01-02 16:30:15
 category: Web
 tags: Web
 ---
-# Use Doctrine
-
-{% highlight php startinline %}
-// Add these lines where you use Query Builder
-use Doctrine\DBAL\Connection;
-use Doctrine\Common\ClassLoader;
-use Doctrine\DBAL\Query;
+Use Doctrine
+: {% highlight php startinline %}
+    // Add these lines where you use Query Builder
+    use Doctrine\DBAL\Connection;
+    use Doctrine\Common\ClassLoader;
+    use Doctrine\DBAL\Query;
 {% endhighlight %}
 
-# Select Snippet
+Select
+: {% highlight php startinline %}
+    // Connection references Doctrine\DBAL\Connection
+    function getData(Connection $db, $idUser, $date_ini, $date_end, $idHaving, $arr_ids = array()) {
+        $qb = $db->createQueryBuilder()
+            ->select('idReport as id, date')
+            ->from($this->tableName, 'R')
+            ->leftJoin('p', 'app_rel', 'up', 'p.id = up.FK_idProfile AND FK_idUser = :arg0')
+            ->setParameter('arg0', $idUser)
+            ->andWhere('date >= :date_ini')
+            ->andWhere('date <= :date_end')
+            ->orWhere('field = 2')
+            ->setParameters(
+                array(
+                    'date_ini' => $date_ini,
+                    'date_end' => $date_end
+                )
+            )
+            ->groupBy('u.lastLogin')
+            ->andHaving('id = :id')
+            ->setParameter('id', $idHaving)
+            ->orderBy('date', 'DESC')
+            ->setMaxResults(1);
 
-{% highlight php startinline %}
-// Connection references Doctrine\DBAL\Connection
-function getData(Connection $db, $idUser, $date_ini, $date_end, $idHaving, $arr_ids = array()) {
+        if ($arr_ids != array()) {
+            $qb->where(
+                    $qb->expr()
+                    ->in('p.id', $arr_ids)
+                    );
+        }
+        $res = $qb->execute();
+        return $res->fetchAll();
+    }
+{% endhighlight %}
+
+Update
+: {% highlight php startinline %}
     $qb = $db->createQueryBuilder()
-        ->select('idReport as id, date')
-        ->from($this->tableName, 'R')
-        ->leftJoin('p', 'app_rel', 'up', 'p.id = up.FK_idProfile AND FK_idUser = :arg0')
-        ->setParameter('arg0', $idUser)
-        ->andWhere('date >= :date_ini')
-        ->andWhere('date <= :date_end')
-        ->orWhere('field = 2')
+        ->update($this->tableName)
+        ->set('Login', ':login')
+        ->set('Description', ':description')
         ->setParameters(
             array(
-                'date_ini' => $date_ini,
-                'date_end' => $date_end
+                'login'             => $login,
+                'description'       => $description,
             )
         )
-        ->groupBy('u.lastLogin')
-        ->andHaving('id = :id')
-        ->setParameter('id', $idHaving)
-        ->orderBy('date', 'DESC')
-        ->setMaxResults(1);
-
-    if ($arr_ids != array()) {
-        $qb->where(
-                $qb->expr()
-                ->in('p.id', $arr_ids)
-                );
+        ->where('id = :id')
+        ->setParameter('id', $id);
+    if ($password !== null) {
+        $qb->set('Password', ':password')->setParameter('password', $password);
     }
-    $res = $qb->execute();
-    return $res->fetchAll();
-}
+    
+    // $qb->execute() returns affected rows, catch exception if needed
+    try {
+        $qb->execute();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
 {% endhighlight %}
 
-# Update Snippet
-
-{% highlight php startinline %}
-$qb = $db->createQueryBuilder()
-    ->update($this->tableName)
-    ->set('Login', ':login')
-    ->set('Description', ':description')
-    ->setParameters(
-        array(
+Insert
+: {% highlight php startinline %}
+    $qb = $db->createQueryBuilder()
+        ->insert($this->tableName)
+        ->values(array(
+            'Login'             => ':login',
+            'Description'       => ':description'
+        ))
+        ->setParameters(array(
             'login'             => $login,
-            'description'       => $description,
-        )
-    )
-    ->where('id = :id')
-    ->setParameter('id', $id);
-if ($password !== null) {
-    $qb->set('Password', ':password')->setParameter('password', $password);
-}
-
-// $qb->execute() returns affected rows, catch exception if needed
-try {
-    $qb->execute();
-    return true;
-} catch (Exception $e) {
-    return false;
-}
-{% endhighlight %}
-
-# Insert Snippet
-
-{% highlight php startinline %}
-$qb = $db->createQueryBuilder()
-    ->insert($this->tableName)
-    ->values(array(
-        'Login'             => ':login',
-        'Description'       => ':description'
-    ))
-    ->setParameters(array(
-        'login'             => $login,
-        'description'       => $description
-    ));
-
+            'description'       => $description
+        ));
+    
     // Returning lastInsertId
     try {
         $qb->execute();
@@ -102,81 +98,77 @@ $qb = $db->createQueryBuilder()
     }
 {% endhighlight %}
 
-# Delete Snippet
-
-{% highlight php startinline %}
-$qb = $db->createQueryBuilder()
-    ->delete($this->tableName)
-    ->where('id = :id')
-    ->setParameter('id', $userId);
-
-$qb->execute();
+Delete
+: {% highlight php startinline %}
+    $qb = $db->createQueryBuilder()
+        ->delete($this->tableName)
+        ->where('id = :id')
+        ->setParameter('id', $userId);
+    $qb->execute();
 {% endhighlight %}
 
-# Subquerys And Native Code Snippet
+Subquerys And Native Code
+: {% highlight php startinline %}
+    // Setting session mysql variables with native code
+    $prepared = $db->prepare('SELECT @row_logs := 0, @page_logs := 0');
+    $prepared->execute();
 
-{% highlight php startinline %}
-// Setting session mysql variables with native code
-$prepared = $db->prepare('SELECT @row_logs := 0, @page_logs := 0');
-$prepared->execute();
+    $params = array();
 
-$params = array();
+    // Subquery
+    $qb1 = $db->createQueryBuilder();
 
-// Subquery
-$qb1 = $db->createQueryBuilder();
-
-$qb1->select(
-    array(
-        'id',
-        'UNIX_TIMESTAMP(date) AS unix_date',
-        'MOD(@row_logs := @row_logs + 1, :rows_per_page) AS row'
+    $qb1->select(
+        array(
+            'id',
+            'UNIX_TIMESTAMP(date) AS unix_date',
+            'MOD(@row_logs := @row_logs + 1, :rows_per_page) AS row'
+        )
     )
-)
-->from($this->tableName, 'L');
+    ->from($this->tableName, 'L');
 
-if ($game && $game != '*') {
-    $qb1->andWhere('game = :game');
-    $params['game'] = $game;
-}
-$qb1->setParameters($params);
+    if ($game && $game != '*') {
+        $qb1->andWhere('game = :game');
+        $params['game'] = $game;
+    }
+    $qb1->setParameters($params);
 
-// Main query
-$qb2 = $db->createQueryBuilder();
+    // Main query
+    $qb2 = $db->createQueryBuilder();
 
-// We set subquery params into the main query (the one to be executed)
-$qb2->setParameters($qb1->getParameters());
-$qb2->select(
-    array(
-        'T.*',
-        '@page_logs:=@page_logs + 1 as page'
+    // We set subquery params into the main query (the one to be executed)
+    $qb2->setParameters($qb1->getParameters());
+    $qb2->select(
+        array(
+            'T.*',
+            '@page_logs:=@page_logs + 1 as page'
+        )
     )
-)
-// We add code from the subquery to the main query
-->from('(' . $qb1->getSQL() . ')', 'T')
-->where('row = 1');
+    // We add code from the subquery to the main query
+    ->from('(' . $qb1->getSQL() . ')', 'T')
+    ->where('row = 1');
 
-$res = $qb2->execute();
+    $res = $qb2->execute();
 
-$pagesList = array();
-while ($row = $res->fetch()) {
-    $pagesList[$row['page']] = array(
-        'id' => $row['id'],
-        'unix_date' => $row['unix_date']
+    $pagesList = array();
+    while ($row = $res->fetch()) {
+        $pagesList[$row['page']] = array(
+            'id' => $row['id'],
+            'unix_date' => $row['unix_date']
+        );
+    }
+    return $pagesList;
+{% endhighlight %}
+
+Procedure Call
+: {% highlight php startinline %}
+    $prepared = $db->prepare('CALL GetUsers(:login)');
+    $res = $prepared->execute(
+        array(
+            'login' => $login
+        )
     );
-}
-return $pagesList;
-{% endhighlight %}
 
-# Procedure Call Snippet
-
-{% highlight php startinline %}
-$prepared = $db->prepare('CALL GetUsers(:login)');
-$res = $prepared->execute(
-    array(
-        'login' => $login
-    )
-);
-
-return $prepared->fetchAll();
+    return $prepared->fetchAll();
 {% endhighlight %}
 

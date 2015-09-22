@@ -2,7 +2,7 @@
 layout: blog
 title:  "10 puntos clave sobre software libre"
 permalink:  "software-libre-q&a"
-date:   2015-08-09 00:00:01
+date:   2015-09-22 00:00:01
 category: Blog
 tags: Free_Software
 ---
@@ -15,18 +15,18 @@ Para que un software sea considerado *libre* debe preservar los derechos de uso,
 
 En 1976, la ley americana del *Copyright Act* amenaza al movimiento de la *cultura hacker* enraizado en la tradición de la compartición de código sin restricciones a través de la red *ARPANET*.
 
-En 1983, un *hacker* del *MIT*, Richard M. Stallman, decide crear el proyecto *GNU* con el fin de implementar un sistema tipo *UNIX* completamente *libre*. Es entonces que crea la licencia *GPL*, (licencia que continúa siendo, a día de hoy, la licencia *libre* más usada.
+En 1983, un *hacker* del *MIT*, Richard M. Stallman, decide crear el proyecto *GNU* con el fin de implementar un sistema tipo *UNIX* completamente *libre*. Es entonces que crea la licencia *GPL*, (licencia que continúa siendo, a día de hoy, la licencia *libre* más usada).
 
 Algo más tarde es creada la *Free Software Foundation*, organización que promociona y proporciona soporte legal al uso de *software libre*. Esta organización se encarga, a día de hoy, del mantenimiento de la [definición de *software libre*](https://www.gnu.org/philosophy/free-sw.html), de un directorio de las licencias *libres* más importantes, y de la actualización de las licencias *GNU* (entre ellas la licencia *GPL* que actualmente se encuentra en su tercera revisión).
 
 # *Open Source*, *Software Libre* y las licencias *Creative Commons*
 
-En 1998, la *Open Source Initiative* (*OSI*) publicó la [*Open Source Definition*](http://opensource.org/docs/osd). Este documento basado en las [*DFSG*](http://www.debian.org/social_contract##guidelines), (a su vez fue basado en [*la definición de software libre de la FSF*](https://www.gnu.org/philosophy/free-sw.html)), define exactamente que software es es considerado *Open Source*. Aunque existen pequeñas diferencias entre la definición de *Open Source* y la de *software libre*, ambos términos son usados de forma intercambiable por ser ampliamente equivalentes. Más interesantes que esos mátices técnicos es el enfoque conceptual, conocido como [modelo *Open Source*](http://csheets.tk/software-libre-q&a/#el-modelo-open-source)
+En 1998, la *Open Source Initiative* (*OSI*) publicó la [*Open Source Definition*](http://opensource.org/docs/osd). Este documento basado en las [*DFSG*](http://www.debian.org/social_contract##guidelines), (a su vez fue basado en [*la definición de software libre de la FSF*](https://www.gnu.org/philosophy/free-sw.html)), define exactamente que software es considerado *Open Source*. Aunque existen pequeñas diferencias entre la definición de *Open Source* y la de *software libre*, ambos términos son usados de forma intercambiable por ser ampliamente equivalentes. Es la defensa del concepto de [modelo *Open Source*](/software-libre-q&a/#el-modelo-open-source), la que hace destacable al *movimiento Open Source*.
 
 <br />
 
 {:.center}
-![Software models](/softwaremodels.png "Ni todo el software libre es Open Source, ni todo Open Source es software libre")
+![Software models](/softwaremodels.png "Ni todo software libre es Open Source, ni todo Open Source es software libre")
 
 <div class="center">Ni todo software libre es Open Source, ni todo el Open Source es software libre</div><br />
 
@@ -48,9 +48,9 @@ Recientemente el término *Open Source* se ha extendido incluso fuera del mundo 
 
 Para poder decir que una licencia es *libre* debe cumplir con *las 4 libertades esenciales* definidas por la *FSF*. Si vamos más allá, sin embargo, encontramos diferencias importantes entre licencias *libres*.
 
-Las primeras licencias *libres* que comenzaron a hacer uso del copyright para poder ser defendidas legalmente fueron las licencias *GPL* y *BSD*, ambas creadas en el año 1989. La principal diferencia entre estos dos tipos de licencia es que las primeras, conocidas como licencias de *copyleft fuerte*, imponen la obligación de que el software derivado de un programa con dicha licencia se tenga que adherir a la misma. Por otro lado, las licencias de tipo *permisivo* (como *BSD* o *MIT*), permiten la modificación de las licencias de los trabajos derivados y la posibilidad incluso de *cerrar el código* en futuros trabajos. De hecho, estas licencias suelen ser casi idénticas al software de dominio público no sujeto a derechos de autor.
+Las primeras licencias *libres* que comenzaron a hacer uso del copyright para poder ser defendidas legalmente fueron las licencias *GPL* y *BSD*, ambas creadas en el año 1989. La principal diferencia entre estos dos tipos de licencia es que las primeras, conocidas como licencias de *copyleft fuerte*, imponen la obligación de que el software derivado de un programa con dicha licencia se tenga que adherir a la misma. Por otro lado, las licencias de tipo *permisivo* (como *BSD* o *MIT*), permiten la modificación de las licencias de los trabajos derivados y la posibilidad incluso de *cerrar el código* en futuros trabajos. De hecho, estas licencias son prácticamente equivalentes al software de dominio público no sujeto a derechos de autor.
 
-Algunos partidarios del uso de licencias *permisivas* comenzaron a usar las palabras *cláusula viral* de forma peyorativa para referirse al *copyleft* de las licencias *GNU*. Esto fue debido al efecto *absorción* que ejercieron en sus inicios sobre el software con licencias *BSD*.
+Algunos partidarios del uso de licencias *permisivas* comenzaron a usar el término *cláusula viral* de forma peyorativa para referirse al *copyleft* de las licencias *GNU*. Esto fue debido al efecto *absorción* que ejercieron en sus inicios sobre el software con licencias *BSD*.
 
 Este término ha sido reutilizado posteriormente por partidarios del software *propietario* que alegan que el *software libre* atenta contra los derechos de propiedad intelectual.
 
@@ -82,13 +82,13 @@ Además existen otros beneficios asociados al uso/desarrollo de aplicaciones *li
 
 # ¿Qué licencia le conviene usar a cada desarrollador?
 
-Ya que no existe un único modelo de negocio en el *software libre*, como hemos visto anteriormente, tampoco tiene porque ser utilizado el mismo tipo de licencia *libre* en cada uno de ellos:
+Ya que no existe un único modelo de negocio en el *software libre*, como hemos visto, tampoco sería lógico usar el mismo tipo de licencia en todos ellos:
 
 * Una licencia de *copyleft fuerte* obliga al desarrollador a distribuir en igualdad de condiciones su código junto con el heredado. Como contrapartida le permite tener la seguridad de que cualquier contribución posterior por parte de terceras personas se hará también bajo las mismas condiciones. Todo aquel que contribuya código tiene la garantía de que su código no podrá ser reutilizado en proyectos no *libres* (mientras el propietario de los derechos no cambie la licencia).
 
-* Una licencia de *copyleft débil* permite el uso de librerías sin la necesidad de publicar el código derivado propio. Para el desarrollador de una librería estas licencias resultan interesantes porque garantizan una flexibilidad mayor a quienes las van a usar y por tanto una mayor probabilidad de que una *comunidad*, o al menos un mayor número de usuarios, se establezca alrededor de su proyecto.
+* Una licencia de *copyleft débil* permite el uso de librerías sin la necesidad de publicar el código derivado propio. Para el desarrollador de una librería estas licencias resultan interesantes porque garantizan una flexibilidad mayor a quienes las van a usar y por tanto una mayor probabilidad de que una *comunidad* de desarrolladores, o al menos un mayor número de usuarios, se establezca alrededor de su proyecto.
 
-* Una licencia *permisiva* (tipo *BSD*) permite la apropiación del código sin la necesidad de contribución al mismo tras publicar un trabajo derivado. Es la licencia que provee a cada desarrollador de mayor libertad, pero también de menores garantías para que el código siga siendo *libre* en el futuro.
+* Una licencia *permisiva* (tipo *BSD*) permite la apropiación del código sin la necesidad de contribución al mismo tras publicar un trabajo derivado. Es la licencia que provee a cada desarrollador de mayor libertad, aunque también de menores garantías para que el código siga siendo *libre* en el futuro.
 
 # ¿Por qué le conviene usar *software libre* al usuario final?
 
@@ -97,14 +97,14 @@ De las 4 libertades esenciales propias de todo *software libre*, las 2 primeras 
 * Libertad 0: La libertad de ejecutar el programa para cualquier propósito.
 * Libertad 1: La libertad de estudiar cómo funciona el programa, y cambiarlo para que haga lo que usted quiera.
 
-Estas libertades, tienen el objetivo de liberar al usuario de la dependencia de un software, y por ende de los posibles intereses de la empresa que posea sus derechos. El usuario controla al software y no al revés. Cuando un software no funciona bien, o no hace lo que el usuario quiere, puede cambiarlo él mismo. Además puede dedicarse a estudiarlo con fines didácticos.
+Estas libertades, tienen el objetivo de liberar al usuario de la dependencia de un software, y por ende, de los posibles intereses sectarios del propietario de sus derechos. El usuario controla al software y no al revés. Cuando un software no funciona bien o no hace lo que el usuario quiere, puede cambiarlo él mismo. Además tiene la posibilidad de estudiarlo con fines didácticos.
 
 Las libertades 2 y 3 tienen que ver con la distribución del *software libre*, es decir, con el acceso por parte de los usuarios al mismo.
 
 * Libertad 2: La libertad de redistribuir copias para ayudar a su prójimo.
 * Libertad 3: La libertad de distribuir copias de sus versiones modificadas a terceros.
 
-Todo el mundo tiene las mismas posibilidades de acceso al *software libre* (a diferencia del software *propietario*, donde una licencia de uso puede costar varios cientos de euros). No sólo eso, se reduce el riesgo de monopolio y de la aparición de seudo-estándares con el propósito de perjudicar a posibles competidores.
+Todo el mundo puede acceder al *software libre* en igualdad de condiciones ,(a diferencia del software *propietario*, donde una licencia de uso puede costar varios cientos de euros). No sólo eso, se reduce el riesgo de monopolio y de la aparición de seudo-estándares con el propósito de perjudicar a posibles competidores.
 
 El uso de estándores y la transparencia en los sistemas *libres* es uno de sus puntos fuertes, cualquier usuario puede conocer los componentes que forman un sistema libre y colaborar con la *comunidad* mediante la detección de errores y/o aportando soluciones.
 
@@ -114,15 +114,21 @@ Existen algunos beneficios adicionales que son posibles gracias al acceso al có
 
 * La mejora en la seguridad de todo software que abre su código, gracias a que todo el mundo puede revisarlo.
 
-* La posibilidad de investigar software espía o malware y advertir a los demás usuarios de su existencia. De otra forma solo podemos confiar ciegamente en las buenas intenciones del autor del código.
+* La posibilidad de investigar software espía o malware y advertir a los demás usuarios de su existencia. De otra forma solo nos queda confiar ciegamente en las buenas intenciones del autor del código.
 
 # ¿Por qué seguimos usando software que no es *libre*?
 
-Si utilizar *software libre* tiene tantas ventajas, ¿por qué la mayoría de la gente sigue utilizando aplicaciones y sistemas operativos *propietarios*?
+Si utilizar *software libre* tiene tantas ventajas, ¿por qué el usuario final continúa usando sistemas y aplicaciones *no libres*?
 
-Es posible que en algunos casos este software *propietario* sea de mayor calidad que su alternativa *libre*, sin embargo esa no parece la principal motivación para su uso. El software, como cualquier otra tecnología tiende al monopolio de forma natural. Esto es así debido a que los usuarios rechazan inicialmente cualquier software distinto al que ya conocen debido a la curva de aprendizaje inicial que deben superar hasta adaptarse.
+Es posible que en algunos casos el software *propietario* sea de mayor calidad que su alternativa *libre*, si bien ese no es siempre el caso. El software, como cualquier otra tecnología tiende al monopolio de forma natural. Esto es así debido a la tendencia inicial del usuario a rechazar cualquier software distinto al que ya conoce.
 
-Casos recientes, como el de la masiva aceptación del sistema *Android* (basado en gran parte en *software libre*) han demostrado que no hay nada que impida la aceptación del *software libre* por parte de los usuarios finales. Quizás, después de todo, el hecho de que los sistemas *GNU/Linux* de escritorio no hayan llegado todavía al gran público sea en parte una cuestión de promoción por parte de las grandes corporaciones.
+Por otra parte, la masiva aceptación del sistema *Android*, o la de los navegadores *Mozilla Firefox* y *Google Chrome*, son una clara prueba de que nada impide la rápida aceptación de *software libre* por parte de usuarios finales - esto es, si se dan las circunstancias adecuadas.
+
+Por otro lado, no es menos cierto que a día de hoy, la gran mayoría de usuarios no valora - ni conoce en muchos casos - que es *software libre*. Una consecuencia directa de esto es que los sistemas de escritorio libres destinados a usuarios finales se hayan visto reducidos en gran parte a un nicho de usuarios técnicos. El usuario medio antepone multitud de criterios para seleccionar un software a la libertad con la que pueda usarlo finalmente, que generalmente, ni siquiera se plantea.
+
+Así que mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del software libre, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece repercutir de forma alguna en las libertades del usuario final.
+
+¿Y por qué no? El software sólo es una herramienta. Los individuos deben decidir el uso que le quieren dar. Y sólo decidiendo hacer un uso consciente del mismo serán libres para poder aprovechar todo su potencial.
 
 {:.center}
 ![GNU/Linux with GPL armor](/gnu-and-penguin-color-300x276.jpg "GNU/Linux con armadura GPL")

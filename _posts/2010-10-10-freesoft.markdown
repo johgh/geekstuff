@@ -120,21 +120,23 @@ Existen algunos beneficios adicionales que son posibles gracias al acceso al có
 
 Si utilizar *software libre* tiene tantas ventajas, ¿por qué el usuario final continúa usando sistemas y aplicaciones *no libres*?
 
-Es posible que en algunos casos el software *propietario* sea de mayor calidad que su alternativa *libre*, si bien ese no es siempre el caso. El software, como cualquier otra tecnología tiende al monopolio de forma natural. Esto es así debido a la tendencia inicial del usuario a rechazar cualquier software distinto al que ya conoce.
+No cabe duda que en algunos casos concretos el software *propietario* es de mayor calidad que su alternativa *libre*. Sin embargo este no parece ser el único motivo para elegir software *propietario* en lugar de *software libre*. El software tiende al *monopolio* de forma natural debido a la oposición inicial del usuario a utilizar algo distinto a lo  que ya conoce y domina. De esta forma, software como los sistemas *Microsoft Windows*, o la suite ofimática *Office*, han adquirido a lo largo del tiempo cierta ventaja competitiva sobre cualquier otro software por el sólo hecho de haberse convertido en un estándar de facto.
 
-Por otra parte, la masiva aceptación del sistema *Android*, o la de los navegadores *Mozilla Firefox* y *Google Chrome*, son una clara prueba de que nada impide la rápida aceptación de *software libre* por parte de usuarios finales - esto es, si se dan las circunstancias adecuadas.
+Pero no sólo los productos *propietarios* gozan de esta ventaja, la masiva aceptación del sistema *Android*, o la de los navegadores *Mozilla Firefox* y *Google Chrome*, son una prueba de que nada impide la aceptación de *software libre* por parte de usuarios finales, demostradndo que bajo un modelo de negocio acertado, el *software libre* puede plantar cara a su alternativa *propietaria*, e incluso establecer sus propios *monopolios*.
 
-Por otro lado, no es menos cierto que a día de hoy, la gran mayoría de usuarios no valora - ni conoce en muchos casos - que es *software libre*. Una consecuencia directa de esto es que los sistemas de escritorio libres destinados a usuarios finales se hayan visto reducidos en gran parte a un nicho de usuarios técnicos. El usuario medio antepone multitud de criterios para seleccionar un software a la libertad con la que pueda usarlo finalmente, que generalmente, ni siquiera se plantea.
+Un caso particularmente interesante, en cuanto a aceptación del software por parte de usuarios finales es el de los sistemas de escritorio *libres*. Estos sistemas se han visto reducidos tradicionalmente a un nicho de usuarios técnicos y/o de usuarios especialmente concienciados con las *libertades del software*. Lo cierto es que, a día de hoy, este sector de usuarios son una gran minoría: el usuario medio no valora - ni conoce en muchos casos - que es *software libre*, y por ende, antepone todo tipo de criterios en la elección de un software, a la libertad con la que este puede ser usado.
 
-Así que mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del software libre, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece repercutir de forma alguna en las libertades del usuario final.
+Así que mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del *software libre*, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece tener impacto alguno en las *libertades* de los usuarios finales. ¿Por qué sucede esto? ¿Quién es el responsable? El software no es más que una herramienta. Los individuos son los únicos que pueden decidir el uso que le quieren dar. Si los usuarios no valoran las implicaciones que puede tener el uso de uno u otro tipo de software no podrán beneficiarse del potencial de un software *libre de restricciones* y con valores tan importantes como el del *libre acceso*, en igualdad de condiciones, para todos los usuarios.
 
-¿Y por qué no? El software sólo es una herramienta. Los individuos deben decidir el uso que le quieren dar. Y sólo decidiendo hacer un uso consciente del mismo serán libres para poder aprovechar todo su potencial.
+***
+
+<br />
 
 {:.center}
 ![GNU/Linux with GPL armor](/gnu-and-penguin-color-300x276.jpg "GNU/Linux con armadura GPL")
 
-<div class="center">GNU/Linux con armadura GPL</div><br />
-
+<div class="center">GNU/Linux con armadura GPL</div>
+<br />
 
 ***
 

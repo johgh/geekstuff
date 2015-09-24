@@ -55,6 +55,19 @@ a {
 
 .post-link {
     // color: $grey-color-dark !important;
+    color: #424242;
+    font-size: 1.35rem;
+
+}
+
+.post-link:hover,
+.post-link:focus {
+  text-decoration: none;
+  color: #999;
+}
+
+.fa {
+    color: #268BD2;
 }
 
 .site-nav {

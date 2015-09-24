@@ -22,7 +22,7 @@ permalink: /tags/
             <article class="post-content">
                 {% assign posts = site.tags[tag] | sort: 'title' %}
                 {% for post in posts %}
-                <h2> <i class="fa fa-file-code-o"></i> <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> <span style="font-size:25px">[{{ post.category }}] </h2>
+                <h2> <i class="fa fa-file-code-o"></i> <a class="post-link" href="{{ post.url }}">{{ post.title }}</a> <span style="color: #999; font-size:25px">[{{ post.category }}] </h2>
                 {% endfor %}
                 {% if forloop.last == false %}
                     <hr style="margin: 0px 0px -50px 0px"/>

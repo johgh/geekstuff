@@ -126,7 +126,9 @@ Pero no sólo los productos *propietarios* gozan de esta ventaja, la masiva acep
 
 Un caso particularmente interesante, en cuanto a aceptación del software por parte de usuarios finales es el de los sistemas de escritorio *libres*. Estos sistemas se han visto reducidos tradicionalmente a un nicho de usuarios técnicos y/o de usuarios especialmente concienciados con las *libertades del software*. Lo cierto es que, a día de hoy, este sector de usuarios son una gran minoría: el usuario medio no valora - ni conoce en muchos casos - que es *software libre*, y por ende, antepone todo tipo de criterios en la elección de un software, a la libertad con la que este puede ser usado.
 
-Así que mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del *software libre*, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece tener impacto alguno en las *libertades* de los usuarios finales. ¿Por qué sucede esto? ¿Quién es el responsable? El software no es más que una herramienta. Los individuos son los únicos que pueden decidir el uso que le quieren dar. Si los usuarios no valoran las implicaciones que puede tener el uso de uno u otro tipo de software no podrán beneficiarse del potencial de un software *libre de restricciones* y con valores tan importantes como el del *libre acceso*, en igualdad de condiciones, para todos los usuarios.
+Así que mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del *software libre*, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece tener impacto alguno en las *libertades* de los usuarios finales. ¿Pero por qué sucede esto? ¿Quién es el responsable?
+
+El software no es más que una herramienta. Los individuos son los únicos que pueden decidir el uso que le quieren dar. Si los usuarios no valoran las implicaciones que puede tener el uso de uno u otro tipo de software no podrán beneficiarse del potencial de un software *libre de restricciones* y con valores tan importantes como el del *libre acceso*, en igualdad de condiciones, para todos los usuarios.
 
 ***
 

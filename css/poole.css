@@ -48,7 +48,11 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  /* font-family: 'Arvo', serif !important; */
+  /* font-family: 'Droid Sans', sans-serif !important; */
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -87,6 +91,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
+  font-family: 'Droid Serif', serif !important;
+
 }
 h1 {
   font-size: 1.7rem;
@@ -151,7 +157,9 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  font-family: monospace;
+  /* font-family: monospace; */
+  /* font-family: 'Glegoo', serif !important; */
+    font-family: 'Droid Sans Mono'  !important;
 }
 code {
   padding: .25em .5em;
@@ -165,7 +173,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem;
-  font-size: .8rem;
+  font-size: .75rem;
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;

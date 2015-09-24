@@ -28,12 +28,14 @@
 }
 
 .section-title {
+    font-family: 'Roboto', sans-serif !important;
     text-transform: uppercase;
     background-color: #424242;
     color: white;
     float: left;
     padding: 0 5px;
     margin-bottom: 30px;
+    font-size: 14pt;
     // color: $blue-color-light;
 }
 
@@ -47,6 +49,8 @@ a {
     color: #424242 !important;
     font-family: monospace;
     font-size: 31px;
+    font-family: 'Roboto', sans-serif !important;
+
 }
 
 .post-link {

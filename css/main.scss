@@ -34,9 +34,11 @@ $on-laptop:        800px;
 }
 
 .blog {
-font-family :    "Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif";
-font-size: 13pt;
-text-align: justify;
+// font-family :    "Open Sans","Helvetica Neue","Helvetica","Arial","sans-serif";
+    font-family: 'Roboto', sans-serif !important;
+    // font-family: 'Droid Serif', serif !important;
+    font-size: 13.5pt;
+    text-align: justify;
     width: 90%;
     margin: auto;
 }
@@ -44,6 +46,9 @@ text-align: justify;
 .note, .shortnote {
 	// background: #ffffa9;
 	// background: $grey-color-light;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 11pt;
     background: rgb(246, 246, 246);
 	padding: 15px 20px 20px 20px;
 	border-radius: 5px;

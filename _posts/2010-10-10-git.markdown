@@ -255,6 +255,16 @@ Descartar definitivamente los cambios locales hasta cierto commit
 {% endhighlight %}
 > Esto solo es aconsejable si no se han publicado los commits mediante push, en caso contrario se aconseja usar el comando `git revert` (ver más abajo) que no modifica la historia sino que añade nuevos commits indicando la "vuelta atrás"
 
+Descartar definitivamente los cambios hasta el último commit publicado
+: {% highlight sh %}
+    $ git fetch [origin master]
+    $ git reset --hard FETCH_HEAD
+    $ [git clean -df]
+{% endhighlight %}
+> Obtenemos la referencia del último commit en remoto `FETCH_HEAD` para luego descartar los cambios mediante `get reset --hard`
+
+> `git clean -df` elimina los ficheros untracked, para obtener un repositorio limpio tal y como lo encontraríamos tras hacer `git clone`
+
 <br />
 
 ## Merge commit

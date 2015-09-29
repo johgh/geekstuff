@@ -565,6 +565,8 @@ user:
 
 > It is possible to define multiple domains/files (default domain is `messages`, read [more](http://symfony.com/doc/current/components/translation/introduction.html#using-message-domains))
 
+> After adding a new translation file, cleaning cache is required: `php app/console cache:clear`
+
 Transchoice string (pluralization)
 : 
 ```

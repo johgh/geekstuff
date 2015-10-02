@@ -9,16 +9,17 @@ tags: Sysadmin Web
 > Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)```
 
 
-# Conceptos
+# Introducción
 
+## Terminología
 
 Working tree
 : Ficheros que tenemos en el workspace
 
-Index
-: a.k.a. Staging. Es el snapshot que será “traspasado” tal cual una vez hagamos commit a nuestro repositorio local. Es decir, cuando hacemos ADD el fichero se añade tal cual como está EN ESE MOMENTO (si luego se cambia y no se vuelve a añadir se quedará como estaba!!).
+Index (staging)
+: Es el snapshot que será traspasado al ejecutar ```git commit``` a nuestro repositorio local. Cada vez que ejecutamos ```git add``` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar ```git add```.
 
-> Para saber que hemos subido desde el ```WORKING TREE``` al ```INDEX``` en cada momento y ver las diferencias con el repositorio local ver los comandos git difftool y git difftool --staged explicados abajo.
+> Para saber que hemos subido desde el ```WORKING TREE``` al ```INDEX``` en cada momento y ver las diferencias con el repositorio local ver los comandos ```git difftool``` y ```git difftool --staged``` explicados abajo.
 
 HEAD
 : Puntero al último commit.
@@ -28,6 +29,30 @@ Master
 
 Origin
 : Repositorio remoto por defecto
+
+## Workflow
+
+> 1) Añadir ficheros al índice para poder hacer commit
+: ```git add . [-all]```
+
+> 2) Dejar limpio el índice para poder hacer pull
+: 
+    * **opción a**: ```git commit```
+    * **opción b**: ```git stash```
+
+> 3) Obtener los cambios realizados en remoto mediante ```git pull```
+: 
+    * **escenario a**: No hay conflicto. Automerge commit.
+    * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` una vez resuelto.
+
+> 3.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
+: ```git stash apply```
+
+> 4) Volver a comprobar si hay nuevos cambios en remoto (por si alguien ha hecho push mientras nos encontrabamos en el punto anterior)
+: ```git pull```
+
+> 5) Publicar nuestros commits en remoto
+: ```git push```
 
 ---
 

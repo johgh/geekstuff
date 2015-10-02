@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Apps"
+title:  "Software packages"
 permalink:  "apps"
 date:   2015-08-23 16:30:15
 category: Linux
 tags: Sysadmin
 ---
-## Package installer
+# Package installer
 
 <div id="selectText" style="font-family: monospace; font-weight: bold; font-size:14px; border-style: dashed; border-color: #A0A0A0; padding:
 6px; border-width: 2px;"> No packages selected </div>
@@ -169,28 +169,80 @@ tags: Sysadmin
 
 > Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)
 
-## Repositories
+---
 
-Dotdeb (upgrade LAMP server)
+# Repositories list
+
+> WebUpd8 main repository (ubuntu packages)
+: 
+: {% highlight bash %}
+$ sudo add-apt-repository ppa:nilarimogard/webupd8
+{% endhighlight %}
+* complete list of WebUpd8 repositories [here](http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html)
+
+> Getdeb (ubuntu updated packages)
+: {% highlight bash %}
+# Add to sources.list
+deb http://archive.getdeb.net/ubuntu vivid-getdeb apps
+# Add the repository GPG key
+$ wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+{% endhighlight %}
+
+> Dotdeb (Debian LAMP updated packages)
 : 
 * see instructions [here](https://www.dotdeb.org/instructions/)
 
-Gnome
+> Debian Backports (debian updated packages)
+: * Full instructions [here](http://backports.debian.org/)
+
+> Deb-multimedia (unofficial Debian repository)
+: {% highlight bash %}
+# Add to sources.list
+deb http://www.deb-multimedia.org stable main non-free
+{% endhighlight %}
+* See other unofficial debian repositories [here](https://wiki.debian.org/UnofficialRepositories)
+
+> Gnome
 : {% highlight bash %}
 $ sudo add-apt-repository ppa:gnome3-team/gnome3
 {% endhighlight %}
 
-Google
+> Google
 : {% highlight bash %}
 $ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 $ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 {% endhighlight %}
 
-## Download links
+---
+
+# Direct download links
 
 * [Dbeaver](http://dbeaver.jkiss.org/download/)
 * [Brackets](http://brackets.io/)
 * [Virtual Box + extension pack](http://download.virtualbox.org/virtualbox/)
+
+---
+
+# Mariadb 5.5 on Debian Squeeze
+
+Add repo to sources.list
+: {% highlight bash %}
+deb http://tedeco.fi.upm.es/mirror/mariadb/repo/5.5/debian squeeze main
+{% endhighlight %}
+
+Add the repository GPG key
+: {% highlight bash %}
+$ sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+{% endhighlight %}
+
+Install Mariadb
+: {% highlight bash %}
+$ sudo apt-get purge mysql-common
+$ sudo apt-get update
+$ sudo apt-get install mariadb-server
+# if php connector is required:
+$ sudo apt-get install php5-mysql
+{% endhighlight %}
 
 
 <script>

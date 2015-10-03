@@ -15,7 +15,9 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Bash Hackers Wiki](http://wiki.bash-hackers.org)
 
-[<i class="fa fa-external-link"></i> Git Ready]( http://gitready.com)
+[<i class="fa fa-external-link"></i> Git tutorials](https://www.atlassian.com/git/tutorials)
+
+[<i class="fa fa-external-link"></i> Git Ready](http://gitready.com)
 
 <br />
 

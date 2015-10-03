@@ -40,7 +40,7 @@ Origin
 > #### Si ***no hay*** cambios en el repositorio remoto:
 
 1) Añadir ficheros al índice para poder hacer commit:
-: ```git add . [--all]``` o ```git add file1 file2 file3 [...]```
+: ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
 
 2) Hacer commit de los ficheros que hayamos añadido al índice
 : ```git commit```
@@ -50,26 +50,23 @@ Origin
 
 > #### Si ***hay*** cambios en remoto:
 
-1) Añadir ficheros al índice para poder hacer commit:
-: ```git add . [-all]```
-
-2) Dejar limpio el índice y el working tree para poder hacer pull
+1) Dejar limpio el índice y el working tree para poder hacer pull
 : 
-    * **opción a**: ```git commit```
+    * **opción a**: ```git add . [-all]``` + ```git commit```
     * **opción b**: ```git stash```
 
-3) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```
+2) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```
 : 
     * **escenario a**: No hay conflicto. Automerge commit.
     * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` una vez resuelto.
 
-3.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
+2.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
 : ```git stash apply```
 
-4) Comprobar de nuevo si se han producido cambios en remoto:
+3) Comprobar de nuevo si se han producido cambios en remoto:
 : ```git pull```
 
-5) Publicar nuestros commits en remoto:
+4) Publicar nuestros commits en remoto:
 : ```git push```
 
 ---

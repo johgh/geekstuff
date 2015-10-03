@@ -6,17 +6,26 @@ date:   2011-07-15 16:30:15
 category: Linux
 tags: Sysadmin Vim
 ---
+# Generic expect script
+
+> This `expect` script is useful for automating scripts that expect user input, or to avoid writing passwords manually. Use at your own risk!
+
+{% github_sample_ref johgh/scripts/blob/master/ansbot  %}
+<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
+<div id="selectText1">
+{% highlight vim %}
+{% github_sample johgh/scripts/blob/master/ansbot %}
+{% endhighlight %}
+</div>
 
 # Dot files setup
 
 > This script downloads from github my dot (config) files installing any external dependencies. It also installs
-> my .vim directory if doesn't find previous Vim config files
-
-<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+> my .vim directory if it doesn't find previous Vim config files
 
 {% github_sample_ref johgh/scripts/blob/master/setup.sh  %}
-<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
-<div id="selectText1">
+<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
+<div id="selectText2">
 {% highlight vim %}
 {% github_sample johgh/scripts/blob/master/setup.sh %}
 {% endhighlight %}
@@ -28,10 +37,13 @@ tags: Sysadmin Vim
 
 
 {% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
-<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
-<div id="selectText2">
+<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
+<div id="selectText3">
 {% highlight vim %}
 {% github_sample johgh/scripts/blob/master/vim_setup.sh %}
 {% endhighlight %}
 </div>
+
+
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
 

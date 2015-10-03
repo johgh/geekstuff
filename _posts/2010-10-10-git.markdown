@@ -30,28 +30,46 @@ Master
 Origin
 : Repositorio remoto por defecto
 
-## Workflow
+> Ver más términos [aquí](https://www.atlassian.com/git/glossary/terminology/)
 
-> 1) Añadir ficheros al índice para poder hacer commit
+## Publicar cambios con GIT
+
+0) Comprobar si hay cambios en remoto
+: ```git fetch``` o ```git pull```
+
+> #### Si ***no hay*** cambios en el repositorio remoto:
+
+1) Añadir ficheros al índice para poder hacer commit:
+: ```git add . [--all]``` o ```git add file1 file2 file3 [...]```
+
+2) Hacer commit de los ficheros que hayamos añadido al índice
+: ```git commit```
+
+3) Publicar los cambios en remoto
+: ```git push```
+
+> #### Si ***hay*** cambios en remoto:
+
+1) Añadir ficheros al índice para poder hacer commit:
 : ```git add . [-all]```
 
-> 2) Dejar limpio el índice para poder hacer pull
+2) Dejar limpio el índice y el working tree para poder hacer pull
 : 
     * **opción a**: ```git commit```
     * **opción b**: ```git stash```
 
-> 3) Obtener los cambios realizados en remoto mediante ```git pull```
+3) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```
 : 
     * **escenario a**: No hay conflicto. Automerge commit.
     * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` una vez resuelto.
 
-> 3.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
+3.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
 : ```git stash apply```
 
-> 4) Volver a comprobar si hay nuevos cambios en remoto (por si alguien ha hecho push mientras nos encontrabamos en el punto anterior)
+4) Comprobar de nuevo si se han producido cambios en remoto:
 : ```git pull```
 
-> 5) Publicar nuestros commits en remoto
+5) Publicar nuestros commits en remoto:
 : ```git push```
 
 ---
@@ -66,6 +84,14 @@ Para ver la configuración actual
 Para setear valores de la configuración global (o modificar fichero ~/.gitconfig)
 : {% highlight sh %}
     $ git config --global user.name "John Doe"
+{% endhighlight %}
+
+Store encrypted passwords in Gnome keyring (Only works for https repos. Tested in Ubuntu 14.04)
+: {% highlight sh %}
+sudo apt-get install libgnome-keyring-dev
+cd "`dirname $(locate git-credential-gnome-keyring)`"
+make
+git config --global credential.helper "`dirname $(locate git-credential-gnome-keyring)`"/git-credential-gnome-keyring
 {% endhighlight %}
 
 ---
@@ -318,7 +344,7 @@ Abortar el merge si hay conflictos y no queremos continuar
 ## Pull with rebase
 > Se hace pull with rebase para sustituir un merge por commits, de forma que no se produzcan merges “sin sentido”: que no estén mezclando líneas de trabajo distintas sino que sean producto de “timing” al hacer commit varios desarrolladores
 
-Después de abortar un merge (ver arriba)
+Después de abortar un merge "innecesario" (ver arriba)
 : {% highlight sh %}
     $ git pull --rebase
 {% endhighlight %}
@@ -330,7 +356,7 @@ Configurar pull rebase para una rama específica
 
 Configurar pull rebase para ramas nuevas
 : {% highlight sh %}
-    $ git config branch.branch-name.rebase yes
+    $ git config --global branch.autosetuprebase remote|local|always
 {% endhighlight %}
 
 <br />

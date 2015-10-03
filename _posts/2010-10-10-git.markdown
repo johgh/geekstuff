@@ -32,7 +32,7 @@ Origin
 
 > Ver más términos [aquí](https://www.atlassian.com/git/glossary/terminology/)
 
-## Publicar cambios con GIT
+## Publicar cambios
 
 0) Comprobar si hay cambios en remoto
 : ```git fetch``` o ```git pull```
@@ -42,26 +42,28 @@ Origin
 1) Añadir ficheros al índice para poder hacer commit:
 : ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
 
-2) Hacer commit de los ficheros que hayamos añadido al índice
+2) Hacer commit de los ficheros que hayamos añadido al índice:
 : ```git commit```
 
-3) Publicar los cambios en remoto
+3) Publicar los cambios en remoto:
 : ```git push```
 
 > #### Si ***hay*** cambios en remoto:
 
-1) Dejar limpio el índice y el working tree para poder hacer pull
+1) Dejar limpio el índice y el working tree para poder hacer pull:
 : 
     * **opción a**: ```git add . [-all]``` + ```git commit```
     * **opción b**: ```git stash```
 
-2) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```
+2) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```:
 : 
-    * **escenario a**: No hay conflicto. Automerge commit.
-    * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` una vez resuelto.
+    * **escenario a**: No hay conflicto. Automerge commit (o si utilizamos el parámetro ```--rebase``` los nuevos commits quedan añadidos al final)
+    * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` (o ```git rebase --continue```, de haber usado el parámetro ```--rebase```)
 
 2.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
 : ```git stash apply```
+
+> Nota: si no queremos todos los cambios del stash, podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash
 
 3) Comprobar de nuevo si se han producido cambios en remoto:
 : ```git pull```
@@ -333,17 +335,22 @@ Realizar merge commit pero no dejar constancia del mismo en el grafo de commits 
 
 Abortar el merge si hay conflictos y no queremos continuar
 : {% highlight sh %}
-    $ git merge --abort (o dejando el mensaje de commit vacío)
+    $ git merge --abort
 {% endhighlight %}
 
 <br />
 
 ## Pull with rebase
-> Se hace pull with rebase para sustituir un merge por commits, de forma que no se produzcan merges “sin sentido”: que no estén mezclando líneas de trabajo distintas sino que sean producto de “timing” al hacer commit varios desarrolladores
+> Se hace pull with rebase para evitar hacer merges "innecesarios" (aquellos que no estén mezclando líneas de trabajo distintas sino que sean simplemente producto de “timing” al hacer commit varios desarrolladores)
 
-Después de abortar un merge "innecesario" (ver arriba)
+Obtener cambios e incorporar nuestros commits encima del resto de commits obtenidos
 : {% highlight sh %}
     $ git pull --rebase
+{% endhighlight %}
+
+Continuar con el rebase una vez solucionados los conflictos
+: {% highlight sh %}
+    $ git rebase --continue
 {% endhighlight %}
 
 Configurar pull rebase para una rama específica

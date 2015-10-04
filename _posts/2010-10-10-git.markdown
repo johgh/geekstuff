@@ -9,9 +9,7 @@ tags: Sysadmin Web
 > Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)```
 
 
-# Introducción
-
-## Terminología
+# Terminología
 
 Working tree
 : Ficheros que tenemos en el workspace
@@ -30,14 +28,17 @@ Master
 Origin
 : Repositorio remoto por defecto
 
-> Ver más términos [aquí](https://www.atlassian.com/git/glossary/terminology/)
+> Ver más términos [aquí](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
 
-## Publicar cambios
+---
 
+# Publicar cambios
+
+## Workflow centralizado (con merge o rebase)
 0) Comprobar si hay cambios en remoto
 : ```git fetch``` o ```git pull```
 
-> #### Si ***no hay*** cambios en el repositorio remoto:
+### Si ***no*** hay cambios en remoto:
 
 1) Añadir ficheros al índice para poder hacer commit:
 : ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
@@ -48,7 +49,7 @@ Origin
 3) Publicar los cambios en remoto:
 : ```git push```
 
-> #### Si ***hay*** cambios en remoto:
+### Si ***hay*** cambios en remoto:
 
 1) Dejar limpio el índice y el working tree para poder hacer pull:
 : 
@@ -70,6 +71,69 @@ Origin
 
 4) Publicar nuestros commits en remoto:
 : ```git push```
+
+
+## Feature Branch Workflow (con rebase)
+
+> El objetivo de este workflow es que la rama master siempre esté a punto para obtener o publicar código.
+
+> La rama `master` nunca debería tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`.
+
+> El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
+
+Configurar git para hacer rebase en lugar de merge al hacer pull
+: {% highlight sh %}
+    $ git config --global branch.master.rebase yes
+    # también podemos configurarlo para todas las ramas
+    $ git config --global branch.autosetuprebase always
+{% endhighlight %}
+
+Crear rama `feature` y publicarla en remoto
+: {% highlight sh %}
+    $ git checkout -b feature master
+    $ git status
+    $ git add <some-file>
+    $ git commit
+    $ git push -u origin feature
+{% endhighlight %}
+
+Propagar cambios de `master` a `feature` (rebase)
+: {% highlight sh %}
+    $ git checkout feature
+    $ git rebase [-i] master
+{% endhighlight %}
+
+Propagar cambios de `feature` a `master` (rebase)
+: {% highlight sh %}
+    # obtenemos en feature los cambios de master
+    $ git checkout feature
+    $ git rebase master
+    # obtenemos en master todos los cambios de feature
+    $ git checkout master
+    $ git merge feature # fast-forward merge
+    # opcional: editamos commits para quedarnos solo con los que necesitemos
+    $ git rebase -i
+{% endhighlight %}
+
+Deploy de la rama `feature` a `master` (merge)
+: {% highlight sh %}
+    $ git checkout master
+    $ git pull
+    $ git fetch origin feature
+    $ git merge feature
+    $ git branch -d feature
+    $ git push
+{% endhighlight %}
+
+Reescribir la historia de una rama
+: {% highlight sh %}
+    # obtener id de commit de la base de una rama
+    $ git merge-base feature master
+    # hacer rebase pasando por parámetro el id obtenido anteriormente
+    $ git rebase -i <id_commit_base>
+{% endhighlight %}
+
+> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados.***
 
 ---
 
@@ -351,6 +415,11 @@ Obtener cambios e incorporar nuestros commits encima del resto de commits obteni
 Continuar con el rebase una vez solucionados los conflictos
 : {% highlight sh %}
     $ git rebase --continue
+{% endhighlight %}
+
+Abortar el rebase y volver a antes de su ejecución
+: {% highlight sh %}
+    $ git rebase --abort
 {% endhighlight %}
 
 Configurar pull rebase para una rama específica

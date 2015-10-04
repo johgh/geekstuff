@@ -34,7 +34,7 @@ Origin
 
 # Publicar cambios
 
-## Workflow centralizado (con merge o rebase)
+## Workflow centralizado
 0) Comprobar si hay cambios en remoto
 : ```git fetch``` o ```git pull```
 
@@ -73,11 +73,11 @@ Origin
 : ```git push```
 
 
-## Feature Branch Workflow (con rebase)
+## Feature Branch Workflow
 
 > El objetivo de este workflow es que la rama master siempre esté a punto para obtener o publicar código.
 
-> La rama `master` nunca debería tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`.
+> La rama `master` nunca debería tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
 
 > El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
 
@@ -91,9 +91,6 @@ Configurar git para hacer rebase en lugar de merge al hacer pull
 Crear rama `feature` y publicarla en remoto
 : {% highlight sh %}
     $ git checkout -b feature master
-    $ git status
-    $ git add <some-file>
-    $ git commit
     $ git push -u origin feature
 {% endhighlight %}
 
@@ -115,16 +112,6 @@ Propagar cambios de `feature` a `master` (rebase)
     $ git rebase -i
 {% endhighlight %}
 
-Deploy de la rama `feature` a `master` (merge)
-: {% highlight sh %}
-    $ git checkout master
-    $ git pull
-    $ git fetch origin feature
-    $ git merge feature
-    $ git branch -d feature
-    $ git push
-{% endhighlight %}
-
 Reescribir la historia de una rama
 : {% highlight sh %}
     # obtener id de commit de la base de una rama
@@ -133,7 +120,23 @@ Reescribir la historia de una rama
     $ git rebase -i <id_commit_base>
 {% endhighlight %}
 
-> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados.***
+> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados. (Publicar es: hacer push o hacer merge f-fw desde master)***
+
+Pull request
+: {% highlight sh %}
+    $ git checkout feature
+    $ git push origin feature
+    # crear hook que envíe mail con el nombre del feature a validar
+{% endhighlight %}
+
+Deploy de la rama `feature` a `master` (merge)
+: {% highlight sh %}
+    $ git checkout master
+    $ git pull
+    $ git merge feature
+    $ git branch -d feature
+    $ git push
+{% endhighlight %}
 
 ---
 

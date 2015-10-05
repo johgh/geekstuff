@@ -32,113 +32,6 @@ Origin
 
 ---
 
-# Publicar cambios
-
-## Workflow centralizado
-0) Comprobar si hay cambios en remoto
-: ```git fetch``` o ```git pull```
-
-### Si ***no*** hay cambios en remoto:
-
-1) Añadir ficheros al índice para poder hacer commit:
-: ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
-
-2) Hacer commit de los ficheros que hayamos añadido al índice:
-: ```git commit```
-
-3) Publicar los cambios en remoto:
-: ```git push```
-
-### Si ***hay*** cambios en remoto:
-
-1) Dejar limpio el índice y el working tree para poder hacer pull:
-: 
-    * **opción a**: ```git add . [-all]``` + ```git commit```
-    * **opción b**: ```git stash```
-
-2) Obtener los cambios realizados en remoto mediante ```git pull [--rebase]```:
-: 
-    * **escenario a**: No hay conflicto. Automerge commit (o si utilizamos el parámetro ```--rebase``` los nuevos commits quedan añadidos al final)
-    * **escenario b**: Hay conflicto. Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` (o ```git rebase --continue```, de haber usado el parámetro ```--rebase```)
-
-2.5) [Opcional]. Si hemos ejecutado ```git stash``` podemos recuperar ahora el stash guardado:
-: ```git stash apply```
-
-> Nota: si no queremos todos los cambios del stash, podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash
-
-3) Comprobar de nuevo si se han producido cambios en remoto:
-: ```git pull```
-
-4) Publicar nuestros commits en remoto:
-: ```git push```
-
-
-## Feature Branch Workflow
-
-> El objetivo de este workflow es que la rama master siempre esté a punto para obtener o publicar código.
-
-> La rama `master` nunca debería tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
-
-> El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
-
-Configurar git para hacer rebase en lugar de merge al hacer pull
-: {% highlight sh %}
-    $ git config --global branch.master.rebase yes
-    # también podemos configurarlo para todas las ramas
-    $ git config --global branch.autosetuprebase always
-{% endhighlight %}
-
-Crear rama `feature` y publicarla en remoto
-: {% highlight sh %}
-    $ git checkout -b feature master
-    $ git push -u origin feature
-{% endhighlight %}
-
-Propagar cambios de `master` a `feature` (rebase)
-: {% highlight sh %}
-    $ git checkout feature
-    $ git rebase [-i] master
-{% endhighlight %}
-
-Propagar cambios de `feature` a `master` (rebase)
-: {% highlight sh %}
-    # obtenemos en feature los cambios de master
-    $ git checkout feature
-    $ git rebase master
-    # obtenemos en master todos los cambios de feature
-    $ git checkout master
-    $ git merge feature # fast-forward merge
-    # opcional: editamos commits para quedarnos solo con los que necesitemos
-    $ git rebase -i
-{% endhighlight %}
-
-Reescribir la historia de una rama
-: {% highlight sh %}
-    # obtener id de commit de la base de una rama
-    $ git merge-base feature master
-    # hacer rebase pasando por parámetro el id obtenido anteriormente
-    $ git rebase -i <id_commit_base>
-{% endhighlight %}
-
-> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados. (Publicar es: hacer push o hacer merge f-fw desde master)***
-
-Pull request
-: {% highlight sh %}
-    $ git checkout feature
-    $ git push origin feature
-    # crear hook que envíe mail con el nombre del feature a validar
-{% endhighlight %}
-
-Deploy de la rama `feature` a `master` (merge)
-: {% highlight sh %}
-    $ git checkout master
-    $ git pull
-    $ git merge feature
-    $ git branch -d feature
-    $ git push
-{% endhighlight %}
-
----
 
 # Configuración
 
@@ -384,18 +277,18 @@ Descartar definitivamente los cambios hasta el último commit publicado
 
 <br />
 
-## Merge commit
-Cambiar a la rama donde realizar merge commit
+## Merge
+Cambiar a la rama donde realizar merge
 : {% highlight sh %}
     $ git checkout <rama>
 {% endhighlight %}
 
-Realizar merge commit
+Realizar merge
 : {% highlight sh %}
     $ git merge <rama con_la_que_mezclar_nuestra_rama>
 {% endhighlight %}
 
-Realizar merge commit pero no dejar constancia del mismo en el grafo de commits (aparecerá como un commit más de nuestra rama, no tendrá 2 padres)
+Realizar merge pero no dejar constancia del mismo en el grafo de commits (aparecerá como un commit más de nuestra rama, no tendrá 2 padres)
 : {% highlight sh %}
     $ git merge --squash
 {% endhighlight %}
@@ -405,17 +298,34 @@ Abortar el merge si hay conflictos y no queremos continuar
     $ git merge --abort
 {% endhighlight %}
 
+> `git pull` y `git push` son 2 casos especiales de merge. En el primero se hace merge de una rama remota sobre una local. En el segundo se hace a la inversa, ***siempre y cuando el merge sea fast-forward*** (de lo contrario se para la ejecución)
+
 <br />
 
-## Pull with rebase
+## Rebase y Pull with rebase
 > Se hace pull with rebase para evitar hacer merges "innecesarios" (aquellos que no estén mezclando líneas de trabajo distintas sino que sean simplemente producto de “timing” al hacer commit varios desarrolladores)
 
-Obtener cambios e incorporar nuestros commits encima del resto de commits obtenidos
+Hacer "merge" de nuestra rama con `master` sin realizar un nuevo commit (merge commit)
 : {% highlight sh %}
-    $ git pull --rebase
+    $ git checkout feature
+    $ git rebase master
 {% endhighlight %}
 
-Continuar con el rebase una vez solucionados los conflictos
+> Para que esto sea posible nuestros commits se desplazan al final de la rama master, que se usa como base de nuestra rama.
+
+> El hecho de que la historia de nuestra rama continúe siendo lineal (sin merge commit) permite hacer merge con fast-forward sobre `master`.
+
+> Esto no solo nos permite integrar de forma lineal los cambios de cualquier rama con master, de igual forma nos permite hacer lo propio con `master` y su rama remota (ya que la instrucción `git push` no es más que un "atajo" para hacer hacer merge fast-forward con la rama remota).
+
+Obtener cambios de remoto e incorporar nuestros commits encima del resto de commits obtenidos
+: {% highlight sh %}
+    $ git pull --rebase
+    # lo anterior equivale a:
+    $ git fetch origin master
+    $ git rebase origin/master
+{% endhighlight %}
+
+Continuar con el rebase una vez solucionados los conflictos con `git mergetool`
 : {% highlight sh %}
     $ git rebase --continue
 {% endhighlight %}
@@ -503,7 +413,7 @@ $ git checkout -b <nueva_rama>
 > Si las ramas difieren avisará con el mensaje:
     error: Your local changes to the following files would be overwritten by checkout: foo. Please, commit your changes or stash them before you can switch branches. Aborting
 
-> La solución es hacer commit/stash, o utilizar git checkout --merge para mezclar a 3, dejando el resultado en el ```WORKING TREE``` (p.74)
+> La solución es hacer commit/stash, o utilizar git checkout --merge para mezclar a 3, dejando el resultado en el ```WORKING TREE``` de la rama nueva (p.74)
 
 Borrar una rama
 : {% highlight sh %}
@@ -625,5 +535,138 @@ $ git pull origin master
 Upgrade all submodules of the current repo to their last commit
 : {% highlight sh %}
 $ git submodule foreach git pull origin master
+{% endhighlight %}
+
+---
+
+# Workflows GIT
+
+## Workflow centralizado
+
+> El workflow centralizado utiliza una única rama, `master`, para trabajar en local. El código se actualizará sobre nuestra propia rama de trabajo mediante `git pull`.
+
+> Al hacer `git pull` nos encontraremos con 3 posibles escenarios:
+
+### I. Se realiza `pull` sin problemas
+
+> Esto sucede cuando no existen nuevos commits en remoto, o no hay commits sin publicar en local.
+
+> En ese último caso, `git pull` hará `fast-forward` siempre que los cambios del `working tree` no coincidan con los cambios de remoto (de lo contrario no se efectuaría el pull y se mostraría una advertencia (ver escenario II)
+
+> En este caso publicar nuestros commits locales es tan simple como:
+
+1) Añadir ficheros al índice para poder hacer commit:
+: ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
+
+2) Hacer commit de los ficheros que hayamos añadido al índice:
+: ```git commit```
+
+3) Publicar los cambios en remoto:
+: ```git push```
+
+### II. No es posible realizar `pull`
+
+Para poder hacer `pull` deberemos antes limpiar el índice y el working tree:
+: 
+    * **opción a**: ```git add . [-all]``` + ```git commit```
+    * **opción b**: ```git stash```
+
+> Después de realizar una de las dos acciones anteriores deberemos volver a hacer `git pull` y mergear los cambios de remoto (ver escenario III)
+
+### III. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
+
+En este punto nos encontramos con 2 posibles escenarios:
+: 
+    * ***No hay conflicto.*** Automerge commit (o si utilizamos el parámetro ```--rebase``` los nuevos commits quedan simplemente añadidos al final)
+    * ***Hay conflicto.*** Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` (o ```git rebase --continue```, de haber usado el parámetro ```--rebase```)
+
+De haber ejecutado ```git stash``` anteriormente podremos recuperar el stash guardado con:
+: ```git stash apply```
+
+> Si no queremos todos los cambios del stash, podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash.
+
+> Después de haber finalizado el merge correctamente podremos continuar con la publicación de cambios en remoto:
+
+1) Comprobar de nuevo si se han producido cambios en remoto mientras hacíamos merge:
+: ```git pull```
+
+2) Publicar nuestros commits locales:
+: ```git push```
+
+<br />
+
+## Feature Branch Workflow
+
+> El objetivo de este workflow es que la rama master siempre esté a punto para obtener o publicar código.
+
+> Además la rama `master` nunca debe tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
+
+> El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
+
+Configurar git para hacer rebase en lugar de merge al hacer pull
+: {% highlight sh %}
+    $ git config --global branch.master.rebase yes
+    # también podemos configurarlo para todas las ramas
+    $ git config --global branch.autosetuprebase always
+{% endhighlight %}
+
+Crear rama `feature` y publicarla en remoto
+: {% highlight sh %}
+    $ git checkout -b feature master
+    $ git push -u origin feature
+{% endhighlight %}
+
+Propagar cambios de `master` a `feature` (rebase)
+: {% highlight sh %}
+    # primero actualizamos la rama master
+    $ git checkout master
+    $ git pull
+    # propagamos los cambios a feature
+    $ git checkout feature
+    $ git rebase [-i] master
+{% endhighlight %}
+
+Obtener cambios de la rama `master` remota directamente
+: {% highlight sh %}
+    $ git checkout feature
+    $ git pull origin master
+{% endhighlight %}
+
+Propagar cambios de `feature` a `master` (rebase)
+: {% highlight sh %}
+    # obtenemos en feature los cambios de master
+    $ git checkout feature
+    $ git rebase master
+    # obtenemos en master todos los cambios de feature
+    $ git checkout master
+    $ git merge feature # fast-forward merge
+    # opcional: editamos commits para quedarnos solo con los que necesitemos
+    $ git rebase -i
+{% endhighlight %}
+
+Reescribir la historia de una rama
+: {% highlight sh %}
+    # obtener id de commit de la base de una rama
+    $ git merge-base feature master
+    # hacer rebase pasando por parámetro el id obtenido anteriormente
+    $ git rebase -i <id_commit_base>
+{% endhighlight %}
+
+> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados. (Publicar es: hacer push o hacer merge f-fw desde master)***
+
+Pull request
+: {% highlight sh %}
+    $ git checkout feature
+    $ git push origin feature
+    # crear hook que envíe mail con el nombre del feature a validar
+{% endhighlight %}
+
+Deploy de la rama `feature` a `master` (merge)
+: {% highlight sh %}
+    $ git checkout master
+    $ git pull
+    $ git merge feature
+    $ git branch -d feature
+    $ git push
 {% endhighlight %}
 

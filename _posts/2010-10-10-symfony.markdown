@@ -490,7 +490,7 @@ Assets
 {% endraw %}
 {% endhighlight %}
 
-> Move assets from a bundle to Public with: `app/console assets:install target --symlink`
+> Install assets with with: `app/console assets:install --symlink --relative`
 
 Request from templates
 : {% highlight jinja %}
@@ -620,6 +620,13 @@ Trans and transchoice as filters
 {% raw %}
 {{ message|trans({'%name%': 'Fabien'}, "app") }}
 {{ message|transchoice(5, {'%name%': 'Fabien'}, 'app') }}
+{% endraw %}
+{% endhighlight %}
+
+Define default domain (instead of "messages") for all translations on template
+: {% highlight jinja %}
+{% raw %}
+    {% trans_default_domain "domain" %}
 {% endraw %}
 {% endhighlight %}
 
@@ -810,7 +817,7 @@ Create a new bundle
 
 Install assets
 : {% highlight bash %}
-    $ app/console assets:install --symlink
+    $ php app/console assets:install --symlink --relative
 {% endhighlight %}
 
 Clear cache

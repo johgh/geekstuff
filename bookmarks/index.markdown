@@ -78,13 +78,17 @@ permalink: /bookmarks/
 ## Web development plugins
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 
-[<i class="fa fa-external-link"></i> Bootstrap plugins](http://bootsnipp.com)
-
 [<i class="fa fa-external-link"></i> Tablesorter plugin](http://mottie.github.io/tablesorter)
 
 [<i class="fa fa-external-link"></i> Jstree plugin](http://www.jstree.com)
 
 [<i class="fa fa-external-link"></i> Spreadsheet plugin](http://handsontable.com/)
+
+[<i class="fa fa-external-link"></i> File downloader plugin](https://github.com/johnculviner/jquery.fileDownload)
+
+[<i class="fa fa-external-link"></i> Date/time picker for Bootstrap](http://eonasdan.github.io/bootstrap-datetimepicker/)
+
+[<i class="fa fa-external-link"></i> Bootstrap plugins](http://bootsnipp.com)
 
 <br />
 

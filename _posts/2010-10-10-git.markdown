@@ -35,18 +35,19 @@ Origin
 
 # Configuración
 
-Para ver la configuración actual
+Para ver la configuración global (o del repositorio donde nos encontremos)
 : {% highlight sh %}
     $ git config -l
 {% endhighlight %}
 
-Para setear valores de la configuración global (o modificar fichero ~/.gitconfig)
+Para setear valores de la configuración global (fichero ~/.gitconfig)
 : {% highlight sh %}
     $ git config --global user.name "John Doe"
 {% endhighlight %}
 
-Store encrypted passwords in Gnome keyring (Only works for https repos. Tested in Ubuntu 14.04)
+Guardar passwords con Gnome keyring (Solo funciona con repositorios https)
 : {% highlight sh %}
+# Tested in Ubuntu 14.04
 sudo apt-get install libgnome-keyring-dev
 cd "`dirname $(locate git-credential-gnome-keyring)`"
 make
@@ -259,13 +260,15 @@ $ git checkout <commit>
 $ git checkout master
 {% endhighlight %}
 
-Descartar definitivamente los cambios locales hasta cierto commit
+Descartar los cambios locales hasta cierto commit
 : {% highlight sh %}
     $ git reset --hard <commit>
 {% endhighlight %}
-> Esto solo es aconsejable si no se han publicado los commits mediante push, en caso contrario se aconseja usar el comando `git revert` (ver más abajo) que no modifica la historia sino que añade nuevos commits indicando la "vuelta atrás"
+> Esto solo es aconsejable si no se han publicado los commits mediante push, en caso contrario se aconseja usar el comando `git revert` (ver más abajo), que no modifica la historia sino que tan solo añade nuevos commits a modo de *patch*.
 
-Descartar definitivamente los cambios hasta el último commit publicado
+> Si de todas formas queremos forzar la sincronización con el repositorio remoto, borrando incluso commits, deberemos utilizar `git push -f origin master`
+
+Descartar los cambios hasta el último commit publicado
 : {% highlight sh %}
     $ git fetch [origin master]
     $ git reset --hard FETCH_HEAD
@@ -274,6 +277,13 @@ Descartar definitivamente los cambios hasta el último commit publicado
 > Obtenemos la referencia del último commit en remoto `FETCH_HEAD` para luego descartar los cambios mediante `get reset --hard`
 
 > `git clean -df` elimina los ficheros untracked, para obtener un repositorio limpio tal y como lo encontraríamos tras hacer `git clone`
+
+Recuperar commit anterior después de hacer `git reset --hard`
+: {% highlight sh %}
+    # buscamos en el reflog (commit de nuestra rama) el commit en cuestión
+    $ git log -g
+    $ git checkout <id_commit_anterior>
+{% endhighlight %}
 
 <br />
 
@@ -439,6 +449,12 @@ Borrar rama del repositorio remoto
 Forzar borrado en el repositorio local de las ramas borradas mediante el comando anterior en el remoto (es decir, actualizar el borrado en local)
 : {% highlight sh %}
     $ git fetch --prune
+{% endhighlight %}
+
+Visualizar gráficamente el historial de las ramas
+: {% highlight sh %}
+    $ sudo apt-get install gitg
+    $ gitg
 {% endhighlight %}
 
 ---

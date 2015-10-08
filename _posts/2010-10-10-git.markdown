@@ -240,14 +240,14 @@ Workaround: subir un directorio con un único fichero .gitignore en su interior
 
 ## Descartar cambios
 
-Descartar todos los cambios del ```WORKING TREE``` ("SVN revert")
+Descartar todos los cambios del ```WORKING TREE```
 : {% highlight sh %}
 $ git reset --hard
 # o lo que es lo mismo:
 $ git checkout -f
 {% endhighlight %}
 
-Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico ("SVN revert")
+Checkout de ```HEAD``` al ```WORKING TREE``` de un fichero específico
 : {% highlight sh %}
     $ [git reset HEAD <filename>] ; git checkout [--] <filename>
 {% endhighlight %}
@@ -420,10 +420,7 @@ $ git checkout -b <nueva_rama>
 
 > Si las ramas no difieren (cuando creamos una rama nueva o después de hacer un merge entre 2 ramas), git no machacará los cambios no comitados. Los mantendrá para que los podamos aplicarlos en la nueva rama.
 
-> Si las ramas difieren avisará con el mensaje:
-    error: Your local changes to the following files would be overwritten by checkout: foo. Please, commit your changes or stash them before you can switch branches. Aborting
-
-> La solución es hacer commit/stash, o utilizar git checkout --merge para mezclar a 3, dejando el resultado en el ```WORKING TREE``` de la rama nueva (p.74)
+> Si las ramas difieren nos avisará para que realicemos commit o stash, o utilizar git checkout --merge para mezclar a 3, dejando el resultado en el ```WORKING TREE``` de la rama nueva (p.74)
 
 Borrar una rama
 : {% highlight sh %}
@@ -639,7 +636,9 @@ Propagar cambios de `master` a `feature` (rebase)
     $ git pull
     # propagamos los cambios a feature
     $ git checkout feature
-    $ git rebase [-i] master
+    $ git rebase master
+    # opcional: podemos elegir que cambios de master queremos en nuestra rama 
+    $ git rebase -i
 {% endhighlight %}
 
 Obtener cambios de la rama `master` remota directamente
@@ -660,12 +659,23 @@ Propagar cambios de `feature` a `master` (rebase)
     $ git rebase -i
 {% endhighlight %}
 
+Propagar último commit de una rama a otra
+: {% highlight sh %}
+    # después de hacer commit en master (por ejemplo)
+    $ git checkout feature
+    $ git cherry-pick master
+{% endhighlight %}
+
+Propagar commit mediante hash de una rama a otra
+: {% highlight sh %}
+    $ git checkout feature
+    $ git cherry-pick <hash_commit>
+{% endhighlight %}
+
 Reescribir la historia de una rama
 : {% highlight sh %}
-    # obtener id de commit de la base de una rama
-    $ git merge-base feature master
-    # hacer rebase pasando por parámetro el id obtenido anteriormente
-    $ git rebase -i <id_commit_base>
+    # hacer rebase desde la base de la rama
+    $ git rebase -i `git merge-base feature master`
 {% endhighlight %}
 
 > ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados. (Publicar es: hacer push o hacer merge f-fw desde master)***
@@ -674,15 +684,22 @@ Pull request
 : {% highlight sh %}
     $ git checkout feature
     $ git push origin feature
-    # crear hook que envíe mail con el nombre del feature a validar
+    # se puede crear hook que envíe mail con el nombre del feature a validar
 {% endhighlight %}
 
 Deploy de la rama `feature` a `master` (merge)
 : {% highlight sh %}
     $ git checkout master
     $ git pull
-    $ git merge feature
+    # el parámetro --no-ff fuerza a que se cree un merge commit en master (para no perder trazabilidad de la rama)
+    $ git merge --no-ff feature
     $ git branch -d feature
     $ git push
+{% endhighlight %}
+
+Ver cambios introducidos en una rama respecto a master (code review)
+: {% highlight sh %}
+    $ git checkout feature
+    $ git difftool `git merge-base feature master`
 {% endhighlight %}
 

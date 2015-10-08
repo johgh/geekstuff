@@ -678,7 +678,7 @@ Reescribir la historia de una rama
     $ git rebase -i `git merge-base feature master`
 {% endhighlight %}
 
-> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados. (Publicar es: hacer push o hacer merge f-fw desde master)***
+> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados.
 
 Pull request
 : {% highlight sh %}

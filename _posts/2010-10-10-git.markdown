@@ -96,11 +96,11 @@ $ git fetch --all (se deben hacer pulls periódicamente!!)
 
 # Ignorar ficheros
 
-Ficheros .gitignore con los ficheros a ignorar (ver sintáxis en p.44)
+Ficheros `.gitignore` con los ficheros a ignorar (ver sintáxis en p.44)
 : Se pueden colocar en todo el ```WORKING TREE``` (si se comitean se comparten ficheros ignorados)
 
 Ignorar ficheros por repositorio (no se comparten ignores con nadie)
-: Fichero .git/info/exclude
+: Fichero `.git/info/exclude`
 
 Fichero de configuración con ignores (se puede compartir fichero entre varios repositorios de la misma máquina)
 : {% highlight sh %}
@@ -234,7 +234,7 @@ Commit incluyendo mensaje de commit
 
 Comitear un directorio vacío
 : En git solo se puede hacer commit de ficheros.
-Workaround: subir un directorio con un único fichero .gitignore en su interior
+Workaround: subir un directorio con un único fichero `.gitignore` en su interior
 
 <br />
 
@@ -358,7 +358,7 @@ Configurar pull rebase para ramas nuevas
 <br />
 
 ## Edición de commits 
-> El objetivo es que cada commit tenga un objetivo específico al subirlo a origin. Mientras se trabaja se pueden subir commits temporales, pero antes de hacer push se deberían editar (corregir mensajes, subidas absurdas, etc.)
+> Idealmente cada commit tenga un objetivo específico al subirlo a origin. Mientras se trabaja se pueden subir commits temporales, pero antes de hacer push se deberían editar (corregir mensajes, unir commits, etc.)
 
 Cambiar el último commit borrando el commit anterior
 : {% highlight sh %}
@@ -558,7 +558,7 @@ $ git submodule foreach git pull origin master
 
 > El workflow centralizado utiliza una única rama, `master`, para trabajar en local. El código se actualizará sobre nuestra propia rama de trabajo mediante `git pull`.
 
-> Al hacer `git pull` nos encontraremos con 3 posibles escenarios:
+> Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles escenarios:
 
 ### I. Se realiza `pull` sin problemas
 
@@ -606,15 +606,19 @@ De haber ejecutado ```git stash``` anteriormente podremos recuperar el stash gua
 2) Publicar nuestros commits locales:
 : ```git push```
 
+> Todas las situaciones vistas anteriormente no son sólo aplicables a `master` y a un *workflow centralizado*, sino a cualquier tipo de rama y workflow (como el *feature branch workflow*, visto a continuación)
+
 <br />
 
 ## Feature Branch Workflow
 
-> El objetivo de este workflow es que la rama master siempre esté a punto para obtener o publicar código.
+> El objetivo de este workflow es que la rama `master` siempre esté a punto para obtener o publicar código.
 
-> Además la rama `master` nunca debe tener código "inestable". Los desarrolladores deben utilizar ramas `feature` con nombres descriptivos que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
+> Además la rama `master` nunca debe tener código "inestable". El código en estado de desarrollo se encontrará en ramas *feature* con nombres descriptivos, que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
 
 > El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
+
+### Configuración inicial (pull con rebase)
 
 Configurar git para hacer rebase en lugar de merge al hacer pull
 : {% highlight sh %}
@@ -623,41 +627,54 @@ Configurar git para hacer rebase en lugar de merge al hacer pull
     $ git config --global branch.autosetuprebase always
 {% endhighlight %}
 
+### Fases del workflow
+
+> * Creación de la rama `feature`, correspondiente a una *historia*
+* Trabajar con rama privada `feature`, 1 commit corresponde a 1 *tarea*
+* Hacer pública la rama `feature`
+* Trabajar en equipo con la rama pública
+* Petición de code review (*pull request*)
+* Deploy en `master` cuando se acepta el código como válido
+
 Crear rama `feature` y publicarla en remoto
 : {% highlight sh %}
     $ git checkout -b feature master
     $ git push -u origin feature
 {% endhighlight %}
 
-Propagar cambios de `master` a `feature` (rebase)
+Comitear (opcionalmente, editar el historial de commits de la rama con `rebase -i`)
 : {% highlight sh %}
-    # primero actualizamos la rama master
+    $ git add .; git commit -m 'primer commit'; # ...
+    # podemos hacer rebase -i hasta la base de la rama
+    $ git rebase -i `git merge-base feature master`
+{% endhighlight %}
+
+> ***Únicamente se debe hacer `rebase -i` de commits que no hayan sido publicados.*** 
+
+*Pull request* (petición de code review antes de integrar la rama en `master`)
+: {% highlight sh %}
+    $ git checkout feature
+    $ git push origin feature
+    # se puede crear hook que envíe mail con el nombre del feature a validar
+{% endhighlight %}
+
+Code review: ver cambios introducidos en la rama `feature` respecto a `master`
+: {% highlight sh %}
+    $ git checkout feature
+    $ git difftool `git merge-base feature master`
+{% endhighlight %}
+
+Deploy de la rama `feature` a `master` (*merge commit* forzado para no perder la trazabilidad de la rama)
+: {% highlight sh %}
     $ git checkout master
     $ git pull
-    # propagamos los cambios a feature
-    $ git checkout feature
-    $ git rebase master
-    # opcional: podemos elegir que cambios de master queremos en nuestra rama 
-    $ git rebase -i
+    # el parámetro --no-ff fuerza a que se cree un merge commit en master
+    $ git merge --no-ff feature
+    $ git branch -d feature
+    $ git push
 {% endhighlight %}
 
-Obtener cambios de la rama `master` remota directamente
-: {% highlight sh %}
-    $ git checkout feature
-    $ git pull origin master
-{% endhighlight %}
-
-Propagar cambios de `feature` a `master` (rebase)
-: {% highlight sh %}
-    # obtenemos en feature los cambios de master
-    $ git checkout feature
-    $ git rebase master
-    # obtenemos en master todos los cambios de feature
-    $ git checkout master
-    $ git merge feature # fast-forward merge
-    # opcional: editamos commits para quedarnos solo con los que necesitemos
-    $ git rebase -i
-{% endhighlight %}
+### Propagación de cambios entre ramas
 
 Propagar último commit de una rama a otra
 : {% highlight sh %}
@@ -672,34 +689,33 @@ Propagar commit mediante hash de una rama a otra
     $ git cherry-pick <hash_commit>
 {% endhighlight %}
 
-Reescribir la historia de una rama
+Propagar cambios de `master` a `feature` (rebase)
 : {% highlight sh %}
-    # hacer rebase desde la base de la rama
-    $ git rebase -i `git merge-base feature master`
-{% endhighlight %}
-
-> ***IMPORTANTE: Únicamente se debe hacer `rebase -i` de commits que no han sido publicados.
-
-Pull request
-: {% highlight sh %}
-    $ git checkout feature
-    $ git push origin feature
-    # se puede crear hook que envíe mail con el nombre del feature a validar
-{% endhighlight %}
-
-Deploy de la rama `feature` a `master` (merge)
-: {% highlight sh %}
+    # primero actualizamos la rama master
     $ git checkout master
     $ git pull
-    # el parámetro --no-ff fuerza a que se cree un merge commit en master (para no perder trazabilidad de la rama)
-    $ git merge --no-ff feature
-    $ git branch -d feature
-    $ git push
+    # propagamos los cambios a feature
+    $ git checkout feature
+    $ git rebase master
+    # opcional: podemos elegir que cambios de master queremos en nuestra rama 
+    $ git rebase -i
 {% endhighlight %}
 
-Ver cambios introducidos en una rama respecto a master (code review)
+Obtener directamente cambios desde origin/master (remoto)
 : {% highlight sh %}
     $ git checkout feature
-    $ git difftool `git merge-base feature master`
+    $ git pull origin master
 {% endhighlight %}
 
+Reintegrar en `master` los cambios de una rama (ver advertencia abajo!)
+: {% highlight sh %}
+    # obtenemos en feature los cambios de master
+    $ git checkout feature
+    $ git rebase master
+    # obtenemos en master todos los cambios de feature
+    $ git checkout master
+    $ git merge feature # fast-forward merge
+    $ git branch -d feature
+{% endhighlight %}
+
+> ***Atención! se perderá la trazabilidad de la rama integrada (fast forward merge!!)*** 

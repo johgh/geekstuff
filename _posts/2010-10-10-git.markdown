@@ -629,7 +629,7 @@ Configurar git para hacer rebase en lugar de merge al hacer pull
 
 ### Fases del workflow
 
-> * Creación de la rama `feature`, correspondiente a una *historia*
+> * Creación de la rama `feature`, correspondiente a 1 *historia*
 * Trabajar con rama privada `feature`, 1 commit corresponde a 1 *tarea*
 * Hacer pública la rama `feature`
 * Trabajar en equipo con la rama pública

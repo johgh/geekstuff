@@ -841,3 +841,24 @@ Show services
     # show info for a service
     $ app/console debug:container <service_name>
 {% endhighlight %}
+
+
+
+---
+
+
+## Third party bundles
+
+> Useful symfony bundles
+: 
+* [Routing functions from javascript](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle)
+* [Translation functions from javascript](https://github.com/willdurand/BazingaJsTranslationBundle)
+* [Pagination from array, ORM query, etc](https://github.com/KnpLabs/KnpPaginatorBundle)
+* [Symfony Bootsrap integration](https://github.com/phiamo/MopaBootstrapBundle) (see [this](/bootstrap/#how-to-install-bootstrap-sass-compass) if you only want bootstrap-sass)
+
+> Complete list of Symfony Bundles [here](http://knpbundles.com/)
+
+Uninstall bundle installed with composer
+: {% highlight bash %}
+    $ composer remove <vendor>/<bundle> --update-with-dependencies
+{% endhighlight %}

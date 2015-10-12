@@ -634,7 +634,7 @@ Configurar git para hacer rebase en lugar de merge al hacer pull
 * Hacer pública la rama `feature`
 * Trabajar en equipo con la rama pública
 * Petición de code review (*pull request*)
-* Deploy en `master` cuando se acepta el código como válido
+* Deploy en `master` cuando se acepte el código como válido finalmente
 
 Crear rama `feature` y publicarla en remoto
 : {% highlight sh %}
@@ -707,7 +707,7 @@ Obtener directamente cambios desde origin/master (remoto)
     $ git pull origin master
 {% endhighlight %}
 
-Reintegrar en `master` los cambios de una rama (ver advertencia abajo!)
+Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
 : {% highlight sh %}
     # obtenemos en feature los cambios de master
     $ git checkout feature
@@ -718,4 +718,4 @@ Reintegrar en `master` los cambios de una rama (ver advertencia abajo!)
     $ git branch -d feature
 {% endhighlight %}
 
-> ***Atención! se perderá la trazabilidad de la rama integrada (fast forward merge!!)*** 
+> ***Al realizar el merge fast forward se pierde la trazabilidad de la rama que se ha integrado: `master` absorbe todos los commits que pertenecían a la rama y no se añade ningún merge commit que indique fusión de ramas*** 

@@ -45,7 +45,7 @@ Para setear valores de la configuración global (fichero ~/.gitconfig)
     $ git config --global user.name "John Doe"
 {% endhighlight %}
 
-Guardar passwords con Gnome keyring (Solo funciona con repositorios https)
+Para guardar passwords con Gnome keyring (sólo para https, no ssh)
 : {% highlight sh %}
 # Tested in Ubuntu 14.04
 sudo apt-get install libgnome-keyring-dev
@@ -53,6 +53,8 @@ cd "`dirname $(locate git-credential-gnome-keyring)`"
 make
 git config --global credential.helper "`dirname $(locate git-credential-gnome-keyring)`"/git-credential-gnome-keyring
 {% endhighlight %}
+
+> Un ejemplo de configuración completa (alias incluídos) [aquí](gitconfig)
 
 ---
 
@@ -147,13 +149,17 @@ Comparación entre branches
 
 Para ver todos los commits del repositorio actual
 : {% highlight sh %}
-    $ git log
+    $ git log [-p]
 {% endhighlight %}
+
+> El parámetro `-p` (patch) muestra los cambios del commit
 
 Para ver todos los commits de un fichero específico
 : {% highlight sh %}
-    $ git log <fichero>
+    $ git log [--follow] [-p] <fichero>
 {% endhighlight %}
+
+> El parámetro `--follow` hace seguimiento de los cambios de un fichero incluso cuando este es renombrado
 
 Comparar entre el ```WORKING TREE``` y un commit anterior
 : {% highlight sh %}
@@ -216,13 +222,12 @@ Borrar cambios parciales (opuesto a git add -p)
 
 ## Commits
 
-Ver historial de commits
+Ver árbol de commits de todas las ramas
 : {% highlight sh %}
-$ git log [<fichero>]
-$ git log --graph --oneline --decorate
+$ git log --graph --oneline --decorate --all
 {% endhighlight %}
 
-Ver donde apunta ```HEAD``` (commit y rama)
+Ver donde apunta ```HEAD```
 : {% highlight sh %}
     $ git show-ref
 {% endhighlight %}
@@ -674,6 +679,10 @@ Deploy de la rama `feature` a `master` (*merge commit* forzado para no perder la
     $ git push
 {% endhighlight %}
 
+> Es posible forzar que ningún merge haga fast-forward (evitando tener que pasar el parámetro --no-ff) mediante la siguiente configuración: `git config --global --bool merge.ff false`
+
+> En ese caso para forzar un merge con fast-forward habría se puede usar `git merge` con el parámetro `--ff-only`
+
 ### Propagación de cambios entre ramas
 
 Propagar último commit de una rama a otra
@@ -714,7 +723,7 @@ Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
     $ git rebase master
     # obtenemos en master todos los cambios de feature
     $ git checkout master
-    $ git merge feature # fast-forward merge
+    $ git merge --ff-only feature # fast-forward merge
     $ git branch -d feature
 {% endhighlight %}
 

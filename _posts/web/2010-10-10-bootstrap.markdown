@@ -25,7 +25,7 @@ Install bootstrap in your project
     cd ~/project-files/
     mv stylesheets css
     mv javascripts js
-    mv ~/project-files/* <your_public_dir>
+    mv * <your_public_dir>
 {% endhighlight %}
 
 Configure bootstrap sass compiler

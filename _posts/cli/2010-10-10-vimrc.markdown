@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "vimrc"
+title:  ".vimrc"
 permalink:  "vimrc"
 date:   2015-07-11 16:30:15
 category: CLI

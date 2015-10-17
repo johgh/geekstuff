@@ -426,21 +426,72 @@ zr
 :diffupdate
 : re-scan the files for differences
 
-## Fugitive diff (plugin)
+# Fugitive (plugin)
+
+> Fugitive plugin integrates Git into Vim, allowing committing and resolving conflicts within Vim
+
+## Commiting changes
+
+Add files to stage
+: `:Gstatus` and press `-` over the files to stage
+
+Stage a file partially (equivalent to `git add -p`)
+: `:Gdiff` and put selected changes to the left pane (`index`), see 2-way diff [above](/vim/#tocAnchor-1-18)
+
+Review changes of staged files
+: `:Gstatus` and press `D` over the files to stage
+
+Commit staged files
+: `:Gstatus` and press `C`, enter a message and save (or leave a blank message to abort)
+
+## Resolving conflicts
+
+1) Retrieve conflicting files
+: `:Gmerge` and press `<CR>` in quickfix window
+
+2) Open diff window to resolve conflicts
+: `:Gdiff`
+
+3) Resolve conflicts
+: Resolve manually "conflict" blocks that cannot auto-merge, see 3-way diff [below](/vim/#way-diff-2)
+
+4) Save the `index` pane (center) and add to stage to mark as resolved
+: `:w` + `:only` + `:Gstatus` and press `-` over the conflicted files to stage
+
+5) Finally, "merge" (with `merge` or `rebase`)
+: Execute `git commit` or `rebase --continue` (or do neither if you were resolving a stash conflict)
+
+## Fugitive diffs
+
+### 2-way diff
+
+> Left pane corresponds to `index` and `right` pane to `working tree`. Use normal vimdiff commands from [above](/vim/#tocAnchor-1-18), to navigate, put/obtain changes
+
+:Gread
+: obtain all changes from the other side on the current pane
+
+> From the left pane: `checkout`, from the right pane: `reset`
+
+:Gwrite
+: put all changes from the current pane on the other side.
+
+> From the left pane: `reset`, from the right pane: `checkout`
+
+### 3-way diff
+
+> Center pane corresponds to the `working tree`. Vimdiff commands from [above](/vim/#tocAnchor-1-18) can be used except `do` (diff-obtain), since it is necessary to specify from which pane to obtain the changes. So use:
+
 dp
-: put the change from the current selected parent into the working copy
+: put the change from the current pane (right/left) into the `working tree` (center)
 
 :diffget //2
-: fetches the hunk from the target parent (on the left)
+: fetches the hunk from the left
 
 :diffget //3
-: fetches the hunk from the merge parent (on the right)
-
-:only
-: close all windows apart from the current one
+: fetches the hunk from the right
 
 :Gwrite[!]
-: write the current file to the index
+: write the entire current file (right or left) to the `working tree` (center)
 
 # Buffer and window management
 

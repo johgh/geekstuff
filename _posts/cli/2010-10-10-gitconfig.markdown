@@ -7,10 +7,11 @@ category: CLI
 tags: Sysadmin Web
 ---
 
-# Sample file
+> This `.gitconfig` sample file is intended to be used as the global configuration for all git repositories cloned in a machine. So it should be place in `$HOME` directory.
 
+> Coincidental configurations in a `.gitconfig` file of a particular repository will override these values. Execute `git config -l` to see the real configuration applied in a repository.
 
-> This `.gitconfig` file is intended to be used as a global configuration for all git repositories on a machine.
+> To add additional configurations to this file use the `--global` parameter, like so: `git config --global user.name "John Doe"`. To delete configurations edit the raw file.
 
 <script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
 
@@ -23,8 +24,4 @@ tags: Sysadmin Web
 {% endhighlight %}
 </div>
 
-
-> Coincidental configurations in a `.gitconfig` file of a particular repository will override these values. To see the applied configuration to a certain repository execute: `git config -l`
-
-> To add additional configurations to this file simply add the `--global` parameter to the git config command, like so: `git config --global user.name "John Doe"`. To delete configurations you can edit the raw file.
 

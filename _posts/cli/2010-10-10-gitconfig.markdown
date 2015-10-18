@@ -4,7 +4,7 @@ title:  ".gitconfig"
 permalink:  "gitconfig"
 date:   2015-07-11 16:30:15
 category: CLI
-tags: Sysadmin Web
+tags: Sysadmin
 ---
 
 > This `.gitconfig` sample file is intended to be used as the global configuration for all git repositories cloned in a machine. So it should be place in `$HOME` directory.

@@ -4,28 +4,31 @@ title:  "Git"
 permalink:  "git"
 date:   2015-07-02 16:30:15
 category: Quick Guides
-tags: Sysadmin Web
+tags: Sysadmin
 ---
 > Nota: Cuando se hace referencia a una página (por ej.: p.82), se está haciendo referencia al libro ```Git Pocket Guide(O’Reilly)```
 
 
 # Terminología
 
-Working tree
+`WORKING TREE`
 : Ficheros que tenemos en el workspace
 
-Index (staging)
+`INDEX` (staging)
 : Es el snapshot que será traspasado al ejecutar ```git commit``` a nuestro repositorio local. Cada vez que ejecutamos ```git add``` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar ```git add```.
 
 > Para saber que hemos subido desde el ```WORKING TREE``` al ```INDEX``` en cada momento y ver las diferencias con el repositorio local ver los comandos ```git difftool``` y ```git difftool --staged``` explicados abajo.
 
-HEAD
+`HEAD`
 : Puntero al último commit.
 
-Master
+{:.center}
+![Git workflow](/workflow.png "Git workflow")
+
+`MASTER`
 : Rama creada por defecto (trunk)
 
-Origin
+`ORIGIN`
 : Repositorio remoto por defecto
 
 > Ver más términos [aquí](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
@@ -54,7 +57,7 @@ make
 git config --global credential.helper "`dirname $(locate git-credential-gnome-keyring)`"/git-credential-gnome-keyring
 {% endhighlight %}
 
-> Un ejemplo de configuración completa (alias incluídos) [aquí](gitconfig)
+> Un ejemplo de configuración completa (alias incluídos) [aquí](/gitconfig)
 
 ---
 
@@ -175,7 +178,7 @@ Comparación entre 2 commits
 
 # Operaciones con INDEX
 
-Añadir al índice cambios parciales de ficheros (se eligen de forma interactiva)
+Añadir al `INDEX` cambios parciales de ficheros (se eligen de forma interactiva)
 : {% highlight sh %}
     $ git add -p
 {% endhighlight %}
@@ -313,12 +316,12 @@ Abortar el merge si hay conflictos y no queremos continuar
     $ git merge --abort
 {% endhighlight %}
 
-> `git pull` y `git push` son 2 casos especiales de merge. En el primero se hace merge de una rama remota sobre una local. En el segundo se hace a la inversa, ***siempre y cuando el merge sea fast-forward*** (de lo contrario se para la ejecución)
+> `git pull` y `git push` son 2 casos especiales de merge. En el primero se hace merge de una rama remota sobre una local. En el segundo se hace a la inversa, ***siempre y cuando el merge sea `fast-forward`*** (de lo contrario se para la ejecución)
 
 <br />
 
-## Rebase y Pull with rebase
-> Se hace pull with rebase para evitar hacer merges "innecesarios" (aquellos que no estén mezclando líneas de trabajo distintas sino que sean simplemente producto de “timing” al hacer commit varios desarrolladores)
+## Rebase y Pull con rebase
+> Se hace `git pull --rebase` para evitar merges "innecesarios" (aquellos que no estén mezclando líneas de trabajo distintas sino que sean simplemente producto de "timing" al hacer commit varios desarrolladores)
 
 Hacer "merge" de nuestra rama con `master` sin realizar un nuevo commit (merge commit)
 : {% highlight sh %}
@@ -328,9 +331,9 @@ Hacer "merge" de nuestra rama con `master` sin realizar un nuevo commit (merge c
 
 > Para que esto sea posible nuestros commits se desplazan al final de la rama master, que se usa como base de nuestra rama.
 
-> El hecho de que la historia de nuestra rama continúe siendo lineal (sin merge commit) permite hacer merge con fast-forward sobre `master`.
+> El hecho de que la historia de nuestra rama continúe siendo lineal (sin merge commit) permite hacer merge con `fast-forward` sobre `master`.
 
-> Esto no solo nos permite integrar de forma lineal los cambios de cualquier rama con master, de igual forma nos permite hacer lo propio con `master` y su rama remota (ya que la instrucción `git push` no es más que un "atajo" para hacer hacer merge fast-forward con la rama remota).
+> Esto no solo nos permite integrar de forma lineal los cambios de cualquier rama con master, sino que también nos permite hacer lo mismo con `master` y su rama remota (la instrucción `git push` no es más que un "atajo" para hacer merge `fast-forward` con la rama remota).
 
 Obtener cambios de remoto e incorporar nuestros commits encima del resto de commits obtenidos
 : {% highlight sh %}
@@ -340,22 +343,22 @@ Obtener cambios de remoto e incorporar nuestros commits encima del resto de comm
     $ git rebase origin/master
 {% endhighlight %}
 
-Continuar con el rebase una vez solucionados los conflictos con `git mergetool`
+Continuar con el `rebase` una vez solucionados los conflictos con `git mergetool`
 : {% highlight sh %}
     $ git rebase --continue
 {% endhighlight %}
 
-Abortar el rebase y volver a antes de su ejecución
+Abortar el `rebase` y volver a antes de su ejecución
 : {% highlight sh %}
     $ git rebase --abort
 {% endhighlight %}
 
-Configurar pull rebase para una rama específica
+Configurar `pull --rebase` por defecto para una rama específica
 : {% highlight sh %}
     $ git config branch.branch-name.rebase yes
 {% endhighlight %}
 
-Configurar pull rebase para ramas nuevas
+Configurar `pull --rebase` por defecto para ramas nuevas
 : {% highlight sh %}
     $ git config --global branch.autosetuprebase remote|local|always
 {% endhighlight %}
@@ -464,7 +467,7 @@ Visualizar gráficamente el historial de las ramas
 # Stash
 
 ## Save stash
-Save stash restoring working tree with last commit
+Save stash restoring `WORKING TREE` with last commit
 : {% highlight sh %}
 $ git stash save [<message>]
 {% endhighlight %}
@@ -472,7 +475,7 @@ $ git stash save [<message>]
 
 > Saving stash implies ```git reset --hard```
 
-Save stash but keep index intact
+Save stash but keep `INDEX` intact
 : {% highlight sh %}
 $ git stash save --keep-index
 {% endhighlight %}
@@ -481,18 +484,18 @@ Save stash including untracked files
 : {% highlight sh %}
 $ git stash save --include-untracked
 {% endhighlight %}
-> When stashing untracked files ```git clean``` is executed removing untracked files from working tree
+> When stashing untracked files ```git clean``` is executed removing untracked files from `WORKING TREE`
 
 > Use ```--all``` to stash and remove also ignored files
 
-## Restore stash on Working Tree
+## Restore stash on WORKING TREE
 Restore stash but don't drop stashed state
 : {% highlight sh %}
 $ git stash apply [--index] [<stashref>]
 {% endhighlight %}
 > Use ```git stash list``` to show stashes refs than can be applied and ```git stash show``` to see the changes
 
-> Restore also index (if possible) with the ```--index``` option
+> Restore also `INDEX` (if possible) with the ```--index``` option
 
 Restore stash and drop stashed state
 : {% highlight sh %}
@@ -542,7 +545,7 @@ Pull in the changes from main repo and submodules
 : {% highlight sh %}
 $ git pull --recurse-submodules
 {% endhighlight %}
-> This is the same as: git pull + submodule update
+> This is the same as: `git pull` + `submodule update`
 
 Upgrade specific submodule to last commit
 : {% highlight sh %}
@@ -563,55 +566,76 @@ $ git submodule foreach git pull origin master
 
 > El workflow centralizado utiliza una única rama, `master`, para trabajar en local. El código se actualizará sobre nuestra propia rama de trabajo mediante `git pull`.
 
-> Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles escenarios:
+Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles casos:
 
-### I. Se realiza `pull` sin problemas
+### Caso 1. Se realiza `pull` sin problemas
 
-> Esto sucede cuando no existen nuevos commits en remoto, o no hay commits sin publicar en local.
+> Esto sucede cuando no existen nuevos commits en remoto o no hay commits sin publicar en local. En ese último caso `git pull` hará `fast-forward` sin problemas siempre que los cambios del `WORKING TREE` no coincidan con los cambios de remoto.
 
-> En ese último caso, `git pull` hará `fast-forward` siempre que los cambios del `working tree` no coincidan con los cambios de remoto (de lo contrario no se efectuaría el pull y se mostraría una advertencia (ver escenario II)
+Para publicar nuestros commits locales solo hay que hacer:
 
-> En este caso publicar nuestros commits locales es tan simple como:
-
-1) Añadir ficheros al índice para poder hacer commit:
+1) Añadir ficheros al `INDEX` para poder hacer commit:
 : ```git add . [--all]``` o ```git add file1 [file2] [file3] [...]```
 
-2) Hacer commit de los ficheros que hayamos añadido al índice:
+2) Hacer commit de los ficheros que hayamos añadido al `INDEX`:
 : ```git commit```
 
 3) Publicar los cambios en remoto:
 : ```git push```
 
-### II. No es posible realizar `pull`
+### Caso 2. No es posible realizar `pull`
 
-Para poder hacer `pull` deberemos antes limpiar el índice y el working tree:
+> Esto puede ocurrir bien porque hay commits tanto en local como en remoto o bien porque hay cambios en los ficheros del `WORKING TREE` que coinciden con los nuevos commits de remoto.
+
+En los 2 casos, para poder hacer `pull` deberemos limpiar el `INDEX` y el `WORKING TREE`:
+
+Opción A) Realizamos commit para luego mergearlo con el remoto, al hacer `git pull` (ver [punto 3](#caso-3-se-ejecuta-merge-o-rebase-para-mezclar-los-cambios-de-remoto-con-los-de-nuestra-rama-local))
 : 
-    * **opción a**: ```git add . [-all]``` + ```git commit```
-    * **opción b**: ```git stash```
-
-> Después de realizar una de las dos acciones anteriores deberemos volver a hacer `git pull` y mergear los cambios de remoto (ver escenario III)
-
-### III. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
-
-En este punto nos encontramos con 2 posibles escenarios:
+```git add . --all``` + ```git commit```
+    
+Opción B) Realizamos stash para apartar nuestros cambios de local y que `git pull` continúe sin problemas (ver [punto 1](#caso-1-se-realiza-pull-sin-problemas))
 : 
-    * ***No hay conflicto.*** Automerge commit (o si utilizamos el parámetro ```--rebase``` los nuevos commits quedan simplemente añadidos al final)
-    * ***Hay conflicto.*** Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` (o ```git rebase --continue```, de haber usado el parámetro ```--rebase```)
+```git stash```
 
-De haber ejecutado ```git stash``` anteriormente podremos recuperar el stash guardado con:
-: ```git stash apply```
+> En este último caso, después de hacer `git pull` podremos volver a aplicar nuestros cambios locales con `git stash apply`
 
-> Si no queremos todos los cambios del stash, podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash.
+> Si no queremos todos los cambios del stash podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash.
 
-> Después de haber finalizado el merge correctamente podremos continuar con la publicación de cambios en remoto:
+### Caso 3. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
 
-1) Comprobar de nuevo si se han producido cambios en remoto mientras hacíamos merge:
-: ```git pull```
+En este punto nos encontramos con 2 posibles casos:
 
-2) Publicar nuestros commits locales:
-: ```git push```
+No hay conflicto
+: 
+Se produce un automerge commit (o si utilizamos el parámetro ```--rebase``` los nuevos commits quedan simplemente añadidos al final)
+    
+Hay conflicto 
+: Resolvemos con ```git mergetool``` y ejecutamos ```git commit``` (o ```git rebase --continue```, de haber realizado `pull` con `rebase`)
 
-> Todas las situaciones vistas anteriormente no son sólo aplicables a `master` y a un *workflow centralizado*, sino a cualquier tipo de rama y workflow (como el *feature branch workflow*, visto a continuación)
+> Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto).
+
+> En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
+
+Finalmente publicaremos nuestros commits en remoto:
+: `git status` (comprobamos que todos los conflictos están marcados como resueltos)
+`git push`
+
+> Si fallará el `git push` quiere decir que se han producido nuevos cambios en remoto mientras mergeabamos, deberemos volver a hacer pull: `git pull` + [resolución de conflictos] + `git push`
+
+### Abortando git pull
+
+Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`.
+
+Para abortar git pull con merge
+: `git merge --abort`
+
+Para abortar git pull con rebase
+: `git rebase --abort`
+
+Si ya hemos finalizad el pull, deberemos volver atrás mirando nuestro log local (git log -g):
+: `git reset <commit_local>`
+
+> Sin la opción `--hard`, `git reset` vuelve hasta el commit indicado dejando los cambios propios del commit en el `WORKING TREE`
 
 <br />
 
@@ -625,7 +649,7 @@ De haber ejecutado ```git stash``` anteriormente podremos recuperar el stash gua
 
 ### Configuración inicial (pull con rebase)
 
-Configurar git para hacer rebase en lugar de merge al hacer pull
+Configurar git para hacer rebase en lugar de merge al hacer `pull`
 : {% highlight sh %}
     $ git config --global branch.master.rebase yes
     # también podemos configurarlo para todas las ramas
@@ -679,9 +703,9 @@ Deploy de la rama `feature` a `master` (*merge commit* forzado para no perder la
     $ git push
 {% endhighlight %}
 
-> Es posible forzar que ningún merge haga fast-forward (evitando tener que pasar el parámetro --no-ff) mediante la siguiente configuración: `git config --global --bool merge.ff false`
+> Es posible forzar que ningún merge haga `fast-forward` (evitando tener que pasar el parámetro --no-ff) mediante la siguiente configuración: `git config --global --bool merge.ff false`
 
-> En ese caso para forzar un merge con fast-forward habría se puede usar `git merge` con el parámetro `--ff-only`
+> En ese caso para forzar un merge con `fast-forward` se puede usar `git merge` con el parámetro `--ff-only`
 
 ### Propagación de cambios entre ramas
 
@@ -727,4 +751,4 @@ Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
     $ git branch -d feature
 {% endhighlight %}
 
-> ***Al realizar el merge fast forward se pierde la trazabilidad de la rama que se ha integrado: `master` absorbe todos los commits que pertenecían a la rama y no se añade ningún merge commit que indique fusión de ramas*** 
+> ***Al realizar el merge `fast-forward` se pierde la trazabilidad de la rama que se ha integrado: `master` absorbe todos los commits que pertenecían a la rama y no se añade ningún merge commit que indique fusión de ramas*** 

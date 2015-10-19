@@ -429,9 +429,6 @@ Recuperar commit anterior después de hacer `git reset --hard`
 
 ### Merge
 
-{:.center}
-![Merge](/merge.png "Merge")
-
 Cambiar a la rama donde realizar merge
 : {% highlight sh %}
     $ git checkout <rama>
@@ -439,7 +436,7 @@ Cambiar a la rama donde realizar merge
 
 Realizar merge
 : {% highlight sh %}
-    $ git merge <rama con_la_que_mezclar_nuestra_rama>
+    $ git merge <rama_a_mezclar_con_nuestra_rama>
 {% endhighlight %}
 
 Realizar merge pero no dejar constancia del mismo en el grafo de commits (aparecerá como un commit más de nuestra rama, no tendrá 2 padres)
@@ -454,12 +451,14 @@ Abortar el merge si hay conflictos y no queremos continuar
 
 > `git pull` y `git push` son 2 casos especiales de merge. En el primero se hace merge de una rama remota sobre una local. En el segundo se hace a la inversa, ***siempre y cuando el merge sea `fast-forward`*** (de lo contrario se para la ejecución)
 
+{:.center}
+![Merge](/merge.png "Merge")
+
+<div class="center">Merge de la rama feature con master</div><br />
+
 <br />
 
 ### Rebase y Pull con rebase
-
-{:.center}
-![Rebase](/rebase.png "Rebase")
 
 > Se hace `git pull --rebase` para evitar merges "innecesarios" (aquellos que no estén mezclando líneas de trabajo distintas sino que sean simplemente producto de "timing" al hacer commit varios desarrolladores)
 
@@ -502,6 +501,11 @@ Configurar `pull --rebase` por defecto para ramas nuevas
 : {% highlight sh %}
     $ git config --global branch.autosetuprebase remote|local|always
 {% endhighlight %}
+
+{:.center}
+![Rebase](/rebase.png "Rebase")
+
+<div class="center">Rebase de la rama feature con master</div><br />
 
 <br />
 

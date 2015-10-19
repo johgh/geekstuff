@@ -12,7 +12,7 @@ tags: Sysadmin
 : Ficheros que tenemos en el workspace
 
 `Index`
-: También conocido como "staging". Es el snapshot que será traspasado al ejecutar `git commit` a nuestro repositorio local. Cada vez que ejecutamos `git add` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar `git add`.
+: También conocido como "staging". Es el snapshot que será traspasado a nuestro repositorio local al ejecutar `git commit`. Cada vez que ejecutamos `git add` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar `git add`.
 
 > Para saber que hemos subido desde el `Working Tree` al `Index` en cada momento y ver las diferencias con el repositorio local ver los comandos `git difftool` y `git difftool --staged` explicados abajo.
 
@@ -43,7 +43,7 @@ tags: Sysadmin
 
 Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles casos:
 
-### Caso 1. Se realiza `pull` sin problemas
+### 1. Se realiza `pull` sin problemas
 
 > Esto sucede cuando no existen nuevos commits en remoto o no hay commits sin publicar en local. En ese último caso `git pull` hará `fast-forward` sin problemas siempre que los cambios del `Working Tree` no coincidan con los cambios de remoto.
 
@@ -58,25 +58,25 @@ Para publicar nuestros commits locales solo hay que hacer:
 3) Publicar los cambios en remoto:
 : `git push`
 
-### Caso 2. No es posible realizar `pull`
+### 2. No es posible realizar `pull`
 
 > Esto puede ocurrir bien porque hay commits tanto en local como en remoto o bien porque hay cambios en los ficheros del `Working Tree` que coinciden con los nuevos commits de remoto.
 
-En los 2 casos para poder hacer `pull` deberemos limpiar el `Index` y el `Working Tree`:
+En ambos casos para poder hacer `pull` deberemos limpiar primero el `Index` y el `Working Tree` mediante una de estas opciones:
 
-Opción A) Realizamos `commit` para luego mergearlo con el remoto, al hacer `git pull` (ver [punto 3](#caso-3-se-ejecuta-merge-o-rebase-para-mezclar-los-cambios-de-remoto-con-los-de-nuestra-rama-local))
+a) Realizar `commit` para luego mergearlo con el remoto, al hacer `git pull` (ver [punto 3](#caso-3-se-ejecuta-merge-o-rebase-para-mezclar-los-cambios-de-remoto-con-los-de-nuestra-rama-local))
 : 
 `git add . --all` + `git commit`
     
-Opción B) Realizamos `stash` para apartar nuestros cambios de local y que `git pull` continúe sin problemas (ver [punto 1](#caso-1-se-realiza-pull-sin-problemas))
+b) Realizar `stash` para apartar nuestros cambios de local y que `git pull` continúe sin problemas (ver [punto 1](#caso-1-se-realiza-pull-sin-problemas))
 : 
 `git stash`
 
-> En este último caso, después de hacer `git pull` podremos volver a aplicar nuestros cambios locales con `git stash apply`
+En este último caso, después de hacer `git pull` podremos volver a aplicar nuestros cambios locales con `git stash apply`
 
-> Si no queremos todos los cambios del stash podremos hacer checkout (o diff) de los ficheros que no queramos después de aplicar el stash.
+Si no queremos todos los cambios del stash podremos hacer `checkout` o `diff` de los ficheros que queramos posteriormente (`stash apply` solo actúa sobre el `Working Tree`)
 
-### Caso 3. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
+### 3. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
 
 En este punto nos encontramos con 2 posibles casos:
 
@@ -87,23 +87,25 @@ Se produce un automerge commit (o si utilizamos el parámetro `--rebase` los nue
 Hay conflicto 
 : Resolvemos con `git mergetool` y ejecutamos `git commit` (o `git rebase --continue`, de haber realizado `pull` con `rebase`)
 
-> Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto).
+Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto).
 
-> En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
+En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
 
-Comprobamos que todos los conflictos estén marcados como resueltos con:
+Finalmente, comprobaremos que los conflictos estén resueltos y publicaremos los cambios:
+
+Miramos que los conflictos estén marcados como resueltos:
 : `git status`
 
 > Si continúan apareciendo ficheros como 'unmerged', habiendo ya resuelto los conflictos, los podemos añadir con `git add` para marcarlos como resueltos manualmente
 
-Finalmente, publicamos los cambios:
+Publicamos los cambios:
 : `git push`
 
-> Si en este punto no se nos permite hacer `git push`, deberemos volver a obtener nuevos cambios de remoto: `git pull` + [resolución de conflictos] + `git push`
+> Si no se permite esta operación, deberemos volver a obtener los cambios de remoto y resolver los posibles conflictos: `git pull` + [resolución de conflictos] + `git push`
 
 ### Abortando git pull
 
-Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`.
+> Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`.
 
 Para abortar git pull con merge
 : `git merge --abort`
@@ -236,6 +238,69 @@ Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
 ---
 
 # Guía rápida
+
+## Configuración
+
+Ver configuración global (o del repositorio actual)
+: {% highlight sh %}
+    $ git config -l
+{% endhighlight %}
+
+Setear valores de la configuración global (fichero ~/.gitconfig)
+: {% highlight sh %}
+    $ git config --global user.name "John Doe"
+{% endhighlight %}
+
+Guardar passwords con Gnome keyring (sólo para https, no ssh)
+: {% highlight sh %}
+# Probado en Ubuntu 14.04
+sudo apt-get install libgnome-keyring-dev
+cd "`dirname $(locate git-credential-gnome-keyring)`"
+make
+git config --global credential.helper "`dirname $(locate git-credential-gnome-keyring)`"/git-credential-gnome-keyring
+{% endhighlight %}
+
+> [Ejemplo de configuración completa (alias incluídos)](/gitconfig)
+
+<br />
+
+## Creación de un repositorio
+
+Crear repositorio `origin` (`--bare`), sin `Working Tree`
+: {% highlight sh %}
+$ ssh ares@mars.example.com
+ares> git init --bare foo
+Initialized empty Git repository in /u/ares/foo/.git
+{% endhighlight %}
+
+Clonar el repositorio y hacer checkout  de la rama `HEAD` (normalmente master)
+: {% highlight sh %}
+    $ git clone ares@mars.example.com:foo
+{% endhighlight %}
+
+Conectar directorio con contenido a un nuevo remoto (`origin`)
+: {% highlight sh %}
+$ cd foo
+$ git init
+$ git remote add origin ares@mars.example.com:foo
+$ git add .
+$ git commit -m 'initial commit'
+$ git push -u origin master
+{% endhighlight %}
+
+A partir de ahí se puede hacer simplemente
+: {% highlight sh %}
+    $ git push
+{% endhighlight %}
+
+Crear repositorio referencia (para tener varias ramas en checkout, ver p. 82)
+: {% highlight sh %}
+$ git clone --bare http://foo/bar.git refrep
+$ git clone --reference refrep http://foo/bar.git
+$ git fetch --all (se deben hacer pulls periódicamente!!)
+{% endhighlight %}
+
+<br />
 
 ## Operaciones con Index
 
@@ -596,89 +661,6 @@ Comparación entre 2 commits
 
 <br />
 
-## Configuración
-
-Ver configuración global (o del repositorio actual)
-: {% highlight sh %}
-    $ git config -l
-{% endhighlight %}
-
-Setear valores de la configuración global (fichero ~/.gitconfig)
-: {% highlight sh %}
-    $ git config --global user.name "John Doe"
-{% endhighlight %}
-
-Guardar passwords con Gnome keyring (sólo para https, no ssh)
-: {% highlight sh %}
-# Tested in Ubuntu 14.04
-sudo apt-get install libgnome-keyring-dev
-cd "`dirname $(locate git-credential-gnome-keyring)`"
-make
-git config --global credential.helper "`dirname $(locate git-credential-gnome-keyring)`"/git-credential-gnome-keyring
-{% endhighlight %}
-
-> [Ejemplo de configuración completa (alias incluídos)](/gitconfig)
-
-<br />
-
-## Creación de un repositorio
-
-Crear repositorio central (--bare), que no será usado directamente
-: {% highlight sh %}
-$ ssh ares@mars.example.com
-ares> git init --bare foo
-Initialized empty Git repository in /u/ares/foo/.git
-{% endhighlight %}
-
-Clonar el repositorio y hacer checkout  de la rama `HEAD` (normalmente master)
-: {% highlight sh %}
-    $ git clone ares@mars.example.com:foo
-{% endhighlight %}
-
-Conectar directorio con contenido a un nuevo remoto (origen)
-: {% highlight sh %}
-$ cd foo
-$ git init
-$ git remote add origin ares@mars.example.com:foo
-$ git add .
-$ git commit -m 'initial commit'
-$ git push -u origin master
-{% endhighlight %}
-
-A partir de ahí se puede hacer simplemente
-: {% highlight sh %}
-    $ git push
-{% endhighlight %}
-
-Crear repositorio referencia (para tener varias ramas en checkout, ver p. 82)
-: {% highlight sh %}
-$ git clone --bare http://foo/bar.git refrep
-$ git clone --reference refrep http://foo/bar.git
-$ git fetch --all (se deben hacer pulls periódicamente!!)
-{% endhighlight %}
-
-<br />
-
-## Ignorar ficheros
-
-Ficheros `.gitignore` con los ficheros a ignorar (ver sintáxis en p.44)
-: Se pueden colocar en todo el `Working Tree` (si se comitean se comparten ficheros ignorados)
-
-Ignorar ficheros por repositorio (no se comparten ignores con nadie)
-: Fichero `.git/info/exclude`
-
-Fichero de configuración con ignores (se puede compartir fichero entre varios repositorios de la misma máquina)
-: {% highlight sh %}
-    $ git config --global core.excludesfile ~/.gitignore
-{% endhighlight %}
-
-Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untracked)
-: {% highlight sh %}
-    $ git update-index --assume-unchanged
-{% endhighlight %}
-
-<br />
-
 ## Stash
 
 ### Save stash
@@ -770,5 +752,25 @@ $ git pull origin master
 Upgrade all submodules of the current repo to their last commit
 : {% highlight sh %}
 $ git submodule foreach git pull origin master
+{% endhighlight %}
+
+<br />
+
+## Ignorar ficheros
+
+Ficheros `.gitignore` con los ficheros a ignorar (ver sintáxis en p.44)
+: Se pueden colocar en todo el `Working Tree` (si se comitean se comparten ficheros ignorados)
+
+Ignorar ficheros por repositorio (no se comparten ignores con nadie)
+: Fichero `.git/info/exclude`
+
+Fichero de configuración con ignores (se puede compartir fichero entre varios repositorios de la misma máquina)
+: {% highlight sh %}
+    $ git config --global core.excludesfile ~/.gitignore
+{% endhighlight %}
+
+Ignorar cambios en ficheros tracked (todos los anteriores son para ficheros untracked)
+: {% highlight sh %}
+    $ git update-index --assume-unchanged
 {% endhighlight %}
 

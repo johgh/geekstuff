@@ -208,76 +208,21 @@ Move app to workspace at startup
 
 ---
 
-
 # Alias
 
-Open file with associated gui app
-: {% highlight sh %}
-    openapp(){ nohup xdg-open $1 > /dev/null 2> /dev/null }; alias o=openapp
+> Tested in bash and zsh.
+
+> Save this file in your HOME directory and put the following line in your .bashrc or .zshrc file:
+    ```. $HOME/<alias_file_name>```
+
+
+{% github_sample_ref johgh/dotfiles/blob/master/.alias_functions  %}
+<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
+<div id="selectText1">
+{% highlight bash %}
+{% github_sample johgh/dotfiles/blob/master/.alias_functions %}
 {% endhighlight %}
+</div>
 
-Force pull
-: {% highlight sh %}
-    alias gpull='git commit -a; git pull'
-{% endhighlight %}
 
-Force push
-: {% highlight sh %}
-    alias gpush='git commit -a; git push'
-{% endhighlight %}
-
-Difftool with origin/master
-: {% highlight sh %}
-    alias gdiff='git difftool origin/master'
-{% endhighlight %}
-
-Mergetool
-: {% highlight sh %}
-    alias gmerge='git mergetool'
-{% endhighlight %}
-
-LS alias
-: {% highlight sh %}
-    alias ll='ls -alF'
-    alias la='ls -A'
-    alias l='ls -CF'
-    alias lt='ls -lrt'
-{% endhighlight %}
-
-Short sudo
-: {% highlight sh %}
-    alias s='sudo'
-{% endhighlight %}
-
-Repeat last command with sudo
-: {% highlight sh %}
-    alias fuck='sudo !!'
-{% endhighlight %}
-
-Shutdown, reboot, suspend
-: {% highlight sh %}
-    alias shutdown='sudo shutdown –h now'
-    alias restart='sudo shutdown –r now'
-    alias suspend='sudo pm-suspend'
-{% endhighlight %}
-
-> on /etc/sudoers:
-> user ALL=(ALL) NOPASSWD: /usr/sbin/pm-suspend
-> user ALL=(ALL) NOPASSWD: /sbin/shutdown
-
-Mount formatted
-: {% highlight sh %}
-    alias mountt = 'mount |column -t'
-{% endhighlight %}
-
-Apt alias
-: {% highlight sh %}
-    alias inst='sudo apt-get install'
-    alias search='apt-cache search'
-    alias purge='sudo apt-get purge'
-    alias remove='sudo apt-get remove'
-    alias update='sudo apt-get update'
-    alias upgrade='sudo apt-get dist-upgrade'
-    alias show='sudo apt-cache show'
-{% endhighlight %}
-
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>

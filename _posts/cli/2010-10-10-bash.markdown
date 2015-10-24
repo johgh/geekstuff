@@ -3,7 +3,7 @@ layout: post
 title:  "Shell-scripting"
 permalink:  "shellscripting"
 date:   2015-01-02 16:30:15
-category: Linux
+category: CLI
 tags: Sysadmin
 ---
 # Snippets

@@ -7,7 +7,7 @@ category: CLI
 tags: Sysadmin
 ---
 
-> This `.gitconfig` sample file is intended to be used as the global configuration for all git repositories cloned in a machine. So it should be place in `$HOME` directory.
+> This `.gitconfig` sample file is intended to be used as the global configuration for all git repositories cloned in a machine. So it should be placed in HOME directory.
 
 > Coincidental configurations in a `.gitconfig` file of a particular repository will override these values. Execute `git config -l` to see the real configuration applied in a repository.
 

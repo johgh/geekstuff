@@ -1,0 +1,57 @@
+---
+layout: post
+title:  "Repositories"
+permalink:  "repos"
+date:   2015-08-23 16:30:15
+category: Linux
+tags: Sysadmin
+---
+# Ubuntu
+
+> WebUpd8 main repository (ubuntu packages)
+: 
+: {% highlight bash %}
+$ sudo add-apt-repository ppa:nilarimogard/webupd8
+{% endhighlight %}
+* complete list of WebUpd8 repositories [here](http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html)
+
+> Getdeb (ubuntu updated packages)
+: {% highlight bash %}
+# Add to sources.list
+deb http://archive.getdeb.net/ubuntu vivid-getdeb apps
+# Add the repository GPG key
+$ wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+{% endhighlight %}
+
+
+# Debian
+
+> Dotdeb (Debian LAMP updated packages)
+: 
+* see instructions [here](https://www.dotdeb.org/instructions/)
+
+> Debian Backports (debian updated packages)
+: * Full instructions [here](http://backports.debian.org/)
+
+> Deb-multimedia (unofficial Debian repository)
+: {% highlight bash %}
+# Add to sources.list
+deb http://www.deb-multimedia.org stable main non-free
+{% endhighlight %}
+* See other unofficial debian repositories [here](https://wiki.debian.org/UnofficialRepositories)
+
+# Generic
+
+> Gnome
+: {% highlight bash %}
+$ sudo add-apt-repository ppa:gnome3-team/gnome3
+{% endhighlight %}
+
+> Google
+: {% highlight bash %}
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+{% endhighlight %}
+
+---
+

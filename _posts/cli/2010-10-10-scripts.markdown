@@ -13,7 +13,7 @@ tags: Sysadmin Vim
 {% github_sample_ref johgh/scripts/blob/master/ansbot  %}
 <div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
 <div id="selectText1">
-{% highlight vim %}
+{% highlight bash %}
 {% github_sample johgh/scripts/blob/master/ansbot %}
 {% endhighlight %}
 </div>
@@ -26,7 +26,7 @@ tags: Sysadmin Vim
 {% github_sample_ref johgh/scripts/blob/master/setup.sh  %}
 <div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
 <div id="selectText2">
-{% highlight vim %}
+{% highlight bash %}
 {% github_sample johgh/scripts/blob/master/setup.sh %}
 {% endhighlight %}
 </div>
@@ -39,7 +39,7 @@ tags: Sysadmin Vim
 {% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
 <div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
 <div id="selectText3">
-{% highlight vim %}
+{% highlight bash %}
 {% github_sample johgh/scripts/blob/master/vim_setup.sh %}
 {% endhighlight %}
 </div>

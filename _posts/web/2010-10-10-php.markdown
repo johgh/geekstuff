@@ -6,72 +6,433 @@ date:   2014-12-25 16:30:15
 category: Web
 tags: Web
 ---
-# Apuntes de PHP
+# Quick reference
 
-## isset, empty, null, comparación de tipos
-
-- `isset` y `empty` son construcciones del lenguaje. A diferencia de cualquier otra función, estas construcciones no lanzan error en tiempo de ejecución si la variable pasada como parámetro no existe.
-
-    El propósito de estas funciones debe ser exclusivamente la comprobación de la existencia de variables que puedan no haber sido declaradas (por ejemplo parámetros del usuario `$_GET`). Es recomendable la inicialización de variables para evitar el uso de estas construcciones dentro de lo posible.
-
-- En PHP una variable no definida tiene valor `NULL` (único valor posible del tipo de datos `NULL`), por tanto no se puede distinguir entre una variable no existente y una a la que se le haya asignado valor nulo. `isset` devolverá falso para los dos casos. No se lanzará error al utilizar una variable a la que se ha asignado `NULL` previamente (pero si habrá error si se ha hecho `unset` de la variable).
-
-- La construcción `empty` equivale a `!isset($var) || $var == false`. `if (!empty($var))` es útil cuando esperamos un valor pero no sabemos si la variable existe. Si la variable debe existir usaremos simplemente `if($var)`, de lo contrario no veríamos el error en tiempo de ejecución de no existir la variable.
-
-- PHP por defecto evalúa las expresiones de forma no estricta. Por ejemplo `if('entra')` se evalúa como cierto. Si queremos que la expresión anterior no se evalúe como cierta deberemos especificar la condición de forma estricta: `if ('entra' === true)`
-
-- No se debe usar la construcción `empty` para detectar cadenas vacías puesto que la cadena `"0"` sería considerada vacía debido a la comparación no estricta `== false` que utiliza `empty`. Para detectar cadenas vacías necesitaremos 2 condiciones: `(!isset($mystring) || $mystring == null)`
-
-> mientras que `"0" == false` se evalua como cierto, `"0" == null` retorna falso. Para más información ver [tabla de comparaciones no estrictas](http://php.net/manual/en/types.comparisons.php)
-
-- Para conocer el tipo de una variable deberemos usar las siguientes funciones: `is_float`, `is_int`, `is_array`, `is_null`, `is_bool`, `is_object`, `is_string`
-
-
-<br />
-
----
-<br />
-
-
-## Excepciones y mecanismo de control de errores
-
-- En PHP se pueden encontrar 3 tipos de errores en tiempo de ejecución que en algunos casos podemos necesitar controlar:
-
-1. "Errores lógicos”, que podemos detectar, por ejemplo, mediante el testeo del retorno de una función
-2. Errores en servicios de red (posiblemente errores fatales)
-3. Otros errores fatales que detienen la ejecución del programa (a diferencia de java, php no lanza Excepciones automáticamente en ningún caso, únicamente errores fatales)
-
-- El uso de Excepciones no previene en ningún caso el mecanismo de control de errores según se encuentre configurado en `php.ini`
-
-- Si se quiere lanzar una excepción relacionada con algún método que hace uso del mecanismo de control de errores de php (por ejemplo, en el caso que devuelva un warning), deberemos utilizar `@` para suprimir el mensaje propio de php:
-
-{% highlight php startinline %}
-$sp = @fsockopen('192.168.1.66', 5000, &$errorno, &$errorstr);
-if (!$sp)
-    throw new fSockException('Error fsockopen');
+## Arrays
+[array_intersect](http://php.net/manual/en/function.array-intersect.php)
+: {% highlight php startinline %}
+    array array_intersect ( array $array1 , array $array2 [, array $... ] )
 {% endhighlight %}
 
-- Es posible pasar un objeto de cualquier tipo a la cláusula `throw` (por ejemplo si necesitamos debugar un objeto problemático), sin embargo lo más habitual es utilizar un objeto de la clase Exception o una clase derivada de esta misma clase.
-
-- Para definir una excepción del usuario será necesaria la creación de una clase que extienda de Exception.
-
-- El uso de un objeto de tipo Exception utilizado en un bloque `catch` permite la captura de excepciones genéricas. Sin embargo, es recomendable el uso de excepciones definidas por el usuario sobre cada tipo de excepción que esperamos, haciendo posible capturarlas en su correspondiente `catch`:
-
-{% highlight php startinline %}
-catch (fSockException $e) { /* handle exception */ }
+[array_merge](http://php.net/manual/en/function.array-merge.php)
+: {% highlight php startinline %}
+ array array_merge ( array $array1 [, array $... ] )
 {% endhighlight %}
 
-- Los métodos definidos en `Exception` son finales, de forma que en las excepciones definidas por el usuario únicamente podemos añadir nuevos métodos, no redefinirlos (también es posible dejar la clase vacía)
+[array_pop](http://php.net/manual/en/function.array-pop.php)
+: {% highlight php startinline %}
+ mixed array_pop ( array &$array )
+{% endhighlight %}
 
-- Sin embargo si podemos hacer <i>override</i> del método mágico `__toString` (que es lanzado al utilizar el objeto como una cadena), para modificar el aspecto visual de la excepción, y luego printar $myException mediante `echo`
+[array_reverse](http://php.net/manual/en/function.array-reverse.php)
+: {% highlight php startinline %}
+ array array_reverse ( array $array [, bool $preserve_keys = false ] )
+{% endhighlight %}
 
-- Por otro lado, las excepciones no son la única manera de tratar con errores controlados. La función `trigger_error()` lanzará un error, warning, etc. (dependiendo de la constante que pasemos en el segundo parámetro) que será tratado de la misma forma que cualquier otro error propio de PHP (built-in).
+[array_walk](http://php.net/manual/en/function.array-walk.php)
+: {% highlight php startinline %}
+ bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )
+{% endhighlight %}
 
-- Si utilizamos el método `set_error_handle('myErrorHandler')` este lanzará el método que le pasemos como parámetro cuando se produzcan errores de usuario, warnings y notices. De esta forma podremos cambiar el aspecto del error propio de PHP o incluso permitir que el script continúe su ejecución (siempre que no se finalize mediante `exit`).
+[count](http://php.net/manual/en/function.count.php)
+: {% highlight php startinline %}
+ int count ( mixed $array_or_countable [, int $mode = COUNT_NORMAL ] )
+{% endhighlight %}
 
-- Algunos errores fatales de PHP no llaman en ningún caso al controlador de errores definido por el usuario (por lo que si no se quiere que ocurran deberán ser controlados mediante lógica adicional).
+[in_array](http://php.net/manual/en/function.in-array.php)
+: {% highlight php startinline %}
+ bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
+{% endhighlight %}
 
-- En el caso de retornar falso en el controlador de errores definido por el usuario, el controlador de errores propio de PHP será lanzado. De esta forma se pueden controlar únicamente los errores lanzados mediante `trigger_error()`, dejando directamente a PHP que se encargue de mostrar el resto de errores.
+## Date and Time
+[date](http://php.net/manual/en/function.date.php)
+: {% highlight php startinline %}
+ string date ( string $format [, int $timestamp = time() ] )
+{% endhighlight %}
+
+[mktime](http://php.net/manual/en/function.mktime.php)
+: {% highlight php startinline %}
+int mktime ([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") [, int $is_dst = -1 ]]]]]]] )
+{% endhighlight %}
+
+[strtotime](http://php.net/manual/en/function.strtotime.php)
+: {% highlight php startinline %}
+ int strtotime ( string $time [, int $now = time() ] )
+{% endhighlight %}
+
+[time](http://php.net/manual/en/function.time.php)
+: {% highlight php startinline %}
+ int time ( void )
+{% endhighlight %}
+
+## Filesystem
+[copy](http://php.net/manual/en/function.copy.php)
+: {% highlight php startinline %}
+ bool copy ( string $source , string $dest [, resource $context ] )
+{% endhighlight %}
+
+[fclose](http://php.net/manual/en/function.fclose.php)
+: {% highlight php startinline %}
+bool fclose ( resource $handle )
+{% endhighlight %}
+
+[fgets](http://php.net/manual/en/function.fgets.php)
+: {% highlight php startinline %}
+string fgets ( resource $handle [, int $length ] )
+{% endhighlight %}
+
+[file](http://php.net/manual/en/function.file.php)
+: {% highlight php startinline %}
+array file ( string $filename [, int $flags = 0 [, resource $context ]] )
+{% endhighlight %}
+
+[file_exists](http://php.net/manual/en/function.file-exists.php)
+: {% highlight php startinline %}
+bool file_exists ( string $filename )
+{% endhighlight %}
+
+[file_get_contents](http://php.net/manual/en/function.file-get-contents.php)
+: {% highlight php startinline %}
+ string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )
+{% endhighlight %}
+
+[file_put_contents](http://php.net/manual/en/function.file-put-contents.php)
+: {% highlight php startinline %}
+int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )
+{% endhighlight %}
+
+[filemtime](http://php.net/manual/en/function.filemtime.php)
+: {% highlight php startinline %}
+int filemtime ( string $filename )
+{% endhighlight %}
+
+[filesize](http://php.net/manual/en/function.filesize.php)
+: {% highlight php startinline %}
+int filesize ( string $filename )
+{% endhighlight %}
+
+[fopen](http://php.net/manual/en/function.fopen.php)
+: {% highlight php startinline %}
+ resource fopen ( string $filename , string $mode [, bool $use_include_path = false [, resource $context ]] )
+{% endhighlight %}
+
+[glob](http://php.net/manual/en/function.glob.php)
+: {% highlight php startinline %}
+ array glob ( string $pattern [, int $flags = 0 ] )
+{% endhighlight %}
+
+[is_dir](http://php.net/manual/en/function.is-dir.php)
+: {% highlight php startinline %}
+bool is_dir ( string $filename )
+{% endhighlight %}
+
+[is_file](http://php.net/manual/en/function.is-file.php)
+: {% highlight php startinline %}
+ bool is_file ( string $filename )
+{% endhighlight %}
+
+[is_writable](http://php.net/manual/en/function.is-writable.php)
+: {% highlight php startinline %}
+ bool is_writable ( string $filename )
+{% endhighlight %}
+
+[readfile](http://php.net/manual/en/function.readfile.php)
+: {% highlight php startinline %}
+ int readfile ( string $filename [, bool $use_include_path = false [, resource $context ]] )
+{% endhighlight %}
+
+## Headers
+[header](http://php.net/manual/en/function.header.php)
+: {% highlight php startinline %}
+ void header ( string $string [, bool $replace = true [, int $http_response_code ]] )
+{% endhighlight %}
+
+[setcookie](http://php.net/manual/en/function.setcookie.php)
+: {% highlight php startinline %}
+ bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
+{% endhighlight %}
+
+## Numbers
+[ceil](http://php.net/manual/en/function.ceil.php)
+: {% highlight php startinline %}
+ float ceil ( float $value )
+{% endhighlight %}
+
+[floor](http://php.net/manual/en/function.floor.php)
+: {% highlight php startinline %}
+ mixed floor ( float $value )
+{% endhighlight %}
+
+[number_format](http://php.net/manual/en/function.number-format.php)
+: {% highlight php startinline %}
+string number_format ( float $number , int $decimals = 0 , string $dec_point = "." , string $thousands_sep = "," )
+{% endhighlight %}
+
+[round](http://php.net/manual/en/function.round.php)
+: {% highlight php startinline %}
+ float round ( float $val [, int $precision = 0 [, int $mode = PHP_ROUND_HALF_UP ]] )
+{% endhighlight %}
+
+## PHP Options
+[ini_restore](http://php.net/manual/en/function.ini-restore.php)
+: {% highlight php startinline %}
+void ini_restore ( string $varname )
+{% endhighlight %}
+
+[ini_set](http://php.net/manual/en/function.ini-set.php)
+: {% highlight php startinline %}
+string ini_set ( string $varname , string $newvalue )
+{% endhighlight %}
+
+[phpinfo](http://php.net/manual/en/function.phpinfo.php)
+: {% highlight php startinline %}
+ bool phpinfo ([ int $what = INFO_ALL ] )
+{% endhighlight %}
+
+## Regex
+[preg_match](http://php.net/manual/en/function.preg-match.php)
+: {% highlight php startinline %}
+ int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags = 0 [, int $offset = 0 ]]] )
+{% endhighlight %}
+
+[preg_match_all](http://php.net/manual/en/function.preg-match-all.php)
+: {% highlight php startinline %}
+ int preg_match_all ( string $pattern , string $subject [, array &$matches [, int $flags = PREG_PATTERN_ORDER [, int $offset = 0 ]]] )
+{% endhighlight %}
+
+[preg_replace](http://php.net/manual/en/function.preg-replace.php)
+: {% highlight php startinline %}
+ mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &$count ]] )
+{% endhighlight %}
+
+[preg_split](http://php.net/manual/en/function.preg-split.php)
+: {% highlight php startinline %}
+array preg_split ( string $pattern , string $subject [, int $limit = -1 [, int $flags = 0 ]] )
+{% endhighlight %}
+
+
+## Sessions
+[session_destroy](http://php.net/manual/en/function.session-destroy.php)
+: {% highlight php startinline %}
+ bool session_destroy ( void )
+{% endhighlight %}
+
+[session_id](http://php.net/manual/en/function.session-id.php)
+: {% highlight php startinline %}
+ string session_id ([ string $id ] )
+{% endhighlight %}
+
+[session_start](http://php.net/manual/en/function.session-start.php)
+: {% highlight php startinline %}
+ bool session_start ([ array $options = [] ] )
+{% endhighlight %}
+
+## Strings
+[addslashes](http://php.net/manual/en/function.addslashes.php)
+: {% highlight php startinline %}
+ string addslashes ( string $str )
+{% endhighlight %}
+
+[crypt](http://php.net/manual/en/function.crypt.php)
+: {% highlight php startinline %}
+ string crypt ( string $str [, string $salt ] )
+{% endhighlight %}
+
+[echo](http://php.net/manual/en/function.echo.php)
+: {% highlight php startinline %}
+ void echo ( string $arg1 [, string $... ] )
+{% endhighlight %}
+
+[explode](http://php.net/manual/en/function.explode.php)
+: {% highlight php startinline %}
+ array explode ( string $delimiter , string $string [, int $limit ] )
+{% endhighlight %}
+
+[implode](http://php.net/manual/en/function.implode.php)
+: {% highlight php startinline %}
+ string implode ( string $glue , array $pieces )
+{% endhighlight %}
+
+[md5](http://php.net/manual/en/function.md5.php)
+: {% highlight php startinline %}
+ string md5 ( string $str [, bool $raw_output = false ] )
+{% endhighlight %}
+
+[nl2br](http://php.net/manual/en/function.nl2br.php)
+: {% highlight php startinline %}
+ string nl2br ( string $string [, bool $is_xhtml = true ] )
+{% endhighlight %}
+
+[sprintf](http://php.net/manual/en/function.sprintf.php)
+: {% highlight php startinline %}
+ string sprintf ( string $format [, mixed $args [, mixed $... ]] )
+{% endhighlight %}
+
+[strip_tags](http://php.net/manual/en/function.strip-tags.php)
+: {% highlight php startinline %}
+ string strip_tags ( string $str [, string $allowable_tags ] )
+{% endhighlight %}
+
+[stripslashes](http://php.net/manual/en/function.stripslashes.php)
+: {% highlight php startinline %}
+ string stripslashes ( string $str )
+{% endhighlight %}
+
+[str_pad](http://php.net/manual/en/function.str-pad.php)
+: {% highlight php startinline %}
+ string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
+{% endhighlight %}
+
+[strstr](http://php.net/manual/en/function.strstr.php)
+: {% highlight php startinline %}
+ string strstr ( string $haystack , mixed $needle [, bool $before_needle = false ] )
+{% endhighlight %}
+
+[strpos](http://php.net/manual/en/function.strpos.php)
+: {% highlight php startinline %}
+ mixed strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )
+{% endhighlight %}
+
+[strrev](http://php.net/manual/en/function.strrev.php)
+: {% highlight php startinline %}
+ string strrev ( string $string )
+{% endhighlight %}
+
+[str_replace](http://php.net/manual/en/function.str-replace.php)
+: {% highlight php startinline %}
+ mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
+{% endhighlight %}
+
+[strtolower](http://php.net/manual/en/function.strtolower.php)
+: {% highlight php startinline %}
+ string strtolower ( string $string )
+{% endhighlight %}
+
+[strtoupper](http://php.net/manual/en/function.strtoupper.php)
+: {% highlight php startinline %}
+ string strtoupper ( string $string )
+{% endhighlight %}
+
+[substr](http://php.net/manual/en/function.substr.php)
+: {% highlight php startinline %}
+ string substr ( string $string , int $start [, int $length ] )
+{% endhighlight %}
+
+[trim](http://php.net/manual/en/function.trim.php)
+: {% highlight php startinline %}
+ string trim ( string $str [, string $character_mask = " \t\n\r\0\x0B" ] )
+{% endhighlight %}
+
+[ucfirst](http://php.net/manual/en/function.ucfirst.php)
+: {% highlight php startinline %}
+ string ucfirst ( string $str )
+{% endhighlight %}
+
+[ucwords](http://php.net/manual/en/function.ucwords.php)
+: {% highlight php startinline %}
+ string ucwords ( string $str [, string $delimiters = " \t\r\n\f\v" ] )
+{% endhighlight %}
+
+
+## URLs
+[urldecode](http://php.net/manual/en/function.urldecode.php)
+: {% highlight php startinline %}
+ string urldecode ( string $str )
+{% endhighlight %}
+
+[urlencode](http://php.net/manual/en/function.urlencode.php)
+: {% highlight php startinline %}
+ string urlencode ( string $str )
+{% endhighlight %}
+
+
+## Variables
+[empty](http://php.net/manual/en/function.empty.php)
+: {% highlight php startinline %}
+ bool empty ( mixed $var )
+{% endhighlight %}
+
+[is_array](http://php.net/manual/en/function.is-array.php)
+: {% highlight php startinline %}
+ bool is_array ( mixed $var )
+{% endhighlight %}
+
+[is_int](http://php.net/manual/en/function.is-int.php)
+: {% highlight php startinline %}
+ bool is_int ( mixed $var )
+{% endhighlight %}
+
+[is_null](http://php.net/manual/en/function.is-null.php)
+: {% highlight php startinline %}
+ bool is_null ( mixed $var )
+{% endhighlight %}
+
+[is_numeric](http://php.net/manual/en/function.is-numeric.php)
+: {% highlight php startinline %}
+ bool is_numeric ( mixed $var )
+{% endhighlight %}
+
+[is_object](http://php.net/manual/en/function.is-object.php)
+: {% highlight php startinline %}
+ bool is_object ( mixed $var )
+{% endhighlight %}
+
+[isset](http://php.net/manual/en/function.isset.php)
+: {% highlight php startinline %}
+ bool isset ( mixed $var [, mixed $... ] )
+{% endhighlight %}
+
+[serialize](http://php.net/manual/en/function.serialize.php)
+: {% highlight php startinline %}
+ string serialize ( mixed $value )
+{% endhighlight %}
+
+[unserialize](http://php.net/manual/en/function.unserialize.php)
+: {% highlight php startinline %}
+ mixed unserialize ( string $str [, array $options ] )
+{% endhighlight %}
+
+## Miscellaneous
+[mail](http://php.net/manual/en/function.mail.php)
+: {% highlight php startinline %}
+ bool mail ( string $to , string $subject , string $message [, string $additional_headers [, string $additional_parameters ]] )
+{% endhighlight %}
+
+[fsockopen](http://php.net/manual/en/function.fsockopen.php)
+: {% highlight php startinline %}
+ resource fsockopen ( string $hostname [, int $port = -1 [, int &$errno [, string &$errstr [, float $timeout = ini_get("default_socket_timeout") ]]]] )
+{% endhighlight %}
+
+[exec](http://php.net/manual/en/function.exec.php)
+: {% highlight php startinline %}
+ string exec ( string $command [, array &$output [, int &$return_var ]] )
+{% endhighlight %}
+
+[define](http://php.net/manual/en/function.define.php)
+: {% highlight php startinline %}
+ bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )
+{% endhighlight %}
+
+[eval](http://php.net/manual/en/function.eval.php)
+: {% highlight php startinline %}
+ mixed eval ( string $code )
+{% endhighlight %}
+
+[exit](http://php.net/manual/en/function.exit.php)
+: {% highlight php startinline %}
+ void exit ([ string $status ] )
+{% endhighlight %}
+
+## SuperGlobals
+* [$_ENV](http://php.net/manual/en/reserved.variables.environment.php)
+* [$_GET](http://php.net/manual/en/reserved.variables.get.php)
+* [$_POST](http://php.net/manual/en/reserved.variables.post.php)
+* [$_COOKIE](http://php.net/manual/en/reserved.variables.cookies.php)
+* [$_SESSION](http://php.net/manual/en/reserved.variables.session.php)
+* [$_SERVER](http://php.net/manual/en/reserved.variables.server.php)
+* [$_FILES](http://php.net/manual/en/reserved.variables.files.php)
+* [$_REQUEST](http://php.net/manual/en/reserved.variables.request.php)
+* [$GLOBALS](http://php.net/manual/en/reserved.variables.globals.php)
 
 <br />
 
@@ -123,7 +484,22 @@ $ cp ~/bin/notifyphplog.sh ~/.config/autostart/
 ---
 <br />
 
-# Refrescar navegador automáticamente
+# PHP Profiler
+
+1. Activar profiler de xdebug (desactivar siempre en producción). Añadir la siguiente línea en `xdebug.ini` (`$ locate xdebug.ini`) y reiniciar apache:
+
+    `xdebug.profiler_enable=on`
+
+2. Instalar visor de los dumps del profiler (ficheros `cachegrind.out.*` que se generan automáticamente en `/tmp`):
+
+    `sudo apt-get install kcachegrind`
+    
+<br />
+
+---
+<br />
+
+# Refrescar navegador
 
 ### Recargar al guardar cualquier fichero en $HOME/workspace
 
@@ -149,12 +525,3 @@ Añadir la siguiente línea al fichero $HOME/.vimrc
 {% endhighlight %}
 > requiere paquete `xdotool`
 
-# PHP Profiler
-
-1. Activar profiler de xdebug (desactivar siempre en producción). Añadir la siguiente línea en `xdebug.ini` (`$ locate xdebug.ini`) y reiniciar apache:
-
-    `xdebug.profiler_enable=on`
-
-2. Instalar visor de los dumps del profiler (ficheros `cachegrind.out.*` que se generan automáticamente en `/tmp`):
-
-    `sudo apt-get install kcachegrind`

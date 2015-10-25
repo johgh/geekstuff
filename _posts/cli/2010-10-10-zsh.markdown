@@ -33,6 +33,8 @@ plugins=(git github git-extras command-not-found vim-interaction history-substri
 openapp(){ nohup xdg-open $1 > /dev/null 2> /dev/null }; alias o=openapp
 {% endhighlight %}
 
+> See some alias to include [here](http://localhost:4000/bash%20commands/#tocAnchor-1-2)
+
 Reload .zshrc
 : {% highlight bash %}
 $ source ~/.zshrc

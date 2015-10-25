@@ -87,9 +87,7 @@ Se produce un automerge commit (o si utilizamos el parámetro `--rebase` los nue
 Hay conflicto 
 : Resolvemos con `git mergetool` y ejecutamos `git commit` (o `git rebase --continue`, de haber realizado `pull` con `rebase`)
 
-Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto).
-
-En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
+> Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto). En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
 
 Finalmente, comprobaremos que los conflictos estén resueltos y publicaremos los cambios:
 
@@ -105,7 +103,7 @@ Publicamos los cambios:
 
 ### Abortando git pull
 
-> Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`.
+Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`:
 
 Para abortar git pull con merge
 : `git merge --abort`
@@ -122,11 +120,9 @@ Si ya hemos finalizad el pull, deberemos volver atrás mirando nuestro log local
 
 ## Feature Branch Workflow
 
-> El objetivo de este workflow es que la rama `master` siempre esté a punto para obtener o publicar código.
+El objetivo de este workflow es que la rama `master` siempre esté a punto para obtener o publicar código.
 
-> Además la rama `master` nunca debe tener código "inestable". El código en estado de desarrollo se encontrará en ramas *feature* con nombres descriptivos, que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
-
-> El siguiente workflow sólo prevee hacer merge en el momento de la integración de la rama `feature` con la rama `master`, en los demás casos se ha optado por hacer rebase para no ensuciar el historial de commits.
+La rama `master` nunca debe tener código "inestable". El código en estado de desarrollo se encontrará en ramas *feature* con nombres descriptivos, que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
 
 ### Configuración inicial (pull con rebase)
 
@@ -136,6 +132,8 @@ Configurar git para hacer rebase en lugar de merge al hacer `pull`
     # también podemos configurarlo para todas las ramas
     $ git config --global branch.autosetuprebase always
 {% endhighlight %}
+
+> Este paso es opcional pero nos permite mantener limpio el historial de commits al hacer pull, de forma que solo veamos `merge commit` en los puntos donde se realice la integración de la rama `feature` con `master`
 
 ### Fases del workflow
 

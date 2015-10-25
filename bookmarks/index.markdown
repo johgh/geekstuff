@@ -19,6 +19,8 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Git Ready](http://gitready.com)
 
+[<i class="fa fa-external-link"></i> General cheat-sheets](http://overapi.com/)
+
 <br />
 
 ## References

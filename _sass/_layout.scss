@@ -47,27 +47,45 @@ a {
 .main-title {
     // color: #515151 !important;
     color: #424242 !important;
-    font-family: monospace;
     font-size: 31px;
     font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
 
 }
 
 .post-link {
     // color: $grey-color-dark !important;
     color: #424242;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 1.35rem;
 
 }
 
-.post-link:hover,
-.post-link:focus {
+.tag-link {
+    color: #999 !important;
+    font-size:1.25rem !important;
+}
+
+.post-link:hover > .fa,
+.post-link:hover > .fa {
   text-decoration: none;
-  color: #999;
+  color: #268BD2 !important;
+}
+
+.post-link:hover > .post-link-title,
+.post-link:hover > .post-link-title {
+  text-decoration: none;
+  color: #999 !important;
+}
+
+// only for tag link
+.fa:focus, .fa:hover {
+  text-decoration: none;
+  color: #268BD2 !important;
 }
 
 .fa {
-    color: #268BD2;
+    color: #15C;
 }
 
 .site-nav {

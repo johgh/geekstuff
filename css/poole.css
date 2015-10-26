@@ -48,9 +48,6 @@ body {
 }
 
 html {
-  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
-  /* font-family: 'Arvo', serif !important; */
-  /* font-family: 'Droid Sans', sans-serif !important; */
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300 !important;
   font-size: 16px;
@@ -84,8 +81,9 @@ a:focus {
   color: #268BD2;
 }
 
-.back {
-  font-family: 'Roboto', sans-serif !important;
+a {
+  font-family: 'Fira Sans', sans-serif !important;
+  font-weight: 400;
 }
 
 /* Headings */
@@ -161,9 +159,7 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  /* font-family: monospace; */
-  /* font-family: 'Glegoo', serif !important; */
-    font-family: 'Droid Sans Mono'  !important;
+    font-family: 'Fira Mono'  !important;
 }
 code {
   padding: .25em .5em;

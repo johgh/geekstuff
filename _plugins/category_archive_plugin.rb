@@ -90,7 +90,7 @@ module Jekyll
       self.basename = 'index'
       self.content = <<-EOS
 {% assign posts = page.posts | sort: 'title' %}
-{% for post in posts %}<h2 class="category-item"><i class="fa fa-file-code-o"></i><a class="post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"> {{ post.title }}</a></h2>
+{% for post in posts %}<h2 class="category-item"><a class="post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-file-code-o"></i><span class="post-link-title"> {{ post.title }}</span></a></h2>
 {% endfor %}
       EOS
       self.data = {

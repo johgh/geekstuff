@@ -15,7 +15,8 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 // $brand-color:      #2a7ae2;
 $brand-color:      #15C;
-$blue-color-light: #268BD2;
+// $blue-color-light: #268BD2;
+$blue-color-light: #15C;
 // $brand-color:      #2A5DB0;
 
 $grey-color:       #828282;
@@ -114,13 +115,7 @@ h6:hover .header-link {
 }
 
 .back {
-    font-size: 12pt;
-}
-
-.cd-top.cd-is-visible {
-  /* the button becomes visible */
-  visibility: visible;
-  opacity: 1;
+    font-size: 95%;
 }
 
 .cd-top.cd-fade-out {

@@ -115,7 +115,16 @@ h6:hover .header-link {
 }
 
 .back {
-    font-size: 95%;
+    font-size: 70%;
+    color: #268BD2 !important;
+}
+
+.back:hover, .back:hover i.fa {
+    color: #15C !important;
+}
+
+.goback {
+    font-size: 79%;
 }
 
 .cd-top.cd-fade-out {

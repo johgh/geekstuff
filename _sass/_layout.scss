@@ -30,7 +30,7 @@
 .section-title {
     font-family: 'Roboto', sans-serif !important;
     text-transform: uppercase;
-    background-color: #424242;
+    background-color: #268BD2;
     color: white;
     float: left;
     padding: 0 5px;
@@ -39,10 +39,6 @@
     // color: $blue-color-light;
 }
 
-
-a {
-    text-decoration: none !important;
-}
 
 .main-title {
     // color: #515151 !important;
@@ -66,26 +62,38 @@ a {
     font-size:1.25rem !important;
 }
 
-.post-link:hover > .fa,
+.post-link:focus > .fa,
 .post-link:hover > .fa {
   text-decoration: none;
   color: #268BD2 !important;
 }
 
-.post-link:hover > .post-link-title,
+.post-link:focus > .post-link-title,
 .post-link:hover > .post-link-title {
   text-decoration: none;
-  color: #999 !important;
+  color: #15C !important;
 }
 
-// only for tag link
-.fa:focus, .fa:hover {
+.main-title:focus > .fa-github,
+.main-title:hover > .fa-github {
+  text-decoration: none;
+  color: #424242 !important;
+}
+
+.main-title:focus > .main-cheat,
+.main-title:hover > .main-cheat {
   text-decoration: none;
   color: #268BD2 !important;
 }
 
-.fa {
-    color: #15C;
+// .main-title:focus, .main-title:hover {
+//     color: #15C !important;
+// }
+
+// only for tag link
+.fa-tags:focus, .fa-tags:hover {
+  text-decoration: none;
+  color: #15C !important;
 }
 
 .site-nav {

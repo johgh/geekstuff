@@ -78,7 +78,7 @@ a strong {
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #15C;
+  color: #56B8FF;
 }
 
 a {
@@ -384,13 +384,13 @@ tbody tr:nth-child(odd) th {
   font-size: 75%;
   color: #999;
 }
-.related-posts li a:hover {
-  color: #2A5DB0;
-  text-decoration: none;
-}
-.related-posts li a:hover small {
-  color: inherit;
-}
+/* .related-posts li a:hover { */
+/*   color: #2A5DB0; */
+/*   text-decoration: none; */
+/* } */
+/* .related-posts li a:hover small { */
+/*   color: inherit; */
+/* } */
 
 
 /*

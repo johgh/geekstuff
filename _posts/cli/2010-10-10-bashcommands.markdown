@@ -56,6 +56,18 @@ Using % with xargs
     $ ls | xargs -I % echo %
 {% endhighlight %}
 
+Massive renaming of files
+: {% highlight sh %}
+    # test rename with -t
+    $ rename -t 's/<search_pattern>/<replace_pattern>/g' *.txt
+    # rename and print name of files renamed (only *.txt files)
+    $ rename -v 's/<search_pattern>/<replace_pattern>/g' *.txt
+    # rename files read via standard input
+    $ find <search_directory> -iname '*.txt' | rename -v 's/<search_pattern>/<replace_pattern>/g'
+{% endhighlight %}
+
+> Patterns expect [Perl Compatible Regular Expressions](https://regex101.com/#pcre) (PCRE).
+
 Reload .bashrc/.zshrc
 : {% highlight sh %}
     $ source [.bashrc|.zshrc]

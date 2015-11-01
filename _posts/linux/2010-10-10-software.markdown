@@ -46,6 +46,8 @@ tags: Sysadmin
 | dropbox                        | Distro                               | Desktop      |
 | empathy                        | Distro                               | Desktop      |
 | encfs                          | Distro                               | CLI          |
+| exfat-fuse                     | Distro                               | System       |
+| exfat-utils                    | Distro                               | System       |
 | exuberant-ctags                | Distro                               | Extra        |
 | faac                           | Distro                               | Extra        |
 | faad                           | Distro                               | Extra        |
@@ -94,6 +96,8 @@ tags: Sysadmin
 | mencoder                       | Distro                               | Extra        |
 | mkvtoolnix                     | Distro                               | Extra        |
 | mplayer2                       | Distro                               | Extra        |
+| mtp-tools                      | Distro                               | System       |
+| mtpfs                          | Distro                               | System       |
 | mysql-client-core-5.5          | Distro                               | Development  |
 | mysql-common                   | Distro                               | Development  |
 | nautilus-open-terminal         | Distro                               | System       |

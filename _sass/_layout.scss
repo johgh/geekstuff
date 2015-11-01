@@ -65,13 +65,13 @@
 .post-link:focus > .fa,
 .post-link:hover > .fa {
   text-decoration: none;
-  color: #268BD2 !important;
+  color: #56B8FF !important;
 }
 
 .post-link:focus > .post-link-title,
 .post-link:hover > .post-link-title {
   text-decoration: none;
-  color: #15C !important;
+  color: #268BD2 !important;
 }
 
 .main-title:focus > .fa-github,
@@ -93,7 +93,7 @@
 // only for tag link
 .fa-tags:focus, .fa-tags:hover {
   text-decoration: none;
-  color: #15C !important;
+  color: #56B8FF !important;
 }
 
 .site-nav {

@@ -1,0 +1,212 @@
+---
+layout: post
+title:  "Daft Punk - Get Lucky"
+category: tabs
+tags: tabs
+---
+<pre>
+
+-- Intro --
+Bm, D, F#m, E
+Bm, D, F#m, E
+
+
+[Verse 1: Pharrell]
+E                      Bm          
+Like the legend of the phoenix,
+D                      F#m
+All ends with beginnings, 
+E                     Bm
+What keeps the planet spinning, Aha.
+D                      F#m
+The force from the beginning
+
+
+[Hook: Pharrell]
+Bm              D
+We've come too far
+F#m               E
+To give up who we are
+Bm              D
+So let's raise the bar
+F#m               E
+And our cups to the stars
+
+Bm                 
+She's up all night 'til the sun
+D                       
+I'm up all night to get some
+F#m 
+She's up all night for good fun
+E
+I'm up all night to get lucky
+
+Bm  
+We're up all night 'til the sun
+D  
+We're up all night to get some
+F#m 
+We're up all night for good fun
+E
+We're up all night to get lucky 
+
+Bm 
+We're up all night to get lucky
+D   
+We're up all night to get lucky 
+F#m 
+We're up all night to get lucky 
+E
+We're up all night to get lucky 
+
+Bm, D, F#m, E
+
+
+[Verse 2: Pharrell]
+E                      Bm  
+The present has no rhythm
+D                      F#m
+Your gift keeps on giving
+E                     Bm
+What is this I'm feeling?
+D                      F#m
+If you want to leave, I'm with it
+
+[Hook: Pharrell]
+Bm              D
+We've come too far
+F#m               E
+To give up who we are
+Bm              D
+So let's raise the bar
+F#m               E
+And our cups to the stars
+
+Bm                 
+She's up all night 'til the sun
+D                       
+I'm up all night to get some
+F#m 
+She's up all night for good fun
+E
+I'm up all night to get lucky
+
+Bm  
+We're up all night 'til the sun
+D  
+We're up all night to get some
+F#m 
+We're up all night for good fun
+E
+We're up all night to get lucky 
+
+Bm 
+We're up all night to get lucky
+D   
+We're up all night to get lucky 
+F#m 
+We're up all night to get lucky 
+E
+We're up all night to get lucky 
+
+
+[Bridge: Daft Punk]
+Bm  
+We're up all night to get
+D
+We're up all night to get
+F#m 
+We're up all night to get 
+E
+We're up all night to get 
+
+Bm  
+We're up all night to get
+D
+We're up all night to get
+F#m 
+We're up all night to get lucky
+E
+We're up all night to get lucky
+
+Bm  
+We're up all night to get lucky
+D
+We're up all night to get lucky
+F#m 
+We're up all night to get lucky
+E
+We're up all night to get lucky
+
+
+Bm  
+We're up all night to get lucky
+D
+We're up all night to get lucky
+F#m 
+We're up all night to get lucky
+E
+We're up all night to get lucky
+
+[Hook: Pharrell Voice Over]
+Bm  
+We're up all night to get lucky
+D
+We're up all night to get lucky
+F#m 
+We're up all night to get lucky
+E
+We're up all night to get lucky
+
+Bm  
+We're up all night to get lucky
+D
+We're up all night to get lucky
+F#m 
+We're up all night to get lucky
+E
+We're up all night to get lucky
+
+Bm                 
+She's up all night 'til the sun
+D                       
+I'm up all night to get some
+F#m 
+She's up all night for good fun
+E
+I'm up all night to get lucky
+
+Bm  
+We're up all night 'til the sun
+D  
+We're up all night to get some
+F#m 
+We're up all night for good fun
+E
+We're up all night to get lucky 
+
+Bm 
+We're up all night to get lucky
+D   
+We're up all night to get lucky 
+F#m 
+We're up all night to get lucky 
+E
+We're up all night to get lucky 
+
+Bm 
+We're up all night to get lucky
+D   
+We're up all night to get lucky 
+F#m 
+We're up all night to get lucky 
+E
+We're up all night to get lucky 
+
+
+[Solo Ending]
+Bm, D, F#m, E
+Bm, D, F#m, E
+
+
+</pre>

@@ -1,0 +1,89 @@
+---
+layout: post
+title:  "Blur - Coffee and TV"
+category: tabs
+tags: tabs
+---
+<pre>
+B B Am E G F A# C#
+(intro)
+
+
+B                     B            Am          E
+   Do you feel like a chain store? Practically floored
+G              F    A#               C#        
+   One of many zeros, kicked around, bored
+B                                B      Am               E
+   Your ears are full but you're empty, holding out your heart
+G                      F     A#            A
+   To people who never really care how you are
+
+
+           C#m            B   A
+So give me Coffee and TV, easily
+     C#m              E
+I've seen so much I'm going blind
+        A                  B
+And I'm brain-dead, virtually
+C#m               B               A
+Sociability, it's hard enough for me
+C#m                    E
+Take me away form this big bad world
+     A             D                   A
+And agree to marry me, so we can start over again
+
+
+B                   B           Am         E
+   Do you go to the country? It isn't very far
+G                                F       A#                 C#
+   There's people there who will hurt you 'cause of who you are
+B                              B                 Am                   E
+   Your ears are full of their language; there's wisdom there, you're sure
+G                       F       A#                      A
+   Till the words start slurring and you can't find the door
+
+
+           C#m            B   A
+So give me Coffee and TV, easily
+     C#m              E
+I've seen so much I'm going blind
+        A                  B
+And I'm brain-dead, virtually
+C#m               B               A
+Sociability, it's hard enough for me
+C#m                    E
+Take me away form this big bad world
+     A             D                   A
+And agree to marry me, so we can start over again
+
+
+B B Am E G F A# C#
+B B Am E G F A# A
+(solo)
+
+
+           C#m            B   A
+So give me Coffee and TV, easily
+     C#m              E
+I've seen so much I'm going blind
+        A                  B
+And I'm brain-dead, virtually
+C#m               B               A
+Sociability, it's hard enough for me
+C#m                    E
+Take me away form this big bad world
+     A             D                   A
+And agree to marry me, so we can start over again
+
+
+B  D                    A
+   Oh... We could start over again
+B  D                    A
+   Oh... We could start over again
+B  D                    A
+   Oh... We could start over again
+B  D                    A
+   Oh... We could start over again
+B D A
+(repeat to fade)
+</pre>

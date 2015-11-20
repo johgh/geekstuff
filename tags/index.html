@@ -13,6 +13,7 @@ permalink: /tags/
     
     {% assign sortedtags = tags | split:' ' %}
     {% for tag in sortedtags %}
+        {% if tag != 'tabs' %}
         <h4 class="section-title">{{tag }}</h4>
         <br style="clear:both"/>
         <!-- <hr style="margin: 0 0 10px 0"/> -->
@@ -28,5 +29,6 @@ permalink: /tags/
                 {% endif %}
             </article>
         </div>
+        {% endif %}
     {% endfor %}
 </div>

@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 D         C   G    D       
 I see the bad moon rising,
 D     C       G      D

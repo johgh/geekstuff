@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 -- Intro --
 Bm, D, F#m, E
 Bm, D, F#m, E

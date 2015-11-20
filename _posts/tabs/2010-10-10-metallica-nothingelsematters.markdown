@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 Intro: Em  Am C D Em   Em D C  Em D C  Em D C  G B Em 
 
 Em                   D   C   Em                        D        C

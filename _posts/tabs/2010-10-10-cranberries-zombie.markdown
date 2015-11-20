@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 Em       C               G                D/F# 
 Another head hangs lowly child is slowly taken 
 Em               C                   G               D/F# 

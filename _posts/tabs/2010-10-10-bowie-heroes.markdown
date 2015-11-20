@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 D  G  D  G
 
 D                    G

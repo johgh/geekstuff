@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 Verse 1 :
 
 Am     F           C       E

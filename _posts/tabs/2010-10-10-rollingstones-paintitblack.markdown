@@ -5,7 +5,6 @@ category: tabs
 tags: tabs
 ---
 <pre>
-
 Em B7
 
 Em                     B7

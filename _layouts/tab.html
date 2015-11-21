@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<div class="post">
+
+<br />
+<article class="post">
+  <h1 class="post-title"><a href="/{{ page.category | downcase }}" class="back"><i class="fa fa-arrow-left"></i></a> {{ page.title }}</h1>
+  <h2></a> {{ page.artist }}</h1>
+  <br />
+  <pre>
+    {{ content }}
+  </pre>
+  <br />
+</article>
+
+<aside class="related">
+    <h2>Songs by same artist: </h2>
+    <ul class="related-posts">
+        
+         {% for post in site.posts %}
+                {% if page.artist == post.artist and page.title != post.title %}
+                <li>
+                    <h3>
+                        <a href="{{ site.baseurl }}{{ post.url }}">
+                            {{ post.title }}
+                        </a>
+                    </h3>
+                </li>
+                {% endif %}
+        {% endfor %}
+        
+        
+  </ul>
+</aside>
+

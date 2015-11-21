@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Cranberries - Zombie"
+layout: tab
+title:  "Zombie"
+artist: "Cranberries"
 category: tabs
 tags: tabs
 ---
-<pre>
 Em       C               G                D/F# 
 Another head hangs lowly child is slowly taken 
 Em               C                   G               D/F# 
@@ -51,4 +51,3 @@ What's in your head, in your head, zombie, zombie, zombie
 Em C G D/F# (repeat to fade..)
 
 
-</pre>

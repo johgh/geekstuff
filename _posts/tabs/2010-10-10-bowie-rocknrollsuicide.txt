@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Bowie - Rock N Roll Suicide"
+layout: tab
+title:  "Rock N Roll Suicide"
+artist: "David Bowie"
 category: tabs
 tags: tabs
 ---
-<pre>
               C                          E7
 Time takes a cigarette  puts it in your mouth
                   F                    G                 Am
@@ -57,4 +57,3 @@ you're wonderful   gimme your hands
 
   Bb   Fm   Cm   F#   C#
 
-</pre>

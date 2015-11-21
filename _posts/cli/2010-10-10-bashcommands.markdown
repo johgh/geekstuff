@@ -58,8 +58,8 @@ Using % with xargs
 
 Massive renaming of files
 : {% highlight sh %}
-    # test rename with -t
-    $ rename -t 's/<search_pattern>/<replace_pattern>/g' *.txt
+    # test rename with -n
+    $ rename -n 's/<search_pattern>/<replace_pattern>/g' *.txt
     # rename and print name of files renamed (only *.txt files)
     $ rename -v 's/<search_pattern>/<replace_pattern>/g' *.txt
     # rename files read via standard input

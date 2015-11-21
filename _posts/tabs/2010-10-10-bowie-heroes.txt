@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Bowie - Heroes"
+layout: tab
+title:  "Heroes"
+artist: "David Bowie"
 category: tabs
 tags: tabs
 ---
-<pre>
 D  G  D  G
 
 D                    G
@@ -61,4 +61,3 @@ We can be Heroes just for one day
 We can be Heroes
 
 
-</pre>

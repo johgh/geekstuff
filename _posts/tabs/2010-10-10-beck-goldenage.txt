@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Beck - Golden Age"
+layout: tab
+title:  "Golden Age"
+artist: "Beck"
 category: tabs
 tags: tabs
 ---
-<pre>
 Intro - E   F#m   A   E
 
 E                          F#m
@@ -55,4 +55,3 @@ I don't even try
 
 E   F#m   A   E
 
-</pre>

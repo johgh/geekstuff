@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Pixies - Where Is My Mind"
+layout: tab
+title:  "Where Is My Mind"
+artist: "Pixies"
 category: tabs
 tags: tabs
 ---
-<pre>
 [VERSE 1]
            E                        C#m               G#  A
  With your feet in the air and your head on the ground
@@ -39,4 +39,3 @@ But they told me, he swears
 Tryin' to talk to me, to me, to me
 
 -CHORUS-
-</pre>

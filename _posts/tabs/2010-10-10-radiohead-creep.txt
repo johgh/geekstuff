@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Radiohead - Creep"
+layout: tab
+title:  "Creep"
+artist: "Radiohead"
 category: tabs
 tags: tabs
 ---
-<pre>
 G B C Cm
 
                    G
@@ -102,4 +102,3 @@ I don't belong here
 
 or 
 
-</pre>

@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Eels - Climbing To The Moon"
+layout: tab
+title:  "Climbing To The Moon"
+artist: "Eels"
 category: tabs
 tags: tabs
 ---
-<pre>
 INTRO
 
 C  G  C  G
@@ -77,4 +77,3 @@ OUTRO
 
 Em  Am  F  G (x3), end on C
 
-</pre>

@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Eels - Mr E's Beautiful Blues"
+layout: tab
+title:  "Mr E's Beautiful Blues"
+artist: "Eels"
 category: tabs
 tags: tabs
 ---
-<pre>
 G	C	D	C (2x)
 
 	G	    C		 D	      C		G  C  D  C
@@ -74,4 +74,3 @@ Refrain (2x)
 
 G    C    D     C(repeat and fade)
 
-</pre>

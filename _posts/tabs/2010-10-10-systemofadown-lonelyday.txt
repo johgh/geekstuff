@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "System Of A Down - Lonely Day"
+layout: tab
+title:  "Lonely Day"
+artist: "System Of A Down"
 category: tabs
 tags: tabs
 ---
-<pre>
 Verse 1 :
 
 Am     F           C       E
@@ -55,4 +55,3 @@ Am    F                      C      E
 Its a day that I'm glad I survived 
 
 
-</pre>

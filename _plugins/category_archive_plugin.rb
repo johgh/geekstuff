@@ -88,11 +88,20 @@ module Jekyll
       @layout =  site.config['category_archive'] && site.config['category_archive']['layout'] || 'category_archive'
       self.ext = '.html'
       self.basename = 'index'
+    
+      if category != 'tabs'
       self.content = <<-EOS
 {% assign posts = page.posts | sort: 'title' %}
 {% for post in posts %}<h2 class="category-item"><a class="post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-file-code-o"></i><span class="post-link-title"> {{ post.title }}</span></a></h2>
 {% endfor %}
       EOS
+      else
+      self.content = <<-EOS
+{% assign posts = page.posts | sort: 'title' %}
+{% for post in posts %}<h6><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-music"></i><span class="post-link-title"> {{ post.title }} <span class="artist-link">[{{ post.artist }}]</span></span></a></h2>
+{% endfor %}
+      EOS
+      end
       self.data = {
           'layout' => @layout,
           'type' => 'archive',

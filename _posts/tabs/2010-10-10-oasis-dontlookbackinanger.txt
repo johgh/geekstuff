@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Oasis - Don't Look Back In Anger"
+layout: tab
+title:  "Don't Look Back In Anger"
+artist: "Oasis"
 category: tabs
 tags: tabs
 ---
-<pre>
 C       F       C       F
 
 Verse 1
@@ -23,7 +23,6 @@ G               C     Am G
    Slowly fade away
 
 
-Pre-Chorus
 ----------
 F                   Dm7b5/F       C
   So I start a revolution from my bed
@@ -62,9 +61,7 @@ Where nobody knows, if it's night or day
 Please don't put your life in the hands
 of a rock and roll band, who'll throw it all away
 
-Pre-Chorus
 ----------
-[same chords as first pre-chorus]
 
 Gonna start a revolution from my bed
 Cos you said the brains I had went to my head

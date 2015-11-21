@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Blur - Coffee and TV"
+layout: tab
+title:  "Coffee and TV"
+artist: "Blur"
 category: tabs
 tags: tabs
 ---
-<pre>
 B B Am E G F A# C#
 (intro)
 
@@ -86,4 +86,3 @@ B  D                    A
    Oh... We could start over again
 B D A
 (repeat to fade)
-</pre>

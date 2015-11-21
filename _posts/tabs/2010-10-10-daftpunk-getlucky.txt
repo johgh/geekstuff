@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Daft Punk - Get Lucky"
+layout: tab
+title:  "Get Lucky"
+artist:  "Daft Punk"
 category: tabs
 tags: tabs
 ---
-<pre>
 -- Intro --
 Bm, D, F#m, E
 Bm, D, F#m, E
@@ -63,7 +63,6 @@ Bm, D, F#m, E
 
 [Verse 2: Pharrell]
 E                      Bm  
-The present has no rhythm
 D                      F#m
 Your gift keeps on giving
 E                     Bm
@@ -208,4 +207,3 @@ Bm, D, F#m, E
 Bm, D, F#m, E
 
 
-</pre>

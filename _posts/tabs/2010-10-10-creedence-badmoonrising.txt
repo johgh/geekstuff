@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Creedence - Bad Moon Rising"
+layout: tab
+title:  "Bad Moon Rising"
+artist: "Creedence Clearwater Revival"
 category: tabs
 tags: tabs
 ---
-<pre>
 D         C   G    D       
 I see the bad moon rising,
 D     C       G      D
@@ -37,7 +37,6 @@ Chorus
 D        C        G      D          
 Hope you got your things together,  
 D            C     G           D
-Hope you are quite prepared to die
 D          C            G     D         
 Looks like we're in for nasty weather,
 D          C     G      D
@@ -48,4 +47,3 @@ Chorus
 
 Chorus
 
-</pre>

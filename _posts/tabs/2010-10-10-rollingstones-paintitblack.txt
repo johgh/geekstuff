@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Rolling Stones - Paint It Black"
+layout: tab
+title:  "Paint It Black"
+artist: "Rolling Stones"
 category: tabs
 tags: tabs
 ---
-<pre>
 Em B7
 
 Em                     B7
@@ -67,4 +67,3 @@ I wanna see the sun blotted out from the sky
 I wanna see it painted, painted, painted, painted black  Yeah!
 
 
-</pre>

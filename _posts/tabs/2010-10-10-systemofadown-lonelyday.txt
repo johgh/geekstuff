@@ -5,53 +5,45 @@ artist: "System Of A Down"
 category: tabs
 tags: tabs
 ---
-Verse 1 :
-
-Am     F           C       E
+G#m     E           B       Eb
 Such a lonely day, and its mine
-Am       F                 C    E
-The most lonliest day of my life 
-Am     F           C         E
+G#m     E           B       Eb
+The most loneliest day of my life 
+G#m     E           B       Eb
 such a lonely day, should be banned
-Am    F               C     E
+G#m     E           B       Eb
 Its a day that I cant stand 
 
-Chorus 1 :
+chorus:
+G#m     E           B       Eb
+The most loneliest day of my life 
+G#m     E           B       Eb
+the most loneliest day of my life 
 
-Am       F                  C    E
-The most lonliest day of my life 
-Am       F                  C    E
-the most lonliest day of my life 
-
-Verse 2:
-
-Am     F          C          E
+verse 2:
+G#m     E           B       Eb
 such a lonely day, shouldn't exist 
-Am    F                   C      E
+G#m     E           B       Eb
 its a day that i'll never miss 
-Am     F                  C       E
+G#m     E           B       Eb
 such a lonely day, and its mine
-Am       F                  C    E
-the most lonliest day of my life 
+G#m     E           B       Eb
+the most loneliest day of my life 
 
-Chorus 2 :
-F          E  G       Am
+chorus 2
+E          Eb  F#       G#
 and if you go, I wanna go with you 
-F          E   G       Am   
+E          Eb  F#       G#
 and if you die, I wanna die with you 
- F             E               
+E          Eb  F#       G#
 take your hand and walk away 
 
- Solo
+Solo (G#m     E           B       Eb)
 
-End :
+G#m     E           B       Eb
+The most loneliest day of my life x3
 
-Am       F                  C    E
-The most lonliest day of my life         x3
-
-Am     F           C       E
+G#m     E           B       Eb
 Such a lonely day, and its mine 
-Am    F                      C      E
+G#m     E           B       Eb
 Its a day that I'm glad I survived 
-
-

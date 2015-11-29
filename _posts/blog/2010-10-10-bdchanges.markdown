@@ -2,7 +2,7 @@
 layout: blog
 title:  "Control de cambios de BD"
 permalink:  "bdchanges"
-date:   2014-10-01 00:00:01
+date:   2015-10-01 00:00:01
 category: Blog
 tags: Web
 ---

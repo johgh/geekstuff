@@ -6,14 +6,6 @@ date:   2015-07-08 16:30:15
 category: Quick Guides
 tags: Vim
 ---
-<!--
-/* TODO:
-root plugin & grepproject?
-old: ft motions, files (ctrlp + root plugin + nerdtree), falta explicar search + /e /C parametros
-*/
--->
-
-
 # Operator pending mode
 Operator pending mode command
 : `counter` + `operator` + `text_object` or `motion`
@@ -137,8 +129,11 @@ A CamelCaseMotion can be any of these:
 > see more builtin text objects [here](http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/) or in vim manual
 
 ### Plugin text objects
+`/` (vim-textobj-lastpat)
+: for the region of the last pattern searched
+
 `j` (vim-textobj-brace)
-: for the closest region between any of () [] or {}
+: for the closest region between any of `()` `[]` `{}` `<>`
 
 `l` (vim-textobj-line)
 : for the current line
@@ -180,6 +175,8 @@ A CamelCaseMotion can be any of these:
 > Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/.vimrc)
 
 ## Surround
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-surround)
+
 add surrounding
 : `ys` + `text_object/motion` + `surrounding_char`
 
@@ -194,7 +191,51 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 
 > where surrounding_char could be any char, an html tag, or an open/close block char (in this case open block char `({<` adds/deletes spaces)
 
+## Multiple cursors
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/terryma/vim-multiple-cursors)
+
+enter multthe iple line mode
+: `<C-v>` or `V` (`V` will put the cursor at the beginnig of all lines), and press `<C-n>`
+
+> You will enter at multiple cursor `normal` mode, see changing between modes below
+
+enter multthe the iple "selection" mode
+: Put cursor at word and press `<C-n>` / Select word in visual mode and press `<C-n>`
+
+> You will enter at multiple cursor `visual` mode, see changing between modes below
+
+go to previous cursor
+: `<C-p>`
+
+skip current cursor
+: `<C-x>`
+
+### Changing between multiple cursor modes
+
+change between visual and normal mode
+: `v`
+
+enter insert mode from normal mode
+: `i`
+
+enter normal mode from insert mode
+: `<C-c>`
+
+exit all multiple cursor modes
+: `<esc>`
+
+## Expand Region
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/terryma/vim-expand-region)
+
+expand visual selection
+: `+`
+
+shrink visual selection
+: `<C-+>` (default mapping is `_`)
+
 ## Commentary
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-commentary)
+
 `gc+motion/text_object`
 : Comment selected text
 
@@ -208,6 +249,8 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 : uncomment contiguous commented lines under cursor
 
 ## Exchange
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/tommcdo/vim-exchange)
+
 `cx+motion/text_object`
 : Select/exchange text
 
@@ -218,6 +261,8 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 : Clear current exchange selection
 
 ## DelimitMate
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/Raimondi/delimitMate)
+
 `<Leader>,`
 : Jump delimiter
 
@@ -225,6 +270,8 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 : Jump all delimiters
 
 ## Utilsnips
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/SirVer/ultisnips)
+
 `A-e`
 : expand current snippet
 
@@ -235,10 +282,14 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 : go to previous snippet
 
 ## PhpDocumentor (PDV)
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/tobyS/pdv)
+
 `<leader>c`
 : call PDV snippet to doc function
 
 ## Abolish
+> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-abolish)
+
 `crm`
 : Convert to MixedCase
 

@@ -37,7 +37,7 @@ A WORD can be of any of these:
 > Motions
 : 
     `W` go to the next WORD<br />
-    `E` go to the end of the currend WORD<br />
+    `E` go to the end of the current WORD<br />
     `B` go to the previous WORD<br />
     `gE` go to the end of the previous WORD<br />
 
@@ -130,7 +130,7 @@ A CamelCaseMotion can be any of these:
 
 ### Plugin text objects
 `/` (vim-textobj-lastpat)
-: for the region of the last pattern searched
+: for the region of the last pattern searched. (As of vim 7.4 you can use cgn/dgn/gUgn instead, see `:h gn`)
 
 `j` (vim-textobj-brace)
 : for the closest region between any of `()` `[]` `{}` `<>`
@@ -199,7 +199,7 @@ enter multthe iple line mode
 
 > You will enter at multiple cursor `normal` mode, see changing between modes below
 
-enter multthe the iple "selection" mode
+enter multiple "selection" mode
 : Put cursor at word and press `<C-n>` / Select word in visual mode and press `<C-n>`
 
 > You will enter at multiple cursor `visual` mode, see changing between modes below

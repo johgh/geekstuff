@@ -27,7 +27,7 @@ Por ello, no es suficiente un sistema de control de versiones tradicional para m
         $ upgradeDB.sh <schema> <version_hasta_donde_actualizar>
     {% endhighlight %}
 
-Este script ejecuta las actualizaciones que no se encuentran registradas en la base de datos destino de forma consecutiva. Si el fichero con el id más pequeño no es consecutivo al registro con el id más grande de BD no se deberá realizar ninguna actualización.
+Este script ejecuta las actualizaciones que no se encuentran registradas en la base de datos destino, de forma secuencial. Si el fichero de actualización con el id más pequeño no es consecutivo al registro con el id más grande, la BD no podrá ser actualizada.
 
 # Un fichero por objeto
 - Por cada objeto creamos un fichero. Cada objeto debe comprobar inicialmente si ya existe (para ser borrado) y finalmente asignar sus permisos. (Otra posibilidad es crear un fichero por cada grupo de cambios relacionados)

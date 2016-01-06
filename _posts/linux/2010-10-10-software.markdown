@@ -60,6 +60,7 @@ tags: Sysadmin
 | fluid-soundfont-gm             | Distro                               | Extra        |
 | fluidsynth                     | Distro                               | Extra        |
 | fluxgui                        | ppa:kilian/f.lux                     | Extra        |
+| freshplayerplugin              | ppa:nilarimogard/webupd8             | Extra        |
 | ftp                            | Distro                               | CLI          |
 | gconf-editor                   | Distro                               | System       |
 | geany                          | Distro                               | Development  |

@@ -65,6 +65,18 @@ int mktime ([ int $hour = date("H") [, int $minute = date("i") [, int $second = 
  int time ( void )
 {% endhighlight %}
 
+[date_create_from_format](http://php.net/manual/en/datetime.createfromformat.php)
+: {% highlight php startinline %}
+ DateTime date_create_from_format ( string $format , string $time [, DateTimeZone $timezone ] )
+{% endhighlight %}
+
+[date_format](http://php.net/manual/en/datetime.format.php)
+: {% highlight php startinline %}
+ string date_format ( DateTimeInterface $object , string $format )
+{% endhighlight %}
+
+> Localization class: [IntlDateFormatter](http://php.net/manual/en/class.intldateformatter.php)
+
 ## Filesystem
 [copy](http://php.net/manual/en/function.copy.php)
 : {% highlight php startinline %}
@@ -172,6 +184,10 @@ string number_format ( float $number , int $decimals = 0 , string $dec_point = "
 : {% highlight php startinline %}
  float round ( float $val [, int $precision = 0 [, int $mode = PHP_ROUND_HALF_UP ]] )
 {% endhighlight %}
+
+> Localization class: [NumberFormatter](http://php.net/manual/en/class.numberformatter.php)
+
+> Big numbers functions: [BC Math Functions](http://php.net/manual/en/ref.bc.php)
 
 ## PHP Options
 [ini_restore](http://php.net/manual/en/function.ini-restore.php)
@@ -433,6 +449,10 @@ array preg_split ( string $pattern , string $subject [, int $limit = -1 [, int $
 * [$_FILES](http://php.net/manual/en/reserved.variables.files.php)
 * [$_REQUEST](http://php.net/manual/en/reserved.variables.request.php)
 * [$GLOBALS](http://php.net/manual/en/reserved.variables.globals.php)
+
+## External classes
+
+> pdf library: [fpdf](http://www.fpdf.org/)
 
 <br />
 

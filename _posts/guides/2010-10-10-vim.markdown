@@ -194,7 +194,7 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 ## Multiple cursors
 > [<i class="fa fa-external-link"></i> Github project](https://github.com/terryma/vim-multiple-cursors)
 
-enter multthe iple line mode
+enter multiple line mode
 : `<C-v>` or `V` (`V` will put the cursor at the beginnig of all lines), and press `<C-n>`
 
 > You will enter at multiple cursor `normal` mode, see changing between modes below

@@ -172,7 +172,7 @@ A CamelCaseMotion can be any of these:
 : for a block of folded lines
 
 # Normal mode plugins
-> Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/.vimrc)
+> Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/vimrc)
 
 ## Surround
 > [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-surround)

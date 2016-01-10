@@ -14,12 +14,12 @@ tags: Vim
 
 <script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
 
-{% github_sample_ref johgh/vim/blob/master/.vimrc_core %}
+{% github_sample_ref johgh/vim/blob/master/vimrc_core %}
 
 <div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
 <div id="selectText1">
 {% highlight vim %}
-{% github_sample johgh/vim/blob/master/.vimrc_core %}
+{% github_sample johgh/vim/blob/master/vimrc_core %}
 {% endhighlight %}
 </div>
 
@@ -30,12 +30,12 @@ tags: Vim
 > I use this .vimrc to use Vim as a PHP IDE. See install instructions [here](https://github.com/johgh/vim/blob/master/README.markdown). It is recommended to use Gvim instead of a terminal.
 
 
-{% github_sample_ref johgh/vim/blob/master/.vimrc %}
+{% github_sample_ref johgh/vim/blob/master/vimrc %}
 
 <div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
 <div id="selectText2">
 {% highlight vim %}
-{% github_sample johgh/vim/blob/master/.vimrc %}
+{% github_sample johgh/vim/blob/master/vimrc %}
 {% endhighlight %}
 </div>
 

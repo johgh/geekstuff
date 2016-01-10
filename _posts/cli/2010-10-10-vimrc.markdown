@@ -7,7 +7,7 @@ category: CLI
 tags: Vim
 ---
 
-# Basic .vimrc (no plugins)
+# Basic .vimrc (without plugins)
 
 
 > This is a basic Vim config file that should work on any modern Vim from terminal.

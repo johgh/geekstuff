@@ -2,7 +2,7 @@
 layout: tab
 title:  "Rock N Roll Suicide"
 artist: "David Bowie"
-category: tabs
+category: tabs2
 tags: tabs
 ---
               C                          E7

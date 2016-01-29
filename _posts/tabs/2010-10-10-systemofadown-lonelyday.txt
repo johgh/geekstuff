@@ -2,7 +2,7 @@
 layout: tab
 title:  "Lonely Day"
 artist: "System Of A Down"
-category: tabs
+category: tabs2
 tags: tabs
 ---
 G#m     E           B       Eb

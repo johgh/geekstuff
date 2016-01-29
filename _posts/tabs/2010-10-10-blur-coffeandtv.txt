@@ -1,6 +1,6 @@
 ---
 layout: tab
-title:  "Coffee and TV"
+title:  "Coffee And TV"
 artist: "Blur"
 category: tabs
 tags: tabs

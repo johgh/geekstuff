@@ -1,0 +1,16 @@
+---
+layout: tab
+title:  "Chordbook"
+artist: "Chordbook"
+category: chordbook
+tags: tabs
+---
+    
+## Slash chords
+
+E|---|---|---|
+B|---|---|---|
+G|---|---|---|
+D|---|---|---|
+A|---|---|---|X
+E|---|---|---|X

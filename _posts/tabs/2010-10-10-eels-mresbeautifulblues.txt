@@ -1,6 +1,6 @@
 ---
 layout: tab
-title:  "Mr E's Beautiful Blues"
+title:  "Mr E'S Beautiful Blues"
 artist: "Eels"
 category: tabs
 tags: tabs

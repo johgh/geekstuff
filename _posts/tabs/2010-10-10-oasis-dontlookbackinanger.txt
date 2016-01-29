@@ -1,6 +1,6 @@
 ---
 layout: tab
-title:  "Don't Look Back In Anger"
+title:  "Don'T Look Back In Anger"
 artist: "Oasis"
 category: tabs
 tags: tabs

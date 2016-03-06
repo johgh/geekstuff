@@ -54,7 +54,7 @@ Show last installed packages
 ---
 
 
-# Desktop commands
+# Desktop/general commands
 
 Create .desktop (gnome app launcher)
 : {% highlight sh %}
@@ -120,4 +120,9 @@ Configure terminal proxy (put on .bashrc for permanent use)
     
     # without authentication one-liner
     $ export {http,https,ftp}_proxy="http://proxy-server:port"
+{% endhighlight %}
+
+Add disks to RAID1
+: {% highlight sh %}
+    $ sudo mdadm -A -R /dev/md0 /dev/sdX1 /dev/sdY1
 {% endhighlight %}

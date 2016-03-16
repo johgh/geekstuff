@@ -144,6 +144,8 @@ Important files
 
 ## Routing
 
+### Routing generation
+
 Routing file syntax (`app/config/routing.yml`)
 : {% highlight yaml %}
 {% raw %}
@@ -191,6 +193,75 @@ app:
         prefix:   /site
 {% endraw %}
 {% endhighlight %}
+
+### Routing from controllers
+
+Redirecting and url generation
+: {% highlight php startinline %}
+{% raw %}
+        if ($redirect) {
+            return $this->redirectToRoute('homepage', array('page' => 1));
+        } else {
+            // forwarding to another controller (no routing id is needed)
+            return $this->forward('AppBundle:Something:fancy', array(
+                'name'  => $name,
+                'color' => 'green',
+            ));
+        }
+{% endraw %}
+{% endhighlight %}
+
+Using redirectToRoute is equivalent to using redirect() and generateUrl() together
+: {% highlight php startinline %}
+{% raw %}
+        return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301);
+        // you can also provide an external url:
+        return $this->redirect('http://symfony.com/doc');
+{% endraw %}
+{% endhighlight %}
+
+
+### Routing from templates
+
+Controller url reference
+: {% highlight jinja %}
+{% raw %}
+ <a href="{{ path('_welcome') }}">Home</a>       
+{% endraw %}
+{% endhighlight %}
+
+Generate url with dynamic parameter
+: {% highlight jinja %}
+{% raw %}
+{% for article in articles %}
+    <a href="{{ path('article_show', {'slug': article.slug}) }}">
+        {{ article.title }}
+    </a>
+{% endfor %}
+{% endraw %}
+{% endhighlight %}
+
+Absolute url generation
+: {% highlight jinja %}
+{% raw %}
+<a href="{{ url('_welcome') }}">Home</a>
+{% endraw %}
+{% endhighlight %}
+
+### Routing from javascript
+
+Relative url generation
+: {% highlight javascript %}
+Routing.generate('my_route_to_expose_with_defaults', { id: 2, foo: "bar" });
+{% endhighlight %}
+
+Absolute url generation
+: {% highlight javascript %}
+Routing.generate('route_id', /* your params */, true)
+{% endhighlight %}
+
+> You will need to install [this bundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/index.md)
+
 
 > Documentation
 : 
@@ -336,29 +407,6 @@ class HelloController extends Controller
 > to list all available services: `$ app/console debug:container` 
     
     
-Redirecting and url generation
-: {% highlight php startinline %}
-{% raw %}
-public function indexAction()
-{
-        if ($redirect) {
-            return $this->redirectToRoute('homepage', array('page' => 1));
-        } else {
-            // forwarding to another controller
-            return $this->forward('AppBundle:Something:fancy', array(
-                'name'  => $name,
-                'color' => 'green',
-            ));
-        }
-
-        // redirectToRoute is equivalent to using redirect() and generateUrl() together:
-        /* return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301); */
-        // or providing an external url:
-        /* return $this->redirect('http://symfony.com/doc'); */
-}
-{% endraw %}
-{% endhighlight %}
-
 > Documentation
 : 
 * [symfony 2.7 controllers doc](http://symfony.com/doc/2.7/book/controller.html)
@@ -440,43 +488,6 @@ framework:
 {% endhighlight %}
         
         
-### Url generation from template
-
-Controller url reference
-: {% highlight jinja %}
-{% raw %}
- <a href="{{ path('_welcome') }}">Home</a>       
-{% endraw %}
-{% endhighlight %}
-
-Generate url with dynamic parameter
-: {% highlight jinja %}
-{% raw %}
-{% for article in articles %}
-    <a href="{{ path('article_show', {'slug': article.slug}) }}">
-        {{ article.title }}
-    </a>
-{% endfor %}
-{% endraw %}
-{% endhighlight %}
-
-Absolute url generation
-: {% highlight jinja %}
-{% raw %}
-<a href="{{ url('_welcome') }}">Home</a>
-{% endraw %}
-{% endhighlight %}
-
-From javascript
-: {% highlight javascript %}
-// relative url
-Routing.generate('my_route_to_expose_with_defaults', { id: 2, foo: "bar" });
-// absolute url
-Routing.generate('route_id', /* your params */, true)
-{% endhighlight %}
-
-> You will need to install [this bundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/index.md)
-
 Assets
 : {% highlight jinja %}
 {% raw %}

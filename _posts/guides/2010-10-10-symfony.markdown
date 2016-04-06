@@ -196,7 +196,7 @@ app:
 
 ### Routing from controllers
 
-Redirecting and url generation
+Redirecting to route
 : {% highlight php startinline %}
 {% raw %}
         if ($redirect) {
@@ -211,7 +211,7 @@ Redirecting and url generation
 {% endraw %}
 {% endhighlight %}
 
-Using redirectToRoute is equivalent to using redirect() and generateUrl() together
+Redirecting to route using redirect() and generateUrl() methods together
 : {% highlight php startinline %}
 {% raw %}
         return $this->redirect($this->generateUrl('homepage', array('page' => 1)), 301);
@@ -220,6 +220,14 @@ Using redirectToRoute is equivalent to using redirect() and generateUrl() togeth
 {% endraw %}
 {% endhighlight %}
 
+Generating an absolute url
+: {% highlight php startinline %}
+{% raw %}
+    use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+    // second parameter is optional
+    $this->generateUrl('blog_show', array('slug' => 'my-blog-post'), UrlGeneratorInterface::ABSOLUTE_URL);
+{% endraw %}
+{% endhighlight %}
 
 ### Routing from templates
 

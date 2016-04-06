@@ -48,6 +48,7 @@ tags: Sysadmin
 | encfs                          | Distro                               | CLI          |
 | exfat-fuse                     | Distro                               | System       |
 | exfat-utils                    | Distro                               | System       |
+| expect                         | Distro                               | CLI          |
 | exuberant-ctags                | Distro                               | Extra        |
 | faac                           | Distro                               | Extra        |
 | faad                           | Distro                               | Extra        |

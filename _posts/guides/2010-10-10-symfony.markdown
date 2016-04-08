@@ -370,12 +370,14 @@ return $this->redirectToRoute(...);
 Exceptions
 : {% highlight php startinline %}
 {% raw %}
-    if (!$product) {
-        throw $this->createNotFoundException('The product does not exist');
-        // throw $this->createAccessDeniedException();
-    }
+    // 404 response code (page not found)
+    throw $this->createNotFoundException('The product does not exist');
     
-    // this returns a 500 http response code
+    // 403 response code (access denied)
+    use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+    throw new AccessDeniedHttpException();
+    
+    // 500 response code (server error)
     throw new \Exception('Something went wrong!');
 {% endraw %}
 {% endhighlight %}

@@ -111,7 +111,7 @@ Para abortar git pull con merge
 Para abortar git pull con rebase
 : `git rebase --abort`
 
-Si ya hemos finalizad el pull, deberemos volver atrás mirando nuestro log local (git log -g):
+Si ya hemos finalizado el pull, deberemos volver atrás mirando nuestro log local (git log -g):
 : `git reset <commit_local>`
 
 > Sin la opción `--hard`, `git reset` vuelve hasta el commit indicado dejando los cambios propios del commit en el `Working Tree`
@@ -711,6 +711,38 @@ $ git stash drop [<stashref>]
 Remove all stashes
 : {% highlight sh %}
 $ git clear
+{% endhighlight %}
+
+<br />
+
+## Tags
+
+Creating annotated tag (with extra info that lightweight tags don't have)
+: {% highlight sh %}
+$ git tag -a v1.4 -m "my version 1.4"
+{% endhighlight %}
+
+Tagging a specific commit
+: {% highlight sh %}
+$ git tag -a v1.2 9fceb02
+{% endhighlight %}
+
+Creating branch at a specific tag
+: {% highlight sh %}
+git checkout -b mybranch v2.0.0
+{% endhighlight %}
+
+Publishing tags
+: {% highlight sh %}
+# publishing specific tag
+$ git push origin [tagname]
+# publishing all tags
+$ git push origin --tags
+{% endhighlight %}
+
+Obtaining remote tags
+: {% highlight sh %}
+$ git fetch --tags
 {% endhighlight %}
 
 <br />

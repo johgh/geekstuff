@@ -719,17 +719,12 @@ $ git clear
 
 Creating annotated tag (with extra info that lightweight tags don't have)
 : {% highlight sh %}
-$ git tag -a v1.4 -m "my version 1.4"
+$ git tag -a <tagname> -m "my tag message"
 {% endhighlight %}
 
 Tagging a specific commit
 : {% highlight sh %}
-$ git tag -a v1.2 9fceb02
-{% endhighlight %}
-
-Creating branch at a specific tag
-: {% highlight sh %}
-git checkout -b mybranch v2.0.0
+$ git tag -a <tagname> [<commit_hash>]
 {% endhighlight %}
 
 Publishing tags
@@ -743,6 +738,26 @@ $ git push origin --tags
 Obtaining remote tags
 : {% highlight sh %}
 $ git fetch --tags
+{% endhighlight %}
+
+Deleting tag
+: {% highlight sh %}
+# deleting tag from local repo
+git tag -d <tagname>
+# deleting tag from remote
+git push origin :refs/tags/<tagname>
+{% endhighlight %}
+
+Creating branch at a specific tag
+: {% highlight sh %}
+git checkout -b <branchname> <tagname>
+{% endhighlight %}
+
+Creating archive from tag
+: {% highlight sh %}
+git archive -o <filename>.tar.gz <tagname>
+# creating archive from last commit on current branch
+git archive -o latest.zip HEAD
 {% endhighlight %}
 
 <br />

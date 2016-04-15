@@ -104,7 +104,7 @@ Add app to startup
 
 Move app to workspace at startup
 : {% highlight sh %}
-    $ gsettings set org.gnome.shell.extensions.auto-move-windows application-list "['banshee.desktop:2','deluge.desktop:2','jdownloader.desktop:2']"
+    $ gsettings set org.gnome.shell.extensions.auto-move-windows application-list "['banshee-media-player.desktop:2', 'deluge.desktop:2', 'rhythmbox.desktop:2', 'google-chrome.desktop:1', 'firefox.desktop:1']"
 {% endhighlight %}
 
 Configure default java version

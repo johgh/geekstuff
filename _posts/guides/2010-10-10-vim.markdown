@@ -486,14 +486,18 @@ zr
 Add files to stage
 : `:Gstatus` and press `-` over the files to stage
 
-Stage a file partially (equivalent to `git add -p`)
-: `:Gdiff` and put selected changes to the left pane (`index`), see 2-way diff [above](/vim/#tocAnchor-1-18)
-
-Review changes of staged files
-: `:Gstatus` and press `D` over the files to stage
-
 Commit staged files
 : `:Gstatus` and press `C`, enter a message and save (or leave a blank message to abort)
+
+Stage a file partially (equivalent to `git add -p`)
+: `:Gdiff` and put selected changes to the left pane (`index`) and save, see 2-way diff [above](/vim/#tocAnchor-1-18)
+
+## Reviewing changes
+Review changes from staged/unstaged files
+: `:Gstatus` and press `D` over the files to see changes 
+
+See commited files of a specific commit
+: `:Gedit <commit_hash>`, or `:Gedit HEAD~0` to see current commited files. Press enter on a file to see changes from last commit on a 2-way diff
 
 ## Resolving conflicts
 

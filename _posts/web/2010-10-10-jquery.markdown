@@ -77,6 +77,34 @@ $.param + serialize
     vars = $.param(vars) + '&' + varsForm
 {% endhighlight %}
 
+Serialize form into array and transform it into an object
+: {% highlight javascript %}
+    var arrForm = $('form').serializeArray();
+    var data = {ids: {}};
+    $(arrForm).each(function(index, obj){
+        if (obj.name == 'ids[]') {
+            data['ids'][index] = obj.value;
+        } else {
+            data[obj.name] = obj.value;
+        }
+    });
+{% endhighlight %}
+
+Request a file and send POST data as JSON
+: {% highlight javascript %}
+    // this function requests a file with a hidden iframe/form
+    function fileRequest(fileName, myData) {
+        var iframe = '<iframe id="iframe" name="iframe" style="display:none;">';
+        var form = '<form method="post" target="iframe" action="action_SubirFicheros.php" id="iframeForm">' +
+                        + '<input type="hidden" name="fileName" value="' + fileName + '">' +
+                        + '<input type="hidden" name="myData" value=\'' + JSON.stringify(myData) + '\'>' +
+                        // json data is recovered as assoc array in php with "json_decode($_POST['myData'], true)";
+                    + '</form>';
+        $("body").append(iframe).append(form);
+        $("#iframeForm").submit().remove();
+    }
+{% endhighlight %}
+
 Radio button value
 : {% highlight javascript %}
     $('input[name="genderS"]:checked').val();

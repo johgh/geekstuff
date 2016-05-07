@@ -85,6 +85,12 @@ Mount device as user (without sudo)
 > * UUID can be found with ```blkid``` command
 > * to automount at startup do not specify ```noauto``` option parameter (then you can umount manually with ```umount /mnt/my_device```)
 
+Remount partition with write permissions
+: {% highlight sh %}
+    # mount root partition with write permissions
+    $ sudo mount -o remount,rw /
+{% endhighlight %}
+
 Set shell
 : {% highlight sh %}
     $ chsh -s $(which zsh)

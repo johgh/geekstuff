@@ -876,6 +876,7 @@ Show services
 * [Translation functions from javascript](https://github.com/willdurand/BazingaJsTranslationBundle)
 * [Pagination from array, ORM query, etc](https://github.com/KnpLabs/KnpPaginatorBundle)
 * [Symfony Bootsrap integration](https://github.com/phiamo/MopaBootstrapBundle) (see [this](/bootstrap/#how-to-install-bootstrap-sass-compass) if you only want bootstrap-sass)
+* [REST API](http://symfony.com/doc/current/bundles/FOSRestBundle) / FOSRestBundle [controller example](https://github.com/liip/LiipHelloBundle/blob/master/Controller/RestController.php) / RESTful [concept](http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming)
 
 > Complete list of Symfony Bundles [here](http://knpbundles.com/)
 

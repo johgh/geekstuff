@@ -485,7 +485,7 @@ $ sudo chown www-data:www-data /var/log/phplog
 5. Crear script notifyphplog.sh
 : {% highlight bash %}
 #!/bin/bash
-while inotifywait -e close_write /var/log/phplog; do guake -s 0; done > /dev/null 2>&1 &
+while inotifywait -e close_write /var/log/phplog; do guake -s 0; guake --show; done > /dev/null 2>&1 &
 {% endhighlight %}
 
 6. Ejecutar script anterior y guake en el arranque

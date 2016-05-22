@@ -81,7 +81,7 @@ tags: Sysadmin
 | grep                           | Distro                               | CLI          |
 | grub-customizer                | ppa:danielrichter2007/grub-customizer| System       |
 | gtk-recordmydesktop            | Distro                               | Extra        |
-| guake                          | Distro                               | System       |
+| guake                          | ppa:webupd8team/unstable             | System       |
 | handbrake                      | Distro                               | Extra        |
 | hardinfo                       | Distro                               | System       |
 | htop                           | Distro                               | CLI          |

@@ -588,6 +588,11 @@ $ git branch -vv (muestra el estado desde el último fetch)
 $ git remote show origin (contactando con el remoto, más información)
 {% endhighlight %}
 
+Subir una rama al repositorio remoto
+: {% highlight sh %}
+    git push -u origin <branch>
+{% endhighlight %}
+
 Borrar rama del repositorio remoto
 : {% highlight sh %}
     $ git push origin :rama_remoto

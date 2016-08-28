@@ -16,7 +16,7 @@ Enable mod_rewrite
 : {% highlight bash %}
 # Enable module
 $ sudo a2enmod rewrite
-# Edit /etc/apache2/sites-available/000-default.conf to allow overwrite from .htaccess
+# Edit /etc/apache2/sites-available/000-default.conf and /etc/apache2/sites-available/default-ssl.conf to allow overwrite from .htaccess
 <Directory "/var/www/html">
         AllowOverride All
 </Directory>

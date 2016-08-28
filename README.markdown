@@ -2,10 +2,10 @@ This is the source for my [Github Pages site](http://johgh.github.io/). It's a [
 
 It's on github so you can make pull requests. The posts are inside the _posts folder. It's markdown so probably there is no need to preview the site before making a request.
 
-If you need to preview your changes, you'll need to install some things before (in Ubuntu 14.10/Elementary Freya):
+If you need to preview your changes, you'll need to install some things before (debian and derivatives):
 
 ```
-sudo apt-get install ruby1.9.1-full nodejs
+sudo apt-get install ruby-full nodejs
 sudo gem install bundler
 # proxy parameter is optional
 sudo gem install bundler --http-proxy http://user:pass@proxyserver:port
@@ -17,6 +17,8 @@ And download the code:
 git clone --recursive https://github.com/johgh/johgh.io-source.git
 cd johgh.io-source
 bundle install
+# optionally (may solve future incompatibilities)
+bundle update <gem>
 ```
 
 Then start the server:

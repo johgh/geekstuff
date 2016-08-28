@@ -33,7 +33,7 @@ Reload permissiosn
 
 Dump
 : {% highlight bash %}
-    $ mysqldump --no-data --databases MyDB -h 10.0.11.11 -u user -p DB > out.sql
+    $ mysqldump --routines --no-data --databases MyDB -h 10.0.11.11 -u user -p DB > out.sql
 {% endhighlight %}
 
 Script execution

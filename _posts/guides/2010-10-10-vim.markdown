@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vim"
+title:  "Vim (Quick Reference)"
 permalink:  "vim"
 date:   2015-07-08 16:30:15
 category: Quick Guides

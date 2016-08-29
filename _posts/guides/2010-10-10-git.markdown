@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git"
+title:  "Git (Quick Guide)"
 permalink:  "git"
 date:   2015-07-02 16:30:15
 category: Quick Guides

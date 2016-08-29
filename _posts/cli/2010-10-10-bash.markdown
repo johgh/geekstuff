@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Shell-scripting"
+title:  "Shell-scripting snippets"
 permalink:  "shellscripting"
 date:   2015-01-02 16:30:15
-category: CLI
+category: Terminal
 tags: Sysadmin
 ---
 # Snippets

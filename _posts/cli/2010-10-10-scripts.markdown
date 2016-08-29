@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Scripts"
+title:  "Useful scripts"
 permalink:  "my scripts"
 date:   2011-07-15 16:30:15
-category: CLI
+category: Terminal
 tags: Sysadmin Vim
 ---
 # Generic expect script
@@ -31,16 +31,38 @@ tags: Sysadmin Vim
 {% endhighlight %}
 </div>
 
-# My Vim setup
+# My git configuration (.gitconfig file)
 
-> I use this script to install [my Vim setup](https://github.com/johgh/vim) (that works as a PHP IDE). It is recommended to use Gvim instead of a terminal.
+> This `.gitconfig` sample file is intended to be used as the global configuration for all git repositories cloned in a machine. So it should be placed in HOME directory.
 
+> Coincidental configurations in a `.gitconfig` file of a particular repository will override these values. Execute `git config -l` to see the real configuration applied in a repository.
 
-{% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
-<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
-<div id="selectText3">
+> To add additional configurations to this file use the `--global` parameter, like so: `git config --global user.name "John Doe"`. To delete configurations edit the raw file.
+
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+
+{% github_sample_ref johgh/dotfiles/blob/master/.gitconfig %}
+
+<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
+<div id="selectText1">
 {% highlight bash %}
-{% github_sample johgh/scripts/blob/master/vim_setup.sh %}
+{% github_sample johgh/dotfiles/blob/master/.gitconfig %}
+{% endhighlight %}
+</div>
+
+# Aliases script (must be included, not executed)
+
+> Tested in bash and zsh.
+
+> Save this file in your HOME directory and include with the following line in your .bashrc or .zshrc file:
+    ```. $HOME/<alias_file_name>```
+
+
+{% github_sample_ref johgh/dotfiles/blob/master/.alias_functions  %}
+<div> <button class="selectButton" data-id="#selectText4" type="button">Select text </button> </div>
+<div id="selectText4">
+{% highlight bash %}
+{% github_sample johgh/dotfiles/blob/master/.alias_functions %}
 {% endhighlight %}
 </div>
 

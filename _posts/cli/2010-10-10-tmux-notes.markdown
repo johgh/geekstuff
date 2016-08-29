@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Tmux"
+title:  "Tmux basics"
 permalink:  "tmux"
 date:   2014-12-21 16:30:15
-category: CLI
+category: Terminal
 tags: Sysadmin
 ---
 List commands

@@ -1,61 +1,11 @@
 ---
 layout: post
-title:  "Linux commands"
+title:  "Desktop/general commands"
 permalink:  "linuxcommands"
 date:   2015-07-25 16:30:15
-category: Linux
+category: GNU/Linux
 tags: Sysadmin
 ---
-# Apt commands
-
-Shows package status, autocomplete only installed packages
-: {% highlight sh %}
-    $ dpkg -s
-{% endhighlight %}
-
-Autocompletes with repos packages, formatted output, accepts wildcards '*php*'
-: {% highlight sh %}
-    $ dpkg-query -l
-{% endhighlight %}
-
-Displays command name package
-: {% highlight sh %}
-    $ dpkg-query -S `which mkvmerge`
-{% endhighlight %}
-
-Shows location of installed package files
-: {% highlight sh %}
-    $ dpkg -L
-{% endhighlight %}
-
-Searches for a file in repos packages
-: {% highlight sh %}
-    $ apt-file search
-{% endhighlight %}
-
-Searches on repos (installed packages or not)
-: {% highlight sh %}
-    $ apt-file show
-{% endhighlight %}
-
-Resync with repos
-: {% highlight sh %}
-    $ apt-file update
-{% endhighlight %}
-
-Show last installed packages
-: {% highlight sh %}
-    sudo gunzip -d /var/log/dpkg.log.*gz
-    cat /var/log/dpkg.log* | grep "\ install\ " | sort | ccze
-{% endhighlight %}
-
-<br />
-
----
-
-
-# Desktop/general commands
-
 Create .desktop (gnome app launcher)
 : {% highlight sh %}
     $ gnome-desktop-item-edit ~/.local/share/applications --create-new
@@ -112,17 +62,3 @@ Configure default java version
     $ update-alternatives --config java
 {% endhighlight %}
 
-Configure terminal proxy (put on .bashrc for permanent use)
-: {% highlight sh %}
-    $ export http_proxy="http://user:password@proxy-server:port"
-    $ export https_proxy="https://user:password@proxy-server:port"
-    $ export ftp_proxy="http://user:password@proxy-server:port"
-    
-    # without authentication one-liner
-    $ export {http,https,ftp}_proxy="http://proxy-server:port"
-{% endhighlight %}
-
-Add disks to RAID1
-: {% highlight sh %}
-    $ sudo mdadm -A -R /dev/md0 /dev/sdX1 /dev/sdY1
-{% endhighlight %}

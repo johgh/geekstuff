@@ -1,14 +1,53 @@
 ---
 layout: post
-title:  ".vimrc"
+title:  "My Vim setup"
 permalink:  "vimrc"
 date:   2015-07-11 16:30:15
-category: CLI
+category: Terminal
 tags: Vim
 ---
+# Installation script
+
+> I use this script to install [my Vim setup](https://github.com/johgh/vim). I recommend to use Gvim instead of a terminal.
+
+{% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
+<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
+<div id="selectText3">
+{% highlight bash %}
+{% github_sample johgh/scripts/blob/master/vim_setup.sh %}
+{% endhighlight %}
+</div>
+
+# My plugins
+
+> The plugins I am using right now (I use Vundle as the plugin system)
+
+<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+
+{% github_sample_ref johgh/vim/blob/master/bundles.vim %}
+
+<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
+<div id="selectText3">
+{% highlight vim %}
+{% github_sample johgh/vim/blob/master/bundles.vim %}
+{% endhighlight %}
+</div>
+
+# Full .vimrc (with plugins)
+
+> This is the config file for mi Vim setup (some sort of PHP IDE). The basic stuff is separated on another file that can be used indepently (see below)
+
+{% github_sample_ref johgh/vim/blob/master/vimrc %}
+
+<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
+<div id="selectText2">
+{% highlight vim %}
+{% github_sample johgh/vim/blob/master/vimrc %}
+{% endhighlight %}
+</div>
+
 
 # Basic .vimrc (without plugins)
-
 
 > This is a basic Vim config file that should work on any modern Vim from terminal.
 
@@ -25,18 +64,5 @@ tags: Vim
 
 
 
-# Full configuration (with plugins)
-
-> I use this .vimrc to use Vim as a PHP IDE. See install instructions [here](https://github.com/johgh/vim/blob/master/README.markdown). It is recommended to use Gvim instead of a terminal.
-
-
-{% github_sample_ref johgh/vim/blob/master/vimrc %}
-
-<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
-<div id="selectText2">
-{% highlight vim %}
-{% github_sample johgh/vim/blob/master/vimrc %}
-{% endhighlight %}
-</div>
 
 

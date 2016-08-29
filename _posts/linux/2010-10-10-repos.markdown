@@ -3,7 +3,7 @@ layout: post
 title:  "Repositories"
 permalink:  "repos"
 date:   2015-08-23 16:30:15
-category: Linux
+category: GNU/Linux
 tags: Sysadmin
 ---
 # Ubuntu

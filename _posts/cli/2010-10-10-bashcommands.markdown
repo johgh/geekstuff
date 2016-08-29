@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Bash commands"
+title:  "Bash/UNIX commands"
 permalink:  "bash commands"
 date:   2011-07-15 16:30:15
-category: CLI
+category: Terminal
 tags: Sysadmin
 ---
-# Commands
+# General commands
 
 > For a complete generic command reference go [here](http://cb.vu/unixtoolbox.xhtml)
 
@@ -68,10 +68,29 @@ Massive renaming of files
 
 > Patterns expect [Perl Compatible Regular Expressions](https://regex101.com/#pcre) (PCRE).
 
+# Shell config and reloading
+
+Set shell
+: {% highlight sh %}
+    $ chsh -s $(which zsh)
+{% endhighlight %}
+
+Configure terminal proxy (put on .bashrc/.zshrc for permanent use)
+: {% highlight sh %}
+    $ export http_proxy="http://user:password@proxy-server:port"
+    $ export https_proxy="https://user:password@proxy-server:port"
+    $ export ftp_proxy="http://user:password@proxy-server:port"
+    
+    # without authentication one-liner
+    $ export {http,https,ftp}_proxy="http://proxy-server:port"
+{% endhighlight %}
+
 Reload .bashrc/.zshrc
 : {% highlight sh %}
     $ source [.bashrc|.zshrc]
 {% endhighlight %}
+
+# Working with partitions
 
 Mount device as user (without sudo)
 : {% highlight sh %}
@@ -91,31 +110,56 @@ Remount partition with write permissions
     $ sudo mount -o remount,rw /
 {% endhighlight %}
 
-Set shell
+Add disks to RAID1
 : {% highlight sh %}
-    $ chsh -s $(which zsh)
+    $ sudo mdadm -A -R /dev/md0 /dev/sdX1 /dev/sdY1
 {% endhighlight %}
 
 <br />
 
 ---
 
-# Aliases
+# Package management (apt systems)
 
-> Tested in bash and zsh.
-
-> Save this file in your HOME directory and put the following line in your .bashrc or .zshrc file:
-    ```. $HOME/<alias_file_name>```
-
-
-{% github_sample_ref johgh/dotfiles/blob/master/.alias_functions  %}
-<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
-<div id="selectText1">
-{% highlight bash %}
-{% github_sample johgh/dotfiles/blob/master/.alias_functions %}
+Shows package status, autocomplete only installed packages
+: {% highlight sh %}
+    $ dpkg -s
 {% endhighlight %}
-</div>
 
+Autocompletes with repos packages, formatted output, accepts wildcards '*php*'
+: {% highlight sh %}
+    $ dpkg-query -l
+{% endhighlight %}
 
-<script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
+Displays command name package
+: {% highlight sh %}
+    $ dpkg-query -S `which mkvmerge`
+{% endhighlight %}
+
+Shows location of installed package files
+: {% highlight sh %}
+    $ dpkg -L
+{% endhighlight %}
+
+Searches for a file in repos packages
+: {% highlight sh %}
+    $ apt-file search
+{% endhighlight %}
+
+Searches on repos (installed packages or not)
+: {% highlight sh %}
+    $ apt-file show
+{% endhighlight %}
+
+Resync with repos
+: {% highlight sh %}
+    $ apt-file update
+{% endhighlight %}
+
+Show last installed packages
+: {% highlight sh %}
+    sudo gunzip -d /var/log/dpkg.log.*gz
+    cat /var/log/dpkg.log* | grep "\ install\ " | sort | ccze
+{% endhighlight %}
+
 

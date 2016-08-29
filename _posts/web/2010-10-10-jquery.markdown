@@ -3,7 +3,7 @@ layout: post
 title:  "Jquery"
 permalink:  "jquery"
 date:   2015-07-25 16:30:15
-category: Web
+category: WebDev
 tags: Web
 ---
 

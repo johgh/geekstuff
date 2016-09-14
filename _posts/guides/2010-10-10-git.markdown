@@ -449,6 +449,21 @@ Abortar el merge si hay conflictos y no queremos continuar
 
 > `git pull` y `git push` son 2 casos especiales de merge. En el primero se hace merge de una rama remota sobre una local. En el segundo se hace a la inversa, ***siempre y cuando el merge sea `fast-forward`*** (de lo contrario se para la ejecución)
 
+Forzar push sobre remoto (¡muy peligroso!)
+: {% highlight sh %}
+    $ git push --force
+{% endhighlight %}
+
+> Útil cuando se necesita subir lo que tenemos en local a remoto pero `git push` no nos deja porque las ramas local y remoto tienen divergencias. Peligro: ¡Se sobreescribirá todo lo que haya en remoto!
+
+Forzar pull sobre local (¡muy peligroso!)
+: {% highlight sh %}
+    $ git fetch --all
+    $ git reset --hard origin/master
+{% endhighlight %}
+
+> Esto es útil cuando se ha hecho push --force anteriormente y necesitemos recuperar exactamente lo que tengamos en remoto. Peligro: ¡Se sobreescribirá todo lo que haya en local!
+
 {:.center}
 ![Merge](/merge.png "Merge")
 

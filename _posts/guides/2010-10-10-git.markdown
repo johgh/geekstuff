@@ -460,6 +460,7 @@ Forzar pull sobre local (¡muy peligroso!)
 : {% highlight sh %}
     $ git fetch --all
     $ git reset --hard origin/master
+    $ git checkout master
 {% endhighlight %}
 
 > Esto es útil cuando se ha hecho push --force anteriormente y necesitemos recuperar exactamente lo que tengamos en remoto. Peligro: ¡Se sobreescribirá todo lo que haya en local!

@@ -1,20 +1,20 @@
 ---
 layout: blog
-title:  "Vim. El editor incomprendido"
+title:  "El editor incomprendido"
 permalink:  "Vim-incomprendido"
 date:   2015-08-16 16:30:15
 noToc: true
 category: Blog
 tags: Vim
 ---
-> **¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto, o incluso para
-salir del mismo una vez nos hemos percatado de que no es el editor que esperabamos?**
+> **¿Por qué alguien querría usar un editor en el que hay que pelearse solamente para empezar a escribir texto? ¿O incluso para
+salir del mismo, una vez nos hemos percatado de que no es el editor que esperabamos?**
 
-Quizás el hecho de que este editor venga instalado de serie en cualquier sistema tipo Unix le haya hecho un flaco favor:
-muchos se han visto obligados a usarlo y la mayoría no guarda el mejor recuerdo de él.
+Quizás el hecho de que Vi venga instalado de serie en cualquier sistema tipo Unix le haya hecho un flaco favor a su hijo pródigo, el editor Vim.
+Muchos se han visto obligados a usarlo y la mayoría no guarda el mejor recuerdo de él.
 
-Frecuentemente la potencia de este editor se confunde con falta de usabilidad, lo cierto es que si algo es comparable a
-la potencia de este editor esa es su curva de aprendizaje (o [muro de aprendizaje](https://pascalprecht.github.io/2014/03/18/why-i-use-vim/#figure-1)).
+Frecuentemente la potencia de Vim se confunde con falta de usabilidad. Lo cierto es que si hay alguna cosa comparable a
+la potencia de este editor, esa es su curva de aprendizaje ---o como algunos apuntan, [*muro de aprendizaje*](https://pascalprecht.github.io/2014/03/18/why-i-use-vim/#figure-1).
 <br />
 
 {:.center}
@@ -111,7 +111,7 @@ citado comando `.` o mediante la creación de macros y otros comandos que no ser
 
 # El portapapeles
 
-Otro gran desconocido para el usuario no habitual de Vim suele ser el uso del - o más bien *los* - portapapeles. El
+Otro gran desconocido para el usuario no habitual de Vim suele ser el uso del ---o más bien *los*--- portapapeles. El
 desconocimiento de que comandos copian texto al portapapeles es objeto de frustración en el momento de recuperar texto
 de éste, ya que el texto que habíamos copiado cuidosamente mediante el comando *yank* parece haber desaparecido misteriosamente.
 Concretamente, estos son los comandos que copian texto al portapapeles:

@@ -1,12 +1,12 @@
 ---
 layout: blog
-title:  "Apuntes de php"
+title:  "PHP. Apuntes"
 permalink:  "apuntesphp"
 date:   2014-03-23 00:00:01
 category: Blog
 tags: Web
 ---
-# isset, empty, null, comparación de tipos
+# "Construcciones del lenguaje" y comparación de tipos
 
 - `isset` y `empty` son construcciones del lenguaje. A diferencia de cualquier otra función, estas construcciones no lanzan error en tiempo de ejecución si la variable pasada como parámetro no existe.
 

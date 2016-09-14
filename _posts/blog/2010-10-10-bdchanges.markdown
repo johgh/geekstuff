@@ -1,6 +1,6 @@
 ---
 layout: blog
-title:  "Control de cambios de BD"
+title:  "Scripts de actualización de cambios de Base de Datos"
 permalink:  "bdchanges"
 date:   2015-10-01 00:00:01
 category: Blog

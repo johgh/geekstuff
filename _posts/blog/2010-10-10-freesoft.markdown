@@ -1,12 +1,11 @@
 ---
 layout: blog
-title:  "10 puntos clave sobre software libre"
+title:  "Los 10 puntos clave para entender el software libre"
 permalink:  "software-libre-q&a"
 date:   2015-09-22 00:00:01
 category: Blog
 tags: Free_Software
 ---
-
 # ¿Qué requisitos debe reunir un software para ser considerado libre?
 
 Para que un software sea considerado *libre* debe preservar los derechos de uso, estudio, modificación y distribución del mismo, o lo que es lo mismo que cumpla con las [*4 libertades esenciales del software libre*](http://www.gnu.org/philosophy/free-sw.es.html).
@@ -40,7 +39,7 @@ Esto ha sido posible, en gran medida, gracias al tono neutro (no ideológico) de
 
 El modelo *Open Source* se sustenta en el [siguiente axioma](http://es.wikipedia.org/wiki/Ley_de_Linus): «Dado un número suficientemente elevado de ojos, todos los errores se convierten en obvios» La idea anterior implica de partida que el software *Open Source* siempre será de mayor calidad que el que no lo es, ya que su código estará sometido a una mayor revisión. Desde ese punto de vista el software *Open Source* basa su fuerza en su carácter colaborativo y en la *comunidad* que consiga aglutinar detrás de cada proyecto.
 
-La adopción de un modelo *Open Source* se puede efectuar en diferentes grados: ya sea utilizando modelos de desarrollo distribuido inspirados en el *software libre* - aunque no se trate de *software libre* propiamente dicho - o abriendo partes sensibles de una base de código propietario para obtener soporte por parte de la *comunidad*.
+La adopción de un modelo *Open Source* se puede efectuar en diferentes grados: ya sea utilizando modelos de desarrollo distribuido inspirados en el *software libre* ---aunque no se trate de *software libre* propiamente dicho--- o abriendo partes sensibles de una base de código propietario para obtener soporte por parte de la *comunidad*.
 
 Recientemente el término *Open Source* se ha extendido incluso fuera del mundo del software para referirse a lo que en castellano se conoce como [*cultura libre*](http://es.wikipedia.org/wiki/C%C3%B3digo_abierto##Extensiones_del_concepto).
 
@@ -124,7 +123,7 @@ No cabe duda que en algunos casos concretos el software *propietario* es de mayo
 
 Pero no sólo los productos *propietarios* gozan de esta ventaja, la masiva aceptación del sistema *Android*, o la de los navegadores *Mozilla Firefox* y *Google Chrome*, son una prueba de que nada impide la aceptación de *software libre* por parte de usuarios finales, demostrando que, bajo un modelo de negocio acertado, el *software libre* puede plantar cara a su alternativa *propietaria*, e incluso establecer sus propios *monopolios*.
 
-Un caso particularmente interesante, en cuanto a aceptación del software por parte de usuarios finales, es el de los sistemas de escritorio *libres*. Estos sistemas se han visto reducidos tradicionalmente a un nicho de usuarios técnicos y/o de usuarios especialmente concienciados con las *libertades del software*. Lo cierto es que, a día de hoy, este sector de usuarios son una gran minoría: el usuario medio no valora - ni conoce en muchos casos - que es *software libre*, y por ende, antepone todo tipo de criterios en la elección de un software a la libertad con la que este puede ser usado.
+Un caso particularmente interesante, en cuanto a aceptación del software por parte de usuarios finales, es el de los sistemas de escritorio *libres*. Estos sistemas se han visto reducidos tradicionalmente a un nicho de usuarios técnicos y/o de usuarios especialmente concienciados con las *libertades del software*. Lo cierto es que, a día de hoy, este sector de usuarios son una gran minoría: el usuario medio no valora ---ni conoce en muchos casos--- que es *software libre*, y por ende, antepone todo tipo de criterios en la elección de un software a la libertad con la que este puede ser usado.
 
 Así que, mientras las grandes multinacionales parecen ser cada vez más conscientes del potencial del *software libre*, utilizándolo tanto en sus productos como en sus infraestructuras, esto no parece tener un gran impacto en las *libertades* de los usuarios finales. ¿Pero por qué sucede esto? ¿Quién es el responsable?
 

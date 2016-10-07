@@ -32,6 +32,7 @@ tags: Sysadmin
 | banshee                        | Distro                               | Desktop      |
 | bleachbit                      | Distro                               | System       |
 | bless                          | Distro                               | Development  |
+| boot-repair                    | ppa:yannubuntu/boot-repair           | System       |
 | brasero                        | Distro                               | Desktop      |
 | calibre                        | Distro                               | Desktop      |
 | ccze                           | Distro                               | CLI          |
@@ -68,6 +69,7 @@ tags: Sysadmin
 | gimp                           | Distro                               | Desktop      |
 | git                            | Distro                               | Development  |
 | git-cola                       | Distro                               | Development  |
+| git-crypt                      | Distro                               | Development  |
 | gitg                           | Distro                               | Development  |
 | gnome-nettool                  | Distro                               | System       |
 | gnome-panel                    | Distro                               | System       |
@@ -88,6 +90,7 @@ tags: Sysadmin
 | imagemagick                    | Distro                               | Extra        |
 | inotify-tools                  | Distro                               | CLI          |
 | jdownloader                    | ppa:jd-team/jdownloader              | Desktop      |
+| k3b                            | Distro                               | Desktop      |
 | lame                           | Distro                               | Extra        |
 | less                           | Distro                               | CLI          |
 | libreoffice-common             | Distro                               | Desktop      |
@@ -97,7 +100,8 @@ tags: Sysadmin
 | meld                           | Distro                               | Development  |
 | mencoder                       | Distro                               | Extra        |
 | mkvtoolnix                     | Distro                               | Extra        |
-| mplayer2                       | Distro                               | Extra        |
+| mkvtoolnix-gui                 | Distro                               | Extra        |
+| mpv                            | Distro                               | Extra        |
 | mtp-tools                      | Distro                               | System       |
 | mtpfs                          | Distro                               | System       |
 | mysql-client-core-5.5          | Distro                               | Development  |
@@ -145,8 +149,9 @@ tags: Sysadmin
 | shotwell                       | Distro                               | Desktop      |
 | silversearcher-ag              | Distro                               | CLI          |
 | simple-scan                    | Distro                               | Desktop      |
-| sopcast-player                 | Distro                               | Desktop      |
+| sopcast-player                 | ppa:lyc256/sopcast-player            | Desktop      |
 | sound-juicer                   | Distro                               | Extra        |
+| soundconverter                 | Distro                               | Desktop      |
 | sp-auth                        | Distro                               | Desktop      |
 | subdownloader                  | Distro                               | Desktop      |
 | synaptic                       | Distro                               | System       |

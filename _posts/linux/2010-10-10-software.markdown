@@ -164,6 +164,7 @@ tags: Sysadmin
 | unison-all-gtk                 | Distro                               | Desktop      |
 | unity-tweak-tool               | Distro                               | System       |
 | usb-creator-gtk                | Distro                               | System       |
+| vagrant                        | Distro                               | Development  |
 | vim                            | Distro                               | System       |
 | vim-gnome                      | Distro                               | System       |
 | virtualbox                     | Distro                               | Development  |

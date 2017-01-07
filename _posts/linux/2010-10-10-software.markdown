@@ -111,6 +111,7 @@ tags: Sysadmin
 | nautilus-sendto                | Distro                               | System       |
 | nmap                           | Distro                               | CLI          |
 | noip-2.1.9                     | Distro                               | Desktop      |
+| noise                          | ppa:elementary-os/daily              | Desktop      |
 | ntfs-3g                        | Distro                               | CLI          |
 | numix-gtk-theme                | ppa:numix/ppa                        | System       |
 | openshot                       | Distro                               | Extra        |
@@ -161,6 +162,7 @@ tags: Sysadmin
 | time                           | Distro                               | CLI          |
 | timidity                       | Distro                               | Extra        |
 | tmux                           | Distro                               | System       |
+| trash-cli                      | Distro                               | CLI          |
 | tuxguitar                      | Distro                               | Extra        |
 | ubuntu-restricted-extras       | Distro                               | System       |
 | unison-all-gtk                 | Distro                               | Desktop      |
@@ -179,8 +181,10 @@ tags: Sysadmin
 | x-tile                         | Distro                               | Desktop      |
 | xclip                          | Distro                               | CLI          |
 | xdotool                        | Distro                               | CLI          |
+| xsel                           | Distro                               | CLI          |
 | y-ppa-manager                  | ppa:webupd8team/y-ppa-manager        | System       |
 | zsh                            | Distro                               | CLI          |
+
 
 
 > Above packages were installed under Ubuntu 14.04, but are usually found on any other Debian based distribution (sometimes under a similar name)

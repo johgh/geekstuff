@@ -20,16 +20,16 @@ tags: Vim
 
 # My plugins
 
-> The plugins I am using right now (I use Vundle as the plugin system)
+> The plugins I am using right now (I use vim-plug as the plugin system)
 
 <script src="{{ "/scripts/selecttext.js" | prepend: site.baseurl }}"></script>
 
-{% github_sample_ref johgh/vim/blob/master/bundles.vim %}
+{% github_sample_ref johgh/vim/blob/master/plug.vim %}
 
 <div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
 <div id="selectText3">
 {% highlight vim %}
-{% github_sample johgh/vim/blob/master/bundles.vim %}
+{% github_sample johgh/vim/blob/master/plug.vim %}
 {% endhighlight %}
 </div>
 

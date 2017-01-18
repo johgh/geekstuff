@@ -27,7 +27,10 @@ title:  "Chord Generator"
     visibility: visible;
 }
 
-
+svg.chordChart {
+  position: relative;
+  float: right;
+}
 
 svg.chordChart .grid {
   stroke: black;
@@ -54,11 +57,12 @@ width:200px;
     font-weight: bold;
 }
 
-table {
-width: 50%;
+.ifret, .ifing {
+    width: 78px;
 }
 
 .chorddiv{
+  width: 141px;
   cursor:pointer;
 }
 
@@ -92,32 +96,39 @@ width: 50%;
 Name:
 <select id="select-key-custom">
     <option value="0" selected="selected">C</option>
-    <option value="1">C#</option>
+    <option value="1">C#/Db</option>
     <option value="2">D</option>
-    <option value="3">D#</option>
+    <option value="3">D#/Eb</option>
     <option value="4">E</option>
     <option value="5">F</option>
-    <option value="6">F#</option>
+    <option value="6">F#/Gb</option>
     <option value="7">G</option>
-    <option value="8">G#</option>
+    <option value="8">G#/Ab</option>
     <option value="9">A</option>
-    <option value="10">A#</option>
+    <option value="10">A#/Bb</option>
     <option value="11">B</option>
 </select>
 <select id="select-type-custom">
-    <option value="Major">Major</option>
-    <option value="Minor">Minor</option>
-    <option value="Dom7">Dom7</option>
-    <option value="Min7">Min7</option>
-    <option value="Maj7">Maj7</option>
-    <option value="Maj6">Maj6</option>
-    <option value="Min6">Min6</option>
-    <option value="Sus2">Sus2</option>
-    <option value="Sus4">Sus4</option>
+    <option value="">Major</option>
+    <option value="min">Minor</option>
+    <option value="7">Dom7</option>
+    <option value="min7">Min7</option>
+    <option value="Δ7">Maj7</option>
+    <option value="maj6">Maj6</option>
+    <option value="min6">Min6</option>
+    <option value="5">5</option>
+    <option value="sus2">Sus2</option>
+    <option value="sus4">Sus4</option>
+    <option value="7#5">7Aug</option>
+    <option value="7sus">7Sus4</option>
+    <option value="9">Dom9</option>
+    <option value="7#9">7#9</option>
+    <option value="7b9">7b9</option>
+    <option value="13">13</option>
 </select>
 
 <div class="customblock">
-        <div>&nbsp;&nbsp;&nbsp;FRET POSITION / FINGERS (OPTIONAL)</div>
+        <div>&nbsp;&nbsp;&nbsp;FRETS / FINGERS </div>
         <div>E <input type="text" maxlength="2" class="ifret" id="pE" value="x" /><input type="text" class="ifing" id="fE" maxlength="1" value="-"/></div>
         <div>A <input type="text" maxlength="2" class="ifret" id="pA" value="x" /><input type="text" class="ifing" id="fA" maxlength="1" value="-"/></div>
         <div>D <input type="text" maxlength="2" class="ifret" id="pD" value="x" /><input type="text" class="ifing" id="fA" maxlength="1" value="-"/></div>
@@ -153,29 +164,36 @@ Generate chord!
 <select id="select-key">
     <option value="*">All keys</option>
     <option value="0" selected="selected">C</option>
-    <option value="1">C#</option>
+    <option value="1">C#/Db</option>
     <option value="2">D</option>
-    <option value="3">D#</option>
+    <option value="3">D#/Eb</option>
     <option value="4">E</option>
     <option value="5">F</option>
-    <option value="6">F#</option>
+    <option value="6">F#/Gb</option>
     <option value="7">G</option>
-    <option value="8">G#</option>
+    <option value="8">G#/Ab</option>
     <option value="9">A</option>
-    <option value="10">A#</option>
+    <option value="10">A#/Bb</option>
     <option value="11">B</option>
 </select>
 <select id="select-type">
     <option value="*">All types</option>
-    <option value="Major">Major</option>
-    <option value="Minor">Minor</option>
-    <option value="Dom7">Dom7</option>
-    <option value="Min7">Min7</option>
-    <option value="Maj7">Maj7</option>
-    <option value="Maj6">Maj6</option>
-    <option value="Min6">Min6</option>
-    <option value="Sus2">Sus2</option>
-    <option value="Sus4">Sus4</option>
+    <option value="">Major</option>
+    <option value="min">Minor</option>
+    <option value="7">Dom7</option>
+    <option value="min7">Min7</option>
+    <option value="Δ7">Maj7</option>
+    <option value="maj6">Maj6</option>
+    <option value="min6">Min6</option>
+    <option value="5">5</option>
+    <option value="sus2">Sus2</option>
+    <option value="sus4">Sus4</option>
+    <option value="7#5">7Aug</option>
+    <option value="7sus">7Sus4</option>
+    <option value="9">Dom9</option>
+    <option value="7#9">7#9</option>
+    <option value="7b9">7b9</option>
+    <option value="13">13</option>
 </select>
 
 
@@ -206,92 +224,99 @@ $(function(){
     var tones = ['1', '2b', '2', '3b', '3', '4', '5b', '5', '6b', '6', '7b', '7'];
 
     var formulas = {
-        Major: '0 4 7',
-        Minor: '0 3 7',
-        Dom7:  '0 4 7 10',
-        Min7:  '0 3 7 10',
-        Maj7:  '0 4 7 11',
-        Maj6:  '0 4 7 9',
-        Min6:  '0 3 7 9',
-        Sus2:  '0 2 7',
-        Sus4:  '0 5 7',
+        '':      '0 4 7',
+        'min':   '0 3 7',
+        '7':     '0 4 7 10',
+        'min7':  '0 3 7 10',
+        'Δ7':    '0 4 7 11',
+        'maj6':  '0 4 7 9',
+        'min6':  '0 3 7 9',
+        '5':     '0 7',
+        'sus2':  '0 2 7',
+        'sus4':  '0 5 7',
+        '7#5':   '0 4 8 10',
+        '7sus':  '0 5 6 7 10',
+        '9':     '0 4 7 10 2',
+        '7#9':   '0 4 7 10 3',
+        '7b9':   '0 4 7 10 1',
+        '13':    '0 4 7 10 2 9'
     };    
 
     var fretboard = [ ['4', '9', '2', '7', '11', '4'], ['5', '10', '3', '8', '0', '5'], ['6', '11', '4', '9', '1', '6'], ['7', '0', '5', '10', '2', '7'], ['8', '1', '6', '11', '3', '8'], ['9', '2', '7', '12', '4', '9'], ['10', '3', '8', '13', '5', '10'], ['11', '4', '9', '14', '6', '11'], ['12', '5', '10', '15', '7', '12'], ['13', '6', '11', '16', '8', '13'], ['14', '7', '12', '17', '9', '14'], ['15', '8', '13', '18', '10', '15'], ['16', '9', '14', '19', '11', '16'], ['17', '10', '15', '20', '12', '17'], ['18', '11', '16', '21', '13', '18'], ['19', '12', '17', '22', '14', '19'], ['20', '13', '18', '23', '15', '20'], ['21', '14', '19', '24', '16', '21'], ['22', '15', '20', '25', '17', '22'], ['23', '16', '21', '26', '18', '23'], ['24', '17', '22', '27', '19', '24'], ['25', '18', '23', '28', '20', '25'], ['26', '19', '24', '29', '21', '26'], ]
 
     var chords = [
         /* C ****************************************************/
-        { key: '0', form: 'Major', fret: 'x 3 2 0 1 0', fing: '' },
-        //{ key: '0', form: 'Minor', fret: '', fing: '' },
-        { key: '0', form: 'Maj6', fret: 'x 3 2 2 1 x', fing: '' },
-        { key: '0', form: 'Min6', fret: '8 x 7 8 8 x', fing: '' },
-        { key: '0', form: 'Min7', fret: 'x 3 5 3 4 3', fing: 'x 1 3 1 2 1' },
-        { key: '0', form: 'Dom7', fret: 'x 3 5 3 5 3', fing: 'x 1 3 1 4 1' },
-        { key: '0', form: 'Dom7', fret: '8 10 8 9 8 8', fing: '1 3 1 2 1 1' },
-        //{ key: '0', form: 'Maj7', fret: '', fing: '' },
-        //{ key: '0', form: 'Sus2', fret: '', fing: '' },
-        //{ key: '0', form: 'Sus4', fret: '', fing: '' },
+        { key: '0', form: '', fret: 'x 3 2 0 1 0', fing: '' },
+        //{ key: '0', form: 'min', fret: '', fing: '' },
+        { key: '0', form: 'maj6', fret: 'x 3 2 2 1 x', fing: '' },
+        { key: '0', form: 'min6', fret: '8 x 7 8 8 x', fing: '' },
+        { key: '0', form: 'min7', fret: 'x 3 5 3 4 3', fing: 'x 1 3 1 2 1' },
+        { key: '0', form: '7', fret: 'x 3 5 3 5 3', fing: 'x 1 3 1 4 1' },
+        { key: '0', form: '7', fret: '8 10 8 9 8 8', fing: '1 3 1 2 1 1' },
+        //{ key: '0', form: 'Δ7', fret: '', fing: '' },
+        //{ key: '0', form: 'sus2', fret: '', fing: '' },
+        //{ key: '0', form: 'sus4', fret: '', fing: '' },
         /* D ****************************************************/
-        { key: '2', form: 'Major', fret: 'x x 0 2 3 2', fing: '' },
-        { key: '2', form: 'Minor', fret: 'x x 0 2 3 1', fing: '' },
-        { key: '2', form: 'Maj6', fret: 'x x 0 2 0 2', fing: '' },
-        //{ key: '2', form: 'Min6', fret: '', fing: '' },
-        { key: '2', form: 'Min7', fret: 'x x 0 2 1 1', fing: '' },
-        //{ key: '2', form: 'Dom7', fret: '', fing: '' },
-        //{ key: '2', form: 'Maj7', fret: '', fing: '' },
-        //{ key: '2', form: 'Sus2', fret: '', fing: '' },
-        //{ key: '2', form: 'Sus4', fret: '', fing: '' },
+        { key: '2', form: '', fret: 'x x 0 2 3 2', fing: '' },
+        { key: '2', form: 'min', fret: 'x x 0 2 3 1', fing: '' },
+        { key: '2', form: 'maj6', fret: 'x x 0 2 0 2', fing: '' },
+        //{ key: '2', form: 'min6', fret: '', fing: '' },
+        { key: '2', form: 'min7', fret: 'x x 0 2 1 1', fing: '' },
+        //{ key: '2', form: '7', fret: '', fing: '' },
+        //{ key: '2', form: 'Δ7', fret: '', fing: '' },
+        //{ key: '2', form: 'sus2', fret: '', fing: '' },
+        //{ key: '2', form: 'sus4', fret: '', fing: '' },
         /* E ****************************************************/
-        //{ key: '4', form: 'Major', fret: '', fing: '' },
-        //{ key: '4', form: 'Minor', fret: '', fing: '' },
-        { key: '4', form: 'Maj6', fret: '0 2 2 1 2 0', fing: '' },
-        { key: '4', form: 'Min6', fret: '0 2 2 0 2 0', fing: '' },
-        //{ key: '4', form: 'Min7', fret: '', fing: '' },
-        { key: '4', form: 'Dom7', fret: '0 2 0 1 3 0', fing: '' },
-        { key: '4', form: 'Maj7', fret: '0 2 1 1 0 0', fing: '' },
-        { key: '4', form: 'Sus2', fret: 'x 7 9 9 7 7', fing: '' },
-        { key: '4', form: 'Sus4', fret: '0 2 2 2 0 0', fing: '' },
+        //{ key: '4', form: '', fret: '', fing: '' },
+        //{ key: '4', form: 'min', fret: '', fing: '' },
+        { key: '4', form: 'maj6', fret: '0 2 2 1 2 0', fing: '' },
+        { key: '4', form: 'min6', fret: '0 2 2 0 2 0', fing: '' },
+        //{ key: '4', form: 'min7', fret: '', fing: '' },
+        { key: '4', form: '7', fret: '0 2 0 1 3 0', fing: '' },
+        { key: '4', form: 'Δ7', fret: '0 2 1 1 0 0', fing: '' },
+        { key: '4', form: 'sus2', fret: 'x 7 9 9 7 7', fing: '' },
+        { key: '4', form: 'sus4', fret: '0 2 2 2 0 0', fing: '' },
         /* F ****************************************************/
-        //{ key: '5', form: 'Major', fret: '', fing: '' },
-        //{ key: '5', form: 'Minor', fret: '', fing: '' },
-        //{ key: '5', form: 'Maj6', fret: '', fing: '' },
-        //{ key: '5', form: 'Min6', fret: '', fing: '' },
-        //{ key: '5', form: 'Min7', fret: '', fing: '' },
-        //{ key: '5', form: 'Dom7', fret: '', fing: '' },
-        { key: '5', form: 'Maj7', fret: 'x x 3 2 1 0', fing: '' },
-        //{ key: '5', form: 'Sus2', fret: '', fing: '' },
-        //{ key: '5', form: 'Sus4', fret: '', fing: '' },
+        //{ key: '5', form: '', fret: '', fing: '' },
+        //{ key: '5', form: 'min', fret: '', fing: '' },
+        //{ key: '5', form: 'maj6', fret: '', fing: '' },
+        //{ key: '5', form: 'min6', fret: '', fing: '' },
+        //{ key: '5', form: 'min7', fret: '', fing: '' },
+        //{ key: '5', form: '7', fret: '', fing: '' },
+        { key: '5', form: 'Δ7', fret: 'x x 3 2 1 0', fing: '' },
+        //{ key: '5', form: 'sus2', fret: '', fing: '' },
+        //{ key: '5', form: 'sus4', fret: '', fing: '' },
         /* G ****************************************************/
-        // { key: '7', form: 'Major', fret: '', fing: '' },
-        //{ key: '7', form: 'Minor', fret: '', fing: '' },
-        //{ key: '7', form: 'Maj6', fret: '', fing: '' },
-        //{ key: '7', form: 'Min6', fret: '', fing: '' },
-        //{ key: '7', form: 'Min7', fret: '', fing: '' },
-        { key: '7', form: 'Dom7', fret: '3 2 0 0 0 1', fing: '' },
-        //{ key: '7', form: 'Maj7', fret: '', fing: '' },
-        //{ key: '7', form: 'Sus2', fret: '', fing: '' },
-        //{ key: '7', form: 'Sus4', fret: '', fing: '' },
+        // { key: '7', form: '', fret: '', fing: '' },
+        //{ key: '7', form: 'min', fret: '', fing: '' },
+        //{ key: '7', form: 'maj6', fret: '', fing: '' },
+        //{ key: '7', form: 'min6', fret: '', fing: '' },
+        //{ key: '7', form: 'min7', fret: '', fing: '' },
+        { key: '7', form: '7', fret: '3 2 0 0 0 1', fing: '' },
+        //{ key: '7', form: 'Δ7', fret: '', fing: '' },
+        //{ key: '7', form: 'sus2', fret: '', fing: '' },
+        //{ key: '7', form: 'sus4', fret: '', fing: '' },
         /* A ****************************************************/
-        //{ key: '9', form: 'Major', fret: '', fing: '' },
-        //{ key: '9', form: 'Minor', fret: '', fing: '' },
-        { key: '9', form: 'Maj6', fret: 'x 0 2 2 2 2', fing: 'x x 1 1 1 1' },
-        //{ key: '9', form: 'Min6', fret: '', fing: '' },
-        { key: '9', form: 'Min7', fret: '5 7 5 5 5 5', fing: '1 3 1 1 1 1' },
-        { key: '9', form: 'Min7', fret: 'x 0 2 0 1 0', fing: '' },
-        { key: '9', form: 'Dom7', fret: 'x 0 2 0 2 0', fing: '' },
-        { key: '9', form: 'Maj7', fret: 'x 0 2 1 2 0', fing: '' },
-        { key: '9', form: 'Sus2', fret: '0 0 2 2 0 0', fing: '' },
-        { key: '9', form: 'Sus4', fret: 'x 0 2 2 3 0', fing: '' },
+        //{ key: '9', form: '', fret: '', fing: '' },
+        //{ key: '9', form: 'min', fret: '', fing: '' },
+        { key: '9', form: 'maj6', fret: 'x 0 2 2 2 2', fing: 'x x 1 1 1 1' },
+        //{ key: '9', form: 'min6', fret: '', fing: '' },
+        { key: '9', form: 'min7', fret: '5 7 5 5 5 5', fing: '1 3 1 1 1 1' },
+        { key: '9', form: 'min7', fret: 'x 0 2 0 1 0', fing: '' },
+        { key: '9', form: '7', fret: 'x 0 2 0 2 0', fing: '' },
+        { key: '9', form: 'Δ7', fret: 'x 0 2 1 2 0', fing: '' },
+        { key: '9', form: 'sus2', fret: '0 0 2 2 0 0', fing: '' },
+        { key: '9', form: 'sus4', fret: 'x 0 2 2 3 0', fing: '' },
         /* B ****************************************************/
-        //{ key: '11', form: 'Major', fret: '', fing: '' },
-        //{ key: '11', form: 'Minor', fret: '', fing: '' },
-        //{ key: '11', form: 'Maj6', fret: '', fing: '' },
-        //{ key: '11', form: 'Min6', fret: '', fing: '' },
-        //{ key: '11', form: 'Min7', fret: '', fing: '' },
-        { key: '11', form: 'Dom7', fret: 'x 2 1 2 0 2', fing: '' },
-        //{ key: '11', form: 'Maj7', fret: '', fing: '' },
-        //{ key: '11', form: 'Sus2', fret: '', fing: '' },
-        //{ key: '11', form: 'Sus4', fret: '', fing: '' },
+        //{ key: '11', form: '', fret: '', fing: '' },
+        //{ key: '11', form: 'min', fret: '', fing: '' },
+        //{ key: '11', form: 'maj6', fret: '', fing: '' },
+        //{ key: '11', form: 'min6', fret: '', fing: '' },
+        //{ key: '11', form: 'min7', fret: '', fing: '' },
+        { key: '11', form: '7', fret: 'x 2 1 2 0 2', fing: '' },
+        //{ key: '11', form: 'Δ7', fret: '', fing: '' },
+        //{ key: '11', form: 'sus2', fret: '', fing: '' },
+        //{ key: '11', form: 'sus4', fret: '', fing: '' },
     ]
 
     $('#button-gen').click(function() {
@@ -399,7 +424,7 @@ $(function(){
                 $('#previewArea').html('No chord available'); 
                 return false;
             }
-
+            
             formula = formulas[result.form].split(/[ ,]+/);
             frets = result.fret.split(/[ ,]+/);
             fingers = result.fing.split(/[ ,]+/);
@@ -432,7 +457,7 @@ $(function(){
 
             // chart generation
             var udi = {
-                        title:keys[result.key] + ' ' + result.form + ' (' + extraData.notes.join(' ') + ')' ,
+                        title:keys[result.key] + result.form + ' (' + extraData.notes.join(' ') + ')' ,
                         fret:frets.join(),
                         label:fingers.join(),
                         footer:extraData.fretTones.join(),

@@ -218,6 +218,7 @@ $ sudo apt-get install php5-mysql
 
 ## Direct download software
 
+* [Bibfilex](https://sites.google.com/site/bibfilex/download/bibfilex-gtk_1.2.8.0_amd64.deb?attredirects=0&d=1)
 * [Dbeaver](http://dbeaver.jkiss.org/download/)
 * [Brackets](http://brackets.io/)
 * [Wmail](https://thomas101.github.io/wmail/download)

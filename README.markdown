@@ -12,10 +12,10 @@ cd ~
 git clone --recursive https://github.com/johgh/johgh.io-source.git
 git clone https://github.com/johgh/scripts.git
 cd johgh.io-source
-jkup
+~/scripts/jkup
 # 1. modify the files you need inside _posts folder
 # 2. preview changes on localhost:8000
-jkdeploy 'my deploy comment'
+~/scripts/jkdeploy 'my deploy comment'
 ```
 
 # The "Debian" way

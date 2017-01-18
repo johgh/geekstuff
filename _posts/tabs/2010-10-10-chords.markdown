@@ -222,7 +222,6 @@ Print chord sheet
 $(function(){
     var keys = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
     var tones = ['1', '2b', '2', '3b', '3', '4', '5b', '5', '6b', '6', '7b', '7'];
-
     var formulas = {
         '':      '0 4 7',
         'min':   '0 3 7',
@@ -241,9 +240,7 @@ $(function(){
         '7b9':   '0 4 7 10 1',
         '13':    '0 4 7 10 2 9'
     };    
-
-    var fretboard = [ ['4', '9', '2', '7', '11', '4'], ['5', '10', '3', '8', '0', '5'], ['6', '11', '4', '9', '1', '6'], ['7', '0', '5', '10', '2', '7'], ['8', '1', '6', '11', '3', '8'], ['9', '2', '7', '12', '4', '9'], ['10', '3', '8', '13', '5', '10'], ['11', '4', '9', '14', '6', '11'], ['12', '5', '10', '15', '7', '12'], ['13', '6', '11', '16', '8', '13'], ['14', '7', '12', '17', '9', '14'], ['15', '8', '13', '18', '10', '15'], ['16', '9', '14', '19', '11', '16'], ['17', '10', '15', '20', '12', '17'], ['18', '11', '16', '21', '13', '18'], ['19', '12', '17', '22', '14', '19'], ['20', '13', '18', '23', '15', '20'], ['21', '14', '19', '24', '16', '21'], ['22', '15', '20', '25', '17', '22'], ['23', '16', '21', '26', '18', '23'], ['24', '17', '22', '27', '19', '24'], ['25', '18', '23', '28', '20', '25'], ['26', '19', '24', '29', '21', '26'], ]
-
+    var fretboard = ['4', '9', '2', '7', '11', '4'];
     var chords = [
         /* C ****************************************************/
         { key: '0', form: '', fret: 'x 3 2 0 1 0', fing: '' },
@@ -305,7 +302,7 @@ $(function(){
         { key: '9', form: 'min7', fret: 'x 0 2 0 1 0', fing: '' },
         { key: '9', form: '7', fret: 'x 0 2 0 2 0', fing: '' },
         { key: '9', form: 'Δ7', fret: 'x 0 2 1 2 0', fing: '' },
-        { key: '9', form: 'sus2', fret: '0 0 2 2 0 0', fing: '' },
+        { key: '9', form: 'sus2', fret: 'x 0 2 2 0 0', fing: '' },
         { key: '9', form: 'sus4', fret: 'x 0 2 2 3 0', fing: '' },
         /* B ****************************************************/
         //{ key: '11', form: '', fret: '', fing: '' },
@@ -439,17 +436,12 @@ $(function(){
             });
 
             // fret tones
-            // extraData.fretNotes = [];
             extraData.fretTones = [];
             $.each(frets, function( index, value ) {
                 if (isNumber(value)) {
-                    var currentNote = fretboard[parseInt(value, 10)][parseInt(index, 10)];
-                    // extraData.fretNotes.push(keys[currentNote]);
-                    extraData.fretTones.push(tones[(currentNote-parseInt(result.key,10))%12]);
-
+                    currentNote = (parseInt(fretboard[index])+parseInt(value,10))%12;
+                    extraData.fretTones.push(tones[(((parseInt(currentNote,10)-parseInt(result.key,10))%12)+12)%12]);
                 } else {
-
-                    // extraData.fretNotes.push('');
                     extraData.fretTones.push('');
                 }
             });

@@ -3,6 +3,32 @@ layout: page
 title:  "Chord Generator"
 ---
 <style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 0;
+    top: 60px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
 svg.chordChart .grid {
   stroke: black;
 }
@@ -32,7 +58,7 @@ table {
 width: 50%;
 }
 
-.chordChart{
+.chorddiv{
   cursor:pointer;
 }
 
@@ -270,7 +296,8 @@ $(function(){
 
     $('#button-clone').click(function() {
         fadeInPreview();
-        $('#previewArea .chordChart').clone().appendTo('#printArea').hide().fadeIn();
+        $('#previewArea .chorddiv').clone().appendTo('#printArea').hide().fadeIn();
+        changeTooltip();
     });
 
     $('#button-print').click(function() {
@@ -283,12 +310,22 @@ $(function(){
             $(document.body).animate({ 'scrollTop':   $('#chordsheet').offset().top }, 400);
         }
     }
+    
+    function changeTooltip() {
+        $('#chordsheet .chorddiv').each(function() {
+            $(this).children('span').html('Click to remove from sheet');
+        });
+    }
 
-    $(document).on('click', '.chordChart', function() {
+    $(document).on('click', '#previewArea .chorddiv', function() {
         fadeInPreview();
         $(this).clone().appendTo('#printArea').hide().fadeIn();
+        changeTooltip();
     });
 
+    $(document).on('click', '#chordsheet .chorddiv', function() {
+        $(this).remove();
+    });
 
     $("select").select2({width:'130px'});
 
@@ -400,8 +437,8 @@ $(function(){
 
             var createChart = chartMaker();
 
-            $('#previewArea').append('<svg id="previewChart' + ind + '" ></svg>');
-
+            $('#previewArea').append('<div class="chorddiv tooltip"><span class="tooltiptext">Click to add to sheet</span> <svg id="previewChart' + ind + '" ></svg></div>');
+            
             var placeholder = document.getElementById('previewChart' + ind);
             createChart(placeholder,udi);
 

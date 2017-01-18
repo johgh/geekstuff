@@ -78,6 +78,10 @@ width: 50%;
     left: 0;
     top: 0;
   }
+
+  .tooltip .tooltiptext {
+    visibility: hidden !important;
+  }
 }
 
 

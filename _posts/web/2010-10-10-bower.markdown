@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Bower"
+permalink:  "bower"
+date:   2015-07-25 16:30:15
+category: WebDev
+tags: Web
+---
+
+## Install bower
+
+Install bower and dependencies
+: {% highlight bash %}
+    // Bower requires node, npm and git.
+    $ npm install -g bower
+{% endhighlight %}
+
+Install packages
+: {% highlight bash %}
+    // installs the project dependencies listed in bower.json
+    $ bower install
+    // registered package
+    $ bower install jquery --save
+    $ bower install bootstrap#3.3.4 --save
+{% endhighlight %}
+
+## Install wiredep
+
+Install wiredep
+: {% highlight bash %}
+    sudo npm install -g wiredep-cli
+{% endhighlight %}
+
+## Insert dependencies
+
+Insert placeholders where your dependencies will be injected
+: {% highlight html %}
+<html>
+<head>
+  <!-- bower:css -->
+  <!-- endbower -->
+</head>
+<body>
+  <!-- bower:js -->
+  <!-- endbower -->
+</body>
+</html>
+{% endhighlight %}
+
+Execute dependencies insertion
+: {% highlight bash %}
+    $ wiredep -s index.html
+{% endhighlight %}
+
+Put on .bowerrc to automate dep insertion
+: {% highlight bash %}
+    {
+        "scripts": {
+        "postinstall": "wiredep -s index.html"
+        }
+    }
+{% endhighlight %}
+
+
+> More info
+: 
+* [bower](https://bower.io/#getting-started)
+* [wiredep](https://github.com/taptapship/wiredep)

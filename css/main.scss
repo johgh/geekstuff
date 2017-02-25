@@ -44,7 +44,7 @@ $on-laptop:        800px;
     margin: auto;
 }
 
-.note, .shortnote {
+.note, .shortnote{
 	// background: #ffffa9;
 	// background: $grey-color-light;
     font-family: 'Roboto', sans-serif !important;
@@ -57,6 +57,40 @@ $on-laptop:        800px;
     font-size: 12pt;
     text-align: center;
 }
+
+.note_yellow{
+    // background: #464646 !important;
+    border: 3px solid #aaaaaa;
+    border-radius: 15px;
+    // border: 2px solid #ffbd4a;
+    // font-size: 14pt !important;
+    // color: white !important;
+    box-shadow: 15px 13px 8px #aaaaaa;
+    margin: 0 auto;
+    // width: 78%;
+}
+
+.note_yellow:hover{
+    border: 3px solid #aaaaaa;
+}
+
+
+.pd_book{
+    font-weight: bold !important;
+ }
+
+.title_pd{
+    font-family: Montserrat;
+    font-size: 15pt !important;
+    color: #ffbd4a !important;
+ }
+
+.subtitle_pd{
+    font-family: Montserrat;
+    // font-weight: bold !important;
+    font-size: 14pt !important;
+    font-weight: 300 !important;
+ }
 
 h1, h2, h3, h4, h5, h6 {
     position: relative;

@@ -83,6 +83,7 @@ tags: Sysadmin
 | gprename                       | Distro                               | System       |
 | grep                           | Distro                               | CLI          |
 | grub-customizer                | ppa:danielrichter2007/grub-customizer| System       |
+| gstreamer0.10-ffmpeg           | ppa:mc3man/gstffmpeg-keep            | System       |
 | gtk-recordmydesktop            | Distro                               | Extra        |
 | guake                          | ppa:webupd8team/unstable             | System       |
 | handbrake                      | Distro                               | Extra        |
@@ -95,6 +96,7 @@ tags: Sysadmin
 | lame                           | Distro                               | Extra        |
 | less                           | Distro                               | CLI          |
 | libreoffice-common             | Distro                               | Desktop      |
+| lollypop                       | ppa:gnumdk/lollypop                  | Desktop      |
 | lm-sensors                     | Distro                               | Extra        |
 | lyx                            | Distro                               | Extra        |
 | mdadm                          | Distro                               | System       |

@@ -92,6 +92,8 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Date/time picker for Bootstrap](http://eonasdan.github.io/bootstrap-datetimepicker/)
 
+[<i class="fa fa-external-link"></i> Tagsinput for Bootstrap](http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/)
+
 [<i class="fa fa-external-link"></i> Bootstrap plugins](http://bootsnipp.com)
 
 <br />

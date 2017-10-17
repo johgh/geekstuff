@@ -7,6 +7,20 @@ category: WebDev
 tags: Web
 ---
 
+Ajax call
+: {% highlight javascript %}
+    $.ajax({
+        url: '/save',
+        method: 'POST',
+        data: { username: 'tom' },
+        success: function (data) {
+            console.log(data);
+        }),
+        error: function () {
+            // Uh oh, something went wrong
+    }
+});
+{% endhighlight %}
 
 Trigger + stop propagation
 : {% highlight javascript %}

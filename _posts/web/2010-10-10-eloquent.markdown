@@ -1,0 +1,175 @@
+---
+layout: post
+title:  "Eloquent ORM"
+permalink:  "eloquent-orm"
+date:   2015-01-02 16:30:15
+category: WebDev
+tags: Web
+---
+
+# Artisan
+
+Create model and generate migrations
+: {% highlight php startinline %}
+    php artisan make:model User -m
+{% endhighlight %}
+
+# Collection
+
+Collection methods
+: {% highlight php startinline %}
+    // get() returns eloquent collection that extends the base collection 
+    $users = App\User::where('active', 1)->get();
+
+    // collection methods are chainable
+    $names = $users->reject(function ($user) {
+        return $user->active === false;
+    })
+    ->map(function ($user) {
+        return $user->name;
+    });
+{% endhighlight %}
+
+> [Base collection](https://laravel.com/docs/5.5/collections) (Illuminate\Support\Collection)
+
+> [Eloquent collection](https://laravel.com/docs/5.5/eloquent-collections) (Illuminate\Database\Eloquent\Collection)
+
+> Collection [available methods](https://laravel.com/docs/5.5/collections#available-methods)
+
+# Reducing memory usage
+
+Chunk, reduces memory usage executing multiple querys (one for each chunk)
+: {% highlight php startinline %}
+    Flight::chunk(200, function ($flights) {
+    foreach ($flights as $flight) {
+        //
+    }
+});
+{% endhighlight %}
+
+Cursor, reduces memory usage executing a single query
+: {% highlight php startinline %}
+    foreach (Flight::where('foo', 'bar')->cursor() as $flight) {
+        //
+    }
+{% endhighlight %}
+
+# Fetching results
+
+Find and first methods, no need to call get()
+: {% highlight php startinline %}
+    // Retrieve a model by its primary key...
+    $flight = App\Flight::find(1);
+    $flights = App\Flight::find([1, 2, 3]);
+
+    // Retrieve the first model matching the query constraints...
+    $flight = App\Flight::where('active', 1)->first();
+{% endhighlight %}
+
+Getting exceptions or scalar values, not collections
+: {% highlight php startinline %}
+    // return 404 exception instead of null
+    $model = App\Flight::findOrFail(1);
+    $model = App\Flight::where('legs', '>', 100)->firstOrFail();
+
+    // retrieve scalar value
+    $count = App\Flight::where('active', 1)->count();
+    $max = App\Flight::where('active', 1)->max('price');
+{% endhighlight %}
+
+# Inserting data
+
+Inserting single register
+: {% highlight php startinline %}
+    $flight = new Flight;
+    $flight->name = $request->name;
+    $flight->save();
+{% endhighlight %}
+
+Preparing for mass assignment
+: {% highlight php startinline %}
+    // First we need to set the fillable OR guarded attributes (exclusive OR)
+    protected $fillable = ['name'];
+    protected $guarded = ['price'];
+    // OR set all attributes mass asignable
+    protected $guarded = [];
+{% endhighlight %}
+
+Static creation
+: {% highlight php startinline %}
+    $flight = App\Flight::create(['name' => 'Flight 10']);
+{% endhighlight %}
+
+Creating with existing model 
+: {% highlight php startinline %}
+    $flight->fill(['name' => 'Flight 22']);
+{% endhighlight %}
+
+Insert / update
+: {% highlight php startinline %}
+    // Retrieve flight by name, or create it if it doesn't exist...
+    $flight = App\Flight::firstOrCreate(['name' => 'Flight 10']);
+
+    // Retrieve flight by name, or create it with the name and delayed attributes...
+    $flight = App\Flight::firstOrCreate(
+        ['name' => 'Flight 10'], ['delayed' => 1]
+    );
+
+    // If there's a flight from Oakland to San Diego, set the price to $99.
+    // If no matching model exists, create one.
+    $flight = App\Flight::updateOrCreate(
+        ['departure' => 'Oakland', 'destination' => 'San Diego'],
+        ['price' => 99]
+
+    // Retrieve by name, or instantiate...
+    $flight = App\Flight::firstOrNew(['name' => 'Flight 10']);
+
+    // Retrieve by name, or instantiate with the name and delayed attributes...
+    $flight = App\Flight::firstOrNew(
+        ['name' => 'Flight 10'], ['delayed' => 1]
+    );
+{% endhighlight %}
+
+> firstOrNew() requires to call save() to persist
+
+# Updating data
+
+Update single register
+: {% highlight php startinline %}
+    $flight = App\Flight::find(1);
+    $flight->name = 'New Flight Name';
+    $flight->save();
+{% endhighlight %}
+
+Mass update
+: {% highlight php startinline %}
+    App\Flight::where('active', 1)
+    ->where('destination', 'San Diego')
+    ->update(['delayed' => 1]);
+{% endhighlight %}
+
+> On a mass update models are not retrieved and the saved and updated model events will not be fired
+
+# Delete
+
+Retrieving the model
+: {% highlight php startinline %}
+    $flight = App\Flight::find(1);
+    $flight->delete();
+{% endhighlight %}
+
+Static call (without retrieving model)
+: {% highlight php startinline %}
+    App\Flight::destroy(1);
+    App\Flight::destroy([1, 2, 3]);
+    App\Flight::destroy(1, 2, 3);
+{% endhighlight %}
+
+Delete query
+: {% highlight php startinline %}
+    $deletedRows = App\Flight::where('active', 0)->delete();
+{% endhighlight %}
+
+> On delete query models are not retrieved and the saved and updated model events will not be fired
+
+

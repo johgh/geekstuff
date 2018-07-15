@@ -453,6 +453,21 @@ Repeat last substitution in normal and visual mode
 Repeat last substitution on the entire file in normal mode
 : `g&`
 
+## Useful commands
+Copy current file to clipboard (Linux)
+: `:%w !xsel -b`
+
+Copy current file to clipboard (Mac)
+: `:%w !pbcopy`
+
+> Useful when no clipboard support is pre-compiled
+
+Save with sudo from a not sudoed file
+: `:w !sudo tee % >/dev/null`
+
+Replace all occurences with confirmation
+: `:%s/<search>/<replace>/gc`
+
 # Vimdiff
 
 ## 2-way diff

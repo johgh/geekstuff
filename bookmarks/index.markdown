@@ -9,6 +9,12 @@ permalink: /bookmarks/
 
 <h4 class="section-title">Resources</h4>
 <br style="clear:both"/>
+
+[<i class="fa fa-external-link"></i> Bash visual command reference](https://explainshell.com)
+
+[<i class="fa fa-external-link"></i> CLI/visual Debian-like admin interface](https://linux.togaware.com/survivor/wajig.html)
+
+
 [<i class="fa fa-external-link"></i> UNIX Command Reference](http://cb.vu/unixtoolbox.xhtml)
 
 [<i class="fa fa-external-link"></i> Bash Command Reference](http://ss64.com/bash/)
@@ -42,7 +48,7 @@ permalink: /bookmarks/
 
 ## Web
 
-<h4 class="section-title">Resources</h4>
+<h4 class="section-title">Learning resources</h4>
 <br style="clear:both"/>
 [<i class="fa fa-external-link"></i> PHP best practices](http://www.phptherightway.com/)
 
@@ -56,6 +62,11 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Learn CSS Layout](http://learnlayout.com/)
 
+[<i class="fa fa-external-link"></i> CSS/frontend guides (including Vue and flexbox)](https://css-tricks.com/guides/)
+
+[<i class="fa fa-external-link"></i> Nginx 'virtual hosts' quick guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04)
+
+[<i class="fa fa-external-link"></i> Phpstorm docs/tutorials](https://confluence.jetbrains.com/display/PhpStorm/Tutorials)
 
 <h4 class="section-title">Online tools</h4>
 <br style="clear:both"/>
@@ -67,9 +78,10 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Format tools and more](http://www.freeformatter.com)
 
-[<i class="fa fa-external-link"></i> Generate css code for border radius](http://border-radius.com/)
+[<i class="fa fa-external-link"></i> Text/HTML/number tools](https://www.textfixer.com/)
 
-[<i class="fa fa-external-link"></i> Pick hls color](http://hslpicker.com/)
+
+[<i class="fa fa-external-link"></i> Generate css code for border radius](http://border-radius.com/)
 
 [<i class="fa fa-external-link"></i> Encode/decode special characters](http://www.the-art-of-web.com/javascript/escape/)
 
@@ -77,12 +89,15 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> User agent string](http://www.useragentstring.com/)
 
-
 <h4 class="section-title">Web development plugins</h4>
 <br style="clear:both"/>
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 
+[<i class="fa fa-external-link"></i> jQuery mask plugin](https://igorescobar.github.io/jQuery-Mask-Plugin/)
+
 [<i class="fa fa-external-link"></i> Tablesorter plugin](http://mottie.github.io/tablesorter)
+
+[<i class="fa fa-external-link"></i> Datatables plugin](http://datatables.net)
 
 [<i class="fa fa-external-link"></i> Jstree plugin](http://www.jstree.com)
 
@@ -96,6 +111,19 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Bootstrap plugins](http://bootsnipp.com)
 
+[<i class="fa fa-external-link"></i> Laravel server-side datatables](https://github.com/yajra/laravel-datatables)
+
+<h4 class="section-title">Web development graphical resources</h4>
+<br style="clear:both"/>
+[<i class="fa fa-external-link"></i> Free vector icons](https://www.flaticon.com/)
+
+[<i class="fa fa-external-link"></i> Icon fonts generator](http://fontello.com/)
+
+[<i class="fa fa-external-link"></i> Color 'theme' picker](https://color.adobe.com)
+
+[<i class="fa fa-external-link"></i> Pick hls color](http://hslpicker.com/)
+
+
 <br />
 
 ---
@@ -103,6 +131,11 @@ permalink: /bookmarks/
 ## Misc stuff
 
 [<i class="fa fa-external-link"></i> Server Push (and Websockets)](http://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)
+
+[<i class="fa fa-external-link"></i> X-CSRF-Token](https://stackoverflow.com/questions/34782493/difference-between-csfr-and-x-csrf-token)
+
+[<i class="fa fa-external-link"></i> PHP sort array with usort()](https://stackoverflow.com/questions/1597736/how-to-sort-an-array-of-associative-arrays-by-value-of-a-given-key-in-php/19454643#19454643)
+
 
 [<i class="fa fa-external-link"></i> Git aliases](https://git.wiki.kernel.org/index.php/Aliases#Aliases)
 

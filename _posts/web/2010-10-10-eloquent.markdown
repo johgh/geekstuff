@@ -150,7 +150,7 @@ Mass update
 
 > On a mass update models are not retrieved and the saved and updated model events will not be fired
 
-# Delete
+# Deleting data
 
 Retrieving the model
 : {% highlight php startinline %}
@@ -172,4 +172,20 @@ Delete query
 
 > On delete query models are not retrieved and the saved and updated model events will not be fired
 
+
+# Debugging
+
+Save log with generated sql code
+: {% highlight php startinline %}
+    \Log::info(\DB::getQueryLog());
+{% endhighlight %}
+
+
+# External resources
+
+[<i class="fa fa-external-link"></i> Laravel ORM/builder quick guide](http://desarrollowebtutorial.com/laravel-eloquent-orm-query-builder-consultas-sql/)
+
+[<i class="fa fa-external-link"></i> Laravel collection methods](https://laraveldaily.com/10-less-known-but-awesome-laravel-collections-methods/)
+
+[<i class="fa fa-external-link"></i> Laravel schema generator](http://www.laravelsd.com/)
 

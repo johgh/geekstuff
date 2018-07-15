@@ -286,6 +286,11 @@ $ git commit -m 'initial commit'
 $ git push -u origin master
 {% endhighlight %}
 
+> Para cambiar el repositorio remoto (o el usuario):
+`git remote set-url origin https://<user>@<repo>`
+
+
+
 A partir de ahí se puede hacer simplemente
 : {% highlight sh %}
     $ git push

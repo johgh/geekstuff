@@ -56,6 +56,23 @@ Using % with xargs
     $ ls | xargs -I % echo %
 {% endhighlight %}
 
+Checking partitions disk space
+: {% highlight sh %}
+    $ df -h
+{% endhighlight %}
+
+Checking physical directories size
+: {% highlight sh %}
+    $ du -sh
+    # ncurses du version (must install first)
+    $ ncdu
+{% endhighlight %}
+
+Checking deleted files holding disk space (so we can kill the responsible app)
+: {% highlight sh %}
+    $ lsof -nP | grep '(deleted)'
+{% endhighlight %}
+
 Massive renaming of files
 : {% highlight sh %}
     # test rename with -n

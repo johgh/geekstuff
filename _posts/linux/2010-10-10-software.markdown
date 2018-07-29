@@ -111,6 +111,7 @@ tags: Sysadmin
 | mysql-common                   | Distro                               | Development  |
 | nautilus-open-terminal         | Distro                               | System       |
 | nautilus-sendto                | Distro                               | System       |
+| ncdu                           | Distro                               | CLI          |
 | nmap                           | Distro                               | CLI          |
 | noip-2.1.9                     | Distro                               | Desktop      |
 | noise                          | ppa:elementary-os/daily              | Desktop      |

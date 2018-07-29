@@ -113,6 +113,10 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Laravel server-side datatables](https://github.com/yajra/laravel-datatables)
 
+[<i class="fa fa-external-link"></i> Control Panel Template](https://adminlte.io/)
+
+[<i class="fa fa-external-link"></i> Lumen REST API](https://github.com/hasib32/rest-api-with-lumen/blob/master/readme.md)
+
 <h4 class="section-title">Web development graphical resources</h4>
 <br style="clear:both"/>
 [<i class="fa fa-external-link"></i> Free vector icons](https://www.flaticon.com/)

@@ -134,7 +134,7 @@ Js utf8 encode/decode string
 
 Prototyped function that inits datepicker and sets mask (and validation)
 : {% highlight javascript %}
-    $.fn.myDatePicker = function(){
+    $.fn.myDatePicker = function(extraParams){
         $.datepicker.regional['es'] = {
             closeText: 'Cerrar',
             prevText: '&#x3C;Ant',
@@ -155,6 +155,7 @@ Prototyped function that inits datepicker and sets mask (and validation)
             yearSuffix: ''};
 
         $.datepicker.setDefaults($.datepicker.regional['es']);
+        $.datepicker.setDefaults(extraParams);
 
         var mydate = this;
 

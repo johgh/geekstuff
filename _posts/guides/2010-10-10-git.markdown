@@ -260,6 +260,10 @@ git config --global credential.helper "`dirname $(locate git-credential-gnome-ke
 
 > [Ejemplo de configuración completa (alias incluídos)](/gitconfig)
 
+Guardar password (en plano, sin encriptar)
+: {% highlight sh %}
+$ git config credential.helper store
+{% endhighlight %}
 <br />
 
 ## Creación de un repositorio

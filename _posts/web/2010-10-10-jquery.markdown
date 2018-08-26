@@ -132,6 +132,16 @@ Js utf8 encode/decode string
     decodeURIComponent(escape(s));
 {% endhighlight %}
 
+Select population
+: {% highlight javascript %}
+    $.each(data, function(key, item) {
+        $('#mySelect').append($("<option></option>")
+                .attr("value", item.id)
+                .prop("selected", item.selected)
+                .text(item.text));
+    });
+{% endhighlight %}
+
 Prototyped function that inits datepicker and sets mask (and validation)
 : {% highlight javascript %}
     $.fn.myDatePicker = function(extraParams){

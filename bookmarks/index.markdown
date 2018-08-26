@@ -56,11 +56,15 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> W3schools tutorial site](http://www.w3schools.com)
 
+[<i class="fa fa-external-link"></i> Scotch.io courses and tutorials site](https://scotch.io)
+
 [<i class="fa fa-external-link"></i> Htmldog tutorial site](http://www.htmldog.com)
 
 [<i class="fa fa-external-link"></i> Snippets and tutorials](http://www.the-art-of-web.com/)
 
 [<i class="fa fa-external-link"></i> Learn CSS Layout](http://learnlayout.com/)
+
+[<i class="fa fa-external-link"></i> Centering guide](https://css-tricks.com/centering-css-complete-guide/)
 
 [<i class="fa fa-external-link"></i> CSS/frontend guides (including Vue and flexbox)](https://css-tricks.com/guides/)
 
@@ -91,6 +95,8 @@ permalink: /bookmarks/
 
 <h4 class="section-title">Web development plugins</h4>
 <br style="clear:both"/>
+[<i class="fa fa-external-link"></i> Material design for bootstrap](https://mdbootstrap.com/)
+
 [<i class="fa fa-external-link"></i> Combobox plugin](https://select2.github.io/)
 
 [<i class="fa fa-external-link"></i> jQuery mask plugin](https://igorescobar.github.io/jQuery-Mask-Plugin/)
@@ -127,6 +133,12 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> Pick hls color](http://hslpicker.com/)
 
+<h4 class="section-title">Web development tools</h4>
+<br style="clear:both"/>
+[<i class="fa fa-external-link"></i> Webdev vagrant box](https://box.scotch.io/)
+
+[<i class="fa fa-external-link"></i> Laravel development admin site](http://laravel-admin.org/)
+
 
 <br />
 
@@ -140,12 +152,14 @@ permalink: /bookmarks/
 
 [<i class="fa fa-external-link"></i> PHP sort array with usort()](https://stackoverflow.com/questions/1597736/how-to-sort-an-array-of-associative-arrays-by-value-of-a-given-key-in-php/19454643#19454643)
 
+[<i class="fa fa-external-link"></i> About closures](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work?rq=1)
 
 [<i class="fa fa-external-link"></i> Git aliases](https://git.wiki.kernel.org/index.php/Aliases#Aliases)
 
 [<i class="fa fa-external-link"></i> Free (as in speech) ebooks](https://github.com/danchoi/kindlefodder)
 
 [<i class="fa fa-external-link"></i> Linux MIDI Guide](http://tedfelix.com/linux/linux-midi.html)
+
 
 <br />
 

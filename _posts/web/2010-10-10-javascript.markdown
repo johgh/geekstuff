@@ -33,6 +33,7 @@ Loops
 : {% highlight javascript %}
     var i = 1; while (i < 10) { alert(i); i = i + 1; }
     for (var i = 1; i < 10; i++) { ... }
+    var object1 = {a: 1, b: 2}; for (var property1 in object1) { console.log(object1[property1]); }
 {% endhighlight %}
 
 Creating function
@@ -107,6 +108,8 @@ String/array manipulation
     var currentPage = window.location.pathname.split(".")[0].split("/")[1]
     // join array into string
     var tonesJoin = extraData.fretTones.join();
+    // normalize string (no accents, etc)
+    str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
 {% endhighlight %}
 
 Math
@@ -118,6 +121,11 @@ Math
 isNumber
 : {% highlight javascript %}
     function isNumber(n) { return !isNaN(+n) && isFinite(n) }
+{% endhighlight %}
+
+Pass server side var to javascript (php)
+: {% highlight javascript %}
+    var obj = <?php echo json_encode($php_variable); ?>;
 {% endhighlight %}
 
 # DOM

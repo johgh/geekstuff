@@ -17,7 +17,20 @@ ssh
 
 scp
 : {% highlight sh %}
-    $ scp -P 222 D2System_venus.sql usuario@10.0.16.29:/home/usuario
+    $ scp -P 222 myfile.sql user@10.0.16.29:/home/user
+{% endhighlight %}
+
+Copy directory remotely
+: {% highlight sh %}
+    $ scp -r mylocaldir user@10.0.16.29:/home/user
+{% endhighlight %}
+
+SSH login without password and scp autocompletion (with zsh)
+: {% highlight sh %}
+    # do not enter a passphrase when prompted
+    $ ssh-keygen
+    # append the public key generated to remote server
+    $ cat .ssh/id_rsa.pub | ssh <remote_user>@<remote_IP> 'cat >> .ssh/authorized_keys'
 {% endhighlight %}
 
 Uncompress tar.gz/tar.bz2

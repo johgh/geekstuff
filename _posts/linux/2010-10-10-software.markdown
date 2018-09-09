@@ -38,6 +38,7 @@ tags: Sysadmin
 | ccze                           | Distro                               | CLI          |
 | checkinstall                   | Distro                               | CLI          |
 | cheese                         | Distro                               | Desktop      |
+| chrome-gnome-shell             | Distro                               | Desktop      |
 | comix                          | Distro                               | Desktop      |
 | command-not-found              | Distro                               | System       |
 | conky-manager                  | ppa:teejee2008/ppa                   | Desktop      |

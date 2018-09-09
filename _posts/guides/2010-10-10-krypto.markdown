@@ -1,0 +1,194 @@
+---
+layout: post
+title:  "Criptografía básica"
+permalink:  "krypto"
+date:   2015-07-02 16:30:15
+category: Quick Guides
+tags: Sysadmin
+---
+
+hacer fuente más pequena con style propio
+
+# Introducción
+
+El propósito de esta guía es introducir los conceptos criptográficos sobre los que están basados la seguridad en la transmisión de información a través de cualquier red.
+
+El alcance de esta guía es doble: Por un lado se pretende establecer un marco conceptual básico. Por otro, se pretende entrar al detalle del funcionamiento de dichos algorismos, aunque sin entrar nunca a un nivel matemático formal.
+
+Es por ello que esta guía debería ser apta (y casi imprescindible) para "todos los públicos".
+
+
+# ¿Cómo enviar información sensible a través de una red no segura?
+
+Precisamente ese es el punto de partida de la criptografía moderna, que define diferentes clases de algoritmos basados en las implicaciones de un puñado de axiomas matemáticos.
+
+Concretamente la criptografía resuelve `4 problemas básicos` relacionados con el envío de datos, o de un *mensaje* como llamaremos de aquí en adelante, a través de una red "no confiable" (como es internet):
+
+`Interceptación`
+: `A` envía a `B` un mensaje. Como este mensaje se envía a través de una red no segura, este puede ser interceptado (leído) por `X` mediante la captura de los paquetes de datos de la red (`sniffing` de datos)
+
+`Suplantación`
+: `X` envía un mensaje a `B` haciéndose pasar por `A`
+
+`Falsificación o corrupción del mensaje`
+: `A`  envía un mensaje a `B`. `X` intercepta el mensaje lo modifica y lo reenvía a `B` haciéndose pasar por `A`. De igual manera el mensaje puede llegar alterado `B` (corrupto) sin la intervención de `X` debido a un problema en la transmisión física de los datos.
+
+`Repudio de un mensaje`
+: `A`  envía un mensaje a `B`. Posteriormente niega haberlo enviado. `B` no tiene forma de saber si realmente ha sido así.
+
+# El algoritmo de encriptación de datos
+
+El cifrado de los datos enviados permite solucionar el primer problema: la `interceptación` de los datos por parte de un tercero.
+
+Existen varias clases de algoritmos de encriptación (simétrica, asimétrica, híbrida). Todos ellos cumplen estos dos puntos:
+
+* El mensaje es encriptado por parte del emisor mediante el uso de una clave, un código que transforma el mensaje original en un mensaje "ilegible".
+* Este mensaje no "legible" solo puede ser desencriptado (recuperando su forma original) mediante el uso de una clave que el destinatario debe mantener protegida.
+
+> Aunque pueda parecer paradójico los algoritmos de encriptación usados en tecnologías web tienen licencias abiertas. Entre otros motivos, esto es así porque para la comunicación entre diferentes aplicaciones y plataformas requieren de una alta estandarización en los algoritmos de encriptación. De esta manera, si en criptografía clásica era el proceso de manipulación de los datos lo que terminaba codificando el mensaje, en criptografía moderna son las claves proporcionadas a los algoritmos las que permiten el cifrado.
+
+# Criptografía simétrica
+
+
+
+
+
+`Index`
+: También conocido como "staging". Es el snapshot que será traspasado a nuestro repositorio local al ejecutar `git commit`. Cada vez que ejecutamos `git add` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar `git add`.
+
+> Para saber que hemos subido desde el `Working Tree` al `Index` en cada momento y ver las diferencias con el repositorio local ver los comandos `git difftool` y `git difftool --staged` explicados abajo.
+
+`HEAD`
+: Puntero al último commit de nuestro *repositorio local*
+
+`master`
+: Rama de desarrollo por defecto (trunk)
+
+`origin`
+: *Repositorio remoto* por defecto
+
+{:.center}
+![Git workflow](/git_commands.png "Git workflow")
+
+<div class="center">Workflow de git donde se puede ver <code>Working Tree</code>, <code>Index</code>, <code>HEAD</code> y <code>origin</code> (remoto)</div><br />
+
+> [Ver glosario de términos](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
+
+
+---
+
+# Workflows
+
+## Workflow centralizado
+
+> El workflow centralizado utiliza una única rama, `master`, para trabajar en local. El código se actualizará sobre nuestra propia rama de trabajo mediante `git pull`.
+
+Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles casos:
+
+### 1. Se realiza `pull` sin problemas
+
+> Esto sucede cuando no existen nuevos commits en remoto o no hay commits sin publicar en local. En ese último caso `git pull` hará `fast-forward` sin problemas siempre que los cambios del `Working Tree` no coincidan con los cambios de remoto.
+
+Para publicar nuestros commits locales solo hay que hacer:
+
+1) Añadir ficheros al `Index` para poder hacer commit:
+: `git add . [--all]` o `git add file1 [file2] [file3] [...]`
+
+2) Hacer commit de los ficheros que hayamos añadido al `Index`:
+: `git commit`
+
+3) Publicar los cambios en remoto:
+: `git push`
+
+### 2. No es posible realizar `pull`
+
+> Esto puede ocurrir bien porque hay commits tanto en local como en remoto o bien porque hay cambios en los ficheros del `Working Tree` que coinciden con los nuevos commits de remoto.
+
+En ambos casos para poder hacer `pull` deberemos limpiar primero el `Index` y el `Working Tree` mediante una de estas opciones:
+
+a) Realizar `commit` para luego mergearlo con el remoto, al hacer `git pull` (ver [punto 3](#caso-3-se-ejecuta-merge-o-rebase-para-mezclar-los-cambios-de-remoto-con-los-de-nuestra-rama-local))
+: 
+`git add . --all` + `git commit`
+    
+b) Realizar `stash` para apartar nuestros cambios de local y que `git pull` continúe sin problemas (ver [punto 1](#caso-1-se-realiza-pull-sin-problemas))
+: 
+`git stash`
+
+En este último caso, después de hacer `git pull` podremos volver a aplicar nuestros cambios locales con `git stash apply`
+
+Si no queremos todos los cambios del stash podremos hacer `checkout` o `diff` de los ficheros que queramos posteriormente (`stash apply` solo actúa sobre el `Working Tree`)
+
+### 3. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
+
+En este punto nos encontramos con 2 posibles casos:
+
+No hay conflicto
+: 
+Se produce un automerge commit (o si utilizamos el parámetro `--rebase` los nuevos commits quedan simplemente añadidos al final)
+    
+Hay conflicto 
+: Resolvemos con `git mergetool` y ejecutamos `git commit` (o `git rebase --continue`, de haber realizado `pull` con `rebase`)
+
+> Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto). En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
+
+Finalmente, comprobaremos que los conflictos estén resueltos y publicaremos los cambios:
+
+Miramos que los conflictos estén marcados como resueltos:
+: `git status`
+
+> Si continúan apareciendo ficheros como 'unmerged', habiendo ya resuelto los conflictos, los podemos añadir con `git add` para marcarlos como resueltos manualmente
+
+Publicamos los cambios:
+: `git push`
+
+> Si no se permite esta operación, deberemos volver a obtener los cambios de remoto y resolver los posibles conflictos: `git pull` + [resolución de conflictos] + `git push`
+
+### Abortando git pull
+
+Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`:
+
+Para abortar git pull con merge
+: `git merge --abort`
+
+Para abortar git pull con rebase
+: `git rebase --abort`
+
+Si ya hemos finalizado el pull, deberemos volver atrás mirando nuestro log local (git log -g):
+: `git reset <commit_local>`
+
+> Sin la opción `--hard`, `git reset` vuelve hasta el commit indicado dejando los cambios propios del commit en el `Working Tree`
+
+<br />
+
+## Feature Branch Workflow
+
+El objetivo de este workflow es que la rama `master` siempre esté a punto para obtener o publicar código.
+
+La rama `master` nunca debe tener código "inestable". El código en estado de desarrollo se encontrará en ramas *feature* con nombres descriptivos, que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
+
+### Configuración inicial (pull con rebase)
+
+Configurar git para hacer rebase en lugar de merge al hacer `pull`
+: {% highlight sh %}
+    $ git config --global branch.master.rebase yes
+    # también podemos configurarlo para todas las ramas
+    $ git config --global branch.autosetuprebase always
+{% endhighlight %}
+
+> Este paso es opcional pero nos permite mantener limpio el historial de commits al hacer pull, de forma que solo veamos `merge commit` en los puntos donde se realice la integración de la rama `feature` con `master`
+
+### Fases del workflow
+
+> * Creación de la rama `feature`, correspondiente a 1 *historia*
+* Trabajar con rama privada `feature`, 1 commit corresponde a 1 *tarea*
+* Hacer pública la rama `feature`
+* Trabajar en equipo con la rama pública
+* Petición de code review (*pull request*)
+* Deploy en `master` cuando se acepte el código como válido finalmente
+
+Crear rama `feature` y publicarla en remoto
+: {% highlight sh %}
+    $ git checkout -b feature master
+    $ git push -u origin feature
+{% endhighlight %}
+

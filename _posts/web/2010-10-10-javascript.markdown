@@ -183,6 +183,18 @@ Page fully loaded (jQuery $(window).load(function() {...})
     window.addEventListener('load', doSomething);
 {% endhighlight %}
 
+Copy text to clipboard
+: {% highlight javascript %}
+    // <input type="text" value="Hello World" id="myInput">
+    // <button onclick="copyToClipboard()">Copy text</button>
+    function copyToClipboard() {
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      document.execCommand("copy");
+      alert("Copied the text: " + copyText.value);
+    }
+{% endhighlight %}
+
 # Ajax and JSON
 
 Ajax call

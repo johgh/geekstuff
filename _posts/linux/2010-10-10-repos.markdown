@@ -6,6 +6,21 @@ date:   2015-08-23 16:30:15
 category: GNU/Linux
 tags: Sysadmin
 ---
+
+# Cross-platform
+
+> Flatpak app store
+: 
+[ https://flathub.org/apps ]( https://flathub.org/apps )
+
+> Snaps app store
+: 
+[ https://snapcraft.io/store ]( https://snapcraft.io/store )
+
+> AppImage app store
+: 
+[ https://appimage.github.io/apps/ ]( https://appimage.github.io/apps/ )
+
 # Ubuntu
 
 > WebUpd8 main repository (ubuntu packages)

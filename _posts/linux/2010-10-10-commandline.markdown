@@ -32,6 +32,20 @@ Disable disk automount (don't ask to mount)
     $ gsettings set org.gnome.desktop.media-handling automount-open false
 {% endhighlight %}
 
+Tilix shortcut (full-screen quake mode with session)
+: {% highlight sh %}
+    # this should be assigned to an accessible key like F1
+    tilix --quake --full-screen --session="~/dotfiles/tilix.json"
+{% endhighlight %}
+
+Swap Caps_Lock and Control_L
+: {% highlight sh %}
+    # put these lines on .Xmodmap file (tested on xfce)
+    remove Lock = Caps_Lock
+    keycode 0x42 = Control_L
+    add Control = Control_L 
+{% endhighlight %}
+
 Notify opening guake when phplog changes (showing "tailed" log on guake)
 : {% highlight sh %}
     $ while inotifywait -e close_write /var/log/phplog; do guake -s 0; guake -t; done > /dev/null 2>&1 &

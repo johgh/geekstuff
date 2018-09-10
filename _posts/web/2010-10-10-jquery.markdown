@@ -132,6 +132,11 @@ Js utf8 encode/decode string
     decodeURIComponent(escape(s));
 {% endhighlight %}
 
+Scroll to id
+: {% highlight javascript %}
+    $('html,body').scrollTop($('#myId').offset().top);
+{% endhighlight %}
+
 Select population
 : {% highlight javascript %}
     $.each(data, function(key, item) {

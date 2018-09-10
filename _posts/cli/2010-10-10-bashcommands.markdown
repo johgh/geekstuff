@@ -8,7 +8,18 @@ tags: Sysadmin
 ---
 # General commands
 
+
 > For a complete generic command reference go [here](http://cb.vu/unixtoolbox.xhtml)
+
+rsync (simulation mode -n and verbose -v)
+: {% highlight sh %}
+    $ rsync -rtazhn -v --delete \
+    --exclude="dir1" \
+    --exclude="dir2/file" \
+    $ORIGIN_DIR/ root@192.168.0.100:/$DEST_DIR
+{% endhighlight %}
+
+> see rsync examples [here](https://www.tecmint.com/rsync-local-remote-file-synchronization-commands)
 
 ssh
 : {% highlight sh %}
@@ -25,7 +36,7 @@ Copy directory remotely
     $ scp -r mylocaldir user@10.0.16.29:/home/user
 {% endhighlight %}
 
-SSH login without password and scp autocompletion (with zsh)
+ssh login without password and scp autocompletion (with zsh)
 : {% highlight sh %}
     # do not enter a passphrase when prompted
     $ ssh-keygen
@@ -97,6 +108,14 @@ Massive renaming of files
 {% endhighlight %}
 
 > Patterns expect [Perl Compatible Regular Expressions](https://regex101.com/#pcre) (PCRE).
+
+Burn image to usb drive
+: {% highlight sh %}
+    # first find drive letter with blkid
+    sudo blkid
+    # write image to device
+    sudo dd bs=4M if=/path/to/file.iso of=/dev/sd[drive letter] status=progress
+{% endhighlight %}
 
 # Shell config and reloading
 

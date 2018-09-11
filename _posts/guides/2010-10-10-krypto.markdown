@@ -9,19 +9,24 @@ tags: Sysadmin
 
 # Introducción
 
-El propósito de esta guía es introducir los conceptos criptográficos sobre los que están basados la seguridad en la transmisión de información a través de cualquier red.
+El propósito de este texto es la introducción de los conceptos criptográficos sobre los que están basados la seguridad en la transmisión de información a través de una red.
 
-El alcance de esta guía es doble: Por un lado se pretende establecer un marco conceptual básico. Por otro, se pretende entrar al detalle del funcionamiento de dichos algorismos, aunque sin entrar nunca a un nivel matemático formal.
+El alcance de esta guía es múltiple:
 
-Es por ello que esta guía debería ser apta (y casi imprescindible) para "todos los públicos".
+1. Por un lado se establecen los problemas básicos en la transmisión de datos y que esquemas (mecanismos) criptográficos podemos utilizar para solucionarlos.
 
+2. En segundo lugar se documenta con detalle el funcionamiento de dichos esquemas, analizando sus puntos fuertes y sus puntos débiles.
+
+3. Finalmente, se enumeran y se desriben (a gandes rasgos) un par de implementaciones de los esquemas descritos anteriormente.
+
+El enfoque de este documento, aunque riguroso y detallado, no entra en un nivel matemático formal, por lo que es una lectura indicada para alguien sin ningún conocimiento previo en la materia.
 
 # Los 4 problemas en la transmisión de información
 
 Se conocen `4 problemas básicos` relacionados con el envío de datos, o de un *mensaje*, a través de una red "no confiable", como internet. Una red no confiable es aquella, a través de cuyos nodos es posible [ capturar información ajena ]( https://es.wikipedia.org/wiki/Modo_promiscuo ). Dichos problemas son:
 
 `Interceptación`
-: `A` envía a `B` un mensaje. Como este mensaje se envía a través de una red no segura, este puede ser interceptado (leído) por `X` mediante la captura de los paquetes de datos de la red (`sniffing` de datos)
+: `A` envía a `B` un mensaje. Como este mensaje se envía a través de una red no segura, este puede ser interceptado por `X` mediante la captura de los paquetes de datos de la red (`sniffing` de datos)
 
 `Suplantación`
 : `X` envía un mensaje a `B` haciéndose pasar por `A`
@@ -63,8 +68,8 @@ Todo algoritmo de encriptación (ya sea de clase simétrica, asimétrica, híbri
 1. El mensaje es encriptado por parte del emisor mediante el uso de una clave (un código) que transforma el mensaje original en un mensaje "ilegible".
 2. Este mensaje no "legible" solo puede ser desencriptado mediante el uso de una clave que el destinatario debe mantener protegida.
 
-Además, según el principio de Kerckhoffs:
-
+El principio de Kerckhoffs:
+: 
 >
 "La seguridad del sistema debe recaer en la seguridad de la clave, debiéndose suponer conocidos el resto de los parámetros del sistema criptográfico"
 
@@ -385,6 +390,6 @@ La suite GPG es libre y multiplataforma y es interoprable en sus versiones actua
 
 La interfaz principal de GnuPG es la terminal pero hay varios programas que permiten su uso en modo gráfico (para el escritorio Gnome, por ejemplo, existe una aplicación llamada Seahorse)
 
-GnuPG, además, está integrado en programas como Evolution y KMail (Linux), y existe una extensión llamada Enigmail para varios programas de Mozilla.
+GnuPG, además, está integrado en programas como Evolution y KMail (Linux), y existe una extensión llamada Enigmail para varios programas de Mozilla (multiplataforma).
 
 

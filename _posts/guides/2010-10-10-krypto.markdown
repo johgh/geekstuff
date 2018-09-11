@@ -1,13 +1,11 @@
 ---
 layout: post
-title:  "Criptografía básica"
+title:  "Principios de criptografía"
 permalink:  "krypto"
 date:   2015-07-02 16:30:15
 category: Quick Guides
 tags: Sysadmin
 ---
-
-hacer fuente más pequena con style propio
 
 # Introducción
 
@@ -18,9 +16,9 @@ El alcance de esta guía es doble: Por un lado se pretende establecer un marco c
 Es por ello que esta guía debería ser apta (y casi imprescindible) para "todos los públicos".
 
 
-# Los 4 problemas básicos en el envío de datos
+# Los 4 problemas en la transmisión de información
 
-Se conocen `4 problemas básicos` relacionados con el envío de datos, o de un *mensaje* como llamaremos de aquí en adelante, a través de una red "no confiable", como por ejemplo, internet.
+Se conocen `4 problemas básicos` relacionados con el envío de datos, o de un *mensaje*, a través de una red "no confiable", como internet. Una red no confiable es aquella, a través de cuyos nodos es posible [ capturar información ajena ]( https://es.wikipedia.org/wiki/Modo_promiscuo ). Dichos problemas son:
 
 `Interceptación`
 : `A` envía a `B` un mensaje. Como este mensaje se envía a través de una red no segura, este puede ser interceptado (leído) por `X` mediante la captura de los paquetes de datos de la red (`sniffing` de datos)
@@ -34,255 +32,297 @@ Se conocen `4 problemas básicos` relacionados con el envío de datos, o de un *
 `Repudio de un mensaje`
 : `A`  envía un mensaje a `B`. Posteriormente niega haberlo enviado. `B` no tiene forma de saber si realmente ha sido así.
 
-# La solución: la criptografía moderna
+# La solución: criptografía moderna
 
-La criptografía moderna define diferentes clases de algoritmos para resolver los problemas anteriores: algoritmos de criptografía simétrica y asimétrica, codigos de autorización, firmas y certificados digitales. En la tabla inferior podemos ver que problemas resuelven cada clase de algoritmo:
+La criptografía moderna define diferentes clases de mecanismos para resolver los problemas anteriores:
+
+1. Esquemas de criptografía simétrica
+2. Esquemas de criptográfia asimétrica
+3. Codigos de autorización
+4. Firmas digitales y certificados digitales.
+
+En el siguiente cuadro podemos ver que problemas resuelven cada uno de los mecanismos mencionados:
 
 {:#pkgTable}
-| Tipo de algoritmo              | Problema que resuelve                | Problemas por resolver           |
+| Tipo de esquema                | Problemas que resuelve                | Problemas por resolver           |
 |:-------------------------------|:-------------------------------------|----------------------------------|
-| Encriptación simétrica         | Interceptación                       | Envío seguro de la clave         |
+| Encriptación simétrica         | Interceptación                       | Envío inseguro de la clave       |
 | Encriptación asimétrica        | Interceptación                       | Ataque 'man-in-the-middle'       |
-| Códigos de autenticación       | Suplantación/falsificación/corrupción| No resuelve el repudio de un mensaje | (ya que A puede alegar que B ha fabricado el mensaje, B sabe que es mentira = suplantación resuelta)
-| Firma digital                  | Repudio de un mensaje                | Certificación del emisor de datos|
-| Certificado digital            | Certificación del emisor             |                                  |
+| Códigos de autenticación       | Suplantación/falsificación/corrupción| Repudio de un mensaje | 
+| Firma digital                  | Repudio de un mensaje                | Certificación del propietario de la clave pública|
+| Certificado digital            | Certificación del propietario de la clave pública             |                                  |
 
-Poner un enlace en tipo de algo a cada sección
+Poner un enlace en tipo de algo a cada sección COMO SE HACIA??
 
-# El proceso de encriptación de datos
+# El mecanismo de encriptación/desencriptación de datos
 
-El cifrado de los datos enviados permite solucionar el primer problema: la `interceptación` de los datos por parte de un tercero.
+El cifrado de los datos transmitidos permite solucionar el problema de la `interceptación` por parte de un tercero.
 
-Existen varias clases de algoritmos de encriptación (simétrica, asimétrica, híbrida). Todos ellos cumplen dos puntos:
+Todo algoritmo de encriptación (ya sea de clase simétrica, asimétrica, híbrida) cumple con los siguientes puntos:
 
-* El mensaje es encriptado por parte del emisor mediante el uso de una clave, un código que transforma el mensaje original en un mensaje "ilegible".
-* Este mensaje no "legible" solo puede ser desencriptado (recuperando su forma original) mediante el uso de una clave que el destinatario debe mantener protegida.
+1. El mensaje es encriptado por parte del emisor mediante el uso de una clave (un código) que transforma el mensaje original en un mensaje "ilegible".
+2. Este mensaje no "legible" solo puede ser desencriptado mediante el uso de una clave que el destinatario debe mantener protegida.
 
-> Aunque pueda parecer paradójico los algoritmos de encriptación usados en tecnologías web tienen licencias abiertas. Entre otros motivos, esto es así porque para la comunicación entre diferentes aplicaciones y plataformas requieren de una alta estandarización en los algoritmos de encriptación. De esta manera, si en criptografía clásica era el proceso de manipulación de los datos lo que terminaba codificando el mensaje, en criptografía moderna son las claves proporcionadas a los algoritmos las que permiten el cifrado.
+Además, según el principio de Kerckhoffs:
+
+>
+"La seguridad del sistema debe recaer en la seguridad de la clave, debiéndose suponer conocidos el resto de los parámetros del sistema criptográfico"
+
+Esto explica porqué los algoritmos criptográficos suelen emplear licencias abiertas, ya que no necesitan "ocultar" la implementación de los algoritmos criptográficos.
+
+Si en criptografía clásica era el proceso de manipulación de los datos lo que permitía la codificación del mensaje, mediante un proceso de [seguridad por oscuridad](https://es.wikipedia.org/wiki/Seguridad_por_oscuridad), en criptografía moderna la implementación de los algoritmos es absolutamente transparente, siendo la clave de encriptación, según su longitud, la que otorga mayor o menor seguridad a todo el sistema.
+
+Por otro lado las licencias libres proporcionan una interoperabilidad imprescindible, dado que dichos algoritmos tienen su razón de ser sobre la transmisión de datos entre diferentes partes y diferentes tipos de plataformas, además de proporcionar un [mecanismo óptimo para la corrección de posibles agujeros de seguridad](https://es.wikipedia.org/wiki/Ley_de_Linus).
 
 ## Encriptación simétrica
 
-En la encriptación simétrica, o de clave compartida, se utiliza la misma clave tanto para la encriptación como para la desencriptación del mensaje.
+En la encriptación simétrica o de clave compartida se utiliza la misma clave tanto para la encriptación como para la desencriptación del mensaje.
 
 > 
-* Las partes `A` y `B` se ponen de acuerdo en utilizar una determinada clave que mantendrań secreta y convenientemente protegida para la encriptación/desencriptación de sus comunicaciones.
+* Las partes `A` y `B` acuerdan utilizar una determinada clave y mantenerla en secreto
 * `A` encripta un mensaje con dicha clave y lo envía a `B`
 * `B` lo recibe y lo desencripta mediante la misma clave
 
-Este procedimiento resuelve el problema de la interceptación de datos, ya que aunque un agente no autorizado `X` intercepte los datos (mediante sniffing), este solo obtendrá un mensaje cifrado completamente ilegible.
+De esta manera queda resuelto el problema de `interceptación` de los datos. En el caso de que un agente no autorizado `X` intercepte el mensaje en un nodo intermedio de la red solo obtendría un texto completamente ilegible.
 
-Sin embargo, la encriptación simétrica presenta aún un problema por resolver, conocido como el problema de 'transmisión de las claves'. 
+### Problemas por resolver
+La encriptación simétrica presenta aún un problema pendiente: el conocido como `problema de transmisión de las claves`. 
 
-Este problema consiste en que las partes no podrán enviarse la clave por la misma red insegura por la que pretenden comunicarse de forma segura. Si lo hicieran la clave podría ser interceptada en primer lugar por un tercer agente `X`, inhabilitando todo el proceso de encriptación de mensajes.
+Dicho problema consiste en que las partes no pueden mandar la clave por la misma red insegura por la que pretenden comunicarse con seguridad. De hacerlo la clave podría ser interceptada por un agente externo `X`, anulando todo el sistema de encriptado.
 
-Tampoco serviría de nada encriptar el mensaje que contiene la clave, puesto que, de nuevo a dicho mensaje encriptado correspondería otra nueva clave que no podría ser transmitida de forma segura.
+De optar por encriptar el propio mensaje que contiene la clave, el problema se repetiría, puesto que a dicho mensaje encriptado correspondería otra nueva clave que tampoco podría ser transmitida de forma segura por la red.
 
-Para solucionar este problema hay dos posibles soluciones:
+Para solucionar este problema se conocen dos soluciones:
 
-* utilizar un protocolo de intercambio de claves, como el basado en el algoritmo de Diffie-Hellman, de forma que no sea necesario el envío "directo" de una clave.
-* utilizar encriptación asimétrica, utilizando un par de claves privada/pública.
+1. La utilización de un protocolo de intercambio de claves (como el basado en el algoritmo de Diffie-Hellman) de forma que no sea necesario el envío físico de una clave.
+2. La utilización de encriptación asimétrica, también conocida como encriptación de clave pública/clave privada.
 
 # Funciones criptográficas de hash
 
-Las funciones hash toman una entrada de datos de cualquier longitud y la transforman en una salida de una longitud fija, el `código hash`, el cual se puede entender como una clase de "firma" de los datos originales.
-
-Las funciones hash en criptografía tienen idealmente las siguientes propiedades:
-- Calculan de forma extraordinariamente eficiente el valor de un código hash para cualquier entrada.
-- No es posible calcular la entrada que originó el código hash (debido a que varias entradas pueden dar como resultado el mismo valor hash, esto se conoce como "colisión hash")
-- Es improbable que dos mensajes ligeramente diferentes tengan el mismo código o uno parecido.
-- Calcular una posible entrada para un código hash es extremadamente costoso computacionalmente.
-
 Las funciones criptográficas de hash tienen varias utilidades prácticas:
 
-* permiten verificar la integridad de un mensaje, es decir si los datos están o no corruptos
-* intervienen en el proceso de los códigos de autenticación y de firma digital
-* son el fundamento básico de cualquier sistema de autenticación
+1. Permiten verificar la integridad de un mensaje, es decir si los datos se mantienen intactos desde su origen (no han sido corrompidos o manipulados en su transmisión por el medio físico)
+2. Intervienen en la creación de los códigos de autenticación y de firma digital
+3. Son el fundamento básico de cualquier sistema de autenticación
 
-## Sistemas de autenticación
+## El código hash
+Las funciones hash toman una entrada de datos de cualquier longitud y la transforman en una salida de longitud fija, el `código hash`, el cual hace la función de "firma" de los datos originales.
 
-> 
-Las anteriores propiedades hacen de los códigos hash un mecanismo perfecto para cualquier sistema de autenticación mediante contraseña.
+Las funciones hash en criptografía tienen idealmente las siguientes propiedades:
 
-Al aplicar la creación de un código hash por cada contraseña suministrada podemos guardar la "firma" de la contraseña sin almacenar el texto original. Cuando necesitemos verificar que el usuario conoce su contraseña únicamente deberemos volver a calcular el valor hash a partir de la contraseña nuevamente suministrada y compararlo con el valor que tenemos almacenado.
+1. Calculan de forma extraordinariamente eficiente el valor de un código hash para cualquier clase de entrada
+2. Hacen imposible calcular la entrada que originó el código hash (debido a que varias entradas pueden dar como resultado el mismo valor hash, esto se conoce como "colisión hash")
+3. De querer calcular una de las posibles entrada para un determinado código hash el costo computacional sería extremadamente alto.
+4. Dos mensajes ligeramente diferentes no deben generar nunca un mismo código, ni siquiera uno parecido (en la práctica esto es algo altamente improbable)
 
-El hecho de guardar un valor hash, en lugar de la contraseña en plano o con alguna clase de encriptación, aporta los siguientes beneficios:
-* Un intruso en nuestra base de datos no podrá recuperar el valor original de las contraseñas a partir de un código hash. Y aunque si podría calcular una de las posibles entradas, sigue siendo extremadamente costoso su cálculo.
-* A partir de los valores hash, no podrá hacer deducciones, como la longitud de la contraseña original, o la similitud de dos códigos no implicarán ninguna clase de similitud de los valores originales.
+## El código hash y los sistemas de autenticación
+
+Las anteriores propiedades hacen de los códigos hash un mecanismo ideal para cualquier sistema de autenticación mediante contraseña.
+
+El sistema funciona de la siguiente manera:
+
+* Se genera un código hash a partir de la contraseña suministrada por el usuario en su proceso de registro a nuestro sistema
+* Se persiste (almacena) dicho código a modo de "firma" desechando el password original enviado por el usuario
+* Cuando el usuario requiere identificarse en nuestro sistema se vuelve a calcular el código hash de la contraseña nuevamente suministrada y se compara con el valor hash anteriormente almacenado
+
+El hecho de almacenar un valor hash en lugar de la contraseña (ya sea en plano o encriptada) nos aporta los siguientes beneficios:
+
+1. Un intruso en nuestra base de datos nunca podrá calcular el valor original de las contraseñas a partir de su código hash
+2. A partir de la comparación de los valores hash tampoco podrá extraer ninguna clase de conclusiones, ya que:
+* valores casi idénticos generarán valores hash completamente distintos, según las propiedades de las funciones hash
+* no podrá determinar su longitud ya que todos los valores hash tienen la misma longitud
 
 ## Verificación de integridad
-Podemos verificar la integridad de un mensaje calculando la función hash del mismo y comparándo el resultado con un valor de referencia calculado en el origen de la transmisión.
+Para verificar la integridad de un mensaje únicamente deberemos:
 
-## Códigos de autenticación
+* Calcular la función hash del mismo
+* Comparar el resultado con un valor de referencia precalculado en el origen de la transmisión
+
+## Códigos de autenticación (MAC)
 
 Los códigos de autenticación permiten la autenticación de un mensaje y la detección de falsificaciones.
 
 Partiendo del escenario de un sistema de clave compartida:
 
-La parte `A` envía un mensaje a `B` con un "código de producto" debidamente encriptado
-Un agente malicioso `X` interviene y altera dicho mensaje
-Cuando `B` desencripta dicho mensaje obtiene, por azar, un código de producto válido, que nada tiene que ver con el enviado por `A`
+>
+* La parte `A` envía un mensaje a `B` con un "código de producto" debidamente encriptado
+* Un agente malicioso `X` interviene y altera dicho mensaje
+* Cuando `B` desencripta dicho mensaje obtiene, por azar, un código de producto válido, pero que nada tiene que ver con el enviado por `A`
 
 Para evitar tal escenario debemos hacer uso de un código de autenticación:
 
-La parte `A` crea un valor Hash a partir de la combinación del mensaje encriptado y la clave compartida con `B`. Este valor se conoce como MAC (Código de Autenticación del mensaje). Actualmente el algoritmo más usado es HMAC
+>
+* La parte `A` crea un valor hash de la combinación del mensaje encriptado y la clave compartida con `B`. Este valor se conoce como MAC (Código de Autenticación del mensaje).
+* La parte `A` envía el valor MAC junto con el mensaje cifrado a la parte `B`
+* La parte `B` comprueba que el mensaje no sea una falsificación al crear de nuevo, por su parte, un valor hash a partir de la combinación del mensaje cifrado y la clave compartida.
+* Al comprobar que el código calculado por él mismo coincide con el MAC enviado por `A`, procede a descifrar el mensaje enviado por `B`
 
-La parte `A` envía el valor MAC junto con el mensaje cifrado a la parte `B`
+El receptor del mensaje tiene ahora la seguridad de que el mensaje no ha sido falsificado. Además puede estar seguro de que ha sido enviado por `A`, el único conocedor de la clave.
 
-La parte `B` comprueba que el mensaje no sea una falsificación al crear de nuevo, por su parte, un valor hash a partir de la combinación del mensaje cifrado y la clave compartida.
+### Problemas por resolver
 
-Al comprobar que el código calculado por él mismo es el mismo que el MAC enviado por la parte `A`, puede proceder a descifrar el mensaje enviado por `B`, con la seguridad de que el mensaje no puede haber sido falsificado, y tan solo puede haber sido enviado por `A`, el único conocedor de la clave.
+El hecho de que la clave sea conocida tanto por `A` como por `B`, hace que `A` pueda acusar a `B` de haber fabricado el mensaje y repudiarlo. 
 
-El anterior sistema tiene un problema en cuanto utiliza la clave compartida como medio para autenticar a la otra parte. El hecho de que la clave sea compartida por `A` y `B`, hace que `A` pueda acusar a `B` de haber fabricado él mismo el mensaje, repudiando el mismo. 
+Para poder asociar un mensaje de forma unívoca con su creador, se necesita el uso de un esquema de criptografía asimétrica: la firma digital.
 
-El anterior problema tan solo se puede solucionar mediante un sistema de "identificación universal", haciendo uso de firmas y certificados digitales, basados en criptografía asimétrica.
+# Criptografía asimétrica
 
-## Criptografía asimétrica
+La criptografía asimétrica se basa en la generación de un par de claves mediante un algoritmo como por ejemplo: RSA.
 
-La criptografía asimétrica se basa en la generación de un par de claves mediante un algoritmo (como por ejemplo, RSA)
+Este par de claves especiales tienen la siguiente particularidad: lo que es encriptado con una de ellas solo es posible desencriptarlo con la otra.
 
-Este par de claves especiales tienen la siguiente particularidad: lo que es encriptado con una de ellas es posible desencriptarlo con la otra, y a la inversa.
+El esquema de clave pública/clave privada tiene varias aplicaciones: la encriptación asimétrica, la firma digital y el certificado digital.
 
-Existen varias aplicaciones para dicho esquema de clave pública/clave privada: la encriptación asimétrica, la firma digital y el certificado digital.
-
-En el siguiente cuadro se encuentran las principales características de cada uno de estos algoritmos:
+En el siguiente cuadro se encuentran las principales características de cada uno de estos mecanismos:
 
 {:#pkgTable}
-| Tipo de algoritmo       | Generador de las claves  | Encriptación con... | Características                                   |
+| Tipo de esquema       | Generador de las claves  | Encriptación con... | Características                                   |
 |:------------------------|:-------------------------|---------------------|---------------------------------------------------|
 | Encriptación asimétrica | Emisor                   | Clave pública       | Múltiples emisores encriptan con la clave pública del receptor |
 | Firma digital           | Receptor                 | Clave privada       | Comprobación de la identidad mediante la clave pública del firmante |
 | Certificado digital     | Autoridad certificadora  | Clave privada       | Sustituye clave pública por certificado verificable mediante clave publica de la autoridad |
 
-### Encriptación asimétrica
+## Encriptación asimétrica
 
-> El procedimiento es el siguiente:
+> El sistema funciona así:
+
 * La parte `A` encripta un mensaje mediante la clave pública de la parte `B` y se lo envía a este
 * La parte `B` desencripta el mensaje enviado por `A` mediante su propia clave privada
 
-La principal característica de este algoritmo consiste en que la clave que desencripta el mensaje se encuentra tan solo en posesión de una de las partes, lo que elimina el problema de "transmisión de claves" del sistema de clave compartida.
+La principal característica de este esquema es que la clave que desencripta el mensaje se encuentra tan solo en posesión de una de las partes, esto elimina el `problema de transmisión de claves` del sistema de clave compartida.
 
-Por otro lado, la clave pública puede ser publicada sin problemas, de forma que facilita el envío de mensajes cifrados al poseedor de dicha clave.
+Por otra parte, la clave pública puede ser compartida libremente, facilitando el envío de mensajes cifrados al poseedor de la misma.
 
-Sin embargo este sistema presenta dos inconvenientes:
+### Problemas por resolver
 
-Por un lado la encriptación de un mensaje con este sistema es mucho más lenta que con el sistema de clave compartida.
+La encriptación de un mensaje con este sistema es mucho más costosa (lenta) que con la de un sistema de clave compartida.
 
-Para solucionar este problema es posible utilizar un sistema híbrido, de clave simétrica/asimétrica. 
+Para solucionar este problema es posible utilizar un sistema híbrido de clave simétrica/asimétrica:
 
-`A` envía una nueva clave cifrada con la clave privada de `B` mediante el sistema de cifrado asimétrico. De esta forma evita el problema de 'transmisión de claves' propio del sistema de clave compartida.
+>
+* `A` envía una nueva clave cifrada con la clave privada de `B` mediante el sistema de cifrado asimétrico (de esta forma evita el problema de 'transmisión de claves' propio del sistema de clave compartida)
+* `B` descifra dicho mensaje mediante su clave privada y obtiene la clave que también posee `A`.
+* A partir de ahí `A` y `B` se comunican exclusivamente mediante un sistema de clave compartida, evitando así el problema de lentitud del sistema asimétrico.
 
-`B` descifra dicho mensaje mediante su clave privada y obtiene la clave que también posee `A`. A partir de ahora ya puede comunicarse con `B` mediante un sistema de clave compartida, evitando así el problema de lentitud del sistema asimétrico.
+Otro problema, más grave, del cifrado asimétrico es que no impide un ataque del tipo `man-in-the-middle`:
 
-El segundo inconveniente del cifrado asimétrico es que no impide un ataque del tipo 'man-in-the-middle':
+>
+* El agente suplantador `X` se hace pasar por `B` y entrega su propia clave pública a la parte `A`
+* `A` envía un mensaje cifrado a `X`, pensando que en realidad es `B`
+* `X` desencripta tranquilamente el mensaje mediante su propia clave privada
+* Luego, para no romper la "cadena de comunicación" con `B`, `X` reenvía a `B` la información recibida de `A` volviéndola a encriptar mediante su clave pública.
 
-El agente suplantador `X` entrega su propia clave pública a la parte `A`, haciéndose pasar por `B`.
-
-`A` envía un mensaje cifrado a `X`, pensando que en realidad es `B`.
-
-`X` desencripta el mensaje mediante su propia clave privada.
-
-Para no romper la "cadena de comunicación" con `B`, `X` puede reenviar a `B` la información recibida de `A` volviéndola a encriptar mediante su clave pública. De esta manera el agente `X`, actúa como "intermediario" de las comunicaciones entre `A` y `B` ('man in the middle'), evitando cualquier clase de sospecha, mientras se hace con todas las comunicaciones de `A` hacia `B`.
+De esta manera el agente `X` actúa como "intermediario" (man in the middle) de las comunicaciones entre `A` y `B`, haciéndose con todas sus comunicaciones sin que ninguno de los dos pueda llegar a sospechar nada.
 
 
-### Firma digital
+## Firma digital
 La firma digital aporta el beneficio de la no repudiación de los mensajes sobre el esquema de códigos de autorización visto anteriormente.
 
 En el siguiente cuadro podemos ver las diferencias entre estos dos sistemas:
 
 {:#pkgTable}
-| Tipo de algoritmo       | Uso de la clave                                  | Repudiación de los datos |
+| Tipo de esquema       | Uso de la clave                                  | Repudiación de los datos |
 |:------------------------|:-------------------------------------------------|---------------------------------------------------|
 | Código de autorización  | 1 clave para cada comunicación                   | No se puede garantizar la autoría del mensaje            |
-| Firma digital           | Mismo mensaje para múltiples destinatarios       | Solamente el emisor puede crear un mensaje con su propia firma  |
+| Firma digital           | Mismo mensaje para múltiples destinatarios       | El emisor puede firmar de forma exclusiva sus propios mensajes  |
 
 Recordemos ahora las diferencias entre la encriptación asimétrica y la firma digital:
 
 {:#pkgTable}
-| Tipo de algoritmo       | Generador de las claves  | Encriptación con... | Características                                   |
+| Tipo de esquema       | Generador de las claves  | Encriptación con... | Características                                   |
 |:------------------------|:-------------------------|---------------------|---------------------------------------------------|
 | Encriptación asimétrica | Emisor                   | Clave pública       | Múltiples emisores encriptan con la clave pública del receptor |
 | Firma digital           | Receptor                 | Clave privada       | Comprobación de la identidad mediante la clave pública del firmante |
 
-La característica fundamental del sistema de firma digital es la utilización de la clave privada en la encriptación del mensaje. Esto tiene dos implicaciones directas:
+La característica fundamental del mecanismo de firma digital es la utilización de la clave privada en la encriptación del mensaje, esto tiene dos implicaciones directas:
 
-1. la utilización de la clave privada para el cifrado de un mensaje hace que solamente el emisor pueda ser identificado como creador de su propio mensaje
-2. el sistema de firmado no se diseña como un medio de encriptación puesto que cualquier poseedor de la clave pública podrá desencriptar dicho mensaje y leer el contenido original
+1. La utilización de la clave privada para el cifrado de un mensaje hace que solamente el emisor pueda ser identificado como creador de su propio mensaje
+2. El sistema de firmado no se diseña como un medio de encriptación puesto que cualquier poseedor de la clave pública podrá desencriptar dicho mensaje y leer el contenido original
 
-Veamos el procedimiento completo:
+Veamos el flujo completo:
 
-`A` obtiene en primer lugar un código hash del mensaje que pretende enviar a `B`
-`A` encripta el código hash con su clave privada obteniendo la "firma" del mensaje
-`A` envía el código hash junto con el mensaje a `B`
-`B` calcula por su parte el código hash del mensaje recibido y desencripta la firma con la clave pública de `A`
-Si los dos valores coinciden se puede garantizar que se han generado con la clave privada de `A`
+>
+* `A` obtiene en primer lugar un código hash del mensaje que pretende enviar a `B`
+* `A` encripta el código hash con su clave privada obteniendo la "firma" del mensaje
+* `A` envía el código hash junto con el mensaje a `B`
+* `B` calcula por su parte el código hash del mensaje recibido y desencripta la firma con la clave pública de `A`
+* Si los dos valores coinciden se puede garantizar que se han generado con la clave privada de `A`
 
 De hecho el proceso podría simplificarse reduciéndolo exactamente al mismo esquema de la encriptación de datos asimétricos:
-`A` encripta el mensaje con su clave privada y lo manda a `B`
-`B` desencripta el mensaje con la clave pública de `A`
 
-De esta forma el mensaje y la firma serían la misma cosa. Sin embargo, como ya sabemos, el proceso de encriptación asimétrico es costoso, por lo que es conveniente encriptar únicamente el código hash y enviar el mensaje original por separado, dejando al destinatario la tarea de comprobar que el hash enviado se corresponde con el mensaje que realmente ha recibido.
+>
+* `A` encripta el mensaje con su clave privada y lo manda a `B`
+* `B` desencripta el mensaje con la clave pública de `A`
 
+De esta forma el mensaje y la firma formarían una sola entidad.
 
-Inconvenientes:
+Como se ha comentado anteriormente, el proceso de encriptación asimétrico es costoso, ese es el motivo por el que es conveniente la generación de un código hash. Al enviar este y el mensaje original por separado, dejamos al destinatario la tarea --mucho menos costosa-- de comprobar que el código enviado corresponde con el mensaje recibido.
 
-Si en la encriptación asimétrica nos encontrábamos con el problema del "intermediario" (man-in-the-middle attack), en la firma digital tenemos un problema similar (puesto que ambas estan basadas en el mismo esquema de clave pública/privada). El problema es que, aunque podemos asegurar que un mensaje ha sido creado por una clave privada asociada a la clave pública que hemos utilizado para desencriptarlo, no podemos asegurar que dicha clave pertenece a quien dice ser su propietario.
+### Problemas por resolver
 
-Este problema solo puede ser solucionado mediante el uso de certificados digitales que nos garanticen que una determinada clave pertenece a un determinado propietario.
+Si en la encriptación asimétrica nos encontrábamos con el problema de un posible ataque *man-in-the-middle*, en la firma digital tenemos un problema similar, puesto que ambas estan basadas en el mismo esquema de clave pública/privada.
 
-### Certificado digital
+Aunque podemos asegurar que un mensaje ha sido creado por una clave privada asociada a la clave pública que hemos utilizado para desencriptarlo, no podemos asegurar que dicha clave pertenezca a quien dice ser su propietario.
 
-El certificado digital identifica inequívocamente al creador de una determinada clave pública gracias a:
+Este problema solo puede ser solucionado mediante el uso de certificados digitales que nos garanticen la identidad del propietario de la clave.
 
-* la asociación a dicha clave de algunos de sus datos
-* la intervención de una autoridad de certificación en la generación del certificado
+## Certificado digital
 
-Los datos que se suelen incorporar a estos certificados son:
+El certificado digital identifica unívocamente al creador de una determinada clave pública gracias a:
 
-* una dirección de correo electrónico: para garantizar los envíos que se hacen desde cierta cuenta
-* una dirección de dominio: para garantizar la legitimidad de un sitio web
+1. La asociación a dicha clave de algunos de sus datos
+2. La intervención de una autoridad de certificación en la generación de un certificado
 
-Sin embargo, para que estos datos puedan ser asociados inequívocamente a cierta clave pública se necesita el "beneplácito" de una autoridad de certificación.
+Los datos que se suelen incorporar a dicho certificado son:
 
-El procedimiento es el siguiente:
+1. Una dirección de correo electrónico, que garantiza la legitimidad de los mails enviados desde esta
+2. Una dirección de dominio, que garantiza la legitimidad de un sitio web
 
-`A` entrega a la autoridad de certificación su clave pública junto con los datos asociados (email, dominio...)
-La autoridad de certificación comprueba que dicho email, dominio, etc. sean realmente propiedad de `A`
-La autoridad de certificación crea entonces una firma digital, firmando con su propia clave privada los datos junto con la clae recibidos de `A`
+Además, para que estos datos puedan ser asociados unívocamente a cierta clave pública se necesita el "beneplácito" de cierta autoridad de certificación (CA)
 
-El certificado de `A` ha sido creado, a partir de ahora `A` ya puede empezar a utilizar su certificado digital:
+El procedimiento es el que sigue:
 
-`A` entrega su certificado digital, en lugar de su clave pública, a `B`
-`B` desencripta el certificado de `A` mediante la clave pública de la autoridad de certificación
-Ahora `B` tiene en su posesión tanto la clave pública de `A` como sus datos asociados
+>
+* `A` entrega a la autoridad de certificación su clave pública junto con algunos datos asociados (email, dominio...)
+* La CA comprueba que dicho email, dominio... sea realmente propiedad de `A`
+* La autoridad de certificación genera entonces un certificado firmando con su propia clave privada los datos y la clave recibidos de `A`
 
-El hecho de haber utilizado la clave pública de la autoridad de certificación para obtener la clave pública de `A` hace que `B` pueda confiar plenamente en que la autoridad de certificación ha intervenido en el proceso de generación del certificado
+El certificado de `A` ha sido expedido, a partir de ahora `A` ya puede empezar a utilizar su certificado digital:
 
-Para más información sobre la designación de las autoridades de certificación ver el apartado sobre certificados SSL.
+>
+* `A` entrega su certificado digital, que a partir de ahora sustituirá a su clave pública, a `B`
+* `B` desencripta el certificado de `A` mediante la clave pública de la CA
+* Al desencriptar el certificado `B` obtiene la clave pública de `A` y los datos (dominio, mail...) certificados de `A`
 
-# Implementaciones criptográficas en el mundo real
+El hecho de haber empleado con éxito la clave pública de la CA en el proceso de desencriptación del certificado, hace que `B` pueda confiar plenamente en que la esta ha intervenido en el proceso de generación del certificado
 
-Vamos a ver dos casos concretos de implementación de los algoritmos que se han visto. Estos son:
+El mecanismo de autoridad que certifica a una autoridad certificadora como confiable se describe en la sección [Certificados SSL](toctoc)
 
-* SSL / TLS / HTTPS
-* PGP / Open GPG
+# Ejemplos de casos de uso reales
 
-# SSL / TLS / HTTPS
+A continuación se muestran las dos implementaciones más expandidas de los esquemas criptográficos que se han visto en esta guía. Estas son:
+
+1. HTTPS (SSL/TLS)
+2. PGP/GPG (Open GPG)
+
+## HTTPS (SSL/TLS)
 
 El protocolo SSL/TLS proporciona autenticación y privacidad de datos entre dos extremos de una red.
 
 Dicho protocolo se ejecuta sobre la capa de transporte TCP y por debajo de la capa de aplicación, lo cual permite que pueda proporcionar seguridad a protocolos de aplicación como HTTPS (web) o SMTP (correo electrónico), entre otros.
 
-En el caso del protocolo HTTPS solo el servidor es autenticado (es decir, se garantiza su identidad) mientras que el cliente se mantiene sin autenticar.
+En el caso del protocolo HTTPS solo el servidor es autenticado (se garantiza su identidad mediante un certificado), mientras que el cliente se mantiene sin autenticar.
 
 El protocolo consta de las siguientes fases:
 
-* Negociación entre las partes el algoritmo a usar en la comunicación
+> 
+* Negociación entre las partes para determinar el algoritmo a usar en la comunicación
 * Realización del intercambio de claves públicas y autenticación basada en certificados digitales.
 * Cifrado del tráfico basado en cifrado simétrico.
 
-## Implementación de los algoritmos
+### Algoritmos utilizados por SSL/TLS
 
-Los siguientes algoritmos podrán ser utilizados por el protocolo TLS en su actual versión (3.3333):
+Los siguientes algoritmos podrán ser utilizados por el protocolo TLS en su actual versión (1.3):
 
 {:#pkgTable}
 | Clase de algoritmo       | Implementaciones válidas |
@@ -291,192 +331,60 @@ Los siguientes algoritmos podrán ser utilizados por el protocolo TLS en su actu
 | Cifrado simétrico | RC2, RC4, IDEA (International Data Encryption Algorithm), DES (Data Encryption Standard), Triple DES y AES (Advanced Encryption Standard). |
 | Funciones hash | MD5 o familia SHA |
 
-## Integridad de datos
-Se utiliza un sistema de código de autenticación de mensaje (MAC) para asegurar la integridad de los datos. Se utilizan dos implementaciones distintas en fases distintas de autenticación/verificación: HMAC y AEAD.
-the end
+### Integridad de datos
 
-## Certificado SSL
+Se utiliza un sistema de código de autenticación de mensaje (MAC) para asegurar la integridad de los datos. Concretamente se utilizan dos implementaciones distintas según la fase de autenticación/verificación: HMAC y AEAD.
 
-El protocolo SSL garantiza la encriptación de nuestros datos hasta el servidor remoto propietario del certificado en cuestión (estándar X.509). Para ello utiliza un modelo de relación de confianza, también llamado "cadena de confianza".
+### El certificado SSL
+
+El protocolo SSL garantiza la encriptación de nuestros datos hasta el servidor remoto propietario del certificado en cuestión (estándar X.509). Para ello utiliza un modelo de relación de confianza, también llamado cadena de confianza (*chain of trust*).
 
 El procedimiento de verificación de dicho protocolo consta de los siguientes pasos para el caso del protocolo HTTPS:
+
+>
 * El navegador (o el sistema operativo) recupera un listado de CAs.
 * Cuando un usuario navega a una web segura, el navegador verifica que su certificado ha sido emitido por una CA de dicho listado.
 * Si la CA en cuestión no es reconocida, el navegador verifica nuevamente si el certificado de la CA fue emitido por una CA conocida, y así sucesivamente.
-* El final de tal cadena de certificados se conoce como el certificado raíz (root), un certificado autofirmado por la propia CA, si el navegador requiere llegar hasta este último paso deberá verificar que se trata de una CA de confianza, de lo contrario el certificado de la web no podrá ser considerado como válido, y se advertirá al usuario de estar navegando por un sitio web "suplantador".
+* El final de dicha cadena de certificados se conoce como el certificado raíz (root), un certificado autofirmado por la propia CA, si el navegador requiere llegar hasta este último paso deberá verificar que se trata de una CA de confianza
+* En el caso de que el certificado no se considere válido se advierte al usuario de la posibilidad de que el sitio web en cuestión se trate de una "suplantación"
+
+La conexión en cualquier caso será segura en cuanto a la *interceptación* de datos. Sí podría ser víctima, sin embargo, de un ataque tipo *man-in-the-middle*.
+
+A pesar de la advertencia del navegador, el usuario podría decidir continuar con la conexión si sabe que no se trata de una suplantación (por ejemplo, si es el administrador del sitio), o incluso instalar un certificado no avalado por una CA.
 
 > 
-La generación de certificados autofirmados, sin el aval de una autoridad de certificación es una práctica común, en entornos de desarrollo o integración que aún no han sido publicados en internet con el fin de simular un entorno lo más parecido posible al entorno a publicar.
+La generación de certificados autofirmados, es una práctica común en entornos de desarrollo o integración no publicados en internet. Para evitar una advertencia del navegador se puede optar por la instalación de un certificado siguiendo un modelo de "cadena de confianza". Es decir, somos nosotros quien otorgamos confianza al certificado al margen de una CA.
 
-## ¿Sustituirá definitivamente HTTPS a HTTP?
+### La conversión a HTTPS
 
-La complejidad de la generación de los certificados SSL históricamente a provocado que solamente aquellas webs que tienen información de caracter sensible hayan instalado un certificado.
+La complejidad de la generación de los certificados SSL ha sido la responsable, históricamente, de que solamente aquellas webs con información sensible (como sitios de compra) hayan instalado un certificado SSL/TLS.
 
-Sin embargo, actualmente, servicios como https://letsencrypt.org/ wikipedia, han reducido la complejidad hasta tal punto que podrían hacer posible que el protocolo HTTPS dominará sobre su versión no segura.
+Actualmente, sin embargo, servicios como [Let's encrypt](https://es.wikipedia.org/wiki/Let%27s_encrypt) han reducido drásticamente la complejidad en la instalación hasta el punto de que podrían convertir en dominante al protocolo HTTPS sobre su versión no segura.
 
-# PGP / GPG
+## PGP/GPG (Open PGP)
 
-Mientras que SSL/TLS asegura la confidencialidad de los datos mientras son transmitidos por la red, las suites criptográficas PGP y GPG proporcionan una implementación de los protocolos necesarios para proteger los datos almacenados de forma persistente.
+En 1991 Phil Zimmermann, empleado de Symantec, crea la suite criptográfica PGP. En 1997 se crea con el beneplácito del creador de PGP el estándar Open PGP garantizando la interoperabilidad de la comunidad criptográfica. Dicho estándar permite la creación de GPG, el reemplazo libre de GNU para la suite PGP.
 
-> Si bien servicios como gmail incorporan soporte TLS sobre el protocolo de correo IMAP, esto no Google tenga acceso a nuestros correos, puesto que el protocolo IMAP no contempla la encriptación de los datos. Sin embargo existen extensiones como flowcrypt que hace uso de la suite PGP para proporcionar encriptación permanente de nuestros correos.
+Mientras que SSL/TLS asegura la confidencialidad de los datos mientras son transmitidos por la red, las suites criptográficas PGP y GPG proporcionan una implementación de los algoritmos criptográficos necesarios para proteger los datos de forma persistente (una vez almacenados en disco)
 
-En 1991 Phil Zimmermann, empleado de Symantec, crea la suite criptográfica PGP. En 1997 se crea con el beneplácito del creador de PGP, el estándar Open PGP garantizando la interoperabilidad de la comunidad criptográfica. Dicho estándar permite la creación de GPG, el reemplazo libre de GNU para la suite PGP.
+Las primeras versiones de PGP eran conocidas por ofrecer un esquema descentralizado de *red de confianza*, en contraste con el sistema centralizado PKI (estándar X.509) de SSL/TLS. Actualmente tanto PGP como GPG han incorporado adicionalmente el sistema PKI.
 
-Las primeras versiones de PGP eran conocidas como un sistema descentralizado de red de confianza, en contraste con el sistema centralizado PKI (estándar X.509). Actualmente tanto PGP como GPG incorporan también el modelo de certificados.
-
-# Sistema de red de confianza
-
-Este sistema consiste en que cualquier integrante ya perteneciente a una red de confianza puede incorporar a un nuevo integrante firmando su clave pública con su propia clave privada, generando un nuevo certificado. De esta forma no existe autoridad central sino que son los propios "nodos" de la red los que se encargan de verificar la identidad de cada nuevo integrante.
-
-El estándar OpenPGP incluye además un sistema de recuento de votos, configurable por el usuario, que permite decidir que certificados son considerados como válidos.
-
-# La suite GPG
-
-La interfaz principal de GnuPG es la terminal pero hay varios programas que permiten su uso en modo gráfico (para el escritorio Gnome existe una aplicación llamada Seahorse)
-
-Además GnuPG está integrado en programas como Evolution y KMail y existe una extensión llamada Enigmail para varios programas de Mozilla.
-
-
-THEEND
-
-
-
-`Index`
-: También conocido como "staging". Es el snapshot que será traspasado a nuestro repositorio local al ejecutar `git commit`. Cada vez que ejecutamos `git add` los ficheros se añaden tal cual están en ese momento, si luego se hacen más cambios sobre los mismos ficheros se deberá volver a ejecutar `git add`.
-
-> Para saber que hemos subido desde el `Working Tree` al `Index` en cada momento y ver las diferencias con el repositorio local ver los comandos `git difftool` y `git difftool --staged` explicados abajo.
-
-`HEAD`
-: Puntero al último commit de nuestro *repositorio local*
-
-`master`
-: Rama de desarrollo por defecto (trunk)
-
-`origin`
-: *Repositorio remoto* por defecto
-
-{:.center}
-![Git workflow](/git_commands.png "Git workflow")
-
-<div class="center">Workflow de git donde se puede ver <code>Working Tree</code>, <code>Index</code>, <code>HEAD</code> y <code>origin</code> (remoto)</div><br />
-
-> [Ver glosario de términos](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-
-
----
-
-# Workflows
-
-## Workflow centralizado
-
-> El workflow centralizado utiliza una única rama, `master`, para trabajar en local. El código se actualizará sobre nuestra propia rama de trabajo mediante `git pull`.
-
-Al hacer `git pull` sobre `master` nos encontraremos con 3 posibles casos:
-
-### 1. Se realiza `pull` sin problemas
-
-> Esto sucede cuando no existen nuevos commits en remoto o no hay commits sin publicar en local. En ese último caso `git pull` hará `fast-forward` sin problemas siempre que los cambios del `Working Tree` no coincidan con los cambios de remoto.
-
-Para publicar nuestros commits locales solo hay que hacer:
-
-1) Añadir ficheros al `Index` para poder hacer commit:
-: `git add . [--all]` o `git add file1 [file2] [file3] [...]`
-
-2) Hacer commit de los ficheros que hayamos añadido al `Index`:
-: `git commit`
-
-3) Publicar los cambios en remoto:
-: `git push`
-
-### 2. No es posible realizar `pull`
-
-> Esto puede ocurrir bien porque hay commits tanto en local como en remoto o bien porque hay cambios en los ficheros del `Working Tree` que coinciden con los nuevos commits de remoto.
-
-En ambos casos para poder hacer `pull` deberemos limpiar primero el `Index` y el `Working Tree` mediante una de estas opciones:
-
-a) Realizar `commit` para luego mergearlo con el remoto, al hacer `git pull` (ver [punto 3](#caso-3-se-ejecuta-merge-o-rebase-para-mezclar-los-cambios-de-remoto-con-los-de-nuestra-rama-local))
+Correo encriptado con Gmail
 : 
-`git add . --all` + `git commit`
-    
-b) Realizar `stash` para apartar nuestros cambios de local y que `git pull` continúe sin problemas (ver [punto 1](#caso-1-se-realiza-pull-sin-problemas))
-: 
-`git stash`
+> Si bien servicios como Gmail incorporan soporte TLS para IMAP, esto no significa que nuestros correos se almacenen de forma encriptada. Es posible encriptar correos asociados a cualquier clase de cuenta, pero para ello deberemos utilizar un cliente de correo propio con soporte para PGP/GPG. En la actualidad ya existen extensiones de encriptación PGP/GPG para Google Chrome, estas encriptan/desencriptan los correos de forma local, mediante código javascript, haciendo posible la encriptación accediendo directamente al sitio de Gmail.
 
-En este último caso, después de hacer `git pull` podremos volver a aplicar nuestros cambios locales con `git stash apply`
+### Esquema de red de confianza
 
-Si no queremos todos los cambios del stash podremos hacer `checkout` o `diff` de los ficheros que queramos posteriormente (`stash apply` solo actúa sobre el `Working Tree`)
+Este sistema permite que cualquier integrante perteneciente a una red de confianza puede incorporar a un nuevo integrante al firmar su clave pública con su propia clave privada. En este esquema no existe autoridad central sino que son los propios "nodos" de la red los que se encargan de verificar la identidad de cada nuevo integrante.
 
-### 3. Se ejecuta merge (o rebase) para mezclar los cambios de remoto con los de nuestra rama local
+El estándar OpenPGP incluye además un sistema de recuento de votos, configurable por el usuario, que permite decidir de forma ponderada que certificados son considerados como válidos.
 
-En este punto nos encontramos con 2 posibles casos:
+### La suite GPG
 
-No hay conflicto
-: 
-Se produce un automerge commit (o si utilizamos el parámetro `--rebase` los nuevos commits quedan simplemente añadidos al final)
-    
-Hay conflicto 
-: Resolvemos con `git mergetool` y ejecutamos `git commit` (o `git rebase --continue`, de haber realizado `pull` con `rebase`)
+La suite GPG es libre y multiplataforma y es interoprable en sus versiones actuales con PGP.
 
-> Al ejecutar `git rebase --continue` es posible que siga existiendo conflicto debido a que rebase soluciona los conflictos por etapas (ya que nuestro commit local debe ser desplazado paso a paso hasta el último commit de remoto). En tal caso deberemos volver al paso anterior para solucionar los sucesivos conflictos con `git mergetool` + `git rebase --continue`
+La interfaz principal de GnuPG es la terminal pero hay varios programas que permiten su uso en modo gráfico (para el escritorio Gnome, por ejemplo, existe una aplicación llamada Seahorse)
 
-Finalmente, comprobaremos que los conflictos estén resueltos y publicaremos los cambios:
+GnuPG, además, está integrado en programas como Evolution y KMail (Linux), y existe una extensión llamada Enigmail para varios programas de Mozilla.
 
-Miramos que los conflictos estén marcados como resueltos:
-: `git status`
-
-> Si continúan apareciendo ficheros como 'unmerged', habiendo ya resuelto los conflictos, los podemos añadir con `git add` para marcarlos como resueltos manualmente
-
-Publicamos los cambios:
-: `git push`
-
-> Si no se permite esta operación, deberemos volver a obtener los cambios de remoto y resolver los posibles conflictos: `git pull` + [resolución de conflictos] + `git push`
-
-### Abortando git pull
-
-Es posible volver al estado anterior antes de ejecutar `git pull` siempre y cuando no hayamos realizado todavía el merge commit o ejecutado `rebase --continue`:
-
-Para abortar git pull con merge
-: `git merge --abort`
-
-Para abortar git pull con rebase
-: `git rebase --abort`
-
-Si ya hemos finalizado el pull, deberemos volver atrás mirando nuestro log local (git log -g):
-: `git reset <commit_local>`
-
-> Sin la opción `--hard`, `git reset` vuelve hasta el commit indicado dejando los cambios propios del commit en el `Working Tree`
-
-<br />
-
-## Feature Branch Workflow
-
-El objetivo de este workflow es que la rama `master` siempre esté a punto para obtener o publicar código.
-
-La rama `master` nunca debe tener código "inestable". El código en estado de desarrollo se encontrará en ramas *feature* con nombres descriptivos, que serán validadas antes de subirse a la rama pública `master`, tras realizarse un *pull request*.
-
-### Configuración inicial (pull con rebase)
-
-Configurar git para hacer rebase en lugar de merge al hacer `pull`
-: {% highlight sh %}
-    $ git config --global branch.master.rebase yes
-    # también podemos configurarlo para todas las ramas
-    $ git config --global branch.autosetuprebase always
-{% endhighlight %}
-
-> Este paso es opcional pero nos permite mantener limpio el historial de commits al hacer pull, de forma que solo veamos `merge commit` en los puntos donde se realice la integración de la rama `feature` con `master`
-
-### Fases del workflow
-
-> * Creación de la rama `feature`, correspondiente a 1 *historia*
-* Trabajar con rama privada `feature`, 1 commit corresponde a 1 *tarea*
-* Hacer pública la rama `feature`
-* Trabajar en equipo con la rama pública
-* Petición de code review (*pull request*)
-* Deploy en `master` cuando se acepte el código como válido finalmente
-
-Crear rama `feature` y publicarla en remoto
-: {% highlight sh %}
-    $ git checkout -b feature master
-    $ git push -u origin feature
-{% endhighlight %}
 

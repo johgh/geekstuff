@@ -79,7 +79,7 @@ Si en criptografía clásica era el proceso de manipulación de los datos lo que
 
 Por otro lado las licencias libres proporcionan una interoperabilidad imprescindible, dado que dichos algoritmos tienen su razón de ser sobre la transmisión de datos entre diferentes partes y diferentes tipos de plataformas, además de proporcionar un [mecanismo óptimo para la corrección de posibles agujeros de seguridad](https://es.wikipedia.org/wiki/Ley_de_Linus).
 
-## Encriptación simétrica
+# Encriptación simétrica
 
 En la encriptación simétrica o de clave compartida se utiliza la misma clave tanto para la encriptación como para la desencriptación del mensaje.
 
@@ -124,24 +124,25 @@ Las funciones hash en criptografía tienen idealmente las siguientes propiedades
 
 Las anteriores propiedades hacen de los códigos hash un mecanismo ideal para cualquier sistema de autenticación mediante contraseña.
 
-El sistema funciona de la siguiente manera:
+El funcionamiento de dicho esquema es el siguiente:
 
 * Se genera un código hash a partir de la contraseña suministrada por el usuario en su proceso de registro a nuestro sistema
 * Se persiste (almacena) dicho código a modo de "firma" desechando el password original enviado por el usuario
 * Cuando el usuario requiere identificarse en nuestro sistema se vuelve a calcular el código hash de la contraseña nuevamente suministrada y se compara con el valor hash anteriormente almacenado
 
-El hecho de almacenar un valor hash en lugar de la contraseña (ya sea en plano o encriptada) nos aporta los siguientes beneficios:
+El hecho de almacenar un valor hash en lugar de la contraseña (ya sea en plano o encriptada) aporta los siguientes beneficios en el caso de que nuestro almacenamiento se vea comprometido por el acceso de un agente externo:
 
-1. Un intruso en nuestra base de datos nunca podrá calcular el valor original de las contraseñas a partir de su código hash
-2. A partir de la comparación de los valores hash tampoco podrá extraer ninguna clase de conclusiones, ya que:
-* valores casi idénticos generarán valores hash completamente distintos, según las propiedades de las funciones hash
-* no podrá determinar su longitud ya que todos los valores hash tienen la misma longitud
+1. El intruso nunca podrá calcular el valor original de las contraseñas a partir de su código hash
+2. Tampoco podrá extraer conclusiones, simplemente a partir de los valores hash, ya que:
+* Valores casi idénticos generarán valores hash completamente distintos, según las propiedades de las funciones hash
+* No podrá determinar la longitud de las contraseñas originales ya que todos los valores hash tienen la misma longitud
 
 ## Verificación de integridad
-Para verificar la integridad de un mensaje únicamente deberemos:
+Para verificar la integridad de un mensaje deberemos contar previamente con un valor hash de referencia asociado al mensaje recibido. El procedimiento de verificación consta de 2 simples pasos:
 
-* Calcular la función hash del mismo
-* Comparar el resultado con un valor de referencia precalculado en el origen de la transmisión
+>
+* Se calcula la función hash del mensaje con la implementación que corresponda (MD5, SHA-1...)
+* Se compara el resultado con el valor de referencia precalculado en el origen de la transmisión
 
 ## Códigos de autenticación (MAC)
 

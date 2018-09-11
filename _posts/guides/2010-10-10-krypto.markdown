@@ -394,3 +394,4 @@ La interfaz principal de GnuPG es la terminal pero hay varios programas que perm
 GnuPG, además, está integrado en programas como Evolution y KMail (Linux), y existe una extensión llamada Enigmail para varios programas de Mozilla (multiplataforma).
 
 
+

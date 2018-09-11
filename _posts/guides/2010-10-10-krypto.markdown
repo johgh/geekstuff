@@ -71,9 +71,9 @@ El principio de Kerckhoffs
 
 Si en criptografía clásica es el propio proceso de manipulación de los datos el que codifica el mensaje que debe mantenerse en secreto (una especie de caso pionero de [seguridad por oscuridad](https://es.wikipedia.org/wiki/Seguridad_por_oscuridad)); en criptografía moderna la implementación de los algoritmos es absolutamente transparente, siendo la clave de encriptación (concretamente su longitud), quien otorga mayor o menor seguridad a todo el sistema.
 
-Esto explica la existencia de gran cantidad de algoritmos criptográficos publicados bajo licencias abiertas. De hecho, la publicación del código de estos sistemas mediante licencias abiertas confieren una interoperabilidad esencial para los mismos, que tienen su razón de ser en la transmisión de datos entre partes heterogéneas (diferentes aplicaciones, plataformas...).
+Esto explica la existencia de gran cantidad de algoritmos criptográficos publicados bajo licencias abiertas. De hecho, la publicación del código de estos sistemas mediante licencias abiertas confiere de una interoperabilidad esencial a los mismos, ya que su "campo de acción" se encuentra en la transmisión de datos entre partes heterogéneas (diferentes aplicaciones, plataformas...).
 
-Además, y aunque pueda parecer paradójico, el modelo de licencia libre proporciona un [mecanismo óptimo para la corrección de posibles agujeros de seguridad](https://es.wikipedia.org/wiki/Ley_de_Linus).
+Además, y aunque pueda parecer paradójico, el modelo de licencia libre proporciona un [ecosistema ideal para la corrección de posibles agujeros de seguridad](https://es.wikipedia.org/wiki/Ley_de_Linus).
 
 # Encriptación simétrica
 
@@ -388,6 +388,7 @@ La suite *GPG* (*GnuPG*) es libre, multiplataforma, e interoperable con *PGP* en
 La interfaz principal de GnuPG es la línea de comandos, aunque hay varios programas que permiten su uso en modo gráfico (para el escritorio Gnome, por ejemplo, existe una aplicación llamada Seahorse).
 
 *GnuPG*, además, está integrado en programas como Evolution y KMail (Linux), también existe una extensión llamada Enigmail para varios programas de la suite de Mozilla (multiplataforma).
+
 
 
 

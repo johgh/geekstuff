@@ -21,7 +21,7 @@ permalink: /sitemap/
             <article class="post-content">
                 {% assign posts = site.tags[tag] | sort: 'title' %}
                 {% for post in posts %}
-                <h2> <a class="post-link" href="{{ post.url }}"><i class="fa fa-file-code-o"></i> <span class="post-link-title">{{ post.title }}</a>
+                <h2> <a class="post-link" href="{{ post.url }}"><i class="fas fa-file-code"></i> <span class="post-link-title">{{ post.title }}</a>
                     <a href="/{{ post.category | downcase }}"><span class="tag-link">{{ post.category }}</span></a></h2>
                 {% endfor %}
                 {% if forloop.last == false %}

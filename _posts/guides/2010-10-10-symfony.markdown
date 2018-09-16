@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Symfony 2 (Quick Reference)"
+title:  "Symfony 2 quick reference"
 permalink:  "symfony"
 date:   2015-09-18 16:30:15
 category: Quick Guides
-tags: Web
+tags: Symfony
 ---
 # Installation
 

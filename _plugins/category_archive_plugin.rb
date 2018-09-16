@@ -91,8 +91,8 @@ module Jekyll
     
       if category != 'tabs' && category != 'tabs2'
       self.content = <<-EOS
-{% assign posts = page.posts | sort: 'title' %}
-{% for post in posts %}<h2 class="category-item"><a class="post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><i class="fa fa-file-code-o"></i><span class="post-link-title"> {{ post.title }}</span></a></h2>
+{% assign posts = page.posts | sort: 'tags' %}
+{% for post in posts %}<h2 class="category-item"><a class="post-link" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><i class="far fa-file-code"></i>&nbsp;<span class="post-link-title"> {{ post.title }}</span></a> <span class="tag-link">{{ post.tags }}</span></h2>
 {% endfor %}
       EOS
       else

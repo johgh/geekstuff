@@ -1,10 +1,9 @@
 ---
 layout: blog
-title:  "Los 10 puntos clave para entender el software libre"
-permalink:  "software-libre-q&a"
+title:  "Comprendiendo el software libre"
+permalink:  "software-libre"
 date:   2015-09-22 00:00:01
 category: Blog
-tags: Free_Software
 ---
 # ¿Qué requisitos debe reunir un software para ser considerado libre?
 

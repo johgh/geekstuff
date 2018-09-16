@@ -1,0 +1,33 @@
+{% if page.tags.size > 0 %}
+<aside class="related">
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+        
+        {% assign my_array = "" | split: ',' %}
+
+        {% for post in site.posts %}
+
+            {% for tag in post.tags | sort: 'date' %}
+                {% if page.tags contains tag %}
+                    {% if page.title != post.title %}
+                        {% if my_array contains post %}
+                        {% else %}
+                            <li>
+                                <h3>
+                                    <a href="{{ site.baseurl }}{{ post.url }}">
+                                        {{ post.title }}
+                                        <small><time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date_to_string }}</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        {% endif %}
+                        {% assign my_array = my_array | push: post %}
+                    {% endif %}
+                    {% endif %}
+            {% endfor %}
+        {% endfor %}
+        
+        
+  </ul>
+</aside>
+{% endif %}

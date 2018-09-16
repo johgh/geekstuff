@@ -4,7 +4,7 @@ title:  "Eloquent ORM"
 permalink:  "eloquent-orm"
 date:   2015-01-02 16:30:15
 category: WebDev
-tags: Web
+tags: Laravel
 ---
 
 # Artisan
@@ -183,9 +183,9 @@ Save log with generated sql code
 
 # External resources
 
-[<i class="fa fa-external-link"></i> Laravel ORM/builder quick guide](http://desarrollowebtutorial.com/laravel-eloquent-orm-query-builder-consultas-sql/)
+[<i class="fas fa-external-link-alt"></i> Laravel ORM/builder quick guide](http://desarrollowebtutorial.com/laravel-eloquent-orm-query-builder-consultas-sql/)
 
-[<i class="fa fa-external-link"></i> Laravel collection methods](https://laraveldaily.com/10-less-known-but-awesome-laravel-collections-methods/)
+[<i class="fas fa-external-link-alt"></i> Laravel collection methods](https://laraveldaily.com/10-less-known-but-awesome-laravel-collections-methods/)
 
-[<i class="fa fa-external-link"></i> Laravel schema generator](http://www.laravelsd.com/)
+[<i class="fas fa-external-link-alt"></i> Laravel schema generator](http://www.laravelsd.com/)
 

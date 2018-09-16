@@ -340,6 +340,7 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   margin-bottom: 4em;
+  font-size: 13pt;
 }
 
 /* Blog post or page title */

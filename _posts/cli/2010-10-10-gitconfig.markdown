@@ -4,7 +4,7 @@ title:  "My Git configuration"
 permalink:  "gitconfig"
 date:   2011-07-15 16:30:15
 category: Terminal
-tags: Sysadmin Git
+tags: Git
 ---
 # My Git configuration (.gitconfig file)
 

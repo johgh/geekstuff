@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vim (Quick Reference)"
+title:  "Vim quick reference"
 permalink:  "vim"
 date:   2015-07-08 16:30:15
 category: Quick Guides
@@ -175,7 +175,7 @@ A CamelCaseMotion can be any of these:
 > Some of the mappings under this section need to be [customized](https://github.com/johgh/vim/blob/master/vimrc)
 
 ## Surround
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-surround)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/tpope/vim-surround)
 
 add surrounding
 : `ys` + `text_object/motion` + `surrounding_char`
@@ -192,7 +192,7 @@ add surrounding in visual mode, blockwise (add on each line), linewise (add on a
 > where surrounding_char could be any char, an html tag, or an open/close block char (in this case open block char `({<` adds/deletes spaces)
 
 ## Multiple cursors
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/terryma/vim-multiple-cursors)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/terryma/vim-multiple-cursors)
 
 enter multiple line mode
 : `<C-v>` or `V` (`V` will put the cursor at the beginnig of all lines), and press `<C-n>`
@@ -225,7 +225,7 @@ exit all multiple cursor modes
 : `<esc>`
 
 ## Expand Region
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/terryma/vim-expand-region)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/terryma/vim-expand-region)
 
 expand visual selection
 : `+`
@@ -234,7 +234,7 @@ shrink visual selection
 : `<C-+>` (default mapping is `_`)
 
 ## Commentary
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-commentary)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/tpope/vim-commentary)
 
 `gc+motion/text_object`
 : Comment selected text
@@ -249,7 +249,7 @@ shrink visual selection
 : uncomment contiguous commented lines under cursor
 
 ## Exchange
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/tommcdo/vim-exchange)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/tommcdo/vim-exchange)
 
 `cx+motion/text_object`
 : Select/exchange text
@@ -261,7 +261,7 @@ shrink visual selection
 : Clear current exchange selection
 
 ## DelimitMate
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/Raimondi/delimitMate)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/Raimondi/delimitMate)
 
 `<Leader>,`
 : Jump delimiter
@@ -270,7 +270,7 @@ shrink visual selection
 : Jump all delimiters
 
 ## Utilsnips
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/SirVer/ultisnips)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/SirVer/ultisnips)
 
 `A-e`
 : expand current snippet
@@ -282,13 +282,13 @@ shrink visual selection
 : go to previous snippet
 
 ## PhpDocumentor (PDV)
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/tobyS/pdv)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/tobyS/pdv)
 
 `<leader>c`
 : call PDV snippet to doc function
 
 ## Abolish
-> [<i class="fa fa-external-link"></i> Github project](https://github.com/tpope/vim-abolish)
+> [<i class="fas fa-external-link-alt"></i> Github project](https://github.com/tpope/vim-abolish)
 
 `crm`
 : Convert to MixedCase

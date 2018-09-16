@@ -4,8 +4,7 @@ layout: default
 <h6 style="margin: 1rem 0 0 0"><a href="/" class="goback" ><i class="fa fa-arrow-left"></i>  Go back</a></h6>
 <div class="blog">
 
-<article class="blog">
-    <time datetime="{{ page.date | date_to_xmlschema }}" class="page-date">{{ page.date | date_to_string }}</time>
+<article class="about">
     <h1 class="post-title">{{ page.title }}</h1>
         {{ content | toc_generate }}
     </article>

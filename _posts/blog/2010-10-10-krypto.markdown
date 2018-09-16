@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: blog
 title:  "Principios de criptografía"
 permalink:  "krypto"
-date:   2015-07-02 16:30:15
-category: Quick Guides
-tags: Sysadmin
+date:   2018-09-11 16:30:15
+category: Blog
 ---
 
 # Introducción
@@ -119,8 +118,9 @@ Las *funciones hash* en criptografía tienen idealmente las siguientes propiedad
 
 ## El código hash y los sistemas de autenticación
 
-Las anteriores propiedades hacen de las *funciones hash* una herramienta ideal para un sistema de autenticación mediante contraseña:
+Las anteriores propiedades hacen de las *funciones hash* una herramienta ideal para un sistema de autenticación mediante contraseña como el siguiente:
 
+>
 * Se genera un código *hash* a partir de la contraseña suministrada por el usuario en su proceso de registro a nuestro sistema
 * Se persiste (almacena) dicho código a modo de "firma" y se desecha el password original suministrado por el usuario
 * Cuando el usuario inicia el proceso de identificación en nuestro sistema se vuelve a calcular el código *hash* de la contraseña nuevamente introducida y se compara con el valor *hash* anteriormente almacenado
@@ -347,16 +347,16 @@ La conexión HTTPS, en cualquier caso, seguirá siendo segura en cuanto a la *in
 
 A pesar de la advertencia del navegador, el usuario podría decidir continuar con la conexión si sabe que no se trata de una suplantación (por ejemplo, si es el administrador del sitio), o incluso instalar un certificado (autofirmado o no) no avalado por una *CA*.
 
-Certificados autofirmados por nosotros mismos
+Certificados autofirmados
 : 
 > 
 La generación de certificados autofirmados, es una práctica común en entornos de desarrollo o integración no publicados en internet. Para evitar una advertencia del navegador se puede optar por la instalación de un certificado siguiendo el modelo propio de una "red de confianza". En tal caso somos nosotros quien otorgamos confianza al certificado al margen de una *CA*.
 
 ## La aceptación de HTTPS
 
-La complejidad de la generación de los certificados *SSL* ha sido la responsable, históricamente, de que solamente los sitios webs que manejan datos sensibles (como e-commerce) se hayan decantado por coexiones seguras HTTPS.
+La complejidad de la generación de los certificados *SSL* ha sido la responsable, históricamente, de que únicamente aquellos sitios webs que manejan datos sensibles (como e-commerce) se hayan decantado por conexiones seguras HTTPS.
 
-Actualmente, sin embargo, servicios como [*Let's encrypt*](https://es.wikipedia.org/wiki/Let%27s_encrypt) han reducido drásticamente la complejidad en la instalación de certificados, lo que podría hacer cambiar esta situación en un plazo corto de tiempo.
+Actualmente, sin embargo, servicios como [*Let's encrypt*](https://es.wikipedia.org/wiki/Let%27s_encrypt) han reducido drásticamente la complejidad en la instalación de certificados cambiando esta situación.
 
 # PGP/GPG (Open PGP)
 

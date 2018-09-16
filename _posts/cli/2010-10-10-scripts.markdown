@@ -4,7 +4,7 @@ title:  "Useful scripts"
 permalink:  "my scripts"
 date:   2011-07-15 16:30:15
 category: Terminal
-tags: Sysadmin Vim
+tags: Sysadmin
 ---
 # Generic expect script
 

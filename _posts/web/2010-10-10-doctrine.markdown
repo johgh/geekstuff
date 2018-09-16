@@ -4,7 +4,7 @@ title:  "Doctrine DBAL"
 permalink:  "doctrinedbal"
 date:   2015-01-02 16:30:15
 category: WebDev
-tags: Web
+tags: Symfony
 ---
 Use Doctrine
 : {% highlight php startinline %}

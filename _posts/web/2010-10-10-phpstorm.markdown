@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "Phpstorm vs Vim"
+permalink:  "phps"
+date:   2018-09-11 16:30:15
+---
+
+# My custom shortcuts comparison
+
+{:#pkgTable}
+| Phpstorm shortcut description                  | Phpstorm custom shortcut  (Mac)      | Vim command           |
+|:-----------------------------------------------|:-------------------------------------|-----------------------|
+| Duplicate current line or selected block       | ⌘ ⇧ D                                | `yy`/`y` + `p`        |
+| Delete line at caret                           | ⌘  backspace                         | `dd`                  |
+| Line join                                      | ⌘ ⇧ J                                | `J`                   |
+| Comment/uncomment with line comment            | ⌘ 7                                  | `gcc`                 |
+| Select successively increasing code blocks     | ⌘ W                                  | `+`                   |
+| Decrease current selection to previous state   | ⌘ ⇧ W                                | `<a-+>`               |
+| Auto-indent line(s)                            | ⌘                                    | `==`                  |
+| Find/Replace                                   | ⌘ R                                  | :%s / :%S             |
+| Find/Replace in path                           | ⌘ ⇧ R                                | `c-h` / :Ag           |
+| Go to file                                     | ⌘ ⇧ N                                | `,f`                  |
+| Recent files popup                             | ⌘ E                                  | `,h`                  |
+| Navigate back/forward                          | ⌘ ⌥  ←/→                             | `<a-j>` / `<a-k>`     |
+| Add/remove caret (multiple cursors)            | ⌘ D / ⌥ + click                      | `<c-n>`               |
+| Previous file                                  | ⌃ ⇥                                  | `,<space>`            |
+

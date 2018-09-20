@@ -371,15 +371,22 @@ Mientras que *SSL*/*TLS* asegura la confidencialidad de los datos que son transm
 
 Las primeras versiones de *PGP* eran conocidas por ofrecer un esquema descentralizado de *red de confianza*, en contraste con el sistema centralizado *PKI* (estándar *X.509*) de *SSL*/*TLS*. Actualmente tanto *PGP* como *GPG* incorporan el modelo *PKI* de forma adicional.
 
-Correo encriptado con Gmail
-: 
-> Si bien servicios como Gmail incorporan soporte *TLS* (sobre IMAP, por ejemplo), esto no significa que el servicio almacene los correos de forma encriptada. Para encriptar nuestros correos deberemos utilizar un cliente de correo propio con soporte para *PGP*/*GPG*. En la actualidad existen incluso extensiones de encriptación *PGP*/*GPG* para Google Chrome. Estos plugins son capaces de encriptar y desencriptar los correos de forma local, mediante código javascript, desde la propia web de Gmail.
-
 ## Esquema de red de confianza
 
 Este sistema permite que cualquier integrante perteneciente a una red de confianza pueda incorporar a un nuevo integrante, al firmar su clave pública con su propia clave privada. En este esquema no existe autoridad central sino que son los propios "nodos" de la red los que se encargan de verificar la identidad de cada nuevo integrante.
 
 El estándar *Open PGP* incluye además un sistema de recuento de votos, configurable por el usuario, que permite decidir que certificados son considerados como válidos de forma ponderada.
+
+## Privacidad en el e-mail
+
+Si bien servicios como Gmail ya incorporan soporte *TLS* (sobre IMAP), esto no significa que tales servicio almacenen los datos transmitidos de forma encriptada en el servidor. Para encriptar y firmar nuestros correos se pueden utilizar clientes de correo con soporte para *PGP*/*GPG*.
+
+En la actualidad ya existen extensiones de encriptación *PGP*/*GPG* para navegadores como Google Chrome. Estos plugins son capaces de encriptar y desencriptar los correos de forma local mediante código javascript desde la propia web de Gmail.
+
+S/MIME
+: 
+> 
+Otra forma de encriptar y firmar e-mails es mediante S/MIME. Este estándar permite el uso de criptografía de clave pública mediante certificados firmados por una autoridad certificadora (del estilo de los certificados SSL). La obtención de estos certificados es el mayor inconveniente frente al sistema de esquema de red de confianza, siendo usado sobretodo en entornos corporativos.
 
 ## La suite GPG
 

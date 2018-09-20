@@ -352,6 +352,9 @@ $ git log -g
 $ git reset HEAD~[n]
 {% endhighlight %}
 
+> 
+La notación `HEAD^[n]` nos permite seleccionar una de las ramas padre de nuestro commit (si es que hay más de una). Además si se combina con `HEAD~[m]`, se pueden formar expresiones como: `HEAD~3^2`, con lo que obtendríamos la tercera generación de commits anterior al nuestro, seleccionando el segundo progenitor (de existir este).
+
 Deshacer commit añadiendo un nuevo commit, para que quede constancia en la historia (p.62)
 : {% highlight sh %}
     $ git revert <hash_commit>

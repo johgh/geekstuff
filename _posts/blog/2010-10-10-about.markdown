@@ -5,26 +5,30 @@ permalink:  "about"
 noToc: true
 ---
 
-Esta es la página personal de un humilde programador. Al principio era un simple contenedor de *snippets* de código, hasta que un día comencé a añadir «guías» y otra clase de textos... 
+Esta es la página personal de un humilde programador. Al principio fue un contenedor de *snippets*, trozitos de código útiles (que olvidaba con increíble facilidad), hasta que un día comencé a añadir «guías» y otra clase de textos...
 
-Debo ser una especie cuasi extinta dentro de la raza de los programadores... para mi no hay mejor manera de asentar conocimientos que poniéndolos en palabras, sí, *documentando*.
+Creo que soy una especie cuasi extinta dentro de la raza de los programadores... para mi no hay mejor manera de asentar "conceptos" que no sea ponerlos en palabras, haciendo precisamente eso que tanto se suele odiar en mi profesión: *documentar*.
 
-No hace falta decir que todos los textos aquí presentes son de elaboración propia (puedes ver la licencia a pie de página).
+Puedo prometer y prometo que todos los textos aquí presentes son de elaboración propia (puedes ver la licencia a pie de página).
 
 # Un poco sobre mi
 
-Mi campo profesional es el desarrollo web, pero siempre he mantenido un gran interés por el mundo del [software libre](/software-libre) (incluso realicé un [máster](http://www.uoc.edu/masters/oficiales/matricula_abierta/master_oficial_software_libre/master_oficial_software_libre_objetivos.htm) en la materia). 
+Mi campo profesional es el [desarrollo web](/webdev/). Siempre he mantenido un gran interés por el mundo del [software libre](/software-libre) (incluso realicé un [máster](http://www.uoc.edu/masters/oficiales/matricula_abierta/master_oficial_software_libre/master_oficial_software_libre_objetivos.htm) en la materia). 
 
-Nunca pierdo ocasión de evangelizar sobre algunos de los escritorios de [Linux](/gnu/linux) de los que soy usuario. (Actualmente soy usuario de [Gnome](http://ubuntu.com), [XFCE](http://manjaro.org) y [Elementary](http://elementary.io)).
+Nunca pierdo ocasión de evangelizar sobre algunos de los entornos [Linux](/gnu/linux) de los que yo mismo soy usuario, actualmente: [Gnome](http://ubuntu.com), [XFCE](http://manjaro.org) y [Elementary](http://elementary.io)). Sí, en el trabajo uso Mac, aunque prefiero ocultar esa información. En fin, ¡por lo menos uso [zsh](/zsh/)! La pureza, la [línea de comandos](/terminal)... 
 
 # Una odisea en la línea de comandos...
 
-La [línea de comandos](/terminal) de Linux fue la primera piedra en mi zapato. En aquella época era puro e inocente, provenía de un mundo habitado exclusivamente por ventanas (aunque también por tétricas pantallas azules). En seguida vino una idea de gran intensidad lumínica a mi cabeza: *debía poder hacer todo* desde el terminal. El teclado debía ser una extensión de mi cuerpo. La cosa degeneró definitivamente cuando [Vim](/vim/) llamó a mi puerta. Nunca volví a ser el mismo.
+La línea de comandos de Linux fue la primera piedra en mi zapato. En aquella época era puro e inocente, provenía de un mundo habitado exclusivamente por ventanas (aunque también por tétricas pantallas azules).
 
-La simbiosis con el terminal era perfecta, yo, mi teclado y los combos de Vim eramos un solo ente... justo antes de que la amenaza del síndrome del [túnel carpiano](https://es.wikipedia.org/wiki/S%C3%ADndrome_del_t%C3%BAnel_carpiano) cayera sobre mi muñeca como un castigo a *tanta productividad*.
+Una idea se apoderó de mi casi inmediatamente: *debía poder hacer todo* desde el terminal. El teclado debía ser una extensión de mi cuerpo. La cosa degeneró definitivamente cuando [Vim](/vim/) llamó a mi puerta. Nunca volví a ser el mismo.
 
-No me rendí, reaprendí a teclear en [Dvorak](https://es.wikipedia.org/wiki/Teclado_Dvorak). Alcanzaba velocidades punta de entre 15 y 20 carácteres por minuto, pero comenzaba a mejorar... me acercaba a los 60 c.p.m. al mismo tiempo que caía en la cuenta de que mi memoria muscular en Vim de poco me iba a servir en el *nuevo mundo* de Dvorak. «Dios da pan a quien no tiene dientes», algo de cierto debe de haber en eso: después de todo Dvorak se acabó convirtiendo en mi pan de cada día.
+La simbiosis con el terminal era perfecta, yo mi teclado y los combos de Vim eramos un solo ente... justo antes de que la amenaza del síndrome del [túnel carpiano](https://es.wikipedia.org/wiki/S%C3%ADndrome_del_t%C3%BAnel_carpiano) cayera sobre mi muñeca como un castigo a *tanta productividad*.
 
-Ya en la treintena sobrevino mi última gran crisis *teclística* (esta de índole existencial). Un día me levantaba con la *feliz idea* de dejar mi huella en el planeta tierra: escribiría *el libro* testimonio de los conflictos existentes en nuestro actual mundo tecnológico.
+No me rendí, reaprendí a teclear en [Dvorak](https://es.wikipedia.org/wiki/Teclado_Dvorak). Alcanzaba velocidades punta de entre 15 y 20 carácteres por minuto, pero comenzaba a mejorar... me acercaba a los 60 c.p.m. al mismo tiempo que caía en la cuenta de que mi memoria muscular en Vim de poco serviría en el *nuevo mundo* de Dvorak.
 
-Mucho me temo que [no lo conseguí](http://amzn.com/1541219465) del todo. Pero no he dejado ni por un momento de soñar, entre *commit* y *commit*, que el día en que escriba mi obra magna *cyber-punk* está aún por llegar. Yo aquí lo espero, con mi teclado raro y mi renovado [editor](https://neovim.io/), sobre el negro fondo del terminal.
+«Dios da pan a quien no tiene dientes». Algo de cierto había en eso: después de todo Dvorak se acabó convirtiendo en mi pan de cada día.
+
+Ya en la treintena sobrevino mi última gran crisis al teclado, de índole algo más existencial. Un día me levantaba con la *feliz idea* de dejar mi huella en el planeta tierra: escribiría *la novela* testimonio definitivo de nuestro *conflictivo* mundo tecnológico.
+
+Mucho me temo que [del todo no lo conseguí](http://amzn.com/1541219465). De todas formas, entre *commit* y *commit* no he dejado de soñar en el día en que fluya desde las yemas de mis dedos la obra cumbre *cyber-punk*. Estaré listo, con mi [teclado raro](https://www.ergodox.io/) y mi renovado [editor](https://neovim.io/) sobre el negro fondo del terminal.

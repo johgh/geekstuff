@@ -1,27 +1,36 @@
 ---
 layout: post
-title:  "Phpstorm vs Vim"
+title:  "Phpstorm shortcuts vs Vim"
 permalink:  "phps"
 date:   2018-09-11 16:30:15
+category: WebDev
+tags: Vim
+
 ---
 
-# My custom shortcuts comparison
+These are my favourite shortcuts for Phpstorm on Mac. Right column displays its vim counterpart (heavily [customized](/vimrc/#tocAnchor-1-3))
 
 {:#pkgTable}
 | Phpstorm shortcut description                  | Phpstorm custom shortcut  (Mac)      | Vim command           |
 |:-----------------------------------------------|:-------------------------------------|-----------------------|
-| Duplicate current line or selected block       | ⌘ ⇧ D                                | `yy`/`y` + `p`        |
-| Delete line at caret                           | ⌘  backspace                         | `dd`                  |
-| Line join                                      | ⌘ ⇧ J                                | `J`                   |
-| Comment/uncomment with line comment            | ⌘ 7                                  | `gcc`                 |
-| Select successively increasing code blocks     | ⌘ W                                  | `+`                   |
-| Decrease current selection to previous state   | ⌘ ⇧ W                                | `<a-+>`               |
-| Auto-indent line(s)                            | ⌘                                    | `==`                  |
-| Find/Replace                                   | ⌘ R                                  | :%s / :%S             |
-| Find/Replace in path                           | ⌘ ⇧ R                                | `c-h` / :Ag           |
-| Go to file                                     | ⌘ ⇧ N                                | `,f`                  |
-| Recent files popup                             | ⌘ E                                  | `,h`                  |
-| Navigate back/forward                          | ⌘ ⌥  ←/→                             | `<a-j>` / `<a-k>`     |
-| Add/remove caret (multiple cursors)            | ⌘ D / ⌥ + click                      | `<c-n>`               |
-| Previous file                                  | ⌃ ⇥                                  | `,<space>`            |
+| *Duplicate current line or selected block*     | ⌘ ⇧ d                                | `yy`/`y` + `p`        |
+| Line join                                      | ⌃ ⇧ j                                | `J`                   |
+| *Comment/uncomment with line comment*          | ⌘ 7                                  | `gcc`                 |
+| Delete line at caret                           | ⌘ ⌫                                  | `dd`                  |
+| *Select line at Caret*                         | ⌘ ⇧ s                                | `V`                   |
+| *Select increasing code blocks*                | ⌘ w                                  | `+` (expand region)   |
+| *Decrease current selection to prev state*     | ⌘ ⇧ w                                | `<a-+>` (exp region) |
+| Auto-indent line(s)                            | ⌥ ⌃ i                                | `==`                  |
+| *Add Selection for Next Occurence*             | ⌘ d                             | `*` (visual star search)|
+| Previous Occurence / Next occurence            | ⇧ ↩ / ↩                              | `N` / `n`             |
+| Find/Replace                                   | ⌘ r                                  | :%s / :%S[ubvert]     |
+| Find/Replace in path                           | ⌘ ⇧ r                                | `c-h` / :Ag (silversearch) |
+| Add/remove caret                               | ⌥ + click                            | `<c-n>` (mult. cursors)  |
+| Clone Caret Above/Below                        | ⌃ ⌘ ↑/↓                              | `<c-v>` + I           |
+| *Go to file*                                   | ⌘ n                                  | `,f` (fzf files)      |
+| Recent files popup                             | ⌘ e                                  | `,h` (fzf history)    |
+| Navigate back/forward                          | ⌘ ⌥ ←/→                              | `<a-j>` / `<a-k>`     |
+| *Previous file*                                | ⌃ ⇥  (alt-tab behaviour)             | `,<space>`            |
 
+> 
+Customized phpstorm shortcuts displayed in italics

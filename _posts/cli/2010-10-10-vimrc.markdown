@@ -14,7 +14,7 @@ tags: Vim
 <div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
 <div id="selectText3">
 {% highlight bash %}
-{% github_sample johgh/scripts/blob/master/vim_setup.sh %}
+{% github_sample johgh/scripts/blob/master/nvim_setup.sh %}
 {% endhighlight %}
 </div>
 

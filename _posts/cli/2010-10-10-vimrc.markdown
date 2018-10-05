@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My Vim setup"
+title:  "My Vim/Neovim setup"
 permalink:  "vimrc"
 date:   2015-07-11 16:30:15
 category: Terminal
@@ -8,7 +8,18 @@ tags: Vim
 ---
 # Installation script
 
-> I use this script to install [my Vim setup](https://github.com/johgh/vim). I recommend to use Gvim instead of a terminal.
+> I use this script to install [my Neovim setup](https://github.com/johgh/vim). I use neovim on command line interface.
+
+{% github_sample_ref johgh/scripts/blob/master/nvim_setup.sh  %}
+<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
+<div id="selectText3">
+{% highlight bash %}
+{% github_sample johgh/scripts/blob/master/vim_setup.sh %}
+{% endhighlight %}
+</div>
+
+
+> (Obsolete script: now I use Neovim) I use this script to install [my Vim setup](https://github.com/johgh/vim). I recommend to use Gvim instead of a terminal.
 
 {% github_sample_ref johgh/scripts/blob/master/vim_setup.sh  %}
 <div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>

@@ -19,9 +19,11 @@ These are my favourite shortcuts for Phpstorm on Mac. Right column displays its 
 | Delete line at caret                           | ⌘ ⌫                                  | `dd`                  |
 | *Select line at Caret*                         | ⌘ ⇧ s                                | `V`                   |
 | *Select increasing code blocks*                | ⌘ w                                  | `+` (expand region)   |
-| *Decrease current selection to prev state*     | ⌘ ⇧ w                                | `<a-+>` (exp region) |
+| *Decrease current selection to prev state*     | ⌘ ⇧ w                                | `<a-+>` (exp region)  |
 | Auto-indent line(s)                            | ⌥ ⌃ i                                | `==`                  |
-| *Add Selection for Next Occurence*             | ⌘ d                             | `*` (visual star search)|
+| Surround selection                             | `Smart Keys: Surround...` enabled    | `ysiw'` / select + `S`|
+| Toggle uppercase                               | ⌘ ⇧ u                                | `~`                   |
+| *Add Selection for Next Occurence*             | ⌘ d                                | `*` (visual star search)|
 | Previous Occurence / Next occurence            | ⇧ ↩ / ↩                              | `N` / `n`             |
 | Find/Replace                                   | ⌘ r                                  | :%s / :%S[ubvert]     |
 | Find/Replace in path                           | ⌘ ⇧ r                                | `c-h` / :Ag (silversearch) |

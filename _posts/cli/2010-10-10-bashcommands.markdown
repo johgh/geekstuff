@@ -159,6 +159,19 @@ Remount partition with write permissions
     $ sudo mount -o remount,rw /
 {% endhighlight %}
 
+RAID1
+: {% highlight sh %}
+    # create RAID1 device with 3 disks
+    $ sudo mdadm -C /dev/md0 --level=raid0 --raid-devices=3 /dev/sdc1 /dev/sdd1 /dev/sde1
+    # copy output from command and put in conf file /etc/mdadm/mdadm.conf
+    $ sudo mdadm -Db /dev/md0
+    # start all arrays from conf file
+    $ sudo mdadm --assemble --scan
+    # final step: create partition from device /dev/md0 and mount it
+{% endhighlight %}
+
+> More info on how to start array and RAID in general [here](https://www.digitalocean.com/community/tutorials/how-to-manage-raid-arrays-with-mdadm-on-ubuntu-16-04#starting-an-array)
+
 Add disks to RAID1
 : {% highlight sh %}
     $ sudo mdadm -A -R /dev/md0 /dev/sdX1 /dev/sdY1

@@ -117,7 +117,7 @@ permalink: /bookmarks/
 
 [<i class="fas fa-external-link-alt"></i> Bootstrap plugins](http://bootsnipp.com)
 
-[<i class="fas fa-external-link-alt"></i> Laravel server-side datatables](https://github.com/yajra/laravel-datatables)
+[<i class="fas fa-external-link-alt"></i> Laravel server-side datatables](http://dt54.yajrabox.com/)
 
 [<i class="fas fa-external-link-alt"></i> Control Panel Template](https://adminlte.io/)
 
@@ -139,6 +139,10 @@ permalink: /bookmarks/
 
 [<i class="fas fa-external-link-alt"></i> Laravel development admin site](http://laravel-admin.org/)
 
+<h4 class="section-title">Browser plugins</h4>
+<br style="clear:both"/>
+[<i class="fas fa-external-link-alt"></i> Visual events](https://chrome.google.com/webstore/detail/visual-event/pbmmieigblcbldgdokdjpioljjninaim/related?utm_source=chrome-ntp-icon&authuser=0)
+
 
 <br />
 
@@ -159,6 +163,12 @@ permalink: /bookmarks/
 [<i class="fas fa-external-link-alt"></i> Free (as in speech) ebooks](https://github.com/danchoi/kindlefodder)
 
 [<i class="fas fa-external-link-alt"></i> Linux MIDI Guide](http://tedfelix.com/linux/linux-midi.html)
+
+[<i class="fas fa-external-link-alt"></i> PHP type juggling](https://www.quora.com/What-is-type-juggling-on-PHP)
+
+[<i class="fas fa-external-link-alt"></i> PHP bad design](https://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
+
+[<i class="fas fa-external-link-alt"></i> Token/secret](https://blog.restcase.com/restful-api-authentication-basics/)
 
 
 <br />

@@ -38,6 +38,20 @@ Tilix shortcut (full-screen quake mode with session)
     tilix --quake --full-screen --session="~/dotfiles/tilix.json"
 {% endhighlight %}
 
+Deluge daemon configuration
+: {% highlight sh %}
+    # FROM SERVER:
+    $ sudo apt-get install deluged
+    # add to startup /usr/bin/deluged (with gnome-session-properties for example)
+    # edit ~/.config/deluge/auth and add extra line:
+    <user>:<pass>:10
+    # Disable classic mode from GTK client and test 127.0.0.1:58846 from 'Connection Manager' 
+    # FROM CLIENT:
+    $ sudo apt-get install deluge
+    # configure from 'Connection manager':
+    <user>@<server_ip>:58846 # with user/pass specified on ~/.config/deluge/auth from server
+{% endhighlight %}
+
 Swap Caps_Lock and Control_L
 : {% highlight sh %}
     # put these lines on .Xmodmap file (tested on xfce)

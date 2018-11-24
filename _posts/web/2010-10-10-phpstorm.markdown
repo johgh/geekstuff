@@ -33,6 +33,7 @@ These are my favourite shortcuts for Phpstorm on Mac. Right column displays its 
 | Recent files popup                             | ⌘ e                                  | `,h` (fzf history)    |
 | Navigate back/forward                          | ⌘ ⌥ ←/→                              | `<a-j>` / `<a-k>`     |
 | *Previous file*                                | ⌃ ⇥  (alt-tab behaviour)             | `,<space>`            |
+| History paste                                  | ⌘ ⇧ v                                | `<c-p>` (miniyank)    |
 
 > 
 Customized phpstorm shortcuts displayed in italics

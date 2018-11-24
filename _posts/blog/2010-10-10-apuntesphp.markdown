@@ -59,6 +59,8 @@ if (!$sp)
 catch (fSockException $e) { /* handle exception */ }
 {% endhighlight %}
 
+> Cuando se definen namespaces es necesario especificar un namespace absoluto (por ejemplo: \\Exception), de otra forma Exception buscará dentro del namespace definido (\namespace\Exception)
+
 - Los métodos definidos en `Exception` son finales, de forma que en las excepciones definidas por el usuario únicamente podemos añadir nuevos métodos, no redefinirlos (también es posible dejar la clase vacía)
 
 - Sin embargo si podemos hacer <i>override</i> del método mágico `__toString` (que es lanzado al utilizar el objeto como una cadena), para modificar el aspecto visual de la excepción, y luego printar $myException mediante `echo`

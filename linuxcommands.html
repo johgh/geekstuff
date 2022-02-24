@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+    Desktop/general commands <> GeekStuff.ml — Webdev notes and more
+    
+  </title>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="/css/poole.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/backtotop.css">
+    <link rel="canonical" href="http://geekstuff.ml/linuxcommands">
+    <!-- <link rel="stylesheet" href="/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans:300,400|Roboto:300,400|Montserrat:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css">
+    <link rel="stylesheet" media="screen" href="/css/toc.css">
+    <link rel="stylesheet" media="screen" href="/css/select2.css">
+    <link rel="stylesheet" media="screen" href="/css/theme.grey.min.css">
+
+    <script src="/scripts/jquery-2.1.4.min.js"></script>
+    
+    <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.6/select2.min.css" rel="stylesheet"> -->
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.6/select2.min.js"></script> -->
+    
+    <script src="/scripts/jquery.tablesorter.min.js"></script>
+    <script src="/scripts/jquery.tablesorter.widgets.min.js"></script>
+    <script src="/scripts/select2.js"></script>
+    <script src="/scripts/widget-filter-formatter-select2.min.js"></script>
+    <script src="/scripts/jquery.tocLight.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+          $.toc.clickHideButton();
+        });
+  </script>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/css/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/css/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="GeekStuff.ml — Webdev notes and more" href="atom.xml">
+</head>
+
+
+
+  <body>
+    <div class="container content">
+        <header class="site-header">
+
+<div class="wrapper">
+
+    <a class="site-title" href="/"> 
+        <span class="main-title">
+            <i style="margin-right:4px; color: #424242 !important;" class="fa fa-code"></i><span class="main-cheat" style="font-weight: bold;">Geek</span><span style="font-weight: 200">Stuff</span><i style="color: #268BD2; margin: 0px 1px 0px 3px;" class="fab fa-pied-piper-hat"></i><span style="font-size: 30px; "><span style="font-weight:100; color: #5d5d5d">ml</span></span>
+                    
+          </span>
+      </a>
+
+      <!-- <a class="post-link" href="http://guitarchords.ga"><i class="fa fa-music"></i><span class="post-link-title">  Guitarchords.ga</span></a> -->
+      <!-- <a style="float:right; margin-top: 10px;"  href="/bookmarks"><i class="fas fa-bookmark"></i></a>&nbsp;&nbsp; -->
+      <!-- <a style="float:right; margin-top: 10px;" href="/tags"><i class="fa fa-tags"></i></a> -->
+
+  </div>
+    <!-- <style> -->
+    <!--     /* The default background color is #c00 */ -->
+    <!--     .right-bottom .github-fork-ribbon { -->
+    <!--         background-color: #2A7AE2; -->
+    <!--     } -->
+
+    <!--     .right .github-fork-ribbon { -->
+    <!--         background-color: #f80; -->
+    <!--     } -->
+
+    <!--     .left-bottom .github-fork-ribbon { -->
+    <!--         background-color: #333; -->
+    <!--     } -->
+    <!-- </style> -->
+    
+    <!-- <div class="github-fork-ribbon-wrapper right-bottom"> -->
+    <!--     <div class="github-fork-ribbon"> -->
+    <!--         <a href="https://github.com/johgh/johgh.io-source">Fork me on GitHub</a> -->
+    <!--     </div> -->
+    <!-- </div> -->
+</header>
+
+      <header class="masthead">
+      </header>
+      <main>
+        <div class="post">
+
+<br />
+<article class="post">
+  <h1 class="post-title"><a href="/GNU/Linux" class="back"><i class="fa fa-arrow-left"></i></a> Desktop/general commands</h1>
+  <br />
+  <dl>
+  <dt>Create .desktop (gnome app launcher)</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>gnome-desktop-item-edit ~/.local/share/applications <span class="nt">--create-new</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Associate vlc app to some extensions</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>xdg-mime default vlc.desktop video/x-ogg video/x-ogm video/x-ogm+ogg video/x-real-video video/x-sgi-movie video/x-theora video/x-theora+ogg
+</code></pre></div>    </div>
+  </dd>
+  <dt>Create mkv file (without changing codec)</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>mkvmerge <span class="nt">-o</span> <span class="s2">"/media/bla/output.mkv"</span> <span class="nt">--title</span> <span class="s2">"videotitle"</span> <span class="s2">"input.mp4"</span> <span class="nt">--default-track</span> 0  <span class="nt">--sub-charset</span> 0:ISO-8859-1 <span class="nt">--language</span> 0:spa <span class="s2">"./subtitles.spa.srt"</span> <span class="nt">--language</span> 1:en <span class="s2">"./subtitles.eng.srt"</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Change default app</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>mimeopen <span class="nt">-d</span> file.txt
+</code></pre></div>    </div>
+  </dd>
+  <dt>Disable disk automount (don’t ask to mount)</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>gsettings <span class="nb">set </span>org.gnome.desktop.media-handling automount <span class="nb">false</span>
+  <span class="nv">$ </span>gsettings <span class="nb">set </span>org.gnome.desktop.media-handling automount-open <span class="nb">false</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Tilix shortcut (full-screen quake mode with session)</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># this should be assigned to an accessible key like F1</span>
+  tilix <span class="nt">--quake</span> <span class="nt">--full-screen</span> <span class="nt">--session</span><span class="o">=</span><span class="s2">"~/dotfiles/tilix.json"</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Deluge daemon configuration</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># FROM SERVER:</span>
+  <span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>deluged
+  <span class="c"># add to startup /usr/bin/deluged (with gnome-session-properties for example)</span>
+  <span class="c"># edit ~/.config/deluge/auth and add extra line:</span>
+  &lt;user&gt;:&lt;pass&gt;:10
+  <span class="c"># Disable classic mode from GTK client and test 127.0.0.1:58846 from 'Connection Manager' </span>
+  <span class="c"># FROM CLIENT:</span>
+  <span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>deluge
+  <span class="c"># configure from 'Connection manager':</span>
+  &lt;user&gt;@&lt;server_ip&gt;:58846 <span class="c"># with user/pass specified on ~/.config/deluge/auth from server</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Swap Caps_Lock and Control_L</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c"># put these lines on .Xmodmap file (tested on xfce)</span>
+  remove Lock <span class="o">=</span> Caps_Lock
+  keycode 0x42 <span class="o">=</span> Control_L
+  add Control <span class="o">=</span> Control_L 
+</code></pre></div>    </div>
+  </dd>
+  <dt>Notify opening guake when phplog changes (showing “tailed” log on guake)</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="k">while </span>inotifywait <span class="nt">-e</span> close_write /var/log/phplog<span class="p">;</span> <span class="k">do </span>guake <span class="nt">-s</span> 0<span class="p">;</span> guake <span class="nt">-t</span><span class="p">;</span> <span class="k">done</span> <span class="o">&gt;</span> /dev/null 2&gt;&amp;1 &amp;
+</code></pre></div>    </div>
+  </dd>
+  <dt>Ask password for decrypt drive in gui popup</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>encfs <span class="nt">--extpass</span><span class="o">=</span>/usr/bin/ssh-askpass /src/.cryptk_encfs/ ~/dest <span class="o">&gt;</span> /dev/null 2&gt;&amp;1
+</code></pre></div>    </div>
+  </dd>
+  <dt>Graphical rotation</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>xrandr <span class="nt">-x</span> / xrandr <span class="nt">-y</span> / xrandr <span class="nt">-x</span> <span class="nt">-y</span> / xrandr <span class="nt">-o</span> normal / xrandr <span class="nt">-o</span> inverted
+</code></pre></div>    </div>
+  </dd>
+  <dt>Add app to startup</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="nb">cp</span> /usr/share/applications/guake.desktop ~/.config/autostart/
+</code></pre></div>    </div>
+  </dd>
+  <dt>Move app to workspace at startup</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>gsettings <span class="nb">set </span>org.gnome.shell.extensions.auto-move-windows application-list <span class="s2">"['banshee-media-player.desktop:2', 'deluge.desktop:2', 'rhythmbox.desktop:2', 'google-chrome.desktop:1', 'firefox.desktop:1']"</span>
+</code></pre></div>    </div>
+  </dd>
+  <dt>Configure default java version</dt>
+  <dd>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>update-alternatives <span class="nt">--config</span> java
+</code></pre></div>    </div>
+  </dd>
+</dl>
+
+
+  <br />
+  <blockquote>
+      <p><strong>Last updated: <time datetime="2022-02-24T09:41:26-06:00" class="page-date">24 Feb 2022</time></strong></p>
+  </blockquote>
+</article>
+
+
+
+<aside class="related">
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+        
+        
+
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/apps">
+                                        Packages
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/repos">
+                                        Repositories
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/shellscripting">
+                                        Shell-scripting snippets
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/zsh">
+                                        Zsh setup
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/tmux">
+                                        Tmux basics
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/my scripts">
+                                        Useful scripts
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/bash commands">
+                                        Bash/UNIX commands
+                                        <small><time datetime="2022-02-24T09:41:26-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+        
+        
+  </ul>
+</aside>
+
+
+
+      </main>
+     <footer class="site-footer">
+
+  <div class="wrapper">
+
+    
+      <div style="float: left; margin-left: 25px">
+          <a href="/bookmarks"><i class="fas fa-bookmark"></i> bookmarks</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="/sitemap"><i class="fas fa-sitemap"></i> sitemap</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/johgh"><i class="fas fa-user-astronaut"></i> about</a>
+          <!-- <div><a class="post-link" href="http://guitarchords.ga"><i class="fa fa-music"></i><span class="post-link-title">  Guitarchords.ga</span></a></div><br /> -->
+      </div>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+          <!-- <h2 class="footer-heading"> <a href="https://github.com/johgh/johgh.io-source"> <i class="fa fa-github"></i> Cheat-Sheets</a></h2> -->
+        <ul class="contact-list">
+          <li><a href="mailto:"></a></li>
+        </ul>
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <p class="text" style="text-align:right"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0; display:inline;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span class="ccby">jordihv at gmail.com</span><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<a href="#0" class="cd-top">Top</a>
+<script src="/scripts/backtotop.js"></script>
+
+<script>
+$(function() {
+  $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
+    var $el, icon, id;
+    $el = $(el);
+    id = $el.attr('id');
+    icon = '<i class="fa fa-link"></i>';
+    if (id) {
+      return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+
+  /*
+  $(document).on('click', '.back', function(e){
+    e.preventDefault()
+  });
+  */
+});
+
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66389589-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    </div>
+
+  </body>
+</html>

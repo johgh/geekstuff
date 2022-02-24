@@ -13,9 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the site in the jekyll/builder container
-      run: |
-      docker run --rm \
-  --volume="${{ github.workspace }}:/srv/jekyll" \
-  -it jekyll/builder:3.8 \
-  jekyll build
+    - name: Build Jekyll site.
+      uses: fabacab/jekyll-builder-for-github-pages-action@v1 # Or whatever "@ref" you want.

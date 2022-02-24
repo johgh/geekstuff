@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+    Useful scripts <> GeekStuff.ml — Webdev notes and more
+    
+  </title>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="/css/poole.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/backtotop.css">
+    <link rel="canonical" href="http://0.0.0.0:4000/my scripts">
+    <!-- <link rel="stylesheet" href="/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href='https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans:300,400|Roboto:300,400|Montserrat:300,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css">
+    <link rel="stylesheet" media="screen" href="/css/toc.css">
+    <link rel="stylesheet" media="screen" href="/css/select2.css">
+    <link rel="stylesheet" media="screen" href="/css/theme.grey.min.css">
+
+    <script src="/scripts/jquery-2.1.4.min.js"></script>
+    
+    <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.6/select2.min.css" rel="stylesheet"> -->
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.6/select2.min.js"></script> -->
+    
+    <script src="/scripts/jquery.tablesorter.min.js"></script>
+    <script src="/scripts/jquery.tablesorter.widgets.min.js"></script>
+    <script src="/scripts/select2.js"></script>
+    <script src="/scripts/widget-filter-formatter-select2.min.js"></script>
+    <script src="/scripts/jquery.tocLight.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+          $.toc.clickHideButton();
+        });
+  </script>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/css/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/css/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="GeekStuff.ml — Webdev notes and more" href="atom.xml">
+</head>
+
+
+
+  <body>
+    <div class="container content">
+        <header class="site-header">
+
+<div class="wrapper">
+
+    <a class="site-title" href="/"> 
+        <span class="main-title">
+            <i style="margin-right:4px; color: #424242 !important;" class="fa fa-code"></i><span class="main-cheat" style="font-weight: bold;">Geek</span><span style="font-weight: 200">Stuff</span><i style="color: #268BD2; margin: 0px 1px 0px 3px;" class="fab fa-pied-piper-hat"></i><span style="font-size: 30px; "><span style="font-weight:100; color: #5d5d5d">ml</span></span>
+                    
+          </span>
+      </a>
+
+      <!-- <a class="post-link" href="http://guitarchords.ga"><i class="fa fa-music"></i><span class="post-link-title">  Guitarchords.ga</span></a> -->
+      <!-- <a style="float:right; margin-top: 10px;"  href="/bookmarks"><i class="fas fa-bookmark"></i></a>&nbsp;&nbsp; -->
+      <!-- <a style="float:right; margin-top: 10px;" href="/tags"><i class="fa fa-tags"></i></a> -->
+
+  </div>
+    <!-- <style> -->
+    <!--     /* The default background color is #c00 */ -->
+    <!--     .right-bottom .github-fork-ribbon { -->
+    <!--         background-color: #2A7AE2; -->
+    <!--     } -->
+
+    <!--     .right .github-fork-ribbon { -->
+    <!--         background-color: #f80; -->
+    <!--     } -->
+
+    <!--     .left-bottom .github-fork-ribbon { -->
+    <!--         background-color: #333; -->
+    <!--     } -->
+    <!-- </style> -->
+    
+    <!-- <div class="github-fork-ribbon-wrapper right-bottom"> -->
+    <!--     <div class="github-fork-ribbon"> -->
+    <!--         <a href="https://github.com/johgh/johgh.io-source">Fork me on GitHub</a> -->
+    <!--     </div> -->
+    <!-- </div> -->
+</header>
+
+      <header class="masthead">
+      </header>
+      <main>
+        <div class="post">
+
+<br />
+<article class="post">
+  <h1 class="post-title"><a href="/Terminal" class="back"><i class="fa fa-arrow-left"></i></a> Useful scripts</h1>
+  <br />
+  <div id="toc-container">
+   <table class="toc" id="toc">
+      <tbody>
+         <tr>
+            <td>
+               <div id="toctitle">
+                  <h2>Contents</h2>
+                  <span class="toctoggle">[<a id="toctogglelink" class="internal" href="#">hide</a>]</span>
+               </div>
+               <ul>
+                  <li class="toc_level-1 toc_section-1">
+                     <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Generic expect script</span></a>
+                  </li>
+                  <li class="toc_level-1 toc_section-2">
+                     <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Generate Latex based doc from Markdown file</span></a>
+                  </li>
+                  <li class="toc_level-1 toc_section-3">
+                     <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Dot files setup</span></a>
+                  </li>
+                  <li class="toc_level-1 toc_section-4">
+                     <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Aliases script (must be included, not executed)</span></a>
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div><h1 id="tocAnchor-1-1">Generic expect script</h1>
+
+<blockquote>
+  <p>This <code class="language-plaintext highlighter-rouge">expect</code> script is useful for automating scripts that expect user input, or to avoid writing passwords manually. Use at your own risk!</p>
+</blockquote>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/johgh/scripts/blob/master/ansbot">This Github Sample</a> is by <a href="https://github.com/johgh">johgh</a>
+  </div>
+  <div class="meta-info">
+    ansbot <a href="https://github.com/johgh/scripts/blob/master/ansbot">view</a> <a href="https://raw.githubusercontent.com/johgh/scripts/master/ansbot">raw</a>
+  </div>
+</div>
+<div> <button class="selectButton" data-id="#selectText1" type="button">Select text </button> </div>
+<div id="selectText1">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/expect</span>
+<span class="c"># USE EXAMPLE. Creating an alias for git:</span>
+<span class="c"># git() { if [[ $1 == "push" || $1 == "pull" ]]; then $HOME/bin/ansbot '*?assword*' 'PASSWORD_HERE' ''/usr/bin/git "$@"''; else /usr/bin/git "$@"; fi;</span>
+<span class="c"># to unalias function use: unset -f git</span>
+
+<span class="nb">set timeout </span>20
+
+proc lshift <span class="o">{</span>varname<span class="o">}</span> <span class="o">{</span>      
+    upvar 1 <span class="nv">$varname</span> var
+    <span class="nb">set </span>var <span class="o">[</span>lassign <span class="nv">$var</span> first]
+    <span class="k">return</span> <span class="nv">$first</span>
+<span class="o">}</span>
+
+<span class="nb">set </span>pattern <span class="o">[</span>lshift argv]
+<span class="nb">set </span>pass <span class="o">[</span>lshift argv]
+
+<span class="nb">eval </span>spawn <span class="o">{</span><span class="k">*</span><span class="o">}</span><span class="nv">$argv</span>
+
+expect <span class="o">{</span>
+  <span class="nb">timeout</span> <span class="o">{</span> <span class="k">return </span>0 <span class="o">}</span>
+  eof <span class="o">{</span> <span class="k">return </span>0 <span class="o">}</span>
+  <span class="s2">"</span><span class="nv">$pattern</span><span class="s2">"</span>
+<span class="o">}</span>
+
+send <span class="nv">$pass</span><span class="se">\r</span><span class="p">;</span>
+
+interact</code></pre></figure>
+
+</div>
+
+<h1 id="tocAnchor-1-2">Generate Latex based doc from Markdown file</h1>
+
+<blockquote>
+  <p>This script generates a Latex based .pdf or .ps file from a markdown specified file and optional Latex template files corresponding to header and footer. Execute <code class="language-plaintext highlighter-rouge">genlatexdoc -h</code> for more details.</p>
+</blockquote>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/johgh/scripts/blob/master/genlatexdoc">This Github Sample</a> is by <a href="https://github.com/johgh">johgh</a>
+  </div>
+  <div class="meta-info">
+    genlatexdoc <a href="https://github.com/johgh/scripts/blob/master/genlatexdoc">view</a> <a href="https://raw.githubusercontent.com/johgh/scripts/master/genlatexdoc">raw</a>
+  </div>
+</div>
+<div> <button class="selectButton" data-id="#selectText3" type="button">Select text </button> </div>
+<div id="selectText3">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+usage<span class="o">()</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">basename</span> <span class="nv">$0</span><span class="si">)</span><span class="s2"> [-f &lt;a4|a5|b4|b5|c4|c5&gt;] [-m &lt;breaks|rightbreaks|cont&gt;] [-j &lt;book|dual&gt;] [-i &lt;header|footer|body&gt;] &lt;filename&gt;.md
+- opciones:
+    FORMATO
+        -f default: formato libro (6x9in)
+        -f a5: Formato de página A5
+        -f a4: Formato de página A4
+        -g geometry: listado de parámetros de geometría en formato latex. ej: 'margin=2.3cm, footskip=1.14cm, bmargin=2.67cm'
+        -s escala: Factor de ampliación.
+        -o offset vertical: valor decimal en cm
+        -l linespace: por defecto 1
+    METADATOS
+        -t título a incluir en los metadatos y nombre del pdf
+        -a autor a incluir en los metadatos del pdf
+    MODO
+        -m cont[inuous]: todo el texto contínuo, sin saltos de página
+        -m breaks: partes y capítulos con saltos de página (modo por defecto)
+        -m rightbreaks: partes y capítulos con saltos de página y comenzando siempre en la parte derecha
+    JUNTAR
+        -j dual: junta 2 páginas en cada A4 con ordenación estándar
+        -j book: pone 2 páginas en cada A4 en formato folleto
+        -b box: mostrar marco alrededor de cada página (sólo se muestra cuando hay 2 páginas por A4)
+    INCLUIR
+        -i especifica que partes se incluyen en el documento (se pueden escoger varias especificando varias veces el parámetro)
+
+- plantillas .tex (a incluir en el mismo directorio que el fichero .md):
+        - header.tex: páginas iniciales del documento en formato latex
+        - footer.tex: páginas finales del documento en formato latex"</span> 1&gt;&amp;2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+
+dependencies<span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">!</span> <span class="si">$(</span>gem list | <span class="nb">grep </span>kramdown <span class="o">&gt;</span>/dev/null<span class="si">)</span> <span class="o">||</span>
+        <span class="o">!</span> dpkg <span class="nt">-s</span> texlive texlive-latex-recommended texlive-latex-extra texlive-lang-spanish texlive-extra-utils evince ruby-full &amp;&gt; /dev/null
+    <span class="k">then
+        </span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"Some required dependencies were not found. Would you like to install them? (y/n) </span><span class="se">\c</span><span class="s2">"</span>
+        <span class="nb">read
+        </span><span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$REPLY</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"y"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+            </span><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> texlive texlive-latex-recommended texlive-latex-extra texlive-lang-spanish
+            <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> texlive-extra-utils
+            <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> evince
+            <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> ruby-full
+            <span class="nb">sudo </span>gem <span class="nb">install </span>kramdown
+        <span class="k">fi
+    fi</span>
+<span class="o">}</span>
+
+<span class="c">##### PARSEO DE PARÁMETROS RECIBIDOS #####</span>
+<span class="c"># definición de parámetros por defecto</span>
+<span class="nv">mode</span><span class="o">=</span>scrbook
+<span class="nv">f</span><span class="o">=</span>default
+<span class="nv">j</span><span class="o">=</span>default
+<span class="nv">m</span><span class="o">=</span>default
+<span class="nv">s</span><span class="o">=</span>default
+<span class="nv">included_args</span><span class="o">=()</span>
+<span class="nv">included</span><span class="o">=()</span>
+included+<span class="o">=(</span><span class="s1">'header'</span><span class="o">)</span>
+included+<span class="o">=(</span><span class="s1">'footer'</span><span class="o">)</span>
+included+<span class="o">=(</span><span class="s1">'body'</span><span class="o">)</span>
+
+<span class="c"># parámetros recibidos</span>
+<span class="k">while </span><span class="nb">getopts</span> <span class="s2">":f:i:j:m:s:t:a:o:g:l:b"</span> option<span class="p">;</span> <span class="k">do
+case</span> <span class="s2">"</span><span class="k">${</span><span class="nv">option</span><span class="k">}</span><span class="s2">"</span> <span class="k">in
+    </span>f<span class="p">)</span>
+        <span class="nv">f</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'a4'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'a5'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'b4'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'b5'</span>  <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'c4'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'c5'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    g<span class="p">)</span>
+        <span class="nv">g</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="p">;;</span>
+    m<span class="p">)</span>
+        <span class="nv">m</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$m</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'cont'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$m</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'breaks'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$m</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'rightbreaks'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    j<span class="p">)</span>
+        <span class="nv">j</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$j</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'book'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$j</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'dual'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    i<span class="p">)</span>
+        <span class="nv">i</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'header'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'footer'</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'body'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi
+        </span>included_args+<span class="o">=(</span><span class="nv">$i</span><span class="o">)</span>
+        <span class="p">;;</span>
+    s<span class="p">)</span>
+        <span class="nv">s</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="s2">"</span><span class="nv">$s</span><span class="s2">"</span> <span class="o">=</span>~ ^[0-9]+<span class="o">(</span><span class="se">\.</span><span class="o">[</span>0-9]+<span class="o">)</span>?<span class="nv">$ </span><span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    o<span class="p">)</span>
+        <span class="nv">o</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="c"># if [[ ! "$o" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then usage; fi</span>
+        <span class="p">;;</span>
+    l<span class="p">)</span>
+        <span class="nv">l</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="c"># if [[ ! "$o" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then usage; fi</span>
+        <span class="p">;;</span>
+    b<span class="p">)</span>
+        <span class="nv">b</span><span class="o">=</span><span class="nb">true</span>
+        <span class="p">;;</span>
+    t<span class="p">)</span>
+        <span class="nv">t</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$t</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    a<span class="p">)</span>
+        <span class="nv">a</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>usage<span class="p">;</span> <span class="k">fi</span>
+        <span class="p">;;</span>
+    <span class="k">*</span><span class="p">)</span>
+        usage
+        <span class="p">;;</span>
+<span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="c"># si se han especificado por parametro partes a incluir sobreescrimos las que vienen por defecto</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="nv">$included_args</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">included</span><span class="o">=(</span><span class="k">${</span><span class="nv">included_args</span><span class="p">[*]</span><span class="k">}</span><span class="o">)</span>
+<span class="k">fi</span>
+
+<span class="c"># comprobamos que el fichero pasado por parámetro exista</span>
+<span class="nb">shift</span> <span class="k">$((</span> OPTIND <span class="o">-</span> <span class="m">1</span> <span class="k">))</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-f</span> <span class="nv">$@</span> <span class="o">||</span> <span class="nt">-z</span> <span class="nv">$@</span> <span class="o">||</span> <span class="o">!</span> <span class="si">$(</span><span class="nb">echo</span> <span class="nv">$@</span> | <span class="nb">grep</span> <span class="s1">'.md'</span><span class="si">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span>usage
+<span class="k">fi</span>
+
+<span class="c">##### PREPARACIÓN ENTORNO #####</span>
+<span class="c"># comprobación de dependencias</span>
+dependencies
+<span class="nv">filename</span><span class="o">=</span><span class="sb">`</span><span class="nb">basename</span> <span class="nt">-s</span> .md <span class="nv">$@</span><span class="sb">`</span>
+<span class="nb">dirname</span><span class="o">=</span><span class="sb">`</span><span class="nb">dirname</span> <span class="nv">$@</span><span class="sb">`</span>
+<span class="c"># cambio al directorio de trabajo</span>
+<span class="nb">cd</span> <span class="s2">"</span><span class="nv">$dirname</span><span class="s2">"</span>
+<span class="c"># limpieza de ficheros generados en ejecuciones anteriores</span>
+<span class="nb">rm</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.pdf <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.ps 2&gt; /dev/null
+
+<span class="c">##### PARSEO DE PARÁMETROS</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$t</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">title</span><span class="o">=</span><span class="s2">"</span><span class="nv">$t</span><span class="s2">"</span><span class="p">;</span> <span class="k">else </span><span class="nv">title</span><span class="o">=</span><span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span><span class="p">;</span> <span class="k">fi
+if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">author</span><span class="o">=</span><span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span><span class="p">;</span> <span class="k">else </span><span class="nv">author</span><span class="o">=</span><span class="s2">"-"</span><span class="p">;</span> <span class="k">fi
+if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$g</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">geometry</span><span class="o">=</span><span class="s2">"</span><span class="nv">$g</span><span class="s2">,"</span><span class="p">;</span> <span class="k">else </span><span class="nv">geometry</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span> <span class="k">fi
+if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$l</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">linespace</span><span class="o">=</span><span class="s2">"</span><span class="se">\r</span><span class="s2">enewcommand{</span><span class="se">\b</span><span class="s2">aselinestretch}{</span><span class="nv">$l</span><span class="s2">}</span><span class="se">\n</span><span class="s2">ormalsize"</span><span class="p">;</span> <span class="k">else </span><span class="nv">linespace</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span> <span class="k">fi
+
+</span><span class="nv">openany</span><span class="o">=</span><span class="s1">''</span>
+<span class="nv">paper</span><span class="o">=</span><span class="s1">''</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$m</span><span class="s2">"</span> <span class="o">==</span> <span class="s1">'cont'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">mode</span><span class="o">=</span>scrartcl
+<span class="k">else
+    if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">==</span> <span class="k">*</span><span class="s2">"4"</span><span class="k">*</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+        </span><span class="nv">mode</span><span class="o">=</span>scrartcl
+    <span class="k">else</span>
+        <span class="c"># komastyle="\addtokomafont{chapterentry}{\mdseries}\addtokomafont{chapterentry}{\rmfamily}"</span>
+        <span class="nv">komastyle</span><span class="o">=</span><span class="s2">""</span>
+    <span class="k">fi
+fi
+
+if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$m</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'rightbreaks'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">openany</span><span class="o">=</span><span class="s1">',openany'</span>
+<span class="k">fi</span>
+
+
+<span class="c">##### CONVERSIÓN DE KRAMDOWN A LATEX #####</span>
+kramdown <span class="nt">-o</span> latex <span class="nt">--template</span> document <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.md <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+
+
+<span class="c">##### POSTPROCESO DEL FICHERO TEX #####</span>
+<span class="c"># se cambia regla horizontal por asteriscos</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\rule{3in}{0.4pt}/* * */g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="c"># puntos suspensivos sin espacios</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\ldots{}/.../g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="c"># guiones largos más largos</span>
+<span class="c"># sed -i 's/--/---/g' "$filename".tex</span>
+<span class="c"># espacio vertical</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\/\/\//\\bigskip\\bigskip\\bigskip/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="c"># markup for manual adjustment of vbox badness</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/beginsloppy/\\begin{sloppypar}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/endsloppy/\\end{sloppypar}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+
+<span class="c">##### INCLUIMOS PARTES SELECCIONADAS SEGÚN PARÁMETROS #####</span>
+<span class="nb">sed</span> <span class="nt">-n</span> <span class="s1">'/\\begin{document}/,/\\end{document}/P'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex | <span class="nb">head</span> <span class="nt">-n-1</span> | <span class="nb">tail</span> <span class="nt">-n</span>+2 <span class="o">&gt;</span> body.tex
+
+<span class="c"># añadimos cabecera (latex)</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh"> &gt; "</span><span class="nv">$filename</span><span class="sh">".tex
+</span><span class="se">\d</span><span class="sh">ocumentclass
+</span><span class="se">\u</span><span class="sh">sepackage[utf8x]{inputenc}
+</span><span class="se">\u</span><span class="sh">sepackage{listings}
+</span><span class="se">\u</span><span class="sh">sepackage{microtype}
+</span><span class="se">\u</span><span class="sh">sepackage{pdfpages}
+</span><span class="se">\u</span><span class="sh">sepackage[</span><span class="nv">$geometry</span><span class="sh"> paperwidth=6in, paperheight=9in]{geometry}
+</span><span class="nv">$linespace</span><span class="sh">
+</span><span class="se">\u</span><span class="sh">sepackage[spanish]{babel}
+</span><span class="se">\u</span><span class="sh">sepackage[pdftex,
+            pdfauthor={</span><span class="nv">$author</span><span class="sh">},
+            pdftitle={</span><span class="nv">$title</span><span class="sh">}]{hyperref}
+</span><span class="se">\s</span><span class="sh">etcounter{footnote}{0}
+</span><span class="se">\s</span><span class="sh">etlength{</span><span class="se">\e</span><span class="sh">mergencystretch}{2pt}
+</span><span class="se">\m</span><span class="sh">akeatletter
+</span><span class="se">\@</span><span class="sh">ifundefined{date}{}{</span><span class="se">\d</span><span class="sh">ate{}}
+</span><span class="se">\m</span><span class="sh">akeatother
+</span><span class="se">\r</span><span class="sh">enewcommand{</span><span class="se">\p</span><span class="sh">artname}{Parte}
+</span><span class="se">\b</span><span class="sh">egin{document}
+</span><span class="no">EOF
+</span><span class="c"># \raggedbottom</span>
+<span class="c"># \renewcommand{\baselinestretch}{2}\normalsize</span>
+<span class="c"># \usepackage[T1]{fontenc}</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">" </span><span class="k">${</span><span class="nv">included</span><span class="p">[@]</span><span class="k">}</span><span class="s2"> "</span> <span class="o">=</span>~ <span class="s2">" header "</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nb">cat </span>header.tex <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex 2&gt; /dev/null<span class="p">;</span> <span class="k">fi
+if</span> <span class="o">[[</span> <span class="s2">" </span><span class="k">${</span><span class="nv">included</span><span class="p">[@]</span><span class="k">}</span><span class="s2"> "</span> <span class="o">=</span>~ <span class="s2">" body "</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nb">cat </span>body.tex <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex 2&gt; /dev/null<span class="p">;</span> <span class="k">fi
+if</span> <span class="o">[[</span> <span class="s2">" </span><span class="k">${</span><span class="nv">included</span><span class="p">[@]</span><span class="k">}</span><span class="s2"> "</span> <span class="o">=</span>~ <span class="s2">" footer "</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nb">cat </span>footer.tex <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex 2&gt; /dev/null<span class="p">;</span> <span class="k">fi</span>
+
+<span class="c"># añadimos marca de fin de documento (latex)</span>
+<span class="nb">echo</span> <span class="s1">'\end{document}'</span> <span class="o">&gt;&gt;</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+
+<span class="c">##### FORMATO A4/A5/LIBRO/ARTICULO SEGÚN PARÁMETROS #####</span>
+bookstructure<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># formato a5, si soporta capítulos a diferencia de scrartcl</span>
+    <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\subsection{\([^}]*\)}.*$/\\chapter*{\1}\n\\addcontentsline{toc}{chapter}{\1}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+    <span class="c"># cambiamos section por parte</span>
+    <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\section{\([^}]*\)}.*$/\\part*{\1}\n\\addcontentsline{toc}{part}{\1}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="o">}</span>
+
+articlestructure<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># borramos las partes, para ahorrar espacio</span>
+    <span class="c"># sed -i 's/\\section{\([^}]*\)}.*$//g' "$filename".tex</span>
+    <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\section{\([^}]*\)}.*$/\\section*{\1}\n\\addcontentsline{toc}{section}{\1}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+    <span class="c"># subsecciones, no capítulos</span>
+    <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\subsection{\([^}]*\)}.*$/\\subsection*{\1}\n\\addcontentsline{toc}{subsection}{\1}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="o">}</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">paper</span><span class="o">=</span><span class="s1">','</span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="s1">'paper'</span>
+    <span class="c"># si el formato no es 6x9, lo borramos de geometry</span>
+    <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/paperwidth.*$/\]{geometry}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="k">fi</span>
+
+<span class="c"># oneside puts number page on center, solution: better play with inner and outer margins..</span>
+<span class="c"># sed -i 's/\\documentclass.*$/\\documentclass[oneside,toc=chapterentrydotfill'"$openany"''"$paper"']{'"$mode"'}/g' "$filename".tex</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/\\documentclass.*$/\\documentclass[twoside,toc=chapterentrydotfill'</span><span class="s2">"</span><span class="nv">$openany</span><span class="s2">"</span><span class="s1">''</span><span class="s2">"</span><span class="nv">$paper</span><span class="s2">"</span><span class="s1">']{'</span><span class="s2">"</span><span class="nv">$mode</span><span class="s2">"</span><span class="s1">'}/g'</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$mode</span> <span class="o">==</span> <span class="s1">'scrartcl'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span>articlestructure
+<span class="k">else
+    </span>bookstructure
+<span class="k">fi</span>
+
+
+<span class="c">##### CONVERSIÓN A PDF #####</span>
+notvalidparts<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"Included parts not found or invalid syntax: </span><span class="nv">$included</span><span class="se">\n</span><span class="s2">Please include your header.tex and/or footer.tex file in the same directory as your .md file"</span>
+    <span class="nb">exit </span>1
+<span class="o">}</span>
+
+<span class="c"># se compila 2 veces para obtener TOC actualizada</span>
+pdflatex <span class="nt">-draftmode</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+pdflatex <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex
+<span class="k">if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.pdf <span class="o">]]</span><span class="p">;</span> <span class="k">then </span>notvalidparts<span class="p">;</span> <span class="k">fi</span>
+
+<span class="c">##### MAQUETADO MEDIANTE PDFJAM #####</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$j</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$b</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">box</span><span class="o">=</span><span class="s2">" --frame true "</span><span class="p">;</span> <span class="k">else </span><span class="nv">box</span><span class="o">=</span><span class="s1">''</span><span class="p">;</span> <span class="k">fi
+
+    </span><span class="nv">landscape</span><span class="o">=</span><span class="s1">' --landscape '</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$j</span><span class="s2">"</span> <span class="o">==</span> <span class="s1">'dual'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+        </span><span class="nv">joinargs</span><span class="o">=</span><span class="s1">' --nup 2x1 '</span>
+    <span class="k">else
+        </span><span class="nv">joinargs</span><span class="o">=</span><span class="s1">' --signature 4 --preamble "\usepackage{everyshi}\makeatletter\EveryShipout{\ifodd\c@page\pdfpageattr{/Rotate 180}\fi}\makeatother" '</span>
+    <span class="k">fi
+
+    </span><span class="nb">eval</span> <span class="s2">"pdfjam --keepinfo </span><span class="nv">$joinargs</span><span class="s2"> </span><span class="nv">$box</span><span class="s2"> </span><span class="nv">$landscape</span><span class="s2"> </span><span class="nv">$filename</span><span class="s2">.pdf"</span>
+    <span class="nb">mv</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span><span class="nt">-pdfjam</span>.pdf <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.pdf <span class="o">&gt;</span>/dev/null 2&gt;&amp;1
+<span class="k">fi
+
+if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="nv">$o</span> <span class="o">||</span> <span class="s2">"</span><span class="nv">$s</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$s</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">scale</span><span class="o">=</span><span class="s2">"--noautoscale true --scale </span><span class="nv">$s</span><span class="s2">"</span><span class="p">;</span> <span class="k">else </span><span class="nv">scale</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span> <span class="k">fi
+    if</span> <span class="o">[[</span> <span class="o">!</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$o</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">offset</span><span class="o">=</span><span class="s1">'--offset \"$s\"'</span><span class="p">;</span> <span class="k">else </span><span class="nv">offset</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span> <span class="k">fi
+    if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">==</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">fitpaper</span><span class="o">=</span><span class="s1">'--papersize {6in,9in}'</span><span class="p">;</span> <span class="k">fi
+    if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">fitpaper</span><span class="o">=</span><span class="s1">'--'</span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="s1">'paper'</span><span class="p">;</span> <span class="k">fi
+    if</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$j</span><span class="s2">"</span> <span class="o">!=</span> <span class="s1">'default'</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then </span><span class="nv">fitpaper</span><span class="o">=</span><span class="s1">''</span><span class="p">;</span> <span class="k">fi
+    </span><span class="nb">eval</span> <span class="s1">'pdfjam --keepinfo $fitpaper $landscape $scale $offset "$filename".pdf'</span>
+    <span class="nb">mv</span> <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span><span class="nt">-pdfjam</span>.pdf <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.pdf <span class="o">&gt;</span>/dev/null 2&gt;&amp;1
+<span class="k">fi
+
+</span><span class="nb">nohup </span>evince <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.pdf <span class="o">&gt;</span>/dev/null 2&gt;&amp;1 &amp;
+
+
+<span class="c">##### LIMPIEZA DE FICHEROS TEMPORALES #####</span>
+<span class="nb">rm</span> <span class="k">*</span>.toc <span class="k">*</span>.dvi <span class="k">*</span>.aux <span class="k">*</span>.out <span class="k">*</span>.log <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>_temp.ps body.tex <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span>.tex <span class="s2">"</span><span class="nv">$filename</span><span class="s2">"</span><span class="nt">-pdfjam</span>.pdf 2&gt; /dev/null</code></pre></figure>
+
+</div>
+
+<h1 id="tocAnchor-1-3">Dot files setup</h1>
+
+<blockquote>
+  <p>This script downloads from github my dot (config) files installing any external dependencies. It also installs
+my .vim directory if it doesn’t find previous Vim config files</p>
+</blockquote>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/johgh/scripts/blob/master/setup.sh">This Github Sample</a> is by <a href="https://github.com/johgh">johgh</a>
+  </div>
+  <div class="meta-info">
+    setup.sh <a href="https://github.com/johgh/scripts/blob/master/setup.sh">view</a> <a href="https://raw.githubusercontent.com/johgh/scripts/master/setup.sh">raw</a>
+  </div>
+</div>
+<div> <button class="selectButton" data-id="#selectText2" type="button">Select text </button> </div>
+<div id="selectText2">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">dependencies</span><span class="o">=</span><span class="s2">"guake tmux zsh expect"</span>
+<span class="nv">dotfiles</span><span class="o">=</span><span class="s2">".zshrc .tmux.conf .tmux.conf.layout .vrapperrc .gitconfig .my.cnf .alias_functions"</span>
+<span class="nv">autostart</span><span class="o">=</span><span class="s2">"guake"</span>
+
+<span class="c"># external scripts</span>
+<span class="nv">CHECK_DEPS</span><span class="o">=</span><span class="nv">$HOME</span>/bin/check_deps
+<span class="nv">GET_GITHUB</span><span class="o">=</span><span class="nv">$HOME</span>/bin/getgithub
+<span class="nv">VIM_SETUP</span><span class="o">=</span><span class="nv">$HOME</span>/bin/nvim_setup.sh
+
+<span class="c"># clone/update my scripts repo</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>git
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="nv">$HOME</span>/bin <span class="o">]</span>
+<span class="k">then
+    </span>git clone https://github.com/johgh/scripts.git <span class="nv">$HOME</span>/bin
+<span class="k">fi</span>
+
+<span class="nv">$CHECK_DEPS</span> <span class="s2">"</span><span class="nv">$dependencies</span><span class="s2">"</span>
+
+<span class="c"># clone/update conf repo and add symlinks to $HOME</span>
+<span class="nv">$GET_GITHUB</span> johgh/dotfiles conf
+
+<span class="c"># symlink dot files to $HOME</span>
+<span class="k">for </span>file <span class="k">in</span> <span class="nv">$dotfiles</span>
+<span class="k">do
+    </span><span class="nb">ln</span> <span class="nt">-fs</span> <span class="nv">$HOME</span>/conf/<span class="nv">$file</span> <span class="nv">$HOME</span>
+<span class="k">done</span>
+
+<span class="c"># clone/update oh-my-zsh</span>
+<span class="nv">$GET_GITHUB</span> robbyrussell/oh-my-zsh.git .oh-my-zsh
+<span class="nb">sudo </span>chsh <span class="nt">-s</span> /bin/zsh
+
+<span class="c"># add apps to startup</span>
+<span class="nb">mkdir</span> ~/.config/autostart 2&gt; /dev/null
+<span class="k">for </span>app <span class="k">in</span> <span class="nv">$autostart</span>
+<span class="k">do
+    </span><span class="nb">ln</span> <span class="nt">-fs</span> /usr/share/applications/<span class="k">${</span><span class="nv">app</span><span class="k">}</span>.desktop ~/.config/autostart/
+<span class="k">done</span>
+
+<span class="c"># install my vim setup</span>
+<span class="nv">$VIM_SETUP</span>
+
+<span class="nb">echo</span> <span class="s1">'Please reload now .zshrc: "source ~/.zshrc"'</span></code></pre></figure>
+
+</div>
+
+<h1 id="tocAnchor-1-4">Aliases script (must be included, not executed)</h1>
+
+<blockquote>
+  <p>Tested in bash and zsh.</p>
+</blockquote>
+
+<blockquote>
+  <p>Save this file in your HOME directory and include with the following line in your .bashrc or .zshrc file:
+    <code class="language-plaintext highlighter-rouge">. $HOME/&lt;alias_file_name&gt;</code></p>
+</blockquote>
+
+<div class="github-sample-reference">
+  <div class="author-info">
+    <a href="https://github.com/johgh/dotfiles/blob/master/.alias_functions">This Github Sample</a> is by <a href="https://github.com/johgh">johgh</a>
+  </div>
+  <div class="meta-info">
+    .alias_functions <a href="https://github.com/johgh/dotfiles/blob/master/.alias_functions">view</a> <a href="https://raw.githubusercontent.com/johgh/dotfiles/master/.alias_functions">raw</a>
+  </div>
+</div>
+<div> <button class="selectButton" data-id="#selectText4" type="button">Select text </button> </div>
+<div id="selectText4">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">## ZSH/BASH ALIASES/FUNCTION#################################################################</span>
+
+<span class="c"># open file with associated GUI app</span>
+o<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">nohup </span>xdg-open <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&gt;</span> /dev/null 2&gt; /dev/null
+<span class="o">}</span>
+<span class="c"># list directories sorted by file size. e.g.: dus '*/*'</span>
+dus<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">du</span> <span class="nt">-h</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | <span class="nb">sort</span> <span class="nt">-h</span>
+<span class="o">}</span>
+<span class="c"># git commit &amp; pull+push shortcut</span>
+push<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">message</span><span class="o">=</span><span class="s1">'no comment'</span>
+    <span class="k">while </span><span class="nb">getopts</span> <span class="s2">":m:a"</span> o<span class="p">;</span> <span class="k">do
+    case</span> <span class="s2">"</span><span class="k">${</span><span class="nv">o</span><span class="k">}</span><span class="s2">"</span> <span class="k">in
+        </span>m<span class="p">)</span>
+            <span class="nv">message</span><span class="o">=</span><span class="k">${</span><span class="nv">OPTARG</span><span class="k">}</span>
+            <span class="p">;;</span>
+        a<span class="p">)</span>
+            git add <span class="nt">--all</span> ./
+            <span class="p">;;</span>
+        <span class="k">*</span><span class="p">)</span>
+            <span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"Invalid parameter. Valid (optional) parameters are:</span><span class="se">\n</span><span class="s2">-a (add all files)</span><span class="se">\n</span><span class="s2">-m &lt;commit message&gt;</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="k">return</span>
+            <span class="p">;;</span>
+    <span class="k">esac</span>
+    <span class="k">done
+    </span>git commit <span class="nt">-m</span> <span class="s2">"</span><span class="nv">$message</span><span class="s2">"</span>
+    git pull
+    git push
+<span class="o">}</span>
+<span class="c"># shortcuts</span>
+<span class="nb">alias </span><span class="nv">lt</span><span class="o">=</span><span class="s1">'ls -lrt'</span>
+<span class="nb">alias </span><span class="nv">c</span><span class="o">=</span><span class="s1">'clear'</span>
+<span class="nb">alias </span><span class="nv">s</span><span class="o">=</span><span class="s1">'sudo'</span>
+<span class="nb">alias </span><span class="nv">shutdown</span><span class="o">=</span><span class="s1">'sudo shutdown –h now'</span> <span class="c">#user ALL=(ALL) NOPASSWD: /sbin/shutdown (/etc/sudoers)</span>
+<span class="nb">alias </span><span class="nv">restart</span><span class="o">=</span><span class="s1">'sudo shutdown –r now'</span> <span class="c">#user ALL=(ALL) NOPASSWD: /sbin/shutdown (/etc/sudoers)</span>
+<span class="nb">alias suspend</span><span class="o">=</span><span class="s1">'sudo pm-suspend'</span> <span class="c">#user ALL=(ALL) NOPASSWD: /usr/sbin/pm-suspend (/etc/sudoers)</span>
+<span class="c"># apt shortcuts</span>
+<span class="nb">alias </span><span class="nv">inst</span><span class="o">=</span><span class="s1">'sudo apt-get install'</span>
+<span class="nb">alias </span><span class="nv">search</span><span class="o">=</span><span class="s1">'apt-cache search'</span>
+<span class="nb">alias </span><span class="nv">purge</span><span class="o">=</span><span class="s1">'sudo apt-get purge'</span>
+<span class="nb">alias </span><span class="nv">remove</span><span class="o">=</span><span class="s1">'sudo apt-get remove'</span>
+<span class="nb">alias </span><span class="nv">update</span><span class="o">=</span><span class="s1">'sudo apt-get update'</span>
+<span class="nb">alias </span><span class="nv">upgrade</span><span class="o">=</span><span class="s1">'update;sudo apt-get dist-upgrade'</span>
+<span class="nb">alias </span><span class="nv">show</span><span class="o">=</span><span class="s1">'sudo apt-cache show'</span>
+<span class="c"># mount formatted</span>
+<span class="nb">alias </span><span class="nv">mountt</span><span class="o">=</span><span class="s1">'mount |column -t'</span>
+<span class="c"># show php log</span>
+<span class="nb">alias </span><span class="nv">llog</span><span class="o">=</span><span class="s1">'tail -f -n 100 ./storage/logs/laravel.log | ccze -A'</span>
+<span class="c"># repeat last command with sudo</span>
+<span class="nb">alias </span><span class="nv">fuck</span><span class="o">=</span><span class="s1">'sudo !!'</span>
+<span class="c"># sail (laravel docker)</span>
+<span class="nb">alias </span><span class="nv">sail</span><span class="o">=</span><span class="s1">'[ -f sail ] &amp;&amp; bash sail || bash vendor/bin/sail'</span>
+<span class="nb">alias </span><span class="nv">artisan</span><span class="o">=</span><span class="s1">'sail php artisan'</span>
+
+<span class="c"># open file in existing gvim window</span>
+v<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># gvim --remote "$1" &gt; /dev/null 2&gt; /dev/null</span>
+    <span class="c"># gvim --remote-send ":call foreground()&lt;CR&gt;:silent bd 1&lt;CR&gt;"</span>
+    nvim <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="o">}</span>
+
+<span class="c"># OBSOLETO: usar mejor credentials.helper = store (guarda pass en fichero plano .git-credentials)</span>
+<span class="c">## GIT ALIASES + AUTOPASS ###################################################################</span>
+
+<span class="c"># default git password</span>
+<span class="c"># export GIT_PASS='MY_PASS'</span>
+
+<span class="c"># git() {</span>
+<span class="c">#     declare -A my_aliases</span>
+<span class="c"># </span>
+<span class="c">#     # ALIAS (to allow overriding of git commands)</span>
+<span class="c">#     my_aliases[pull]="r"</span>
+<span class="c">#     my_aliases[push]="p"</span>
+<span class="c">#     # git config --global alias.r '!git fetch; git rebase --autostash FETCH_HEAD'</span>
+<span class="c">#     # git config --global alias.p push</span>
+<span class="c"># </span>
+<span class="c">#     # NO PASSWORD</span>
+<span class="c">#     pass_commands=(${my_aliases[*]})</span>
+<span class="c">#     # pass_commands=$my_aliases</span>
+<span class="c">#     # to add commands/alias:</span>
+<span class="c">#     #pass_commands+=('new_command_or_alias')</span>
+<span class="c"># </span>
+<span class="c">#     # translate $my_aliases</span>
+<span class="c">#     cmd=$1</span>
+<span class="c">#     if [ ${my_aliases[$cmd]+abc} ]; then</span>
+<span class="c">#         cmd=${my_aliases[$cmd]}</span>
+<span class="c">#     fi</span>
+<span class="c"># </span>
+<span class="c">#     # send password for $pass_commands</span>
+<span class="c">#     if [[ " ${pass_commands[@]} " =~ " $cmd " ]]; then</span>
+<span class="c">#         $HOME/bin/ansbot '*?assword*' $GIT_PASS ''/usr/bin/git "$@"''</span>
+<span class="c">#     else</span>
+<span class="c">#         /usr/bin/git "$@"</span>
+<span class="c">#     fi</span>
+<span class="c"># }</span>
+
+<span class="c"># original git (doesn't call above alias)</span>
+<span class="c"># alias Git='/usr/bin/git'</span></code></pre></figure>
+
+</div>
+
+<script src="/scripts/selecttext.js"></script>
+
+
+  <br />
+  <blockquote>
+      <p><strong>Last updated: <time datetime="2018-09-16T16:28:09-05:00" class="page-date">16 Sep 2018</time></strong></p>
+  </blockquote>
+</article>
+
+
+
+<aside class="related">
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+        
+        
+
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/apps">
+                                        Packages
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/repos">
+                                        Repositories
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/linuxcommands">
+                                        Desktop/general commands
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/shellscripting">
+                                        Shell-scripting snippets
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/zsh">
+                                        Zsh setup
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/tmux">
+                                        Tmux basics
+                                        <small><time datetime="2016-08-29T10:46:27-05:00">29 Aug 2016</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+                    
+                        
+                            <li>
+                                <h3>
+                                    <a href="/bash commands">
+                                        Bash/UNIX commands
+                                        <small><time datetime="2022-02-24T05:21:40-06:00">24 Feb 2022</time></small>
+                                    </a>
+                                </h3>
+                            </li>
+                        
+                        
+                    
+                    
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+
+            
+                
+            
+        
+        
+        
+  </ul>
+</aside>
+
+
+
+      </main>
+     <footer class="site-footer">
+
+  <div class="wrapper">
+
+    
+      <div style="float: left; margin-left: 25px">
+          <a href="/bookmarks"><i class="fas fa-bookmark"></i> bookmarks</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="/sitemap"><i class="fas fa-sitemap"></i> sitemap</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/johgh"><i class="fas fa-user-astronaut"></i> about</a>
+          <!-- <div><a class="post-link" href="http://guitarchords.ga"><i class="fa fa-music"></i><span class="post-link-title">  Guitarchords.ga</span></a></div><br /> -->
+      </div>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+          <!-- <h2 class="footer-heading"> <a href="https://github.com/johgh/johgh.io-source"> <i class="fa fa-github"></i> Cheat-Sheets</a></h2> -->
+        <ul class="contact-list">
+          <li><a href="mailto:"></a></li>
+        </ul>
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <p class="text" style="text-align:right"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0; display:inline;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span class="ccby">jordihv at gmail.com</span><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<a href="#0" class="cd-top">Top</a>
+<script src="/scripts/backtotop.js"></script>
+
+<script>
+$(function() {
+  $("h1, h2, h3, h4, h5, h6").each(function(i, el) {
+    var $el, icon, id;
+    $el = $(el);
+    id = $el.attr('id');
+    icon = '<i class="fa fa-link"></i>';
+    if (id) {
+      return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+
+  /*
+  $(document).on('click', '.back', function(e){
+    e.preventDefault()
+  });
+  */
+});
+
+</script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66389589-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    </div>
+
+  </body>
+</html>

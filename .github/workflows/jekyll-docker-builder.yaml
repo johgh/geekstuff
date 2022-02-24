@@ -1,0 +1,3 @@
+- name: Jekyll Builder for GitHub Pages
+  uses: fabacab/jekyll-builder-for-github-pages-action@v1
+

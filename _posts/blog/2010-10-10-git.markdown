@@ -110,11 +110,11 @@ La rama `master` nunca debe tener código "inestable". El código en estado de d
 ### Configuración inicial (pull con rebase)
 
 Configurar git para hacer rebase en lugar de merge al hacer `pull`
-: {% highlight sh %}
+: ~~~sh
     $ git config --global branch.master.rebase yes
     # también podemos configurarlo para todas las ramas
     $ git config --global branch.autosetuprebase always
-{% endhighlight %}
+~~~
 
 > Este paso es opcional pero nos permite mantener limpio el historial de commits al hacer pull, de forma que solo veamos `merge commit` en los puntos donde se realice la integración de la rama `feature` con `master`
 
@@ -128,42 +128,42 @@ Configurar git para hacer rebase en lugar de merge al hacer `pull`
 * Deploy en `master` cuando se acepte el código como válido finalmente
 
 Crear rama `feature` y publicarla en remoto
-: {% highlight sh %}
+: ~~~sh
     $ git checkout -b feature master
     $ git push -u origin feature
-{% endhighlight %}
+~~~
 
 Comitear (opcionalmente, editar el historial de commits de la rama con `rebase -i`)
-: {% highlight sh %}
+: ~~~sh
     $ git add .; git commit -m 'primer commit'; # ...
     # podemos hacer rebase -i hasta la base de la rama
     $ git rebase -i `git merge-base feature master`
-{% endhighlight %}
+~~~
 
 > ***Únicamente se debe hacer `rebase -i` de commits que no hayan sido publicados.*** 
 
 *Pull request* (petición de code review antes de integrar la rama en `master`)
-: {% highlight sh %}
+: ~~~sh
     $ git checkout feature
     $ git push origin feature
     # se puede crear hook que envíe mail con el nombre del feature a validar
-{% endhighlight %}
+~~~
 
 Code review: ver cambios introducidos en la rama `feature` respecto a `master`
-: {% highlight sh %}
+: ~~~sh
     $ git checkout feature
     $ git difftool `git merge-base feature master`
-{% endhighlight %}
+~~~
 
 Deploy de la rama `feature` a `master` (*merge commit* forzado para no perder la trazabilidad de la rama)
-: {% highlight sh %}
+: ~~~sh
     $ git checkout master
     $ git pull
     # el parámetro --no-ff fuerza a que se cree un merge commit en master
     $ git merge --no-ff feature
     $ git branch -d feature
     $ git push
-{% endhighlight %}
+~~~
 
 > Es posible forzar que ningún merge haga `fast-forward` (evitando tener que pasar el parámetro --no-ff) mediante la siguiente configuración: `git config --global --bool merge.ff false`
 
@@ -172,20 +172,20 @@ Deploy de la rama `feature` a `master` (*merge commit* forzado para no perder la
 ### Propagación de cambios entre ramas
 
 Propagar último commit de una rama a otra
-: {% highlight sh %}
+: ~~~sh
     # después de hacer commit en master (por ejemplo)
     $ git checkout feature
     $ git cherry-pick master
-{% endhighlight %}
+~~~
 
 Propagar commit mediante hash de una rama a otra
-: {% highlight sh %}
+: ~~~sh
     $ git checkout feature
     $ git cherry-pick <hash_commit>
-{% endhighlight %}
+~~~
 
 Propagar cambios de `master` a `feature` (rebase)
-: {% highlight sh %}
+: ~~~sh
     # primero actualizamos la rama master
     $ git checkout master
     $ git pull
@@ -194,16 +194,16 @@ Propagar cambios de `master` a `feature` (rebase)
     $ git rebase master
     # opcional: podemos elegir que cambios de master queremos en nuestra rama 
     $ git rebase -i
-{% endhighlight %}
+~~~
 
 Obtener directamente cambios desde origin/master (remoto)
-: {% highlight sh %}
+: ~~~sh
     $ git checkout feature
     $ git pull origin master
-{% endhighlight %}
+~~~
 
 Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
-: {% highlight sh %}
+: ~~~sh
     # obtenemos en feature los cambios de master
     $ git checkout feature
     $ git rebase master
@@ -211,7 +211,7 @@ Reintegrar en `master` los cambios de una rama (ver advertencia abajo)
     $ git checkout master
     $ git merge --ff-only feature # fast-forward merge
     $ git branch -d feature
-{% endhighlight %}
+~~~
 
 > ***Al realizar el merge `fast-forward` se pierde la trazabilidad de la rama que se ha integrado: `master` absorbe todos los commits que pertenecían a la rama y no se añade ningún merge commit que indique fusión de ramas*** 
 

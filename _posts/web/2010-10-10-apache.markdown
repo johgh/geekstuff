@@ -7,13 +7,13 @@ category: WebDev
 tags: Web
 ---
 Install Php Apache modules
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-get install php5-sybase php5-xdebug php5-sqlite php5-pgsql php5-mysql php5-mcrypt php5-ldap php5-intl php5-gd php5-apcu
-{% endhighlight %}
+~~~
 
     
 Enable mod_rewrite 
-: {% highlight bash %}
+: ~~~bash
 # Enable module
 $ sudo a2enmod rewrite
 # Edit /etc/apache2/sites-available/000-default.conf and /etc/apache2/sites-available/default-ssl.conf to allow overwrite from .htaccess
@@ -22,33 +22,33 @@ $ sudo a2enmod rewrite
 </Directory>
 # Restart apache
 $ sudo service apache2 restart
-{% endhighlight %}
+~~~
 
 Enable ssl module
-: {% highlight bash %}
+: ~~~bash
 $ sudo a2enmod ssl
-{% endhighlight %}
+~~~
     
 Enable https site
-: {% highlight bash %}
+: ~~~bash
 $ sudo a2ensite default-ssl
-{% endhighlight %}
+~~~
 
 Enable mcrypt 
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-get install php5-mcrypt
 # Next line only necessary in Ubuntu 13.10
 $ sudo mv -i /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/
 $ sudo php5enmod mcrypt
 $ sudo service apache2 restart
-{% endhighlight %}
+~~~
 
 > Tested in Ubuntu 13.10 & 14.04
 
 Configure file uploads in .htaccess
-: {% highlight bash %}
+: ~~~bash
 .htaccess: php_value  upload_max_filesize  5M
 .htaccess: php_value  post_max_size  15M
-{% endhighlight %}
+~~~
     
 > This is also configurable in php.ini

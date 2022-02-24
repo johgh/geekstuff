@@ -7,47 +7,47 @@ category: WebDev
 tags: Web
 ---
 Create user with permissions
-: {% highlight mysql %}
+: ~~~mysql
     > grant all privileges on DB.* to 'user'@'%' identified by 'password';
-{% endhighlight %}
+~~~
 
 Grant permissions for executing procs
-: {% highlight mysql %}
+: ~~~mysql
     > GRANT EXECUTE ON `DB`.* TO 'user'@'%' identified by 'pass';
-{% endhighlight %}
+~~~
 
 Show grants (from server with root)
-: {% highlight mysql %}
+: ~~~mysql
     > show grants for 'user'@'%';
-{% endhighlight %}
+~~~
 
 Show current user grants
-: {% highlight mysql %}
+: ~~~mysql
     > SHOW GRANTS;
-{% endhighlight %}
+~~~
 
 Reload permissiosn
-: {% highlight mysql %}
+: ~~~mysql
     > FLUSH PRIVILEGES;
-{% endhighlight %}
+~~~
 
 Dump
-: {% highlight bash %}
+: ~~~bash
     $ mysqldump --routines --no-data --databases MyDB -h 10.0.11.11 -u user -p DB > out.sql
-{% endhighlight %}
+~~~
 
 Script execution
-: {% highlight bash %}
+: ~~~bash
     $ mysql -h localhost -p -u root < script.sql
-{% endhighlight %}
+~~~
 
 Diff
-: {% highlight bash %}
+: ~~~bash
     $ mysqldiff --force --server2=root:password@localhost --server1=root:password@localhost DB1:DB2 > diff.txt
-{% endhighlight %}
+~~~
 
 Useful bash
-: {% highlight bash %}
+: ~~~bash
     bin/bash
     echo Dump SQL in progress..
     mysqldump --add-drop-table --create-options --routines --no-data --quick --add-locks --verbose --host=10.0.11.11
@@ -55,10 +55,10 @@ Useful bash
     mysqldump DB1 Table1 Table2 Table3 -h 10.0.11.11 -u user -p --verbose > out.sql
     sed -i -e 's/ AUTO_INCREMENT=[0-9]*\b//' -e 's/DB1/DB2/g' out.sql"
     echo Dump Finished
-{% endhighlight %}
+~~~
 
 Get tables from procs
-: {% highlight mysql %}
+: ~~~mysql
     select 
         distinct t.table_name
     from 
@@ -75,10 +75,10 @@ Get tables from procs
     'Proc2'
     )
     order by t.table_name
-{% endhighlight %}
+~~~
 
 Sample stored procedure code
-: {% highlight mysql %}
+: ~~~mysql
     SET @idxxxy = (select field1 from TABLE1 limit 10000000000000000,1);
     SELECT CAST(@idxxxy AS UNSIGNED) from TABLE1 limit 1;
     create table TABLE2 like TABLE1;
@@ -90,10 +90,10 @@ Sample stored procedure code
     LOCK TABLES Sections WRITE;
     CREATE INDEX IDX_login USING HASH ON Sections(SectionName);
     UNLOCK TABLES;
-{% endhighlight %}
+~~~
 
 ```~/.my.cnf```
-: {% highlight sh %}
+: ~~~sh
     [client]
     auto-rehash
     host = 10.0.11.11
@@ -101,13 +101,13 @@ Sample stored procedure code
     database = DBName
     password = 'pass'
     pager = "less -iSFX"
-{% endhighlight %}
+~~~
 
 ```/etc/mysql/my.cnf```
-: {% highlight sh %}
+: ~~~sh
 {% raw %}
     # comment following line to allow external connections
     # bind-address = 127.0.0.1 
 {% endraw %}
-{% endhighlight %}
+~~~
 

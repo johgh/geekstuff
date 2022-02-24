@@ -187,105 +187,105 @@ He aquí algunas de [mis personalizaciones](https://github.com/johgh/vim), que q
 solucionar algunos "problemas" comunes. El código incluído se debe añadir al fichero *.vimrc*
 
 Añadir línea y salir salir del *modo inserción* (tanto desde el *modo inserción* como desde del *modo normal*)
-: {% highlight vim %}
+: ~~~vim
     nnoremap <A-o> o<esc>
     nnoremap <A-O> O<esc>
     inoremap <A-o> <esc>o<esc>
     inoremap <A-O> <esc>O<esc>
-{% endhighlight %}
+~~~
 
 Permitir pegar múltiples veces lo mismo después de pegar desde *modo visual*
-: {% highlight vim %}
+: ~~~vim
         vnoremap p pgvy
-{% endhighlight %}
+~~~
 
 No copiar al portapapeles texto sobre el que se ejecuta comando change
-: {% highlight vim %}
+: ~~~vim
     nnoremap c "_c
     nnoremap C "_C
-{% endhighlight %}
+~~~
 
 Usar registro unnamedplus como portapapeles por defecto
-: {% highlight vim %}
+: ~~~vim
         set clipboard=unnamedplus
-{% endhighlight %}
+~~~
 
 > Integración del portapapeles de Vim con el del sistema.
         
 Permitir el uso del atajo `Control`+`v` para pegar en *modo inserción*/comando
-: {% highlight vim %}
+: ~~~vim
     inoremap <C-v> <C-r>+
     cnoremap <C-v> <C-r>+
-{% endhighlight %}
+~~~
 
 Alternar entre registro por defecto y auxiliar (@p)
-: {% highlight vim %}
+: ~~~vim
     nnoremap <F11> :let @h=@+ \| let @+=@p \| let @p=@h <CR>
-{% endhighlight %}
+~~~
 
 > De esta forma podemos dejar guardado en un registro auxiliar lo que tenemos en el portapapeles, y trabajar siempre con
 el registro principal con los comandos `y` y `p`, cuando hemos terminado volver a recuperar lo que teníamos
 anteriormente en el portapapeles
 
 Facilita la adición (append) de texto al portapapeles
-: {% highlight vim %}
+: ~~~vim
     nnoremap <silent> gy :let @h=@+<CR>"Hyy:let @+=@h<CR>
     vnoremap <silent> gy :normal gy<CR>
-{% endhighlight %}
+~~~
 
 > utilizamos yy para copiar la primera línea,  gy desde el *modo normal* o *visual* para añadir una línea o varias y p para
 pegar finalmente el texto. (la forma estándar sería: "ayy -> "Ayy -> "ap)
 
 Permitir el uso de macros y del comando . sobre una selección visual
-: {% highlight vim %}
+: ~~~vim
     vnoremap @@ :normal @@<CR>
     vnoremap @a :normal @a<CR>
     vnoremap . :normal .<CR>
-{% endhighlight %}
+~~~
     
 Búsqueda literal, deshabilitando expresiones regulares
-: {% highlight vim %}
+: ~~~vim
     nnoremap / /\V
-{% endhighlight %}
+~~~
     
 Cerrar *buffer* pero no salir de Vim
-: {% highlight vim %}
+: ~~~vim
     map <silent> <leader>q :only<CR>:bd<CR>
-{% endhighlight %}
+~~~
     
 Ir al *buffer* visitado anteriormente
-: {% highlight vim %}
+: ~~~vim
     nmap <leader><space> :b#<CR>
-{% endhighlight %}
+~~~
 
 Cerrar quicklist y limpiar
-: {% highlight vim %}
+: ~~~vim
     map <Leader>Z :cex []<CR>:ccl<CR>
-{% endhighlight %}
+~~~
 
 Guardar con `Control`+`s` desde cualquier modo y salir a *modo normal*
-: {% highlight vim %}
+: ~~~vim
     map <C-s> :w<CR>
     vmap <C-s> <esc>:w<CR>gv
     inoremap <C-s> <esc>:w<CR>
-{% endhighlight %}
+~~~
     
 Permitir guardar fichero mediante *sudo*
-: {% highlight vim %}
+: ~~~vim
     cmap w!! w !sudo tee % >/dev/null
-{% endhighlight %}
+~~~
 
 Subir y bajar rápidamente presionando `Control`
-: {% highlight vim %}
+: ~~~vim
     map <C-j> 4j
     map <C-k> 4k
-{% endhighlight %}
+~~~
 
 Navegar en el mode comando con `Control`+`n`/`p` en lugar de con los cursores
-: {% highlight vim %}
+: ~~~vim
     cnoremap <C-n> <down>
     cnoremap <C-p> <up>
-{% endhighlight %}
+~~~
 
 # Vim como *IDE*
 
@@ -305,17 +305,17 @@ En ocasiones necesitaremos el path donde se encuentra nuestro fichero, en mi cas
 Vim. También puede ser útil especificar un directorio de inicio por defecto:
 
 Expansión de rutas en *modo comando*
-: {% highlight vim %}
+: ~~~vim
     cnoremap <expr> ~~ getcmdtype() == ':' ? expand('%:h').'/' : '~~'
     cnoremap <expr> ~ getcmdtype() == ':' ? expand('~').'/' : '~'
-{% endhighlight %}
+~~~
     
 Directorio de inicio por defecto
-: {% highlight vim %}
+: ~~~vim
     if !empty(glob("$HOME/workspace/"))
     cd $HOME/workspace/
     endif
-{% endhighlight %}
+~~~
     
 # Más allá del *modo normal*
 

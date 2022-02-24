@@ -1,21 +1,22 @@
 # Site settings
-title: 'GeekStuff.gq — My cheat sheets site'
+title: 'GeekStuff.ml — Webdev notes and more'
 email: #jordihv@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
     My notes on Web development, Vim, Git, Linux.
 # baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://cheat-sheets.tk" # the base hostname & protocol for your site
+url: "http://geekstuff.ml" # the base hostname & protocol for your site
 permalink: none
 # twitter_username: jekyllrb
 # github_username: johgh
     
     
 # Build settings
-# markdown: kramdown
+markdown: kramdown
+kramdown:
+    input: GFM
+    syntax highlighter: rouge
 
-# kramdown:
-#     input: GFM
-gems:
+plugins:
 - jekyll-sitemap
 - jekyll_github_sample
 - jekyll-last-modified-at

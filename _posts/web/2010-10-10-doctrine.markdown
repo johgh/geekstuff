@@ -7,15 +7,15 @@ category: WebDev
 tags: Symfony
 ---
 Use Doctrine
-: {% highlight php startinline %}
+: ~~~php
     // Add these lines where you use Query Builder
     use Doctrine\DBAL\Connection;
     use Doctrine\Common\ClassLoader;
     use Doctrine\DBAL\Query;
-{% endhighlight %}
+~~~
 
 Select
-: {% highlight php startinline %}
+: ~~~php
     // Connection references Doctrine\DBAL\Connection
     function getData(Connection $db, $idUser, $date_ini, $date_end, $idHaving, $arr_ids = array()) {
         $qb = $db->createQueryBuilder()
@@ -47,10 +47,10 @@ Select
         $res = $qb->execute();
         return $res->fetchAll();
     }
-{% endhighlight %}
+~~~
 
 Update
-: {% highlight php startinline %}
+: ~~~php
     $qb = $db->createQueryBuilder()
         ->update($this->tableName)
         ->set('Login', ':login')
@@ -74,10 +74,10 @@ Update
     } catch (Exception $e) {
         return false;
     }
-{% endhighlight %}
+~~~
 
 Insert
-: {% highlight php startinline %}
+: ~~~php
     $qb = $db->createQueryBuilder()
         ->insert($this->tableName)
         ->values(array(
@@ -96,19 +96,19 @@ Insert
     } catch (Exception $e) {
         return false;
     }
-{% endhighlight %}
+~~~
 
 Delete
-: {% highlight php startinline %}
+: ~~~php
     $qb = $db->createQueryBuilder()
         ->delete($this->tableName)
         ->where('id = :id')
         ->setParameter('id', $userId);
     $qb->execute();
-{% endhighlight %}
+~~~
 
 Subquerys And Native Code
-: {% highlight php startinline %}
+: ~~~php
     // Setting session mysql variables with native code
     $prepared = $db->prepare('SELECT @row_logs := 0, @page_logs := 0');
     $prepared->execute();
@@ -158,10 +158,10 @@ Subquerys And Native Code
         );
     }
     return $pagesList;
-{% endhighlight %}
+~~~
 
 Procedure Call
-: {% highlight php startinline %}
+: ~~~php
     $prepared = $db->prepare('CALL GetUsers(:login)');
     $res = $prepared->execute(
         array(
@@ -170,5 +170,5 @@ Procedure Call
     );
 
     return $prepared->fetchAll();
-{% endhighlight %}
+~~~
 

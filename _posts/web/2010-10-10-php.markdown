@@ -10,180 +10,180 @@ tags: Web
 
 ## Arrays
 [array_intersect](http://php.net/manual/en/function.array-intersect.php)
-: {% highlight php startinline %}
+: ~~~php
     array array_intersect ( array $array1 , array $array2 [, array $... ] )
-{% endhighlight %}
+~~~
 
 [array_merge](http://php.net/manual/en/function.array-merge.php)
-: {% highlight php startinline %}
+: ~~~php
  array array_merge ( array $array1 [, array $... ] )
-{% endhighlight %}
+~~~
 
 [array_pop](http://php.net/manual/en/function.array-pop.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed array_pop ( array &$array )
-{% endhighlight %}
+~~~
 
 [array_reverse](http://php.net/manual/en/function.array-reverse.php)
-: {% highlight php startinline %}
+: ~~~php
  array array_reverse ( array $array [, bool $preserve_keys = false ] )
-{% endhighlight %}
+~~~
 
 [array_walk](http://php.net/manual/en/function.array-walk.php)
-: {% highlight php startinline %}
+: ~~~php
  bool array_walk ( array &$array , callable $callback [, mixed $userdata = NULL ] )
-{% endhighlight %}
+~~~
 
 [count](http://php.net/manual/en/function.count.php)
-: {% highlight php startinline %}
+: ~~~php
  int count ( mixed $array_or_countable [, int $mode = COUNT_NORMAL ] )
-{% endhighlight %}
+~~~
 
 [in_array](http://php.net/manual/en/function.in-array.php)
-: {% highlight php startinline %}
+: ~~~php
  bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
-{% endhighlight %}
+~~~
 
 ## Date and Time
 [date](http://php.net/manual/en/function.date.php)
-: {% highlight php startinline %}
+: ~~~php
  string date ( string $format [, int $timestamp = time() ] )
-{% endhighlight %}
+~~~
 
 [mktime](http://php.net/manual/en/function.mktime.php)
-: {% highlight php startinline %}
+: ~~~php
 int mktime ([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") [, int $is_dst = -1 ]]]]]]] )
-{% endhighlight %}
+~~~
 
 [strtotime](http://php.net/manual/en/function.strtotime.php)
-: {% highlight php startinline %}
+: ~~~php
  int strtotime ( string $time [, int $now = time() ] )
-{% endhighlight %}
+~~~
 
 [time](http://php.net/manual/en/function.time.php)
-: {% highlight php startinline %}
+: ~~~php
  int time ( void )
-{% endhighlight %}
+~~~
 
 [date_create_from_format](http://php.net/manual/en/datetime.createfromformat.php)
-: {% highlight php startinline %}
+: ~~~php
  DateTime date_create_from_format ( string $format , string $time [, DateTimeZone $timezone ] )
-{% endhighlight %}
+~~~
 
 [date_format](http://php.net/manual/en/datetime.format.php)
-: {% highlight php startinline %}
+: ~~~php
  string date_format ( DateTimeInterface $object , string $format )
-{% endhighlight %}
+~~~
 
 > Localization class: [IntlDateFormatter](http://php.net/manual/en/class.intldateformatter.php)
 
 ## Filesystem
 [copy](http://php.net/manual/en/function.copy.php)
-: {% highlight php startinline %}
+: ~~~php
  bool copy ( string $source , string $dest [, resource $context ] )
-{% endhighlight %}
+~~~
 
 [fclose](http://php.net/manual/en/function.fclose.php)
-: {% highlight php startinline %}
+: ~~~php
 bool fclose ( resource $handle )
-{% endhighlight %}
+~~~
 
 [fgets](http://php.net/manual/en/function.fgets.php)
-: {% highlight php startinline %}
+: ~~~php
 string fgets ( resource $handle [, int $length ] )
-{% endhighlight %}
+~~~
 
 [file](http://php.net/manual/en/function.file.php)
-: {% highlight php startinline %}
+: ~~~php
 array file ( string $filename [, int $flags = 0 [, resource $context ]] )
-{% endhighlight %}
+~~~
 
 [file_exists](http://php.net/manual/en/function.file-exists.php)
-: {% highlight php startinline %}
+: ~~~php
 bool file_exists ( string $filename )
-{% endhighlight %}
+~~~
 
 [file_get_contents](http://php.net/manual/en/function.file-get-contents.php)
-: {% highlight php startinline %}
+: ~~~php
  string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )
-{% endhighlight %}
+~~~
 
 [file_put_contents](http://php.net/manual/en/function.file-put-contents.php)
-: {% highlight php startinline %}
+: ~~~php
 int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )
-{% endhighlight %}
+~~~
 
 [filemtime](http://php.net/manual/en/function.filemtime.php)
-: {% highlight php startinline %}
+: ~~~php
 int filemtime ( string $filename )
-{% endhighlight %}
+~~~
 
 [filesize](http://php.net/manual/en/function.filesize.php)
-: {% highlight php startinline %}
+: ~~~php
 int filesize ( string $filename )
-{% endhighlight %}
+~~~
 
 [fopen](http://php.net/manual/en/function.fopen.php)
-: {% highlight php startinline %}
+: ~~~php
  resource fopen ( string $filename , string $mode [, bool $use_include_path = false [, resource $context ]] )
-{% endhighlight %}
+~~~
 
 [glob](http://php.net/manual/en/function.glob.php)
-: {% highlight php startinline %}
+: ~~~php
  array glob ( string $pattern [, int $flags = 0 ] )
-{% endhighlight %}
+~~~
 
 [is_dir](http://php.net/manual/en/function.is-dir.php)
-: {% highlight php startinline %}
+: ~~~php
 bool is_dir ( string $filename )
-{% endhighlight %}
+~~~
 
 [is_file](http://php.net/manual/en/function.is-file.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_file ( string $filename )
-{% endhighlight %}
+~~~
 
 [is_writable](http://php.net/manual/en/function.is-writable.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_writable ( string $filename )
-{% endhighlight %}
+~~~
 
 [readfile](http://php.net/manual/en/function.readfile.php)
-: {% highlight php startinline %}
+: ~~~php
  int readfile ( string $filename [, bool $use_include_path = false [, resource $context ]] )
-{% endhighlight %}
+~~~
 
 ## Headers
 [header](http://php.net/manual/en/function.header.php)
-: {% highlight php startinline %}
+: ~~~php
  void header ( string $string [, bool $replace = true [, int $http_response_code ]] )
-{% endhighlight %}
+~~~
 
 [setcookie](http://php.net/manual/en/function.setcookie.php)
-: {% highlight php startinline %}
+: ~~~php
  bool setcookie ( string $name [, string $value = "" [, int $expire = 0 [, string $path = "" [, string $domain = "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
-{% endhighlight %}
+~~~
 
 ## Numbers
 [ceil](http://php.net/manual/en/function.ceil.php)
-: {% highlight php startinline %}
+: ~~~php
  float ceil ( float $value )
-{% endhighlight %}
+~~~
 
 [floor](http://php.net/manual/en/function.floor.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed floor ( float $value )
-{% endhighlight %}
+~~~
 
 [number_format](http://php.net/manual/en/function.number-format.php)
-: {% highlight php startinline %}
+: ~~~php
 string number_format ( float $number , int $decimals = 0 , string $dec_point = "." , string $thousands_sep = "," )
-{% endhighlight %}
+~~~
 
 [round](http://php.net/manual/en/function.round.php)
-: {% highlight php startinline %}
+: ~~~php
  float round ( float $val [, int $precision = 0 [, int $mode = PHP_ROUND_HALF_UP ]] )
-{% endhighlight %}
+~~~
 
 > Localization class: [NumberFormatter](http://php.net/manual/en/class.numberformatter.php)
 
@@ -191,253 +191,253 @@ string number_format ( float $number , int $decimals = 0 , string $dec_point = "
 
 ## PHP Options
 [ini_restore](http://php.net/manual/en/function.ini-restore.php)
-: {% highlight php startinline %}
+: ~~~php
 void ini_restore ( string $varname )
-{% endhighlight %}
+~~~
 
 [ini_set](http://php.net/manual/en/function.ini-set.php)
-: {% highlight php startinline %}
+: ~~~php
 string ini_set ( string $varname , string $newvalue )
-{% endhighlight %}
+~~~
 
 [phpinfo](http://php.net/manual/en/function.phpinfo.php)
-: {% highlight php startinline %}
+: ~~~php
  bool phpinfo ([ int $what = INFO_ALL ] )
-{% endhighlight %}
+~~~
 
 ## Regex
 [preg_match](http://php.net/manual/en/function.preg-match.php)
-: {% highlight php startinline %}
+: ~~~php
  int preg_match ( string $pattern , string $subject [, array &$matches [, int $flags = 0 [, int $offset = 0 ]]] )
-{% endhighlight %}
+~~~
 
 [preg_match_all](http://php.net/manual/en/function.preg-match-all.php)
-: {% highlight php startinline %}
+: ~~~php
  int preg_match_all ( string $pattern , string $subject [, array &$matches [, int $flags = PREG_PATTERN_ORDER [, int $offset = 0 ]]] )
-{% endhighlight %}
+~~~
 
 [preg_replace](http://php.net/manual/en/function.preg-replace.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &$count ]] )
-{% endhighlight %}
+~~~
 
 [preg_split](http://php.net/manual/en/function.preg-split.php)
-: {% highlight php startinline %}
+: ~~~php
 array preg_split ( string $pattern , string $subject [, int $limit = -1 [, int $flags = 0 ]] )
-{% endhighlight %}
+~~~
 
 
 ## Sessions
 [session_destroy](http://php.net/manual/en/function.session-destroy.php)
-: {% highlight php startinline %}
+: ~~~php
  bool session_destroy ( void )
-{% endhighlight %}
+~~~
 
 [session_id](http://php.net/manual/en/function.session-id.php)
-: {% highlight php startinline %}
+: ~~~php
  string session_id ([ string $id ] )
-{% endhighlight %}
+~~~
 
 [session_start](http://php.net/manual/en/function.session-start.php)
-: {% highlight php startinline %}
+: ~~~php
  bool session_start ([ array $options = [] ] )
-{% endhighlight %}
+~~~
 
 ## Strings
 [addslashes](http://php.net/manual/en/function.addslashes.php)
-: {% highlight php startinline %}
+: ~~~php
  string addslashes ( string $str )
-{% endhighlight %}
+~~~
 
 [crypt](http://php.net/manual/en/function.crypt.php)
-: {% highlight php startinline %}
+: ~~~php
  string crypt ( string $str [, string $salt ] )
-{% endhighlight %}
+~~~
 
 [echo](http://php.net/manual/en/function.echo.php)
-: {% highlight php startinline %}
+: ~~~php
  void echo ( string $arg1 [, string $... ] )
-{% endhighlight %}
+~~~
 
 [explode](http://php.net/manual/en/function.explode.php)
-: {% highlight php startinline %}
+: ~~~php
  array explode ( string $delimiter , string $string [, int $limit ] )
-{% endhighlight %}
+~~~
 
 [implode](http://php.net/manual/en/function.implode.php)
-: {% highlight php startinline %}
+: ~~~php
  string implode ( string $glue , array $pieces )
-{% endhighlight %}
+~~~
 
 [md5](http://php.net/manual/en/function.md5.php)
-: {% highlight php startinline %}
+: ~~~php
  string md5 ( string $str [, bool $raw_output = false ] )
-{% endhighlight %}
+~~~
 
 [nl2br](http://php.net/manual/en/function.nl2br.php)
-: {% highlight php startinline %}
+: ~~~php
  string nl2br ( string $string [, bool $is_xhtml = true ] )
-{% endhighlight %}
+~~~
 
 [sprintf](http://php.net/manual/en/function.sprintf.php)
-: {% highlight php startinline %}
+: ~~~php
  string sprintf ( string $format [, mixed $args [, mixed $... ]] )
-{% endhighlight %}
+~~~
 
 [strip_tags](http://php.net/manual/en/function.strip-tags.php)
-: {% highlight php startinline %}
+: ~~~php
  string strip_tags ( string $str [, string $allowable_tags ] )
-{% endhighlight %}
+~~~
 
 [stripslashes](http://php.net/manual/en/function.stripslashes.php)
-: {% highlight php startinline %}
+: ~~~php
  string stripslashes ( string $str )
-{% endhighlight %}
+~~~
 
 [str_pad](http://php.net/manual/en/function.str-pad.php)
-: {% highlight php startinline %}
+: ~~~php
  string str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )
-{% endhighlight %}
+~~~
 
 [strstr](http://php.net/manual/en/function.strstr.php)
-: {% highlight php startinline %}
+: ~~~php
  string strstr ( string $haystack , mixed $needle [, bool $before_needle = false ] )
-{% endhighlight %}
+~~~
 
 [strpos](http://php.net/manual/en/function.strpos.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed strpos ( string $haystack , mixed $needle [, int $offset = 0 ] )
-{% endhighlight %}
+~~~
 
 [strrev](http://php.net/manual/en/function.strrev.php)
-: {% highlight php startinline %}
+: ~~~php
  string strrev ( string $string )
-{% endhighlight %}
+~~~
 
 [str_replace](http://php.net/manual/en/function.str-replace.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed str_replace ( mixed $search , mixed $replace , mixed $subject [, int &$count ] )
-{% endhighlight %}
+~~~
 
 [strtolower](http://php.net/manual/en/function.strtolower.php)
-: {% highlight php startinline %}
+: ~~~php
  string strtolower ( string $string )
-{% endhighlight %}
+~~~
 
 [strtoupper](http://php.net/manual/en/function.strtoupper.php)
-: {% highlight php startinline %}
+: ~~~php
  string strtoupper ( string $string )
-{% endhighlight %}
+~~~
 
 [substr](http://php.net/manual/en/function.substr.php)
-: {% highlight php startinline %}
+: ~~~php
  string substr ( string $string , int $start [, int $length ] )
-{% endhighlight %}
+~~~
 
 [trim](http://php.net/manual/en/function.trim.php)
-: {% highlight php startinline %}
+: ~~~php
  string trim ( string $str [, string $character_mask = " \t\n\r\0\x0B" ] )
-{% endhighlight %}
+~~~
 
 [ucfirst](http://php.net/manual/en/function.ucfirst.php)
-: {% highlight php startinline %}
+: ~~~php
  string ucfirst ( string $str )
-{% endhighlight %}
+~~~
 
 [ucwords](http://php.net/manual/en/function.ucwords.php)
-: {% highlight php startinline %}
+: ~~~php
  string ucwords ( string $str [, string $delimiters = " \t\r\n\f\v" ] )
-{% endhighlight %}
+~~~
 
 
 ## URLs
 [urldecode](http://php.net/manual/en/function.urldecode.php)
-: {% highlight php startinline %}
+: ~~~php
  string urldecode ( string $str )
-{% endhighlight %}
+~~~
 
 [urlencode](http://php.net/manual/en/function.urlencode.php)
-: {% highlight php startinline %}
+: ~~~php
  string urlencode ( string $str )
-{% endhighlight %}
+~~~
 
 
 ## Variables
 [empty](http://php.net/manual/en/function.empty.php)
-: {% highlight php startinline %}
+: ~~~php
  bool empty ( mixed $var )
-{% endhighlight %}
+~~~
 
 [is_array](http://php.net/manual/en/function.is-array.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_array ( mixed $var )
-{% endhighlight %}
+~~~
 
 [is_int](http://php.net/manual/en/function.is-int.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_int ( mixed $var )
-{% endhighlight %}
+~~~
 
 [is_null](http://php.net/manual/en/function.is-null.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_null ( mixed $var )
-{% endhighlight %}
+~~~
 
 [is_numeric](http://php.net/manual/en/function.is-numeric.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_numeric ( mixed $var )
-{% endhighlight %}
+~~~
 
 [is_object](http://php.net/manual/en/function.is-object.php)
-: {% highlight php startinline %}
+: ~~~php
  bool is_object ( mixed $var )
-{% endhighlight %}
+~~~
 
 [isset](http://php.net/manual/en/function.isset.php)
-: {% highlight php startinline %}
+: ~~~php
  bool isset ( mixed $var [, mixed $... ] )
-{% endhighlight %}
+~~~
 
 [serialize](http://php.net/manual/en/function.serialize.php)
-: {% highlight php startinline %}
+: ~~~php
  string serialize ( mixed $value )
-{% endhighlight %}
+~~~
 
 [unserialize](http://php.net/manual/en/function.unserialize.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed unserialize ( string $str [, array $options ] )
-{% endhighlight %}
+~~~
 
 ## Miscellaneous
 [mail](http://php.net/manual/en/function.mail.php)
-: {% highlight php startinline %}
+: ~~~php
  bool mail ( string $to , string $subject , string $message [, string $additional_headers [, string $additional_parameters ]] )
-{% endhighlight %}
+~~~
 
 [fsockopen](http://php.net/manual/en/function.fsockopen.php)
-: {% highlight php startinline %}
+: ~~~php
  resource fsockopen ( string $hostname [, int $port = -1 [, int &$errno [, string &$errstr [, float $timeout = ini_get("default_socket_timeout") ]]]] )
-{% endhighlight %}
+~~~
 
 [exec](http://php.net/manual/en/function.exec.php)
-: {% highlight php startinline %}
+: ~~~php
  string exec ( string $command [, array &$output [, int &$return_var ]] )
-{% endhighlight %}
+~~~
 
 [define](http://php.net/manual/en/function.define.php)
-: {% highlight php startinline %}
+: ~~~php
  bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )
-{% endhighlight %}
+~~~
 
 [eval](http://php.net/manual/en/function.eval.php)
-: {% highlight php startinline %}
+: ~~~php
  mixed eval ( string $code )
-{% endhighlight %}
+~~~
 
 [exit](http://php.net/manual/en/function.exit.php)
-: {% highlight php startinline %}
+: ~~~php
  void exit ([ string $status ] )
-{% endhighlight %}
+~~~
 
 ## SuperGlobals
 * [$_ENV](http://php.net/manual/en/reserved.variables.environment.php)
@@ -462,42 +462,42 @@ array preg_split ( string $pattern , string $subject [, int $limit = -1 [, int $
 # Visor de logs de PHP
 
 1. Añadir la siguiente línea en `php.ini` para separar los logs de php en su propio fichero de logs:
-: {% highlight bash %}
+: ~~~bash
     error_log = /var/log/phplog
-{% endhighlight %}
+~~~
 
 2. Dar permisos al fichero de log:
-: {% highlight bash %}
+: ~~~bash
 $ sudo touch /var/log/phplog
 $ sudo chown www-data:www-data /var/log/phplog
-{% endhighlight %}
+~~~
 
 3. Reiniciar Apache para que coja la configuración correctamente:
-: {% highlight bash %}
+: ~~~bash
     $ sudo /etc/init.d/apache2 restart
-{% endhighlight %}
+~~~
 
 4. Instalar `guake` o similar (consola tipo quake):
-: {% highlight bash %}
+: ~~~bash
     $ sudo apt-get install guake
-{% endhighlight %}
+~~~
 
 5. Crear script notifyphplog.sh
-: {% highlight bash %}
+: ~~~bash
 #!/bin/bash
 while inotifywait -e close_write /var/log/phplog; do guake -s 0; guake --show; done > /dev/null 2>&1 &
-{% endhighlight %}
+~~~
 
 6. Ejecutar script anterior y guake en el arranque
-: {% highlight bash %}
+: ~~~bash
 $ cp /usr/share/applications/guake.desktop ~/.config/autostart/
 $ cp ~/bin/notifyphplog.sh ~/.config/autostart/
-{% endhighlight %}
+~~~
 
 7. Ejecutar `tail` + `ccze` para obtener la salida con colores y en tiempo real:
-: {% highlight bash %}
+: ~~~bash
     $ tail -f phplog | ccze
-{% endhighlight %}
+~~~
 
 <br />
 
@@ -524,24 +524,24 @@ $ cp ~/bin/notifyphplog.sh ~/.config/autostart/
 ### Recargar al guardar cualquier fichero en $HOME/workspace
 
 Instalar paquetes
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-get install xdotool inotify-tools
-{% endhighlight %}
+~~~
 
 Crear y ejecutar el siguiente script
-: {% highlight bash %}
+: ~~~bash
 #!/bin/bash
 while inotifywait -e close_write -r $HOME/workspace; do
     WID=`xdotool search --title "Mozilla Firefox" | head -1`
     xdotool windowactivate $WID
     xdotool key F5
 done > /dev/null 2>&1 &
-{% endhighlight %}
+~~~
 
 ### Recargar desde Vim
 Añadir la siguiente línea al fichero $HOME/.vimrc
-: {% highlight vim %}
+: ~~~vim
     map <leader>f :silent !WID=`xdotool search --name "Mozilla Firefox" \| head -1`; xdotool windowactivate $WID > /dev/null 2>&1 ; xdotool key F5 > /dev/null 2>&1<CR> \ | execute ':redraw!'
-{% endhighlight %}
+~~~
 > requiere paquete `xdotool`
 

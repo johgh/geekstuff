@@ -200,23 +200,23 @@ tags: Sysadmin
 ## Installing Mariadb 5.5 (Debian)
 
 Add repo to sources.list
-: {% highlight bash %}
+: ~~~bash
 deb http://tedeco.fi.upm.es/mirror/mariadb/repo/5.5/debian squeeze main
-{% endhighlight %}
+~~~
 
 Add the repository GPG key
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
-{% endhighlight %}
+~~~
 
 Install Mariadb
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-get purge mysql-common
 $ sudo apt-get update
 $ sudo apt-get install mariadb-server
 # if php connector is required:
 $ sudo apt-get install php5-mysql
-{% endhighlight %}
+~~~
 
 ---
 

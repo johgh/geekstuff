@@ -8,21 +8,21 @@ tags: Sysadmin
 ---
 # Installation
 Install zsh and set as default shell
-: {% highlight bash %}
+: ~~~bash
 $ sudo apt-get install zsh
 $ sudo chsh -s /bin/zsh
-{% endhighlight %}
+~~~
 
 Install Oh My Zsh
-: {% highlight bash %}
+: ~~~bash
 $ cd $HOME
 $ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-{% endhighlight %}
+~~~
 
 # Customize Zsh
 Customize zsh config in $HOME/.zshrc
-: {% highlight bash %}
+: ~~~bash
 # set bash as default shell for compatibility with shellscripts
 export SHELL=/bin/bash
 # add user bin directory to the path
@@ -31,21 +31,21 @@ export PATH=$PATH:$HOME/bin
 plugins=(git github git-extras command-not-found vim-interaction history-substring-search cp history)
 # custom aliases
 openapp(){ nohup xdg-open $1 > /dev/null 2> /dev/null }; alias o=openapp
-{% endhighlight %}
+~~~
 
 > See some alias to include [here](http://localhost:4000/bash%20commands/#tocAnchor-1-2)
 
 Reload .zshrc
-: {% highlight bash %}
+: ~~~bash
 $ source ~/.zshrc
-{% endhighlight %}
+~~~
 
 # Autopushd
 Put this on your .zshrc file
-: {% highlight bash %}
+: ~~~bash
 # set cd as an alias to pushd (every visited directory is saved in a stack)
 setopt autopushd
-{% endhighlight %}
+~~~
 
 Change dir and save new specified dir in a stack of dirs
 : ```cd DIR```
@@ -80,7 +80,7 @@ Clear all saved directories from stack
 # Vi + Bash bindings
 
 Put this on your .zshrc file
-: {% highlight bash %}
+: ~~~bash
 {% raw %}
 # free <C-S> so we can use it in vim
 stty -ixon -ixoff
@@ -115,7 +115,7 @@ bindkey '^E' end-of-line
 bindkey '^r' history-incremental-search-backward
 
 {% endraw %}
-{% endhighlight %}
+~~~
 
 > Complete list of zsh bindings [here](http://www.bash2zsh.com/zsh_refcard/refcard.pdf)
 

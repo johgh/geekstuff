@@ -9,88 +9,88 @@ tags: Laravel
 # Setting up Homestead environment
 
 Install Vagrant and Virtualbox
-: {% highlight bash %}
+: ~~~bash
     sudo apt-get install vagrant virtualbox
-{% endhighlight %}
+~~~
 > or download and install [vagrant package](https://www.vagrantup.com/downloads.html) manually
 
 Install Vagrant box
-: {% highlight bash %}
+: ~~~bash
     vagrant box add laravel/homestead
-{% endhighlight %}
+~~~
 
 Install vagrant environment
-: {% highlight bash %}
+: ~~~bash
     cd ~
     git clone https://github.com/laravel/homestead.git Homestead
     cd Homestead
     bash init.sh
-{% endhighlight %}
+~~~
 
 Set domain on /etc/hosts according to Homestead.yaml
-: {% highlight bash %}
+: ~~~bash
     192.168.10.10  homestead.test
-{% endhighlight %}
+~~~
 
 Generate ssh key
-: {% highlight bash %}
+: ~~~bash
     # Generate a ssh key
     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
     # Start ssh agent
     eval "$(ssh-agent -s)"
     # Add your SSH private key to the ssh-agent
     ssh-add -k ~/.ssh/id_rsa
-{% endhighlight %}
+~~~
 
 Share your code with vagrant
-: {% highlight bash %}
+: ~~~bash
     # creating folder on your machine
     mkdir -p ~/code/public
     # or modifing 'folders' and 'sites' on Homestead.yaml as you like
-{% endhighlight %}
+~~~
 
 Run and log in to Homestead machine
-: {% highlight bash %}
+: ~~~bash
     vagrant up
     vagrant ssh
-{% endhighlight %}
+~~~
 
 Create Laravel project on Homestead machine
-: {% highlight bash %}
+: ~~~bash
     composer create-project --prefer-dist laravel/laravel blog
     # Now you can access site on host machine on homestead.test
-{% endhighlight %}
+~~~
 
 connect to database
-: {% highlight bash %}
+: ~~~bash
     # frome Homestead machine
 	mysql -h localhost -p -u homestead (password: 'secret')
     # from host machine connect to localhost:33060
-{% endhighlight %}
+~~~
 
 # Laravel
 
 Config Laravel environment variables
-: {% highlight bash %}
+: ~~~bash
     vi project/.env
-{% endhighlight %}
+~~~
 
 List Laravel console make methods available
-: {% highlight bash %}
+: ~~~bash
     php artisan list make
-{% endhighlight %}
+~~~
 
 Apply migrations (create/drop tables)
-: {% highlight bash %}
+: ~~~bash
     php artisan migrate
-{% endhighlight %}
+~~~
 
 Load table with seeder
-: {% highlight bash %}
+: ~~~bash
 	php artisan db:seed --class=UsersTableSeeder
-{% endhighlight %}
+~~~
 
 Regenerate the list of classes of autoload_classmap.php
-: {% highlight bash %}
+: ~~~bash
     composer dump-autoload
-{% endhighlight %}
+~~~

@@ -8,7 +8,7 @@ tags: Web
 ---
 
 Ajax call
-: {% highlight javascript %}
+: ~~~javascript
     $.ajax({
         url: '/save',
         method: 'POST',
@@ -20,10 +20,10 @@ Ajax call
             // Uh oh, something went wrong
     }
 });
-{% endhighlight %}
+~~~
 
 Trigger + stop propagation
-: {% highlight javascript %}
+: ~~~javascript
     $(document).on('click', 'tr', function() {
         $(this).find('.cb_item').trigger('click');
     });
@@ -32,67 +32,67 @@ Trigger + stop propagation
         do_something(this);
         e.stopPropagation();
     });
-{% endhighlight %}
+~~~
 
 Jquery loop + push into array + parents()
-: {% highlight javascript %}
+: ~~~javascript
     var vars = {}; // object
     vars.softwares = []; // array
     $('select.my_class').each(function() {
         var version = $(this).parents('.item').val(); // parents() finds upwards
         vars.softwares.push({idSoftware: $(this).val(), version: version}); // push an object into the array
     });
-{% endhighlight %}
+~~~
 
 Arrays/objects iteration
-: {% highlight javascript %}
+: ~~~javascript
     $.each([ 52, 97 ], function( index, value ) {
         alert( index + ": " + value ); 
     });
-{% endhighlight %}
+~~~
 
 Debug
-: {% highlight javascript %}
+: ~~~javascript
     console.log(bla.toSource());
-{% endhighlight %}
+~~~
 
 Prototyped function
-: {% highlight javascript %}
+: ~~~javascript
     $.fn.myExtension = function(){
         var currentjQueryObject = this;
         //work with currentObject
         return this; //you can include this if you would like to support chaining
     };
-{% endhighlight %}
+~~~
 
 Ternary logic, length, filter, prop...
-: {% highlight javascript %}
+: ~~~javascript
     function checkRoot(parent){
         child = ((parent == 'js-r-0') ? '.js-sections-read' : '.js-sections-write');
         var totalChilds = $(child + "[id!='" + parent + "']").length;
         var value = ($(child + "[id!='" + parent + "']").filter(':checked').length == totalChilds);
         $('#' + parent).prop('checked', value);
     }
-{% endhighlight %}
+~~~
 
 "Live" event
-: {% highlight javascript %}
+: ~~~javascript
     $(document).on('click', '.js-changePage', function() {
     });
-{% endhighlight %}
+~~~
 
 $.param + serialize
-: {% highlight javascript %}
+: ~~~javascript
     vars = {};
     vars.insert_event = 1;
     vars.arr_sched = arr_sched;
     varsForm = $("#form_add").serialize();
     // vars ready to pass to an ajax request, for example
     vars = $.param(vars) + '&' + varsForm
-{% endhighlight %}
+~~~
 
 Serialize form into array and transform it into an object
-: {% highlight javascript %}
+: ~~~javascript
     var arrForm = $('form').serializeArray();
     var data = {ids: {}};
     $(arrForm).each(function(index, obj){
@@ -102,10 +102,10 @@ Serialize form into array and transform it into an object
             data[obj.name] = obj.value;
         }
     });
-{% endhighlight %}
+~~~
 
 Request a file and send POST data as JSON
-: {% highlight javascript %}
+: ~~~javascript
     // this function requests a file with a hidden iframe/form
     function fileRequest(fileName, myData) {
         var iframe = '<iframe id="iframe" name="iframe" style="display:none;">';
@@ -117,38 +117,38 @@ Request a file and send POST data as JSON
         $("body").append(iframe).append(form);
         $("#iframeForm").submit().remove();
     }
-{% endhighlight %}
+~~~
 
 Radio button value
-: {% highlight javascript %}
+: ~~~javascript
     $('input[name="genderS"]:checked').val();
-{% endhighlight %}
+~~~
 
 Js utf8 encode/decode string
-: {% highlight javascript %}
+: ~~~javascript
     // encode
     unescape(encodeURIComponent(s));
     // decode
     decodeURIComponent(escape(s));
-{% endhighlight %}
+~~~
 
 Scroll to id
-: {% highlight javascript %}
+: ~~~javascript
     $('html,body').scrollTop($('#myId').offset().top);
-{% endhighlight %}
+~~~
 
 Select population
-: {% highlight javascript %}
+: ~~~javascript
     $.each(data, function(key, item) {
         $('#mySelect').append($("<option></option>")
                 .attr("value", item.id)
                 .prop("selected", item.selected)
                 .text(item.text));
     });
-{% endhighlight %}
+~~~
 
 Prototyped function that inits datepicker and sets mask (and validation)
-: {% highlight javascript %}
+: ~~~javascript
     $.fn.myDatePicker = function(extraParams){
         $.datepicker.regional['es'] = {
             closeText: 'Cerrar',
@@ -203,7 +203,7 @@ Prototyped function that inits datepicker and sets mask (and validation)
         else
             return true;
     }
-{% endhighlight %}
+~~~
 
 > [datepicker](https://jqueryui.com/datepicker/) and [mask plugin](https://igorescobar.github.io/jQuery-Mask-Plugin/)
 

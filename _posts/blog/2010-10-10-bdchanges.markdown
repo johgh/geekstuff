@@ -17,15 +17,15 @@ Por ello, no es suficiente un sistema de control de versiones tradicional para m
 - Inicialmente podemos crear un solo fichero de cambios para cada release
 - Al principio del script se inserta un registro en la tabla <schema>changeLogDB con:
 
-    {% highlight bash %}
+    ~~~bash
         id | version (XX.XX.XX) | file | execution_date
-    {% endhighlight %}
+    ~~~
 
 - Para actualizar la base de datos deberemos ejecutar un script upgrade.sh:
 
-    {% highlight bash %}
+    ~~~bash
         $ upgradeDB.sh <schema> <version_hasta_donde_actualizar>
-    {% endhighlight %}
+    ~~~
 
 Este script ejecuta las actualizaciones que no se encuentran registradas en la base de datos destino, de forma secuencial. Si el fichero de actualización con el id más pequeño no es consecutivo al registro con el id más grande, la BD no podrá ser actualizada.
 

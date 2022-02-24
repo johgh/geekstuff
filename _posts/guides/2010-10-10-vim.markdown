@@ -355,13 +355,13 @@ Execute Normal mode {commands} on each specified line
 > Normal ex command allow the use of normal mode commands with a range
 
 > Some useful mappings that make use of `normal`
-: {% highlight vim %}
+: ~~~vim
 " Allow using the repeat operator with a visual selection
 vnoremap . :normal .<CR>
 " Allow using macro 'a' with visual selection
 vnoremap @@ :normal @@<CR>
 vnoremap @a :normal @a<CR>
-{% endhighlight %}
+~~~
 
 Replace {pattern} with {string} on range
 : `:[range]s[ubstitute]/{pattern}/{replacement}/[flags]`
@@ -445,10 +445,10 @@ Repeat last substitution in normal and visual mode
     `&`
 
 > mapings below are required to perform subsitution with same flags as the original with `&`
-: {% highlight vim %}
+: ~~~vim
     nnoremap & :&&<CR>
     xnoremap & :&&<CR>
-{% endhighlight %}
+~~~
 
 Repeat last substitution on the entire file in normal mode
 : `g&`

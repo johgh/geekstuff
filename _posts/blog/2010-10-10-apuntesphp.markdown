@@ -43,11 +43,11 @@ tags: Web
 
 - Si se quiere lanzar una excepción relacionada con algún método que hace uso del mecanismo de control de errores de php (por ejemplo, en el caso que devuelva un warning), deberemos utilizar `@` para suprimir el mensaje propio de php:
 
-{% highlight php startinline %}
+~~~php
 $sp = @fsockopen('192.168.1.66', 5000, &$errorno, &$errorstr);
 if (!$sp)
     throw new fSockException('Error fsockopen');
-{% endhighlight %}
+~~~
 
 - Es posible pasar un objeto de cualquier tipo a la cláusula `throw` (por ejemplo si necesitamos debugar un objeto problemático), sin embargo lo más habitual es utilizar un objeto de la clase Exception o una clase derivada de esta misma clase.
 
@@ -55,9 +55,9 @@ if (!$sp)
 
 - El uso de un objeto de tipo Exception utilizado en un bloque `catch` permite la captura de excepciones genéricas. Sin embargo, es recomendable el uso de excepciones definidas por el usuario sobre cada tipo de excepción que esperamos, haciendo posible capturarlas en su correspondiente `catch`:
 
-{% highlight php startinline %}
+~~~php
 catch (fSockException $e) { /* handle exception */ }
-{% endhighlight %}
+~~~
 
 > Cuando se definen namespaces es necesario especificar un namespace absoluto (por ejemplo: \\Exception), de otra forma Exception buscará dentro del namespace definido (\namespace\Exception)
 

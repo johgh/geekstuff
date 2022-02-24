@@ -24,7 +24,7 @@ plugins:
 include:
 - .nojekyll
 
-destination: source
+destination: _site
 
 minItemsToShowToc: 2
 showToggleButton: true
